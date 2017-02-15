@@ -1,5 +1,9 @@
 # planr
-## Landon Baxter, Michael Catchen, Darwin Boersma, Josef Los
+### Team 
++ Landon Baxter (laba2346)  
++ Michael Catchen (gottacatchenall) 
++ Darwin Boersma (ogghead) 
++ Josef Los (jlos842)  
 
 A webapp that manages assignments for students
 
