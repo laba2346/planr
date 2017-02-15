@@ -1,5 +1,5 @@
 # planr
-## Landon Baxter, Michael Catchen, Darwin , Josef Losat
+## Landon Baxter, Michael Catchen, Darwin Boersma, Josef Losat
 
 A webapp that manages assignments for students
 
