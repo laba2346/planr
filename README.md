@@ -4,8 +4,7 @@
 A webapp that manages assignments for students
 
 ### Vision
-Task manager that you will actually use.
-User friendly task manager for students
+User friendly task manager that students will actually use.
 
 ### Motivation 
 We are a group of students that are discontent with the current market for task manager apps. None of them cater to students enough.
