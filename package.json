@@ -1,0 +1,24 @@
+{
+  "name": "planr",
+  "version": "1.0.0",
+  "description": "+ Landon Baxter (laba2346)   + Michael Catchen (gottacatchenall)  + Darwin Boersma (ogghead)  + Josef Los (jlos842)",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laba2346/planr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laba2346/planr/issues"
+  },
+  "homepage": "https://github.com/laba2346/planr#readme"
+}
