@@ -1,12 +1,12 @@
-var express = require('express');
-var app = express();
+import Express from 'express';
 
-app.get('/*', (req, res) => {
-    res.send('hello world!');           
+const app = Express();
+const port = 3000;
+
+app.get('/*', (req,res) => {
+    res.send('hello world!');
 });
 
-app.listen(3000, () =>{
-    console.log('Running on localhost:3000!');
+app.listen(port, () => {
+    console.log('Planr runnning on port %d!', port);
 });
-
-

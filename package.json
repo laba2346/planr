@@ -4,12 +4,14 @@
   "description": "+ Landon Baxter (laba2346)   + Michael Catchen (gottacatchenall)  + Darwin Boersma (ogghead)  + Josef Los (jlos842)",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.14.1"
+    "babel-cli": "^6.23.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "babel-node server.js --presets es2015,stage-2"
   },
   "repository": {
     "type": "git",
