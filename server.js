@@ -12,5 +12,5 @@ app.get('/*', (req,res) => {
 });
 
 app.listen(port, () => {
-    console.log('Planr runnning on port %d!', port);
+    console.log('Planr runnning on localhost:%d!', port);
 });
