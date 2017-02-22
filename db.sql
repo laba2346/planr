@@ -30,4 +30,3 @@ CREATE TABLE IF NOT EXISTS schedule (
     
 ) ENGINE = InnoDB;
 
-
