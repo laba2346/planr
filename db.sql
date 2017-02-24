@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS users (
-    user_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY DEFAULT NULL,
     username VARCHAR(60) NOT NULL,
     email VARCHAR(80) NOT NULL,
     password VARCHAR(512) NOT NULL,
@@ -7,12 +7,12 @@ CREATE TABLE IF NOT EXISTS users (
 ) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS classes (
-   class_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-   owner_id BIGINT UNSIGNED NOT NULL,
-   constraint constraint_1 FOREIGN KEY (owner_id) references users(user_id) on update cascade on delete cascade,
-   class_name VARCHAR(60) NOT NULL,
-   class_info VARCHAR(1000) NULL,
-   class_times VARCHAR(1000) NOT NULL /* THIS'LL PROBABLY BE A FORMATTED STRING WITH DAYS AND TIMES*/
+    class_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    owner_id BIGINT UNSIGNED NOT NULL,
+    constraint constraint_1 FOREIGN KEY (owner_id) references users(user_id) on update cascade on delete cascade,
+    class_name VARCHAR(60) NOT NULL,
+    class_info VARCHAR(1000) NULL,
+    class_times VARCHAR(1000) NOT NULL /* THIS'LL PROBABLY BE A FORMATTED STRING WITH DAYS AND TIMES*/
 ) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS assignments (
@@ -23,6 +23,30 @@ CREATE TABLE IF NOT EXISTS assignments (
     assignment_description VARCHAR(1000) NULL,
     assignment_due DATE NOT NULL
 ) ENGINE = InnoDB;
+
+INSERT INTO users VALUES (
+    NULL,
+    'Joe Bro',
+    'joebro@gmail.com',
+    'monkey',
+    NOW()
+);
+
+INSERT INTO classes VALUES (
+    NULL,
+    1,
+    'Software Development',
+    'Meme',
+    'M,F,11:00-11:50'
+);
+
+INSERT INTO assignments VALUES (
+    NULL,
+    1,
+    'Programming Project',
+    'Code some stuff :)',
+    5-14-2017
+);
 
 /*CREATE TABLE IF NOT EXISTS schedule (
     FOREIGN KEY (schedule_id) REFERENCES users(user_id) ON UPDATE CASCADE ON DELETE CASCADE PRIMARY KEY,
