@@ -1,5 +1,5 @@
 var classes = sequelize.define('classes', {
-    class_id: {
+    id: {
         type: Sequelize.BIGINT
     },
     owner_id: {
