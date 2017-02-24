@@ -45,7 +45,7 @@ INSERT INTO assignments VALUES (
     1,
     'Programming Project',
     'Code some stuff :)',
-    5-14-2017
+    '2017-05-14'
 );
 
 /*CREATE TABLE IF NOT EXISTS schedule (
