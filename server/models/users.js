@@ -1,5 +1,5 @@
 var users = sequelize.define('user', {
-  user_id: {
+  id: {
     type: Sequelize.BIGINT
 },
   username: {
