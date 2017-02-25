@@ -4,8 +4,9 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.BIGINT,
             primaryKey: true
         },
-        owner_id: {
+        user_id: {
             type: DataTypes.BIGINT,
+
         },
         class_name: {
             type: DataTypes.STRING,
@@ -20,5 +21,6 @@ module.exports = function(sequelize, DataTypes){
       freezeTableName: true,
       timestamps: false
     });
+
     return classes;
 };
