@@ -15,7 +15,8 @@ var classes = sequelize.define('classes', {
         type: Sequelize.STRING
     },
 }, {
-  freezeTableName: true
+  freezeTableName: true,
+  timestamps: false
 });
 
 export default classes;
