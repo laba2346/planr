@@ -10,8 +10,8 @@
 6 silly lifecycle planr@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle planr@1.0.0~start: planr@1.0.0
 8 verbose lifecycle planr@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle planr@1.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/michael/planr/node_modules/.bin:/Users/michael/.rvm/gems/ruby-2.3.1/bin:/Users/michael/.rvm/gems/ruby-2.3.1@global/bin:/Users/michael/.rvm/rubies/ruby-2.3.1/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/go/bin:/Users/michael/.rvm/bin:/usr/local/Cellar/mysql/5.6.27/bin
-10 verbose lifecycle planr@1.0.0~start: CWD: /Users/michael/planr
+9 verbose lifecycle planr@1.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/michael/Code/planr/node_modules/.bin:/Users/michael/.rvm/gems/ruby-2.3.1/bin:/Users/michael/.rvm/gems/ruby-2.3.1@global/bin:/Users/michael/.rvm/rubies/ruby-2.3.1/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/go/bin:/Users/michael/.rvm/bin:/usr/local/Cellar/mysql/5.6.27/bin
+10 verbose lifecycle planr@1.0.0~start: CWD: /Users/michael/Code/planr
 11 silly lifecycle planr@1.0.0~start: Args: [ '-c', 'babel-node server/server.js --presets es2015,stage-2' ]
 12 silly lifecycle planr@1.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle planr@1.0.0~start: Failed to exec start script
@@ -26,7 +26,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:885:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid planr@1.0.0
-16 verbose cwd /Users/michael/planr
+16 verbose cwd /Users/michael/Code/planr
 17 error Darwin 16.1.0
 18 error argv "/usr/local/Cellar/node/7.4.0/bin/node" "/usr/local/bin/npm" "run" "start"
 19 error node v7.4.0
