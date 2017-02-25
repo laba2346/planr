@@ -9,7 +9,11 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS classes (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     owner_id BIGINT UNSIGNED NOT NULL,
+<<<<<<< HEAD
+    FOREIGN KEY (owner_id) references users(user_id) on update cascade on delete cascade,
+=======
     constraint constraint_1 FOREIGN KEY (owner_id) references users(id) on update cascade on delete cascade,
+>>>>>>> ae8428664bf647675a493dee1a9d2aabf1b34ce9
     class_name VARCHAR(60) NOT NULL,
     class_info VARCHAR(1000) NULL,
     class_times VARCHAR(1000) NOT NULL /* THIS'LL PROBABLY BE A FORMATTED STRING WITH DAYS AND TIMES*/
@@ -18,7 +22,11 @@ CREATE TABLE IF NOT EXISTS classes (
 CREATE TABLE IF NOT EXISTS assignments (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     class_id BIGINT UNSIGNED NOT NULL,
+<<<<<<< HEAD
+    FOREIGN KEY (class_id) REFERENCES classes(class_id) ON UPDATE CASCADE ON DELETE CASCADE,
+=======
     constraint contraint_2 FOREIGN KEY (class_id) REFERENCES classes(id) ON UPDATE CASCADE ON DELETE CASCADE,
+>>>>>>> ae8428664bf647675a493dee1a9d2aabf1b34ce9
     assignment_name VARCHAR(100) NOT NULL,
     assignment_description VARCHAR(1000) NULL,
     assignment_due DATE NOT NULL
