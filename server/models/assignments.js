@@ -1,22 +1,25 @@
-var assignments = sequelize.define('assignments', {
-    id: {
-        type: Sequelize.BIGINT
-    },
-    class_id: {
-        type: Sequelize.BIGINT
-    },
-    assignment_name: {
-        type: Sequelize.STRING
-    },
-    assignment_description: {
-        type: Sequelize.STRING
-    },
-    assignment_due {
-        type: Sequelize.DATE
-    },
-}, {
-    freezeTableName: true,
-    timestamps: false
-});
+module.exports = function(sequelize, DataTypes){
+    var assignments = sequelize.define('assignments', {
+        id: {
+            type: DataTypes.BIGINT,
+            primaryKey: true,
+        },
+        class_id: {
+            type: DataTypes.BIGINT
+        },
+        assignment_name: {
+            type: DataTypes.STRING
+        },
+        assignment_description: {
+            type: DataTypes.STRING
+        },
+        assignment_due: {
+            type: DataTypes.DATE
+        },
+    }, {
+        freezeTableName: true,
+        timestamps: false
+    });
 
-export default assignments;
+    return assignments
+}
