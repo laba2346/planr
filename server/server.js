@@ -7,6 +7,8 @@ const app = Express();
 const port = 3000;
 
 // Wait on api calls here
+models.classes.belongsTo(models.users)
+models.assignments.belongsTo(models.classes)
 
 models.sequelize.sync().then(function() {
   app.listen(port, function() {
