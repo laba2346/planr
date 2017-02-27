@@ -1,28 +1,31 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+
 // Import Style
-//import styles from './App.css';
+import styles from './App.css';
 
 // Import Components
 import Helmet from 'react-helmet';
+import Header from './components/Header/Header';
 
+// Import Actions
 export class App extends Component {
-  /*constructor(props) {
+  constructor(props) {
     super(props);
     this.state = { isMounted: false };
-}*/
-/*
+  }
+
   componentDidMount() {
     this.setState({isMounted: true}); // eslint-disable-line
-}*/
+  }
 
   render() {
     return (
       <div>
         <div>
           <Helmet
-            title="Hello!"
-            titleTemplate="Hello World"
+            title="Planr"
+            titleTemplate="%s - Planr"
             meta={[
               { charset: 'utf-8' },
               {
@@ -35,6 +38,10 @@ export class App extends Component {
               },
             ]}
           />
+          <Header />
+          <div className={styles.container}>
+            {this.props.children}
+          </div>
         </div>
       </div>
     );
@@ -42,6 +49,8 @@ export class App extends Component {
 }
 
 App.propTypes = {
+  children: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 // Retrieve data from store as props

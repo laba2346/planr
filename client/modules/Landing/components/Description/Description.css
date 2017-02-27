@@ -1,0 +1,35 @@
+.planr-signup-description{
+    font-family: Helvetica;
+    margin:20px 0px;
+    color: #555;
+}
+
+.planr-signup-description label{
+    font-size:45px;
+    font-weight:100;
+    line-height: 1.4em;
+    vertical-align: middle;
+    letter-spacing: -1.3px;
+}
+
+.planr-signup-description span{
+    color: #705e8b;
+    font-size: 70px;
+    letter-spacing: -3px;
+    font-weight: 600;
+}
+
+.planr-signup-description li{
+    font-size: 16px;
+}
+
+.sign-up-features{
+    margin:30px;
+}
+
+.sign-up-features label{
+    display:block;
+    color: #777;
+    margin: 8px 0px;
+    font-size:28px;
+}

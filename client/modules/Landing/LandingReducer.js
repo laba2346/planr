@@ -1,9 +1,7 @@
-// Import Actions
-
 // Initial State
 const initialState = {};
 
-const AppReducer = (state = initialState, action) => {
+const LandingReducer = (state = initialState, action) => {
   switch (action.type) {
     default:
       return state;
@@ -11,6 +9,5 @@ const AppReducer = (state = initialState, action) => {
 };
 
 /* Selectors */
-
 // Export Reducer
-export default AppReducer;
+export default LandingReducer;
