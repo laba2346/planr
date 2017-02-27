@@ -41,6 +41,7 @@
     width:300px;
     height:40px;
     font-family: 'Open Sans', Helvetica;
+    line-height: 0px;
     outline: none;
     border-radius: 3px;
     background: none;
