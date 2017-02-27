@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes){
         id: {
             type: DataTypes.BIGINT,
             primaryKey: true,
+            autoIncrement: true,
         },
         username: {
             type: DataTypes.STRING
@@ -14,7 +15,7 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.STRING
         },
         join_date: {
-            type: DataTypes.TIME
+            type: DataTypes.DATE
         },
     }, {
       freezeTableName: true,
