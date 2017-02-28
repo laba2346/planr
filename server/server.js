@@ -13,6 +13,9 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import { Sequelize } from 'sequelize';
 var models = require('./models');
 
+// Import routers
+import signUpRouter from './routes/SignUp.routes';
+
 // Initialize the Express App
 const app = new Express();
 
@@ -42,7 +45,9 @@ app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist')));
-//app.use('/api', posts);
+
+// Place routers below here
+app.use('/api', signUpRouter); 
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {

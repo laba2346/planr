@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import Description from '../components/Description/Description';
 import SignUp from '../components/SignUp/SignUp';
-import {sendSignUpRequest} from '../LanderActions';
+import {sendSignUpRequest} from '../LandingActions';
 import styles from './Landing.css'
 
 class Landing extends Component {
