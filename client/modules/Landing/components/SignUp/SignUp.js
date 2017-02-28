@@ -14,6 +14,7 @@ class SignUp extends Component {
     handleSubmit(event){
         event.preventDefault();
         // Throw it to Lander actions a level above
+        this.props.signUp(this.state);
     }
 
     handleChange(event) {
@@ -49,7 +50,8 @@ function mapStateToProps(state) {
 }
 
 SignUp.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    signUp: PropTypes.func.isRequired,
 };
 
 SignUp.contextTypes = {
