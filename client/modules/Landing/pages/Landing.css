@@ -1,0 +1,16 @@
+.landing-container{
+    margin:75px auto 0px auto;
+}
+
+.DescriptionContainer{
+    display: inline-block;
+    margin:30px 10px;
+    width:45%;
+}
+
+.SignUpContainer{
+    display: inline-block;
+    float:right;
+    margin:30px 15px;
+    width: 45%;
+}

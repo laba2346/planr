@@ -1,0 +1,55 @@
+.header{
+    width:100%;
+    height: 75px;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    background: #FFF;
+}
+
+.header-title{
+    font-family: Helvetica;
+    position: absolute;
+    height:75px;
+    line-height: 67px;
+    display: inline-block;
+    font-size:32px;
+    color: #705e8b;
+    font-size: 32px;
+    letter-spacing: -1.5px;
+    font-weight: 600;
+    letter-spacing: -2px;
+    color: #644b84;
+}
+
+.logo{
+    margin: 10px 5px 10px 30px;
+    display:inline-block;
+    background:url(./planr-logo.png);
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+}
+
+.login-button{
+    display:inline-block;
+    float:right;
+    cursor:pointer;
+    margin: 20px 35px 25px 15px;
+    width:75px;
+    height:30px;
+
+    font-size: 12px;
+    text-align: center;
+    padding:4px 0px;
+
+
+    border-radius: 3px;
+    color:#705e8b;
+    border: 1px solid #705e8b;
+
+}
+
+.login-button:hover {
+    color:#fff;
+    background: #705e8b;
+}
