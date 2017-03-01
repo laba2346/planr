@@ -16,8 +16,13 @@ var models = require('./models');
 // Import routers
 import signUpRouter from './routes/SignUp.routes';
 
+models.classes.belongsTo(models.users)
+models.assignments.belongsTo(models.classes)
+
+
 // Initialize the Express App
 const app = new Express();
+
 
 // Run Webpack dev server in development mode
 if (process.env.NODE_ENV === 'development') {
