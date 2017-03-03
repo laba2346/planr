@@ -53,3 +53,29 @@
     color:#fff;
     background: #705e8b;
 }
+
+
+.login-pane{
+    margin: 50px auto;
+    padding:10px;
+    outline:none;
+    background:#FFF;
+    border:1px solid #705e8b;
+    width:400px;
+    height:260px;
+}
+
+.close-login-pane{
+    float:right;
+    border:none;
+    outline:none;
+    font-family: Helvetica;
+    font-size:26px;
+    font-weight:200;
+    color: #444;
+    background:none;
+}
+
+.close-login-pane:hover{
+    color:#888;
+}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Description from '../components/Description/Description';
 import SignUp from '../components/SignUp/SignUp';
 import {sendSignUpRequest} from '../LandingActions';
+import { getSignUpStatus } from '../LandingReducer';
 import styles from './Landing.css'
 
 class Landing extends Component {
@@ -28,7 +29,7 @@ class Landing extends Component {
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
-
+    failedSignUp: getSignUpStatus(state)
   };
 }
 
@@ -36,8 +37,5 @@ Landing.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-Landing.contextTypes = {
-  router: React.PropTypes.object,
-};
 
 export default connect(mapStateToProps)(Landing);

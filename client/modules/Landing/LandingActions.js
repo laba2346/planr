@@ -12,7 +12,8 @@ export function notNewUser(field){
 
 export function sendSignUpRequest(formState){
     const apiUrl = 'signUp';
-        callApi(apiUrl, "post", formState).then(res => {
+    return (dispatch) => {
+        return callApi(apiUrl, "post", formState).then(res => {
             if (!(res.newUser)){
                 dispatch(notNewUser(res.existingField));
             }
@@ -20,4 +21,5 @@ export function sendSignUpRequest(formState){
                 // trigger redirect
             }
         });
+    }
 }
