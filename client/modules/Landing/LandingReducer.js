@@ -13,5 +13,6 @@ const LandingReducer = (state = initialState, action) => {
 };
 
 /* Selectors */
-// Export Reducer
+export const getSignUpStatus = state => state.failedSignUp
+// Export Reducer`
 export default LandingReducer;
