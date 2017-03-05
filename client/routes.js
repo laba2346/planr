@@ -17,6 +17,8 @@ if (typeof require.ensure !== 'function') {
 if (process.env.NODE_ENV !== 'production') {
   // Require async routes only in development for react-hot-reloader to work.
   require('./modules/Landing/pages/Landing');
+  require('./modules/Landing/components/SignUp/SignUp');
+  require('./modules/Landing/components/Description/Description');
 }
 
 // react-router setup with code-splitting
