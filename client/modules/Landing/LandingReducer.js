@@ -32,6 +32,5 @@ const LandingReducer = (state = initialState, action) => {
 };
 
 /* Selectors */
-
-// Export Reducer
+// Export Reducer`
 export default LandingReducer;

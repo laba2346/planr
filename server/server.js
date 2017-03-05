@@ -52,7 +52,7 @@ app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist')));
 
 // Place routers below here
-app.use('/api', signUpRouter); 
+app.use('/api', signUpRouter);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
