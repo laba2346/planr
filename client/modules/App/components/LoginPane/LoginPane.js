@@ -14,6 +14,7 @@ class LoginPane extends Component {
 
     handleSubmit(event){
         event.preventDefault();
+        this.props.login(this.state);
     }
 
     handleChange(event) {
@@ -47,6 +48,7 @@ function mapStateToProps(state) {
 }
 
 LoginPane.propTypes = {
+    login: PropTypes.func.isRequired,
     dispatch: PropTypes.func.isRequired,
 };
 

@@ -41,7 +41,7 @@ class Header extends Component {
                     className={styles['login-pane']}
                     >
                     <button className={styles['close-login-pane']} onClick={this.handleCloseModal}>X</button>
-                    <LoginPane />
+                    <LoginPane login={this.props.login} />
                 </ReactModal>
 
             </div>
@@ -57,7 +57,8 @@ function mapStateToProps(state) {
 }
 
 Header.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+    login: PropTypes.func.isRequired,
+    dispatch: PropTypes.func.isRequired,
 };
 
 Header.contextTypes = {
