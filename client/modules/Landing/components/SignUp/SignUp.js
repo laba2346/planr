@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-
 import styles from './SignUp.css';
 
 class SignUp extends Component {
@@ -26,15 +25,16 @@ class SignUp extends Component {
         });
     }
 
+
     render() {
         return (
             <div>
             <div className={styles['homepage-splash']}></div>
             <form className={styles['sign-up-form']} onSubmit={this.handleSubmit}>
                 <label> Sign Up </label>
-                <input name="email" className={styles['input']} type="text" placeholder="Email" value={this.state.email} onChange={this.handleChange} />
-                <input name="username" className={styles['input']} type="text" placeholder="Username" value={this.state.username} onChange={this.handleChange} />
-                <input name="password" className={styles['input']} type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
+                <input name="email" className={(this.props.emailInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder="Email" value={this.state.email} onChange={this.handleChange} />
+                <input name="username" className={(this.props.usernameInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder="Username" value={this.state.username} onChange={this.handleChange} />
+                <input name="password" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']}type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
                 <input type="submit" className={styles['sign-up-submit'] + ' transition'} value="Submit" />
             </form>
             </div>
@@ -44,13 +44,18 @@ class SignUp extends Component {
 
 // Retrieve data from store as props
 function mapStateToProps(state) {
-  return {
-
-  };
+    return {
+        usernameInvalid: state.landing.usernameInvalid,
+        emailInvalid:  state.landing.emailInvalid,
+        passwordInvalid: state.landing.passwordInvalid,
+    };
 }
 
 SignUp.propTypes = {
     dispatch: PropTypes.func.isRequired,
+    emailInvalid: PropTypes.bool.isRequired,
+    usernameInvalid: PropTypes.bool.isRequired,
+    passwordInvalid: PropTypes.bool.isRequired,
     signUp: PropTypes.func.isRequired,
 };
 

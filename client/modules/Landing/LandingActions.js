@@ -1,23 +1,45 @@
 import callApi from '../../util/apiCaller';
 
-export const NOT_NEW_USER = 'NOT_NEW_USER';
+export const INVALID_FIELD = 'INVALID_FIELD';
+export const RESET_INVALID_STATUS = 'RESET_INVALID_STATUS';
 
-export function notNewUser(field){
+
+export function invalidField(field){
     return {
-        type: NOT_NEW_USER,
+        type: INVALID_FIELD,
         field
     }
 }
+export function resetInvalidStatus(){
+    return {
+        type: RESET_INVALID_STATUS,
+    }
+}
 
+export function checkIfFieldsValid(formState){
+    return (dispatch) => {
+        for (var i in formState){
+            if(formState[i] === ""){
+                console.log(i);
+                dispatch(invalidField(i))
+                return false;
+            }
+        }
+        dispatch(resetInvalidStatus())
+        return true;
+    }
+}
 
 export function sendSignUpRequest(formState){
     const apiUrl = 'signUp';
-        callApi(apiUrl, "post", formState).then(res => {
+    return (dispatch) => {
+        return callApi(apiUrl, "post", formState).then(res => {
             if (!(res.newUser)){
-                dispatch(notNewUser(res.existingField));
+                dispatch(invalidField(res.existingField));
             }
             else{
                 // trigger redirect
             }
         });
+    }
 }
