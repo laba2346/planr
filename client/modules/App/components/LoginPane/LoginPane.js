@@ -14,6 +14,7 @@ class LoginPane extends Component {
 
     handleSubmit(event){
         event.preventDefault();
+        this.props.login(this.state);
     }
 
     handleChange(event) {
@@ -30,6 +31,7 @@ class LoginPane extends Component {
             <div>
                 <form className={styles['login-form']} onSubmit={this.handleSubmit}>
                     <label> Login </label>
+                    {this.props.failedLogin && <div className={styles['login-failed']}>!</div>}
                     <input name="email" className={styles['input']} type="text" placeholder="Email" value={this.state.email} onChange={this.handleChange} />
                     <input name="password" className={styles['input']} type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
                     <input type="submit" className={styles['login-submit'] + ' transition'} value="Submit" />
@@ -42,11 +44,13 @@ class LoginPane extends Component {
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
-
+      failedLogin: state.app.failedLogin
   };
 }
 
 LoginPane.propTypes = {
+    login: PropTypes.func.isRequired,
+    failedLogin: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired,
 };
 
