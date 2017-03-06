@@ -44,3 +44,15 @@ input:focus{
     background:#705e8b;
     color: #FFF;
 }
+
+.login-failed{
+    display:inline-block;
+    float:right;
+    border-radius:100%;
+    text-align:center;
+    color: #f8f8f8;
+    line-height: 30px;
+    width:30px;
+    height:30px;
+    background:#f58a8a;
+}
