@@ -1,6 +1,9 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
+import Header from './components/Header/Header';
+import Sidebar from './components/Sidebar/Sidebar';
+
 import styles from './App.css'
 
 class App extends Component {
@@ -10,8 +13,9 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                hello from app.js
+            <div className={styles['app-container']}>
+                <Header />
+                <Sidebar />
             </div>
         );
     }

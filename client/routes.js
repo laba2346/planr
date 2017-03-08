@@ -34,7 +34,7 @@ export default (
             });
           }}
         />
-        <Route path="#"
+        <Route path="app"
           getComponent={(nextState, cb) => {
             require.ensure([], require => {
               cb(null, require('./modules/App/App.js').default);
