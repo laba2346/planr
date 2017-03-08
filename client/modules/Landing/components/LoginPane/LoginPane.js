@@ -44,7 +44,7 @@ class LoginPane extends Component {
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
-      failedLogin: state.app.failedLogin
+      failedLogin: state.landing.failedLogin
   };
 }
 

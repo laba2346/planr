@@ -3,6 +3,8 @@
     height: 75px;
     border-bottom: 1px solid #ccc;
     position: fixed;
+    top:0px;
+    left:0px;
     background: #FFF;
 }
 
