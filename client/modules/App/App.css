@@ -2,3 +2,11 @@
     margin: 20px auto;
     width:100%;
 }
+
+.view-container{
+    width:750px;
+    height:500px;
+    display: inline-block;
+    float:right;
+    padding:15px;
+}
