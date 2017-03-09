@@ -1,68 +1,52 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import {sendLoginRequest} from './AppActions';
 
-// Import Style
-import styles from './App.css';
-
-// Import Components
-import Helmet from 'react-helmet';
 import Header from './components/Header/Header';
+import Sidebar from './components/Sidebar/Sidebar';
+import Assignments from './components/Assignments/Assignments';
+import Classes from './components/Classes/Classes';
+import Calendar from './components/Calendar/Calendar';
 
-// Import Actions
-export class App extends Component {
-    constructor(props) {
+import styles from './App.css'
+
+class App extends Component {
+    constructor(props){
         super(props);
-        this.state = { isMounted: false };
-        this.login = this.login.bind(this);
-    }
-
-    componentDidMount() {
-        this.setState({isMounted: true}); // eslint-disable-line
-    }
-
-    login(formState){
-        this.props.dispatch(sendLoginRequest(formState));
     }
 
     render() {
+        let view = null;
+        if (this.props.view === 'assignments') {
+            view = <Assignments />;
+        }
+        else if (this.props.view=== 'calendar'){
+            view = <Calendar />;
+        }
+        else if (this.props.view === 'classes'){
+            view = <Classes />;
+        }
+
         return (
-            <div>
-                <div>
-                  <Helmet
-                    title="Planr"
-                    titleTemplate="%s - Planr"
-                    meta={[
-                      { charset: 'utf-8' },
-                      {
-                        'http-equiv': 'X-UA-Compatible',
-                        content: 'IE=edge',
-                      },
-                      {
-                        name: 'viewport',
-                        content: 'width=device-width, initial-scale=1',
-                      },
-                    ]}
-                  />
-                  <Header login={this.login} />
-                  <div className={styles.container}>
-                    {this.props.children}
-                  </div>
-                </div>
+            <div className={styles['app-container']}>
+                <Header />
+                <Sidebar />
+                <div className={styles['view-container']}>
+                    {view}
+                    </div>
             </div>
         );
     }
 }
 
-App.propTypes = {
-  children: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
-};
-
 // Retrieve data from store as props
-function mapStateToProps(store) {
-  return {
-  };
+function mapStateToProps(state) {
+    return {
+        view: state.sidebar.activeView
+    };
 }
+
+App.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps)(App);

@@ -1,8 +1,9 @@
 .header{
     width:100%;
     height: 75px;
-    border-bottom: 1px solid #ccc;
-    position: fixed;
+    padding:0px 20px;
+    top:0px;
+    left:0px;
     background: #FFF;
 }
 
@@ -10,7 +11,7 @@
     font-family: Helvetica;
     position: absolute;
     height:75px;
-    line-height: 67px;
+    line-height: 50px;
     display: inline-block;
     font-size:32px;
     color: #705e8b;
@@ -22,7 +23,6 @@
 }
 
 .logo{
-    margin: 10px 5px 10px 30px;
     display:inline-block;
     background:url(./planr-logo.png);
     background-size: cover;
@@ -30,52 +30,11 @@
     width: 50px;
 }
 
-.login-button{
+.profile{
     display:inline-block;
     float:right;
-    cursor:pointer;
-    margin: 20px 35px 25px 15px;
-    width:75px;
-    height:30px;
-
-    font-size: 12px;
-    text-align: center;
-    padding:4px 0px;
-
-
-    border-radius: 3px;
-    color:#705e8b;
-    border: 1px solid #705e8b;
-
-}
-
-.login-button:hover {
-    color:#fff;
-    background: #705e8b;
-}
-
-
-.login-pane{
-    margin: 50px auto;
-    padding:10px;
-    outline:none;
-    background:#FFF;
-    border:1px solid #705e8b;
-    width:400px;
-    height:260px;
-}
-
-.close-login-pane{
-    float:right;
-    border:none;
-    outline:none;
-    font-family: Helvetica;
-    font-size:26px;
-    font-weight:200;
-    color: #444;
-    background:none;
-}
-
-.close-login-pane:hover{
-    color:#888;
+    width:40px;
+    height:40px;
+    border-radius:100%;
+    background: #ccc;
 }

@@ -1,9 +1,13 @@
-import { INVALID_FIELD, RESET_INVALID_STATUS} from './LandingActions';
+import { INVALID_LOGIN, INVALID_FIELD, RESET_INVALID_STATUS} from './LandingActions';
 
 // Initial State
-const initialState = { usernameInvalid: false, emailInvalid: false, passwordInvalid: false };
+const initialState = { usernameInvalid: false, emailInvalid: false, passwordInvalid: false, failedLogin: false };
 const LandingReducer = (state = initialState, action) => {
     switch (action.type) {
+        case INVALID_LOGIN:
+            return Object.assign({}, state, {
+                failedLogin: true,
+            });
         case RESET_INVALID_STATUS:
             return Object.assign({}, state, {
                 usernameInvalid: false,

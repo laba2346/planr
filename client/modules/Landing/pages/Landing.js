@@ -2,7 +2,9 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import Description from '../components/Description/Description';
 import SignUp from '../components/SignUp/SignUp';
-import {sendSignUpRequest, checkIfFieldsValid} from '../LandingActions';
+import Header from '../components/Header/Header';
+
+import {sendLoginRequest, sendSignUpRequest, checkIfFieldsValid} from '../LandingActions';
 
 import styles from './Landing.css'
 
@@ -10,6 +12,11 @@ class Landing extends Component {
     constructor(props){
         super(props);
         this.signUp = this.signUp.bind(this);
+        this.login = this.login.bind(this);
+    }
+
+    login(formState){
+        this.props.dispatch(sendLoginRequest(formState));
     }
 
     signUp = function(formState){
@@ -24,6 +31,8 @@ class Landing extends Component {
 
     render() {
         return (
+            <div>
+                <Header login={this.login} />
             <div className={styles['landing-container']}>
                 <div className={styles['DescriptionContainer']}>
                     <Description />
@@ -33,6 +42,7 @@ class Landing extends Component {
                         signUp={this.signUp}
                     />
                 </div>
+            </div>
             </div>
         );
     }
