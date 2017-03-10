@@ -47,6 +47,15 @@ export function checkIfFieldsValid(formState){
                 return false;
             }
         }
+
+        var emailreg = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+
+        if (emailreg.exec(formState.email) === null)
+        {
+          dispatch(invalidField(i))
+          return false;
+        }
+        
         dispatch(resetInvalidStatus())
         return true;
     }
