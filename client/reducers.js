@@ -13,5 +13,5 @@ export default combineReducers({
   container,
   landing,
   app,
-  sidebar,
+  sidebar
 });

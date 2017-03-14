@@ -1,6 +1,6 @@
 .homepage-splash{
     display:block;
-    background: url(./homepage-splash.png);
+    background: url('../SignUp/homepage-splash.png');
     background-size:cover;
     background-repeat: no-repeat;
     height:250px;

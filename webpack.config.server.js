@@ -8,6 +8,7 @@ module.exports = {
 
   output: {
     path: __dirname + '/dist/',
+    publicPath: '/',
     filename: 'server.bundle.js',
   },
 
@@ -22,6 +23,7 @@ module.exports = {
     extensions: ['', '.js', '.jsx'],
     modules: [
       'client',
+      'server',
       'node_modules',
     ],
   },

@@ -11,15 +11,15 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 
 // DB
 import { Sequelize } from 'sequelize';
-var models = require('./models');
+var models = require('./models/index.js');
 
 // Import routers
-import signUpRouter from './routes/SignUp.routes';
-import loginRouter from './routes/Login.routes';
+import signUpRouter from './routes/SignUp.routes.js';
+import loginRouter from './routes/Login.routes.js';
 
 
-models.classes.belongsTo(models.users)
-models.assignments.belongsTo(models.classes)
+//models.classes.belongsTo(models.users)
+//models.assignments.belongsTo(models.classes)
 
 
 // Initialize the Express App
@@ -125,7 +125,7 @@ app.use((req, res, next) => {
       .then(() => {
         const initialView = renderToString(
           <Provider store={store}>
-             <RouterContext {...renderProps} />
+                <RouterContext {...renderProps} />
           </Provider>
         );
         const finalState = store.getState();
