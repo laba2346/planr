@@ -53,9 +53,7 @@
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
     "sanitize-html": "^1.11.4",
-    "sequelize": "^3.30.2"
-  },
-  "devDependencies": {
+    "sequelize": "^3.30.2",
     "ava": "^0.15.2",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
