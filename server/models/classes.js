@@ -1,26 +1,23 @@
-module.exports = function(sequelize, DataTypes){
-    var classes = sequelize.define('classes', {
-        id: {
-            type: DataTypes.BIGINT,
-            primaryKey: true
-        },
-        user_id: {
-            type: DataTypes.BIGINT,
+import DataTypes from 'sequelize';
 
-        },
-        class_name: {
-            type: DataTypes.STRING,
-        },
-        class_info: {
-            type: DataTypes.STRING,
-        },
-        class_times: {
-            type: DataTypes.STRING,
-        },
-    }, {
-      freezeTableName: true,
-      timestamps: false
-    });
+var classes = {
+    id: {
+        type: DataTypes.BIGINT,
+        primaryKey: true
+    },
+    user_id: {
+        type: DataTypes.BIGINT,
 
-    return classes;
+    },
+    class_name: {
+        type: DataTypes.STRING,
+    },
+    class_info: {
+        type: DataTypes.STRING,
+    },
+    class_times: {
+        type: DataTypes.STRING,
+    },
 };
+
+module.exports = classes;

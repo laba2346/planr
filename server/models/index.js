@@ -17,15 +17,30 @@ var assignments = require('./assignments.js');
 var classes = require('./classes.js');
 var users = require('./users.js');
 
-db[assignments] = assignments;
-db[classes] = classes;
-db[users] = users;
-
-Object.keys(db).forEach(function(modelName) {
-  if ("associate" in db[modelName]) {
-    db[modelName].associate(db);
-  }
+var classesModel = sequelize.define('classes', classes, {
+    freezeTableName: true,
+    timestamps: false
 });
+
+var assignmentsModel = sequelize.define('assignments', assignments, {
+    freezeTableName: true,
+    timestamps: false
+});
+
+var usersModel = sequelize.define('users', users, {
+    freezeTableName: true,
+    timestamps: false
+});
+
+sequelize.sync().then(function() {
+  usersModel.create({
+    username: 'aaron',
+    email: 'clauset@colorado.edu',
+    password:'flashy'
+}, function(){
+    console.log('added!');
+});
+})
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

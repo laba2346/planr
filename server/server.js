@@ -11,7 +11,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 
 // DB
 import { Sequelize } from 'sequelize';
-var models = require('./models/index.js');
+var models = require('./models');
 
 // Import routers
 import signUpRouter from './routes/SignUp.routes.js';
@@ -56,8 +56,6 @@ app.use(Express.static(path.resolve(__dirname, '../dist')));
 // Place routers below here
 app.use('/api', signUpRouter);
 app.use('/api', loginRouter);
-
-
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
