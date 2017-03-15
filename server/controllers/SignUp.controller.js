@@ -1,5 +1,5 @@
 // Import model
-var models = require('../models');
+import {sequelize, users } from '../models/index.js';
 import bcrypt from 'bcrypt';
 
 export function newUser(req, res){
@@ -19,8 +19,8 @@ export function newUser(req, res){
         }
     };
     var newRecord = false;
-    models.sequelize.sync().then(function(){
-        models.users.findOrCreate(options).then(function(result){
+    sequelize.sync().then(function(){
+        users.findOrCreate(options).then(function(result){
             newRecord = result[1];
             if (!newRecord){
                 var response = {};

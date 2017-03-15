@@ -32,17 +32,12 @@ var usersModel = sequelize.define('users', users, {
     timestamps: false
 });
 
-sequelize.sync().then(function() {
-  usersModel.create({
-    username: 'aaron',
-    email: 'clauset@colorado.edu',
-    password:'flashy'
-}, function(){
-    console.log('added!');
-});
-})
-
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-module.exports = db;
+module.exports = {
+    sequelize: sequelize,
+    users: usersModel,
+    assignments: assignmentsModel,
+    classesModel: classesModel   
+};
