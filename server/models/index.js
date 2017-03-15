@@ -4,12 +4,13 @@ var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
 var env       = process.env.NODE_ENV || 'development';
-var config    = require(__dirname + '/../config/dbConfig.json');
 var db        = {};
 
 if (process.env.DATABASE_URL) {
-  var sequelize = new Sequelize(process.env.DATABASE_URL,config);
+    var config    = require(__dirname + '/../config/dbConfigProduction.json');
+    var sequelize = new Sequelize(process.env.DATABASE_URL,config);
 } else {
+  var config    = require(__dirname + '/../config/dbConfig.json');
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
@@ -39,5 +40,5 @@ module.exports = {
     sequelize: sequelize,
     users: usersModel,
     assignments: assignmentsModel,
-    classesModel: classesModel   
+    classesModel: classesModel
 };
