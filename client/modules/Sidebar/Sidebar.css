@@ -1,0 +1,45 @@
+.sidebar{
+    position: fixed;
+    top: 0px;
+    height:100%;
+    width:300px;
+    display:inline-block;
+    background:#FFF;
+    opacity:.9;
+    border-right: 1px solid #ccc;
+    -webkit-transition: 500ms; 
+    -moz-transition: 500ms; 
+    -o-transition: 500ms; 
+    transition: 500ms; 
+}
+
+.sidebar-shown{
+    left: 0px;
+}
+
+.sidebar-hidden{
+    left:-500px;
+}
+
+.sidebar-tab{
+    padding:0px 15px;
+    height:75px;
+    line-height:75px;
+    font-family:Helvetica;
+    font-weight:200;
+    font-size:24px;
+    color:#777;
+}
+
+.active-sidebar-tab{
+    background:#f2f2f2;
+}
+
+.sidebar-tab:hover{
+    color: #644b84;
+}
+
+.sidebar-tab:active{
+    background: #e8e8e8;
+}
+

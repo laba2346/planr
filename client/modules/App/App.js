@@ -1,11 +1,11 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
-import Header from './components/Header/Header';
-import Sidebar from './components/Sidebar/Sidebar';
-import Assignments from './components/Assignments/Assignments';
-import Classes from './components/Classes/Classes';
-import Calendar from './components/Calendar/Calendar';
+import Header from '../Header/Header';
+import Sidebar from '../Sidebar/Sidebar';
+import Assignments from '../Assignments/Assignments';
+import Classes from '../Classes/Classes';
+import Calendar from '../Calendar/Calendar';
 
 import styles from './App.css'
 
@@ -32,7 +32,7 @@ class App extends Component {
                 <Sidebar />
                 <div className={styles['view-container']}>
                     {view}
-                    </div>
+                </div>
             </div>
         );
     }

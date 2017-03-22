@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import CreateAssignment from '../CreateAssignment/CreateAssignment';
 //import styles from './Assignments.css';
 
 class Assignments extends Component {
@@ -12,7 +13,7 @@ class Assignments extends Component {
     render() {
         return (
             <div>
-                Assignments view
+                <CreateAssignment />
             </div>
         );
   }

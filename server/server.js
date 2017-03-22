@@ -21,7 +21,6 @@ import loginRouter from './routes/Login.routes.js';
 //models.classes.belongsTo(models.users)
 //models.assignments.belongsTo(models.classes)
 
-
 // Initialize the Express App
 const app = new Express();
 
