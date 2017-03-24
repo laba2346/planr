@@ -16,6 +16,7 @@ var models = require('./models');
 // Import routers
 import signUpRouter from './routes/SignUp.routes.js';
 import loginRouter from './routes/Login.routes.js';
+import createAssignmentRouter from './routes/CreateAssignment.routes.js';
 
 
 //models.classes.belongsTo(models.users)
@@ -55,6 +56,7 @@ app.use(Express.static(path.resolve(__dirname, '../dist')));
 // Place routers below here
 app.use('/api', signUpRouter);
 app.use('/api', loginRouter);
+app.use('/api', createAssignmentRouter);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {

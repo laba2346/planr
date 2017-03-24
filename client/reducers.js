@@ -9,6 +9,7 @@ import landing from './modules/Landing/LandingReducer';
 import app from './modules/App/AppReducer';
 import sidebar from './modules/Sidebar/SidebarReducer';
 import header from './modules/Header/HeaderReducer';
+import createassignment from './modules/CreateAssignment/CreateAssignmentReducer';
 
 // Combine all reducers into one root reducer
 export default combineReducers({
@@ -16,5 +17,6 @@ export default combineReducers({
     landing,
     app,
     sidebar,
-    header
+    header,
+    createassignment
 });
