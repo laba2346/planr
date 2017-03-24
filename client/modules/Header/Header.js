@@ -19,7 +19,7 @@ class Header extends Component {
     render() {
         return (
                 <div className={styles['header']}>
-                    <div className={styles['hamburger']} onClick={this.toggleSidebar}>
+                    <div className={styles['hamburger']+' '+(this.props.sidebarShown ? styles['hamburger-float'] : styles['hamburger-relative'])} onClick={this.toggleSidebar}>
                         <div> </div>
                         <div> </div>
                         <div> </div>
@@ -36,7 +36,7 @@ class Header extends Component {
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
-
+      sidebarShown: state.header.sidebarShown
   };
 }
 
