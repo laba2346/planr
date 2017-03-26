@@ -11,6 +11,7 @@
     -moz-transition: 500ms; 
     -o-transition: 500ms; 
     transition: 500ms; 
+    padding: 100px 0px;
 }
 
 .sidebar-shown{

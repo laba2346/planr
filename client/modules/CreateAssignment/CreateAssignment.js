@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ReactModal from 'react-modal';
 import NewAssignmentForm from './components/NewAssignmentForm/NewAssignmentForm';
 import styles from './CreateAssignment.css';
+import { createAssignmentRequest } from './CreateAssignmentActions';
 
 class CreateAssignment extends Component {
 
@@ -11,6 +12,7 @@ class CreateAssignment extends Component {
         this.state = {}
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
+        this.createAssignment = this.createAssignment.bind(this);
     }
 
     handleOpenModal () {
@@ -19,6 +21,10 @@ class CreateAssignment extends Component {
 
     handleCloseModal () {
         this.setState({ showModal: false });
+    }
+
+    createAssignment (formdata) {
+        this.props.dispatch(createAssignmentRequest(formdata))
     }
 
     render() {
@@ -31,7 +37,7 @@ class CreateAssignment extends Component {
                     className={styles['create-assignment-pane']}
                     >
                     <button className={styles['close-login-pane']} onClick={this.handleCloseModal}>X</button>
-                    <NewAssignmentForm />
+                    <NewAssignmentForm createAssignment={this.createAssignment}/>
                 </ReactModal>
             </div>
         );

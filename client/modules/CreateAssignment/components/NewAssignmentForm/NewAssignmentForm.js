@@ -12,10 +12,9 @@ class NewAssignmentForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-
     handleSubmit(event){
         event.preventDefault();
-        this.props.login(this.state);
+        this.props.createAssignment(this.state);
     }
 
     handleChange(event) {
@@ -52,6 +51,7 @@ function mapStateToProps(state) {
 NewAssignmentForm.propTypes = {
     login: PropTypes.func.isRequired,
     dispatch: PropTypes.func.isRequired,
+    createAssignment: PropTypes.func.isRequired
 };
 
 NewAssignmentForm.contextTypes = {
