@@ -15,9 +15,8 @@ var models = require('./models');
 
 // Import routers
 import signUpRouter from './routes/SignUp.routes.js';
-import loginRouter from './routes/Login.routes.js';
+import loginRouter from './routes/Login.routes.js'
 import createAssignmentRouter from './routes/CreateAssignment.routes.js';
-
 
 //models.classes.belongsTo(models.users)
 //models.assignments.belongsTo(models.classes)
@@ -25,6 +24,24 @@ import createAssignmentRouter from './routes/CreateAssignment.routes.js';
 // Initialize the Express App
 const app = new Express();
 
+
+//Passport
+var LocalStrategy = require('passport-local').Strategy;
+var passport = require('passport');
+var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
+
+//Passport initialization
+app.use(expressSession({secret: 'aaronClauset,theGod'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+var initPassport = require('./passport/init');
+initPassport(passport);
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 // Run Webpack dev server in development mode
 if (process.env.NODE_ENV === 'development') {
