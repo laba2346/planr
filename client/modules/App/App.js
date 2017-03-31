@@ -6,6 +6,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import Assignments from '../Assignments/Assignments';
 import Classes from '../Classes/Classes';
 import Calendar from '../Calendar/Calendar';
+import Settings from '../Settings/Settings';
 
 import styles from './App.css'
 
@@ -24,6 +25,9 @@ class App extends Component {
         }
         else if (this.props.view === 'classes'){
             view = <Classes />;
+        }
+        else if (this.props.view === 'settings'){
+            view = <Settings />;
         }
 
         return (

@@ -30,6 +30,9 @@ class Sidebar extends Component {
                 <div className={styles['sidebar-tab'] + " " + (this.props.activeView === 'calendar' ? styles['active-sidebar-tab'] : null)} onClick={() => {this.onTabChange('calendar')}}>
                     Calendar
                 </div>
+                <div className={styles['sidebar-tab'] + " " + (this.props.activeView === 'settings' ? styles['active-sidebar-tab'] : null)} onClick={() => {this.onTabChange('settings')}}>
+                    Settings
+                </div>
             </div>
        return (
            <div>
