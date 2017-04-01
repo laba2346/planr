@@ -36,7 +36,7 @@ class Settings extends Component {
             <div>
             <form className={styles['sign-up-form']} onSubmit={this.handleSubmit}>
                 <label> Color Theme </label>
-                <input name="Color Theme" className={styles['valid-field'] + ' ' + styles['input']} type="text" placeholder="Color" value={this.state.color} onChange={this.handleChange} />
+                <input name="color" className={styles['valid-field'] + ' ' + styles['input']} type="text" placeholder="Color" value={this.state.color} onChange={this.handleChange} />
                 <input type="submit" className={styles['sign-up-submit'] + ' transition'} value="Submit" />
             </form>
             </div>
