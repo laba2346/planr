@@ -77,7 +77,11 @@ function checkIfLoggedIn() {
   }
 }
 
-app.get('*', authenticationMiddleware(), function(req, res, next){
+app.get('/landing', function(req, res, next){
+
+});
+
+app.get('*', checkIfLoggedIn(), function(req, res, next){
     res.send('autheticated');
 });
 
