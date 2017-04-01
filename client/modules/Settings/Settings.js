@@ -7,7 +7,7 @@ class Settings extends Component {
 
     constructor () {
         super();
-        this.state = {color: ''}
+        this.state = {color: ''};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
