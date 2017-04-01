@@ -12,7 +12,7 @@ class Settings extends Component {
         this.state = {}
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
-        this.createAssignment = this.createAssignment.bind(this);
+        //this.createAssignment = this.createAssignment.bind(this);
     }
 
     handleOpenModal () {
@@ -30,15 +30,11 @@ class Settings extends Component {
     render() {
         return (
             <div>
-                <div className={styles['add-assignment-button']} onClick={() => this.handleOpenModal()}> + </div>
-                <ReactModal
-                    isOpen={this.state.showModal}
-                    contentLabel="Login"
-                    className={styles['create-assignment-pane']}
-                    >
-                    <button className={styles['close-login-pane']} onClick={this.handleCloseModal}>X</button>
-                    <NewAssignmentForm createAssignment={this.createAssignment}/>
-                </ReactModal>
+            <form className={styles['sign-up-form']} onSubmit={this.handleSubmit}>
+                <label> Sign Up </label>
+                <input name="Color Theme" className={(this.props.emailInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder="Email" value={this.state.email} onChange={this.handleChange} />
+                <input type="submit" className={styles['sign-up-submit'] + ' transition'} value="Submit" />
+            </form>
             </div>
         );
   }
