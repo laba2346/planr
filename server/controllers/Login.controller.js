@@ -1,9 +1,4 @@
-// Import model
-var models = require('../models');
-import bcrypt from 'bcrypt';
-import passport from 'passport';
-
-//Not sure at all how to use the controller here
 export function login(req, res){
-    passport.authenticate('local')
+    // This isn't necessary anymore, redirect can be done through passport.authenticate() call in router
+    console.log('passport user' + req.user);
 }

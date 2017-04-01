@@ -18,29 +18,24 @@ import signUpRouter from './routes/SignUp.routes.js';
 import loginRouter from './routes/Login.routes.js'
 import createAssignmentRouter from './routes/CreateAssignment.routes.js';
 
-//models.classes.belongsTo(models.users)
-//models.assignments.belongsTo(models.classes)
-
 // Initialize the Express App
 const app = new Express();
 
+// Apply body Parser and server public assets and routes
+app.use(compression());
+app.use(bodyParser.json({ limit: '20mb' }));
+app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
+app.use(Express.static(path.resolve(__dirname, '../dist')));
+
 
 //Passport
-var LocalStrategy = require('passport-local').Strategy;
-var passport = require('passport');
+import passport from './passport/passport';
 var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
 
-//Passport initialization
 app.use(expressSession({secret: 'aaronClauset,theGod'}));
 app.use(passport.initialize());
 app.use(passport.session());
-
-var initPassport = require('./passport/init');
-initPassport(passport);
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Run Webpack dev server in development mode
@@ -64,16 +59,27 @@ import { fetchComponentData } from './util/fetchData';
 import serverConfig from './config/config.js';
 
 
-// Apply body Parser and server public assets and routes
-app.use(compression());
-app.use(bodyParser.json({ limit: '20mb' }));
-app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
-app.use(Express.static(path.resolve(__dirname, '../dist')));
-
 // Place routers below here
 app.use('/api', signUpRouter);
 app.use('/api', loginRouter);
 app.use('/api', createAssignmentRouter);
+
+app.get('/landing', function(req,res,next){
+    res.send('no soup for you');
+})
+
+function checkIfLoggedIn() {
+  return function (req, res, next) {
+    if (req.isAuthenticated()) {
+      return next();
+    }
+    res.redirect('/landing');
+  }
+}
+
+app.get('*', authenticationMiddleware(), function(req, res, next){
+    res.send('autheticated');
+});
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
