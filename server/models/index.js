@@ -17,6 +17,7 @@ if (process.env.DATABASE_URL) {
 var assignments = require('./assignments.js');
 var classes = require('./classes.js');
 var users = require('./users.js');
+var settings = require('./settings.js');
 
 var classesModel = sequelize.define('classes', classes, {
     freezeTableName: true,
@@ -33,6 +34,11 @@ var usersModel = sequelize.define('users', users, {
     timestamps: false
 });
 
+var settingsModel = sequelize.define('settings', settings, {
+    freezeTableName: true,
+    timestamps: false
+});
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
@@ -40,5 +46,6 @@ module.exports = {
     sequelize: sequelize,
     users: usersModel,
     assignments: assignmentsModel,
-    classesModel: classesModel
+    classesModel: classesModel, //should this be classes?
+    settings: settingsModel,
 };
