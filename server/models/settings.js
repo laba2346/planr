@@ -3,7 +3,8 @@ import DataTypes from 'sequelize';
 var settings = {
     id: {
         type: DataTypes.BIGINT,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
     },
     user_id: {
         type: DataTypes.BIGINT,
