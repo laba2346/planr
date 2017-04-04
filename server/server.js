@@ -15,16 +15,33 @@ var models = require('./models');
 
 // Import routers
 import signUpRouter from './routes/SignUp.routes.js';
-import loginRouter from './routes/Login.routes.js';
+import loginRouter from './routes/Login.routes.js'
 import createAssignmentRouter from './routes/CreateAssignment.routes.js';
-
-
-//models.classes.belongsTo(models.users)
-//models.assignments.belongsTo(models.classes)
 
 // Initialize the Express App
 const app = new Express();
 
+// Apply body Parser and server public assets and routes
+app.use(compression());
+app.use(bodyParser.json({ limit: '20mb' }));
+app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
+app.use(Express.static(path.resolve(__dirname, '../dist')));
+
+
+//Passport
+import passport from './passport/passport';
+var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
+
+app.use(expressSession({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 3600000}
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(cookieParser());
 
 // Run Webpack dev server in development mode
 if (process.env.NODE_ENV === 'development') {
@@ -45,18 +62,6 @@ import Helmet from 'react-helmet';
 import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
 import serverConfig from './config/config.js';
-
-
-// Apply body Parser and server public assets and routes
-app.use(compression());
-app.use(bodyParser.json({ limit: '20mb' }));
-app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
-app.use(Express.static(path.resolve(__dirname, '../dist')));
-
-// Place routers below here
-app.use('/api', signUpRouter);
-app.use('/api', loginRouter);
-app.use('/api', createAssignmentRouter);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
@@ -103,39 +108,65 @@ const renderError = err => {
   return renderFullPage(`Server Error${errTrace}`, {});
 };
 
-// Server Side Rendering based on routes matched by React-router.
-app.use((req, res, next) => {
-  match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
-    if (err) {
-      return res.status(500).end(renderError(err));
+function matchRoute(req, res, next){
+    match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
+      if (err) {
+        return res.status(500).end(renderError(err));
+      }
+
+      if (redirectLocation) {
+        return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+      }
+
+      if (!renderProps) {
+        return next();
+      }
+
+      const store = configureStore();
+
+      return fetchComponentData(store, renderProps.components, renderProps.params)
+        .then(() => {
+          const initialView = renderToString(
+            <Provider store={store}>
+                  <RouterContext {...renderProps} />
+            </Provider>
+          );
+          const finalState = store.getState();
+
+          res
+            .set('Content-Type', 'text/html')
+            .status(200)
+            .end(renderFullPage(initialView, finalState));
+        })
+        .catch((error) => next(error));
+    });
+}
+
+app.get('/landing', function(req, res, next){
+    matchRoute(req, res, next);
+});
+
+app.use('/api', signUpRouter);
+
+// Must be authenticated below this point
+app.get('*', function(req, res, next){
+    if (req.isAuthenticated()) {
+        console.log('is authenticated, about to next()');
+        next();
     }
-
-    if (redirectLocation) {
-      return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+    else{
+        res.redirect('/landing');
     }
+});
 
-    if (!renderProps) {
-      return next();
-    }
+// Place routers below here
+app.use('/api', loginRouter);
+app.use('/api', createAssignmentRouter);
 
-    const store = configureStore();
-
-    return fetchComponentData(store, renderProps.components, renderProps.params)
-      .then(() => {
-        const initialView = renderToString(
-          <Provider store={store}>
-                <RouterContext {...renderProps} />
-          </Provider>
-        );
-        const finalState = store.getState();
-
-        res
-          .set('Content-Type', 'text/html')
-          .status(200)
-          .end(renderFullPage(initialView, finalState));
-      })
-      .catch((error) => next(error));
-  });
+// Get app
+app.get('/', function(req, res, next){
+    console.log('in get /');
+    matchRoute(req, res, next);
 });
 
 models.sequelize.sync().then(function() {

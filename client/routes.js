@@ -29,16 +29,17 @@ export default (
     <Route path="/" component={Container}>
         <IndexRoute
           getComponent={(nextState, cb) => {
-            require.ensure([], require => {
-              cb(null, require('./modules/Landing/pages/Landing.js').default);
-            });
+              require.ensure([], require => {
+                cb(null, require('./modules/App/App.js').default);
+              });
+
           }}
         />
-        <Route path="app"
+        <Route path="landing"
           getComponent={(nextState, cb) => {
-            require.ensure([], require => {
-              cb(null, require('./modules/App/App.js').default);
-            });
+              require.ensure([], require => {
+                cb(null, require('./modules/Landing/pages/Landing.js').default);
+              });
           }}
         />
     </Route>

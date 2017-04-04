@@ -55,7 +55,7 @@ export function checkIfFieldsValid(formState){
           dispatch(invalidField(i))
           return false;
         }
-        
+
         dispatch(resetInvalidStatus())
         return true;
     }
