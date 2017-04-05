@@ -39,6 +39,7 @@ export function resetInvalidStatus(){
 }
 
 export function checkIfFieldsValid(formState){
+    console.log(formState)
     return (dispatch) => {
         for (var i in formState){
             if(formState[i] === ""){
@@ -52,10 +53,11 @@ export function checkIfFieldsValid(formState){
 
         if (emailreg.exec(formState.email) === null)
         {
+          console.log("finna dispatch invalidField")
           dispatch(invalidField(i))
           return false;
         }
-        
+
         dispatch(resetInvalidStatus())
         return true;
     }
