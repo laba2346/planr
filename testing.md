@@ -105,10 +105,10 @@ Pre-conditions
 
 Test steps  
 
-* 1. Navigate to assignmeme.herokuapp.com  
-* 2. Use email: "monkey@mon.key"  
-* 3. Provide valid username and password  
-* 4. Click signup button  
+1. Navigate to assignmeme.herokuapp.com  
+2. Use email: "monkey@mon.key"  
+3. Provide valid username and password  
+4. Click signup button  
 
 Expected result  
 
