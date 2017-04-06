@@ -3,6 +3,12 @@ Landon Baxter, Michael Catchen, Darwin Boersma, Josef Los
 # planr
 User friendly task manager that students will actually use.
 
+## Automated Test Cases
+
+* Ava Test Runner - https://github.com/avajs/ava
+* Nock HTTP Mocking Library - https://github.com/node-nock/nock
+
+
 
 ## User Acceptance Tests
 
