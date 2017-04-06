@@ -27,6 +27,7 @@ export function sendLoginRequest(formState){
 }
 
 export function invalidField(field){
+    console.log("invalid field: " + field)
     return {
         type: INVALID_FIELD,
         field
@@ -54,7 +55,7 @@ export function checkIfFieldsValid(formState){
         if (emailreg.exec(formState.email) === null)
         {
           console.log("finna dispatch invalidField")
-          dispatch(invalidField(i))
+          dispatch(invalidField("email"))
           return false;
         }
 
@@ -68,6 +69,7 @@ export function sendSignUpRequest(formState){
     return (dispatch) => {
         return callApi(apiUrl, "post", formState).then(res => {
             if (!(res.newUser)){
+                console.log(res)
                 dispatch(invalidField(res.existingField));
             }
             else{
