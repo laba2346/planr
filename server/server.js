@@ -108,48 +108,44 @@ const renderError = err => {
   return renderFullPage(`Server Error${errTrace}`, {});
 };
 
-function matchRoute(req, res, next){
-    match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
-      if (err) {
-        return res.status(500).end(renderError(err));
-      }
+app.use((req, res, next) => {
+  match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
+    if (err) {
+      return res.status(500).end(renderError(err));
+    }
 
-      if (redirectLocation) {
-        return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
-      }
+    if (redirectLocation) {
+      return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+    }
 
-      if (!renderProps) {
-        return next();
-      }
+    if (!renderProps) {
+      return next();
+    }
 
-      const store = configureStore();
+    const store = configureStore();
 
-      return fetchComponentData(store, renderProps.components, renderProps.params)
-        .then(() => {
-          const initialView = renderToString(
-            <Provider store={store}>
-                  <RouterContext {...renderProps} />
-            </Provider>
-          );
-          const finalState = store.getState();
+    return fetchComponentData(store, renderProps.components, renderProps.params)
+      .then(() => {
+        const initialView = renderToString(
+          <Provider store={store}>
+                <RouterContext {...renderProps} />
+          </Provider>
+        );
+        const finalState = store.getState();
 
-          res
-            .set('Content-Type', 'text/html')
-            .status(200)
-            .end(renderFullPage(initialView, finalState));
-        })
-        .catch((error) => next(error));
-    });
-}
-
-app.get('/landing', function(req, res, next){
-    matchRoute(req, res, next);
+        res
+          .set('Content-Type', 'text/html')
+          .status(200)
+          .end(renderFullPage(initialView, finalState));
+      })
+      .catch((error) => next(error));
+  });
 });
 
 app.use('/api', signUpRouter);
 
 // Must be authenticated below this point
-app.get('*', function(req, res, next){
+/*app.get('*', function(req, res, next){
     if (req.isAuthenticated()) {
         console.log('is authenticated, about to next()');
         next();
@@ -157,17 +153,12 @@ app.get('*', function(req, res, next){
     else{
         res.redirect('/landing');
     }
-});
+});*/
 
 // Place routers below here
 app.use('/api', loginRouter);
 app.use('/api', createAssignmentRouter);
 
-// Get app
-app.get('/', function(req, res, next){
-    console.log('in get /');
-    matchRoute(req, res, next);
-});
 
 models.sequelize.sync().then(function() {
   app.listen(serverConfig.port, function() {
