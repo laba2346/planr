@@ -30,15 +30,15 @@ export default (
         <IndexRoute
           getComponent={(nextState, cb) => {
               require.ensure([], require => {
-                cb(null, require('./modules/App/App.js').default);
+                cb(null, require('./modules/Landing/pages/Landing.js').default);
               });
 
           }}
         />
-        <Route path="landing"
+        <Route path="app"
           getComponent={(nextState, cb) => {
               require.ensure([], require => {
-                cb(null, require('./modules/Landing/pages/Landing.js').default);
+                cb(null, require('./modules/App/App.js').default);
               });
           }}
         />

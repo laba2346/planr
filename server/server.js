@@ -15,33 +15,16 @@ var models = require('./models');
 
 // Import routers
 import signUpRouter from './routes/SignUp.routes.js';
-import loginRouter from './routes/Login.routes.js'
+import loginRouter from './routes/Login.routes.js';
 import createAssignmentRouter from './routes/CreateAssignment.routes.js';
+
+
+//models.classes.belongsTo(models.users)
+//models.assignments.belongsTo(models.classes)
 
 // Initialize the Express App
 const app = new Express();
 
-// Apply body Parser and server public assets and routes
-app.use(compression());
-app.use(bodyParser.json({ limit: '20mb' }));
-app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
-app.use(Express.static(path.resolve(__dirname, '../dist')));
-
-
-//Passport
-import passport from './passport/passport';
-var cookieParser = require('cookie-parser');
-var expressSession = require('express-session');
-
-app.use(expressSession({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { maxAge: 3600000}
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(cookieParser());
 
 // Run Webpack dev server in development mode
 if (process.env.NODE_ENV === 'development') {
@@ -63,6 +46,18 @@ import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
 import serverConfig from './config/config.js';
 
+
+// Apply body Parser and server public assets and routes
+app.use(compression());
+app.use(bodyParser.json({ limit: '20mb' }));
+app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
+app.use(Express.static(path.resolve(__dirname, '../dist')));
+
+// Place routers below here
+app.use('/api', signUpRouter);
+app.use('/api', loginRouter);
+app.use('/api', createAssignmentRouter);
+
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
   const head = Helmet.rewind();
@@ -80,7 +75,6 @@ const renderFullPage = (html, initialState) => {
         ${head.meta.toString()}
         ${head.link.toString()}
         ${head.script.toString()}
-
         ${process.env.NODE_ENV === 'production' ? `<link rel='stylesheet' href='${assetsManifest['/app.css']}' />` : ''}
         <link rel="shortcut icon" href="http://res.cloudinary.com/hashnode/image/upload/v1455629445/static_imgs/mern/mern-favicon-circle-fill.png" type="image/png" />
       </head>
@@ -108,6 +102,7 @@ const renderError = err => {
   return renderFullPage(`Server Error${errTrace}`, {});
 };
 
+// Server Side Rendering based on routes matched by React-router.
 app.use((req, res, next) => {
   match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
     if (err) {
@@ -141,24 +136,6 @@ app.use((req, res, next) => {
       .catch((error) => next(error));
   });
 });
-
-app.use('/api', signUpRouter);
-
-// Must be authenticated below this point
-/*app.get('*', function(req, res, next){
-    if (req.isAuthenticated()) {
-        console.log('is authenticated, about to next()');
-        next();
-    }
-    else{
-        res.redirect('/landing');
-    }
-});*/
-
-// Place routers below here
-app.use('/api', loginRouter);
-app.use('/api', createAssignmentRouter);
-
 
 models.sequelize.sync().then(function() {
   app.listen(serverConfig.port, function() {
