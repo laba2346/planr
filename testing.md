@@ -8,8 +8,10 @@ User friendly task manager that students will actually use.
 * Ava Test Runner - https://github.com/avajs/ava
 * Nock HTTP Mocking Library - https://github.com/node-nock/nock
 
+### Our tests
 
-
+![17 tests passed!](http://i.imgur.com/ZwbqYaB.png "Image")
+We created asynchronous tests using AVA that verify our sign up's functionality. In order to effectively test this, we had to create tests for three or four different ReduxJS actions (e.g., LandingActions.js). Our tests checked that our frontend correctly handles an invalid sign up form, which can entail 1) an invalid email, 2) an empty password, 3) an empty username, or 4) a username or email that has already been signed up. For the last possibility, we also had to write tests to ensure that the frontend correctly handles responses from the server.
 ## User Acceptance Tests
 
 ### UAT #1
