@@ -22,6 +22,7 @@ passport.use(new LocalStrategy({
                     else{
                         bcrypt.compare(password, result.password, function(err, validLogin) {
                             if(validLogin){
+                                console.log("We have found a user!")
                                 done(null, result);
                             }
                             else{
@@ -37,7 +38,7 @@ passport.use(new LocalStrategy({
 passport.serializeUser(function(user, done) {
     done(null, user.id);
 });
- 
+
 passport.deserializeUser(function(user, done) {
     models.sequelize.sync().then(function(){
         models.users.findById(user.id).then(function(result){

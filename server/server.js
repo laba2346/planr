@@ -18,7 +18,6 @@ import signUpRouter from './routes/SignUp.routes.js';
 import loginRouter from './routes/Login.routes.js';
 import createAssignmentRouter from './routes/CreateAssignment.routes.js';
 
-
 //models.classes.belongsTo(models.users)
 //models.assignments.belongsTo(models.classes)
 
@@ -53,6 +52,34 @@ app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist')));
 
+// Import passport and initialize
+import passport from './passport/passport';
+
+var cookieParser = require('cookie-parser');
+var flash = require('connect-flash');
+
+var expressSession = require('express-session');
+app.use(expressSession({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 3600000}
+}));
+app.use(cookieParser());
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('/app', function(req, res, next){
+    if (req.isAuthenticated()) {
+        console.log('is authenticated, about to next()');
+        next();
+    }
+    else{
+        console.log('not authenticated. redirecting to home')
+        res.redirect('/');
+    }
+});
 // Place routers below here
 app.use('/api', signUpRouter);
 app.use('/api', loginRouter);
