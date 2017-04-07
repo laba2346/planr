@@ -33,6 +33,7 @@ passport.use(new LocalStrategy({
                 });
             });
         }
+
 ));
 
 passport.serializeUser(function(user, done) {
@@ -40,12 +41,8 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-    models.sequelize.sync().then(function(){
-        models.users.findById(user.id).then(function(result){
-            console.log('DESERIALIZE USER: ' + result);
-            done(null, user);
-        });
-    });
+    console.log("In deserializeUser");
+    done(null, user)
 });
 
 

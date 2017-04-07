@@ -10,6 +10,7 @@ export default function callApi(endpoint, method = 'get', body) {
     headers: { 'content-type': 'application/json' },
     method,
     body: JSON.stringify(body),
+    credentials: 'same-origin'
   })
   .then(response => response.json().then(json => ({ json, response })))
   .then(({ json, response }) => {

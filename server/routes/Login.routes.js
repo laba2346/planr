@@ -4,7 +4,14 @@ import passport from '../passport/passport';
 
 const router = new Router();
 
-router.route('/login').post(passport.authenticate('local', { successRedirect: '/app',
-                                                    failureRedirect: '/', failureFlash : true }));
+router.route('/login').post(function(req,res,next){
+    passport.authenticate('local', function(err, user, info){
+        req.login(user, function(err){
+            if (err{console.log(err)};
+        });
+        res.redirect('/app');
+    })(req,res,next)
+});
+
 
 export default router;

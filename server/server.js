@@ -45,41 +45,40 @@ import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
 import serverConfig from './config/config.js';
 
+//Passport/session stuff
+var cookieParser = require('cookie-parser');
+var flash = require('connect-flash');
+var expressSession = require('express-session');
+import passport from './passport/passport';
 
 // Apply body Parser and server public assets and routes
 app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist')));
+app.use(bodyParser());
+app.use(cookieParser("keyboard cat"));
 
-// Import passport and initialize
-import passport from './passport/passport';
-
-var cookieParser = require('cookie-parser');
-var flash = require('connect-flash');
-
-var expressSession = require('express-session');
+//Initialize some stuff
+app.use(flash());
 app.use(expressSession({
   secret: 'keyboard cat',
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   cookie: { maxAge: 3600000}
 }));
-app.use(cookieParser());
-app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/app', function(req, res, next){
     if (req.isAuthenticated()) {
-        console.log('is authenticated, about to next()');
         next();
     }
     else{
-        console.log('not authenticated. redirecting to home')
-        res.redirect('/');
+        res.send('hacker no hacking!');
     }
 });
+
 // Place routers below here
 app.use('/api', signUpRouter);
 app.use('/api', loginRouter);
@@ -157,7 +156,7 @@ app.use((req, res, next) => {
 
         res
           .set('Content-Type', 'text/html')
-          .status(200)
+          .status(202)
           .end(renderFullPage(initialView, finalState));
       })
       .catch((error) => next(error));
