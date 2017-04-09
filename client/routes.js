@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { IndexRoute, Route, Router } from 'react-router';
 import Container from './modules/Container/Container';
 import Landing from './modules/Landing/pages/Landing';
 
@@ -27,19 +27,16 @@ if (process.env.NODE_ENV !== 'production') {
 // More info: http://blog.mxstbr.com/2016/01/react-apps-with-pages/
 export default (
     <Route path="/" component={Container}>
-        <IndexRoute
-          getComponent={(nextState, cb) => {
-            require.ensure([], require => {
-              cb(null, require('./modules/Landing/pages/Landing.js').default);
-            });
-          }}
-        />
-        <Route path="app"
-          getComponent={(nextState, cb) => {
+        <Route path="/landing"  getComponent={(nextState, cb) => {
+             require.ensure([], require => {
+               cb(null, require('./modules/Landing/pages/Landing.js').default);
+             });
+
+         }}/>
+        <IndexRoute getComponent={(nextState, cb) => {
             require.ensure([], require => {
               cb(null, require('./modules/App/App.js').default);
             });
-          }}
-        />
-    </Route>
+        }}/>
+  </Route>
 );
