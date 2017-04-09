@@ -14,9 +14,9 @@ export function invalidLogin(){
 export function sendLoginRequest(formState){
     const apiUrl = 'login';
     return (dispatch) => {
-        return callApi(apiUrl, "post", formState).then(validLogin => {
-            if (validLogin){
-                
+        return callApi(apiUrl, "post", formState).then(res => {
+            if (res){
+                window.location.pathname = '/';
             }
             else{
                 // call action to let user know login failed

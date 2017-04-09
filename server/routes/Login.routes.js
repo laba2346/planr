@@ -7,11 +7,10 @@ const router = new Router();
 router.route('/login').post(function(req,res,next){
     passport.authenticate('local', function(err, user, info){
         req.login(user, function(err){
-            if (err{console.log(err)};
+            if (err){console.log(err)};
         });
-        res.redirect('/app');
+        res.json({validLogin: true});
     })(req,res,next)
 });
-
 
 export default router;

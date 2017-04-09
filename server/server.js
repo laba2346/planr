@@ -70,14 +70,15 @@ app.use(expressSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/app', function(req, res, next){
+app.get('/', function(req, res, next){
     if (req.isAuthenticated()) {
         next();
     }
     else{
-        res.send('hacker no hacking!');
+        res.redirect('/landing');
     }
 });
+
 
 // Place routers below here
 app.use('/api', signUpRouter);
