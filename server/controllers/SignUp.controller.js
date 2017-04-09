@@ -1,6 +1,6 @@
 // Import model
 import {sequelize, users } from '../models/index.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 export function newUser(req, res){
 
