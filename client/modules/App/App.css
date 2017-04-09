@@ -1,11 +1,10 @@
 .app-container{
-    margin: 20px auto 0px 270px;
+    margin: 20px 0px 0px 270px;
 }
 
 .view-container{
     width:750px;
     height:500px;
     display: inline-block;
-    float:right;
-    padding:15px;
+    padding:15px 50px;
 }

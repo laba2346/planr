@@ -30,15 +30,7 @@ class CreateAssignment extends Component {
     render() {
         return (
             <div>
-                <div className={styles['add-assignment-button']} onClick={() => this.handleOpenModal()}> + </div>
-                <ReactModal
-                    isOpen={this.state.showModal}
-                    contentLabel="Login"
-                    className={styles['create-assignment-pane']}
-                    >
-                    <button className={styles['close-login-pane']} onClick={this.handleCloseModal}>X</button>
-                    <NewAssignmentForm createAssignment={this.createAssignment}/>
-                </ReactModal>
+                <input className={styles['create-assignment-text-field']} type="text" placeholder="New Assignment..." ></input>
             </div>
         );
   }
