@@ -20,6 +20,7 @@ class Header extends Component {
         return (
                 <div className={styles['header']}>
                     <div className={styles['header-title']}> planr </div>
+                    <input className={styles['search-field']} type="text" placeholder="Search"></input>
                     <div className={styles['profile']}></div>
                 </div>
         );
