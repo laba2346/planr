@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-//import styles from './Classes.css';
+import styles from './Classes.css';
 
 class Classes extends Component {
 
@@ -11,7 +11,7 @@ class Classes extends Component {
 
     render() {
         return (
-            <div>
+            <div className={styles['classes-container']}>
                 classes view
             </div>
         );

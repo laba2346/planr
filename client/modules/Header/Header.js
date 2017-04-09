@@ -19,14 +19,8 @@ class Header extends Component {
     render() {
         return (
                 <div className={styles['header']}>
-                    <div className={styles['hamburger']+' '+(this.props.sidebarShown ? styles['hamburger-float'] : styles['hamburger-relative'])} onClick={this.toggleSidebar}>
-                        <div> </div>
-                        <div> </div>
-                        <div> </div>
-                    </div>
-                    <div className={styles['logo']}>
-                    </div>
                     <div className={styles['header-title']}> planr </div>
+                    <input className={styles['search-field']} type="text" placeholder="Search"></input>
                     <div className={styles['profile']}></div>
                 </div>
         );
