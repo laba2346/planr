@@ -19,7 +19,8 @@ class Sidebar extends Component {
 
 
     render() {
-        var bar = <div className={styles['sidebar'] + " " + (this.props.sidebarShown ? styles['sidebar-shown'] : styles['sidebar-hidden'])}>
+        var bar = <div className={styles['sidebar'] }>
+                <div className={styles['logo']}></div>
                 <div className={styles['sidebar-tab'] + " " + (this.props.activeView === 'assignments' ? styles['active-sidebar-tab'] : null)} onClick={() => {this.onTabChange('assignments')}}>
                     Assignments
                 </div>
@@ -32,7 +33,7 @@ class Sidebar extends Component {
             </div>
        return (
            <div>
-            {bar}                    
+            {bar}
            </div>
        );
   }

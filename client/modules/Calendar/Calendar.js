@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-//import styles from './Calendar.css';
+import styles from './Calendar.css';
 
 class Calendar extends Component {
 
@@ -11,7 +11,7 @@ class Calendar extends Component {
 
     render() {
         return (
-            <div>
+            <div className={styles['calendar-container']}>
                 Calendar view
             </div>
         );

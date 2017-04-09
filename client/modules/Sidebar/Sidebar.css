@@ -1,17 +1,18 @@
 .sidebar{
     position: fixed;
     top: 0px;
+    left: 0px;
     height:100%;
-    width:300px;
+    width:270px;
     display:inline-block;
     background:#FFF;
     opacity:.9;
     border-right: 1px solid #ccc;
-    -webkit-transition: 500ms; 
-    -moz-transition: 500ms; 
-    -o-transition: 500ms; 
-    transition: 500ms; 
-    padding: 100px 0px;
+    -webkit-transition: 500ms;
+    -moz-transition: 500ms;
+    -o-transition: 500ms;
+    transition: 500ms;
+    padding: 30px 30px;
 }
 
 .sidebar-shown{
@@ -23,24 +24,31 @@
 }
 
 .sidebar-tab{
-    padding:0px 15px;
-    height:75px;
-    line-height:75px;
+    padding:20px 6px;
+    height:35px;
+    line-height:35px;
     font-family:Helvetica;
     font-weight:200;
-    font-size:24px;
+    font-size:20px;
     color:#777;
 }
 
 .active-sidebar-tab{
-    background:#f2f2f2;
+    color: #644b84;
 }
 
 .sidebar-tab:hover{
     color: #644b84;
 }
 
-.sidebar-tab:active{
-    background: #e8e8e8;
+.logo{
+    display:inline-block;
+    background:url('../Header/planr-logo.png');
+    background-size: cover;
+    height: 50px;
+    width: 50px;
 }
 
+.sidebar-tab:active{
+    color: #644b84;
+}
