@@ -69,7 +69,7 @@ export function sendSignUpRequest(formState){
                 dispatch(invalidField(res.existingField));
             }
             else{
-                // trigger redirect
+                window.location.pathname = '/';
             }
         });
     }
