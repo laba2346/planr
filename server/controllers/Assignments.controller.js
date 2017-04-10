@@ -2,15 +2,29 @@
 import {sequelize, assignments} from '../models/index.js';
 
 export function fetchAssignments(req, res){
-    // fetch req.users assignments from db and return
+    // fetch req.user's assignments from db and return
     var options = {
         where: {
             owner_id: req.user.id
         },
+        order: ['assignment_due', 'assignment_name'],
     };
     sequelize.sync().then(function(){
         assignments.findAll(options).then(function(result){
-            res.json(result);
+            var i = 0
+            var assignments = [];
+            while (i < result.length){
+                var temp = [result[i]];
+                i++;
+                if (i < result.length){
+                    while((new Date(result[i].assignment_due)).setHours(0,0,0,0) == (new Date(result[i-1].assignment_due)).setHours(0,0,0,0)){
+                        temp.push(result[i]);
+                        i++;
+                    }
+                }
+                assignments.push(temp);
+            }
+            res.send(assignments);
         });
     });
 }
