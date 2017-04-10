@@ -5,18 +5,12 @@ export function fetchAssignments(req, res){
     // fetch req.users assignments from db and return
     var options = {
         where: {
-            $or: [{username: username}, {email: email}]
+            owner_id: req.user.id
         },
-        defaults: {
-            username: username,
-            password: hash,
-            email: email
-        }
     };
-    var newRecord = false;
     sequelize.sync().then(function(){
         assignments.findAll(options).then(function(result){
-            console.log(result);
+            res.json(result);
         });
     });
 }

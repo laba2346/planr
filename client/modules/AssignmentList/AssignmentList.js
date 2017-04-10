@@ -16,7 +16,13 @@ class AssignmentList extends Component {
     render() {
         return (
             <div className={styles['assignments-list-container']}>
-                hello from assignmentlist.js
+            {
+                this.props.assignments.map(item => (
+                  <div key={item.key}>
+                    'hi'
+                  </div>
+                ))
+            }
             </div>
         );
   }
