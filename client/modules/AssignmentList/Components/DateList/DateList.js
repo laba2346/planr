@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import Assignment from '../Assignment/Assignment';
 import styles from './DateList.css';
-import datejs from 'date.js';
 
 function DateList(props, context) {
     var date = new Date(props.assignments[0].assignment_due);
@@ -20,7 +19,7 @@ function DateList(props, context) {
         monthNames[10] = "November";
         monthNames[11] = "December";
     var month = monthNames[date.getMonth()];
-    
+
     return (
         <div className={styles['date-list']}>
             <h3>{month} {day}</h3>
