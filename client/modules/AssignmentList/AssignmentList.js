@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchAssignments } from './AssignmentListActions';
+import DateList from './Components/DateList/DateList';
 import styles from './AssignmentList.css';
 
 class AssignmentList extends Component {
@@ -17,9 +18,11 @@ class AssignmentList extends Component {
         return (
             <div className={styles['assignments-list-container']}>
             {
-                this.props.assignments.map(item => (
-                  <div key={item.key}>
-                    {item.assignment_name}
+                this.props.assignments.map(assignmentArray => (
+                  <div key={assignmentArray.key}>
+                    <DateList
+                        assignments={assignmentArray}
+                    />
                   </div>
                 ))
             }
