@@ -19,7 +19,7 @@ class AssignmentList extends Component {
             {
                 this.props.assignments.map(item => (
                   <div key={item.key}>
-                    'hi'
+                    {item.assignment_name}
                   </div>
                 ))
             }

@@ -15,7 +15,6 @@ export function fetchAssignments(req, res){
     });
 }
 
-
 export function createAssignment(req, res){
     var name= req.body.name;
     var desc= req.body.desc;
