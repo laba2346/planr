@@ -16,7 +16,7 @@ var models = require('./models');
 // Import routers
 import signUpRouter from './routes/SignUp.routes.js';
 import loginRouter from './routes/Login.routes.js';
-import createAssignmentRouter from './routes/CreateAssignment.routes.js';
+import assignmentsRouter from './routes/Assignments.routes.js';
 
 //models.classes.belongsTo(models.users)
 //models.assignments.belongsTo(models.classes)
@@ -83,7 +83,7 @@ app.get('/', function(req, res, next){
 // Place routers below here
 app.use('/api', signUpRouter);
 app.use('/api', loginRouter);
-app.use('/api', createAssignmentRouter);
+app.use('/api', assignmentsRouter);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {

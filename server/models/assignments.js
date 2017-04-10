@@ -5,6 +5,9 @@ var assignments = {
         type: DataTypes.BIGINT,
         primaryKey: true,
     },
+    owner_id:{
+        type: DataTypes.BIGINT,
+    },
     class_id: {
         type: DataTypes.BIGINT
     },

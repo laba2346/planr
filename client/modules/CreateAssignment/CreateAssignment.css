@@ -15,10 +15,10 @@
     background:#554b67;
 }
 
-.create-assignment-pane{
-    margin: 50px auto;
+.create-assignment-text-field{
+    display: inline-block;
+    float:left;
+    width:400px;
+    height:60px;
     outline:none;
-    border: 2px solid #776990;
-    width:500px;
-    height:500px;
 }
