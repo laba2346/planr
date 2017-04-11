@@ -17,6 +17,7 @@ export function fetchAssignments(req, res){
                 var temp = [result[i]];
                 i++;
                 if (i < result.length){
+                    // Horrible hacky solution but you know yo do what you have to
                     while((new Date(result[i].assignment_due)).setHours(0,0,0,0) == (new Date(result[i-1].assignment_due)).setHours(0,0,0,0)){
                         temp.push(result[i]);
                         i++;

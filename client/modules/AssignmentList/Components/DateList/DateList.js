@@ -1,28 +1,19 @@
 import React, { PropTypes } from 'react';
 import Assignment from '../Assignment/Assignment';
 import styles from './DateList.css';
-
+import moment from 'moment';
 function DateList(props, context) {
     var date = new Date(props.assignments[0].assignment_due);
-    var day = date.getDay()+1;
-    var monthNames = new Array();
-        monthNames[0] = "January";
-        monthNames[1] = "February";
-        monthNames[2] = "March";
-        monthNames[3] = "April";
-        monthNames[4] = "May";
-        monthNames[5] = "June";
-        monthNames[6] = "July";
-        monthNames[7] = "August";
-        monthNames[8] = "September";
-        monthNames[9] = "October";
-        monthNames[10] = "November";
-        monthNames[11] = "December";
-    var month = monthNames[date.getMonth()];
-
+    //var day = moment(date).format("dddd, MMMM Do");
+    var dayOfWeek = moment(date).format("ddd");
+    var day = moment(date).format("D");
     return (
         <div className={styles['date-list']}>
-            <h3>{month} {day}</h3>
+            <div className={styles['day-block']}>
+                <label className={styles['dayOfWeek-label']}>{dayOfWeek}</label>
+                <label className={styles['day-label']}>{day}</label>
+            </div>
+            <div className={styles['assignment-list-container']}>
             {
                 props.assignments.map(assignment => (
                   <div key={assignment.id}>
@@ -32,6 +23,7 @@ function DateList(props, context) {
                   </div>
                 ))
             }
+            </div>
         </div>
     );
 }
