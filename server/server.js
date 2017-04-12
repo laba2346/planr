@@ -81,6 +81,15 @@ app.get('/', function(req, res, next){
     }
 });
 
+app.get('/landing', function(req, res, next){
+    if (req.isAuthenticated()){
+        res.redirect('/');
+    }
+    else{
+        next();
+    }
+});
+
 
 // Place routers below here
 app.use('/api', signUpRouter);
