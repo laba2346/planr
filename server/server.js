@@ -18,6 +18,7 @@ import signUpRouter from './routes/SignUp.routes.js';
 import loginRouter from './routes/Login.routes.js';
 import logoutRouter from './routes/Logout.routes.js'
 import assignmentsRouter from './routes/Assignments.routes.js';
+import settingsRouter from './routes/Settings.routes.js';
 
 //models.classes.belongsTo(models.users)
 //models.assignments.belongsTo(models.classes)
@@ -86,6 +87,7 @@ app.use('/api', signUpRouter);
 app.use('/api', loginRouter);
 app.use('/api', assignmentsRouter);
 app.use('/api', logoutRouter);
+app.use('/api', settingsRouter);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
