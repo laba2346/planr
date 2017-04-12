@@ -56,3 +56,7 @@ input:focus{
     height:30px;
     background:#f58a8a;
 }
+
+.not-shown{
+    visibility: hidden;
+}
