@@ -1,0 +1,39 @@
+.date-list{
+    display:block;
+    margin: 25px 0px;
+    padding:0px 0px 20px 20px;
+    background: #fff;
+    width:100%;
+    border-bottom: 1px solid #ccc;
+    font-family:Helvetica Neue;
+}
+
+.assignment-list-container{
+    display: inline-block;
+    margin: 0px 0px 0px 30px;
+}
+
+.day-block{
+    display:inline-block;
+    width:45px;
+    vertical-align: top;
+    color:#444;
+}
+
+.dayOfWeek-label{
+    display:block;
+    width:100%;
+    text-align: right;
+    font-size:20px;
+    letter-spacing: -1px;
+    font-weight:400;
+}
+
+.day-label{
+    display:block;
+    width:100%;
+    text-align: right;
+    font-size:40px;
+    font-weight:500;
+    letter-spacing: -4px;
+}

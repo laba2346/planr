@@ -30,7 +30,6 @@ class CreateAssignment extends Component {
     render() {
         return (
             <div>
-                <input className={styles['create-assignment-text-field']} type="text" placeholder="New Assignment..." ></input>
             </div>
         );
   }
