@@ -73,7 +73,15 @@ export function sendSignUpRequest(formState){
                 dispatch(invalidField(res.existingField));
             }
             else{
-                window.location.pathname = '/';
+                callApi('login', "post", formState).then( res => {
+                    if (res){
+                        window.location.pathname = '/';
+                    }
+                    else{
+                        // call action to let user know login failed
+                        dispatch(invalidLogin());
+                    }
+                })
             }
         });
     }
