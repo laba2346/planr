@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import ReactModal from 'react-modal';
-import { toggleSidebar } from './HeaderActions';
+import { toggleSidebar, sendLogoutRequest } from './HeaderActions';
 import styles from './Header.css';
 import DropdownMenu from 'react-dd-menu';
 
@@ -9,6 +9,8 @@ class Header extends Component {
 
     constructor () {
         super();
+        this.toggleSidebar = this.toggleSidebar.bind(this);
+        this.logout = this.logout.bind(this);
         this.state = {isMenuOpen: false}
         this.toggle = this.toggle.bind(this);
         this.close = this.close.bind(this);
@@ -28,6 +30,10 @@ class Header extends Component {
   };
 
 
+    logout(){
+        this.props.dispatch(sendLogoutRequest())
+    }
+
     render() {
       let view = null;
       let menuOptions = {
@@ -39,6 +45,7 @@ class Header extends Component {
         return (
                 <div className={styles['header']}>
                     <div className={styles['header-title']}> planr </div>
+                    <button onClick={this.logout}>Logout</button>
                     <input className={styles['search-field']} type="text" placeholder="Search"></input>
                     <DropdownMenu {...menuOptions}>
                       <li><a href="#">Example 1</a></li>

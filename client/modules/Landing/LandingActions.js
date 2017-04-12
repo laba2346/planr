@@ -15,7 +15,8 @@ export function sendLoginRequest(formState){
     const apiUrl = 'login';
     return (dispatch) => {
         return callApi(apiUrl, "post", formState).then(res => {
-            if (res){
+            console.log("OII!!!!");
+            if (res.validLogin){
                 window.location.pathname = '/';
             }
             else{
@@ -73,7 +74,15 @@ export function sendSignUpRequest(formState){
                 dispatch(invalidField(res.existingField));
             }
             else{
-                window.location.pathname = '/';
+                callApi('login', "post", formState).then( res => {
+                    if (res){
+                        window.location.pathname = '/';
+                    }
+                    else{
+                        // call action to let user know login failed
+                        dispatch(invalidLogin());
+                    }
+                })
             }
         });
     }
