@@ -9,7 +9,6 @@ class Header extends Component {
 
     constructor () {
         super();
-        this.toggleSidebar = this.toggleSidebar.bind(this);
         this.logout = this.logout.bind(this);
         this.state = {isMenuOpen: false}
         this.toggle = this.toggle.bind(this);
