@@ -11,7 +11,6 @@ class Header extends Component {
         this.state = {
           showModal: false
         };
-
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
     }
