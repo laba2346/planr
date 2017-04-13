@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './Classes.css';
 import ReactModal from 'react-modal';
-import NewClassForm './components/NewClassForm/NewClassForm';
+import NewClassForm from './components/NewClassForm/NewClassForm';
 import { createClassRequest } from './ClassesActions';
 //import styles from './Classes.css';
 
