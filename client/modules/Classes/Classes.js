@@ -4,7 +4,7 @@ import styles from './Classes.css';
 import ReactModal from 'react-modal';
 import NewClassForm from './components/NewClassForm/NewClassForm';
 import { createClassRequest } from './ClassesActions';
-//import styles from './Classes.css';
+import styles from './Classes.css';
 
 class Classes extends Component {
 
