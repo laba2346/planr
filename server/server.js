@@ -19,6 +19,9 @@ import loginRouter from './routes/Login.routes.js';
 import logoutRouter from './routes/Logout.routes.js'
 import assignmentsRouter from './routes/Assignments.routes.js';
 import settingsRouter from './routes/Settings.routes.js';
+import createAssignmentRouter from './routes/CreateAssignment.routes.js';
+import viewClassesRouter from './routes/ViewClasses.routes.js';
+
 
 //models.classes.belongsTo(models.users)
 //models.assignments.belongsTo(models.classes)
@@ -97,6 +100,8 @@ app.use('/api', loginRouter);
 app.use('/api', assignmentsRouter);
 app.use('/api', logoutRouter);
 app.use('/api', settingsRouter);
+app.use('/api', createAssignmentRouter);
+app.use('/api', viewClassesRouter);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
