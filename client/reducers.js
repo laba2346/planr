@@ -21,6 +21,6 @@ export default combineReducers({
     sidebar,
     header,
     createassignment,
-    assignmentlist
+    assignmentlist,
     classes
 });
