@@ -11,7 +11,7 @@ import sidebar from './modules/Sidebar/SidebarReducer';
 import header from './modules/Header/HeaderReducer';
 import createassignment from './modules/CreateAssignment/CreateAssignmentReducer';
 import assignmentlist from './modules/AssignmentList/AssignmentListReducer';
-
+import classes from './modules/Classes/ClassesReducer.js';
 
 // Combine all reducers into one root reducer
 export default combineReducers({
@@ -22,4 +22,5 @@ export default combineReducers({
     header,
     createassignment,
     assignmentlist
+    classes
 });
