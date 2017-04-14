@@ -4,7 +4,6 @@ import styles from './Classes.css';
 import ReactModal from 'react-modal';
 import NewClassForm from './components/NewClassForm/NewClassForm';
 import { createClassRequest } from './ClassesActions';
-import styles from './Classes.css';
 
 class Classes extends Component {
 
@@ -26,23 +25,27 @@ class Classes extends Component {
 
     render() {
         return (
+            <div>
             <div className={styles['classes-container']}>
                 classes view
+            </div>
             <div>
                 <h1>classes view</h1>
 
             </div>
+            </div>
         );
   }
+
+}
+
+function mapStateToProps(state)
+{
+    return {
+    };
 }
 
 // Retrieve data from store as props
-function mapStateToProps(state) {
-  return {
-
-  };
-}
-
 Classes.propTypes = {
     dispatch: PropTypes.func.isRequired,
 };
