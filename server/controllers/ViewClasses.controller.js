@@ -45,7 +45,6 @@ export function fetchClasses(req, res){
     };
     sequelize.sync().then(function(){
         classes.findAll(options).then(function(result){
-            var i = 0
             var classes = result;
             res.send(classes);
         });
