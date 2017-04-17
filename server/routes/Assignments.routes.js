@@ -7,5 +7,4 @@ router.route('/createAssignment').post(AssignmentsController.createAssignment);
 router.route('/fetchAssignments').get(AssignmentsController.fetchAssignments);
 
 
-
 export default router;
