@@ -4,6 +4,7 @@ var assignments = {
     id: {
         type: DataTypes.BIGINT,
         primaryKey: true,
+        autoIncrement: true,
     },
     owner_id:{
         type: DataTypes.BIGINT,

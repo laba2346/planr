@@ -3,11 +3,11 @@ import DataTypes from 'sequelize';
 var classes = {
     id: {
         type: DataTypes.BIGINT,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true,
     },
     user_id: {
         type: DataTypes.BIGINT,
-
     },
     class_name: {
         type: DataTypes.STRING,
@@ -18,6 +18,9 @@ var classes = {
     class_times: {
         type: DataTypes.STRING,
     },
+    class_color: {
+        type: DataTypes.STRING,
+    }
 };
 
 module.exports = classes;

@@ -8,42 +8,45 @@ export function createClass(req, res){
     var name= req.body.name;
     var info= req.body.desc;
     var times= req.body.date;
+    var color= req.body.color;
     var options = {
-        where: {
-            $or: [{username: username}, {email: email}]
-        },
-        defaults: {
-            username: username,
-            password: hash,
-            email: email
-        }
+        class_name: name,
+        class_info: info,
+        class_color: color,
+        class_times: times,
+        user_id: req.user.id,
+
     };
-    var newRecord = false;
     sequelize.sync().then(function(){
-        users.findOrCreate(options).then(function(result){
-            newRecord = result[1];
-            if (!newRecord){
-                var response = {};
-                if (username == result[0].dataValues.username){
-                    response = {
-                        newUser: false,
-                        existingField: 'username'
-                    };
-                }
-                else{
-                    response = {
-                        newUser: false,
-                        existingField: 'email'
-                    }
-                }
-                res.send(response);
+        classes.create(options).then(function(err){
+            console.log(err)
+            var response = {};
+            if(err){
+                response = {
+                    newClass: false,
+                };
             }
             else{
-                var response = {
-                    newUser: true,
+                response = {
+                    newClass: true,
                 };
-                res.send(response);
             }
+            res.send(response);
+        });
+    });
+}
+
+export function fetchClasses(req, res){
+    var options = {
+        where: {
+            owner_id: req.user.id
+        },
+        order: ['class_name'],
+    };
+    sequelize.sync().then(function(){
+        classes.findAll(options).then(function(result){
+            var classes = result;
+            res.send(classes);
         });
     });
 }
