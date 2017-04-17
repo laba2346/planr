@@ -10,6 +10,7 @@ import routes from './routes';
 
 // Base stylesheet
 require('./main.css');
+require('./lib.css');
 
 export default function App(props) {
   return (

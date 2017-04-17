@@ -38,11 +38,11 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /lib\.css$/],
         loader: 'style-loader!css-loader?localIdentName=[name]__[local]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader',
       }, {
         test: /\.css$/,
-        include: /node_modules/,
+        include: [/node_modules/, /lib\.css$/],
         loaders: ['style-loader', 'css-loader'],
       }, {
         test: /\.jsx*$/,
