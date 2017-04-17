@@ -1,0 +1,24 @@
+.add-assignment-button{
+    display:inline-block;
+    float:right;
+    width:75px;
+    height:75px;
+    line-height:75px;
+    color: #FFF;
+    text-align:center;
+    font-size:54px;
+    background:#776990;
+    border-radius:100%;
+}
+
+.add-assignment-button:hover{
+    background:#554b67;
+}
+
+.create-assignment-text-field{
+    display: inline-block;
+    float:left;
+    width:400px;
+    height:60px;
+    outline:none;
+}

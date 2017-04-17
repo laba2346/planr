@@ -19,9 +19,7 @@ class ClassList extends Component {
             {
                 this.props.classes.map(ClassArray => (
                   <div key={ClassArray.key}>
-                    <DateList
-                        classes={ClassArray}
-                    />
+                  memes
                   </div>
                 ))
             }
