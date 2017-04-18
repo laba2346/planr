@@ -31,6 +31,15 @@ class CreateClass extends Component {
     render() {
         return (
             <div>
+            <div className={styles['add-class-button']} onClick={() => this.handleOpenModal()}> + </div>
+                <ReactModal
+                   isOpen={this.state.showModal}
+                   contentLabel="Create Class"
+                   className={styles['create-class-pane']}
+                   >
+                   <button className={styles['close-login-pane']} onClick={this.handleCloseModal}>X</button>
+                   <NewClassForm createClass={this.createClass}/>
+                   </ReactModal>
             </div>
         );
   }

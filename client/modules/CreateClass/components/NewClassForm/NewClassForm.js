@@ -5,8 +5,8 @@ import styles from './NewClassForm.css';
 class NewClassForm extends Component {
     constructor(props) {
         super(props);
-        this.state = { class_name: '', class_info: '', class_times: '',
-            class_color: ''};
+        this.state = { name: '', info: '', times: '',
+            color: ''};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -32,8 +32,11 @@ class NewClassForm extends Component {
                 <form className={styles['new-assignment-form']} onSubmit={this.handleSubmit}>
                     <label> New Assignment </label>
                     {this.props.failedLogin && <div className={styles['login-failed']}>!</div>}
-                    <input name="class_name" className={styles['input']} type="text" placeholder="Name" value={this.state.class_name} onChange={this.handleChange} />
-                    <input name="class_info" className={styles['input']} type="text" placeholder="Description" value={this.state.class_info} onChange={this.handleChange} />
+                    <input name="name" className={styles['input']} type="text" placeholder="Class Name" value={this.state.class_name} onChange={this.handleChange} />
+                    <input name="desc" className={styles['input']} type="text" placeholder="Class Description" value={this.state.class_info} onChange={this.handleChange} />
+                    <input name="times" className={styles['input']} type="text" placeholder="Times" value={this.state.class_times} onChange={this.handleChange} />
+                    <input name="color" className={styles['input']} type="text" placeholder="Colors" value={this.state.class_color} onChange={this.handleChange} />
+
                     <input type="submit" className={styles['login-submit'] + ' transition'} value="Submit" />
                 </form>
             </div>

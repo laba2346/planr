@@ -46,6 +46,6 @@ module.exports = {
     sequelize: sequelize,
     users: usersModel,
     assignments: assignmentsModel,
-    classesModel: classesModel, //should this be classes?
+    classes: classesModel, //should this be classes?
     settings: settingsModel,
 };

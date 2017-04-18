@@ -4,7 +4,7 @@ import styles from './Classes.css';
 import ReactModal from 'react-modal';
 import CreateClass from '../CreateClass/CreateClass';
 import ClassList from '../ClassList/ClassList'
-import NewClassForm from './components/NewClassForm/NewClassForm';
+import NewClassForm from '../CreateClass/components/NewClassForm/NewClassForm';
 import { createClassRequest } from './ClassesActions';
 
 class Classes extends Component {
@@ -27,15 +27,8 @@ class Classes extends Component {
 
     render() {
         return (
-            <div>
             <div className={styles['classes-container']}>
-                <CreateClass />
-                <ClassList />
-            </div>
-            <div>
-                <h1>classes view</h1>
-
-            </div>
+            <CreateClass />
             </div>
         );
   }

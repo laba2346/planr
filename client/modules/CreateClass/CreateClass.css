@@ -1,4 +1,4 @@
-.add-assignment-button{
+.add-class-button{
     display:inline-block;
     float:right;
     width:75px;
@@ -11,14 +11,14 @@
     border-radius:100%;
 }
 
-.add-assignment-button:hover{
+.add-class-button:hover{
     background:#554b67;
 }
 
-.create-assignment-text-field{
-    display: inline-block;
-    float:left;
-    width:400px;
-    height:60px;
+.create-class-pane{
+    margin: 50px auto;
     outline:none;
+    border: 2px solid #776990;
+    width:500px;
+    height:500px;
 }
