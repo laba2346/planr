@@ -1,24 +1,52 @@
-.add-assignment-button{
-    display:inline-block;
-    float:right;
-    width:75px;
-    height:75px;
-    line-height:75px;
-    color: #FFF;
-    text-align:center;
-    font-size:54px;
-    background:#776990;
-    border-radius:100%;
+.settings-form{
+    position:relative;
+    margin: 15px 10px 0px 10px;
 }
 
-.add-assignment-button:hover{
-    background:#554b67;
+.settings-form label{
+    font-family:Helvetica;
+    letter-spacing: -1px;
+    font-size: 20px;
+    font-weight:200;
 }
 
-.create-assignment-pane{
-    margin: 50px auto;
+.settings-form input{
+    display:block;
+    font-size:16px;
+    padding:15px;
+
+    margin:10px 0px;
+
+    height:40px;
+    width:350px;
+    border-radius:4px;
     outline:none;
-    border: 2px solid #776990;
-    width:500px;
-    height:500px;
+}
+
+.invalid-field{
+    border: 2px solid #ff9b9b;
+}
+.invalid-field:focus{
+    border: 2px solid #ff9b9b;
+}
+
+.valid-field{
+    border: 1.5px solid #ccc;
+}
+
+.settings-submit{
+    width:300px;
+    height:40px;
+    font-family: 'Open Sans', Helvetica;
+    line-height: 0px;
+    outline: none;
+    border-radius: 3px;
+    background: none;
+    color: #705e8b;
+    border:1px solid #705e8b;
+}
+
+.settings-submit:hover{
+    background:#705e8b;
+    color: #FFF;
 }
