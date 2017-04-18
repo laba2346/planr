@@ -7,12 +7,14 @@ class NewAssignmentForm extends Component {
 
     constructor(props){
         super(props);
-        this.state = {name: '', desc: '', date: '' };
+        this.state = {name: '', desc: '', date: ''};
         this.handleChange = this.handleChange.bind(this);
+        this.handleDateChange = this.handleDateChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(event){
+        console.log(this.state);
         event.preventDefault();
         this.props.createAssignment(this.state);
     }
@@ -20,23 +22,33 @@ class NewAssignmentForm extends Component {
     handleChange(event) {
         const target = event.target;
         const value = target.value;
+        console.log(value);
         const name = target.name;
         this.setState({
           [name]: value
         });
     }
 
+    handleDateChange(moment){
+        console.log(moment._d);
+        this.setState({
+            date: moment._d,
+        })
+    }
+
     render() {
         return (
             <div>
                 <form className={styles['new-assignment-form']} onSubmit={this.handleSubmit}>
-                    <label> New Assignment </label>
+                    <label> new assignment </label>
                     {this.props.failedLogin && <div className={styles['login-failed']}>!</div>}
                     <input name="name" className={styles['input']} type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange} />
-                    <input name="description" className={styles['input']} type="text" placeholder="Description" value={this.state.data} onChange={this.handleChange} />
-                    <input type="submit" className={styles['login-submit'] + ' transition'} value="Submit" />
+                    <input name="desc" className={styles['input']} type="text" placeholder="Description" value={this.state.desc} onChange={this.handleChange} />
+                    <Datetime name="date" placeholder="Due Date" value={this.state.date} onChange={this.handleDateChange}/>
+                    <input type="submit" className={styles['assignment-submit'] + ' transition'} value="Submit" />
                 </form>
-                <Datetime />
+
+
             </div>
         );
   }

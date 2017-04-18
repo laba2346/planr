@@ -24,12 +24,22 @@ class CreateAssignment extends Component {
     }
 
     createAssignment (formdata) {
-        this.props.dispatch(createAssignmentRequest(formdata))
+        console.log(formdata)
+        this.props.dispatch(createAssignmentRequest(formdata));
     }
 
     render() {
         return (
             <div>
+            <div className={styles['add-assignment-button']} onClick={() => this.handleOpenModal()}> + </div>
+                <ReactModal
+                   isOpen={this.state.showModal}
+                   contentLabel="Create Assignment"
+                   className={styles['create-assignment-pane']}
+                   >
+                   <button className={styles['close-assignment-pane']} onClick={this.handleCloseModal}>X</button>
+                   <NewAssignmentForm createAssignment={this.createAssignment}/>
+                   </ReactModal>
             </div>
         );
   }
