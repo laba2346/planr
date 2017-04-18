@@ -12,6 +12,31 @@
     outline:none;
 }
 
+.new-class-form label{
+    font-family:Helvetica;
+    letter-spacing: -2px;
+    font-size: 30px;
+    font-weight:600;
+    color: #705e8b;
+}
+
+.class-submit{
+    width:300px;
+    height:40px;
+    font-family: 'Open Sans', Helvetica;
+    line-height: 0px;
+    outline: none;
+    border-radius: 3px;
+    background: none;
+    color: #705e8b;
+    border:1px solid #705e8b;
+}
+
+.class-submit:hover{
+    background:#705e8b;
+    color: #FFF;
+}
+
 input:focus{
     border: 1px #705e8b solid;
 }

@@ -29,15 +29,15 @@ class NewClassForm extends Component {
     render() {
         return (
             <div>
-                <form className={styles['new-assignment-form']} onSubmit={this.handleSubmit}>
-                    <label> New Assignment </label>
+                <form className={styles['new-class-form']} onSubmit={this.handleSubmit}>
+                    <label> new class </label>
                     {this.props.failedLogin && <div className={styles['login-failed']}>!</div>}
                     <input name="name" className={styles['input']} type="text" placeholder="Class Name" value={this.state.class_name} onChange={this.handleChange} />
                     <input name="desc" className={styles['input']} type="text" placeholder="Class Description" value={this.state.class_info} onChange={this.handleChange} />
                     <input name="times" className={styles['input']} type="text" placeholder="Times" value={this.state.class_times} onChange={this.handleChange} />
                     <input name="color" className={styles['input']} type="text" placeholder="Colors" value={this.state.class_color} onChange={this.handleChange} />
 
-                    <input type="submit" className={styles['login-submit'] + ' transition'} value="Submit" />
+                    <input type="submit" className={styles['class-submit'] + ' transition'} value="Submit" />
                 </form>
             </div>
         );
