@@ -42,6 +42,7 @@ export function createAssignment(req, res){
         assignment_due: date,
     };
     var newRecord = false;
+    console.log(options)
     sequelize.sync().then(function(){
         assignments.create(options).then(function(result){
             console.log("INSERTING...");

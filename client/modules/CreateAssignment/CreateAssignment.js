@@ -24,6 +24,7 @@ class CreateAssignment extends Component {
     }
 
     createAssignment (formdata) {
+        console.log(formdata)
         this.props.dispatch(createAssignmentRequest(formdata))
     }
 
