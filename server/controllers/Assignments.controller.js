@@ -34,6 +34,7 @@ export function createAssignment(req, res){
     var name= req.body.name;
     var desc= req.body.desc;
     var date= req.body.date;
+    console.log(req.body);
     var options = {
         owner_id: req.user.id,
         class_id: 1,
@@ -46,6 +47,8 @@ export function createAssignment(req, res){
     sequelize.sync().then(function(){
         assignments.create(options).then(function(result){
             console.log("INSERTING...");
+            res.send(result);
         });
     });
+
 }

@@ -37,7 +37,7 @@ class CreateClass extends Component {
                    contentLabel="Create Class"
                    className={styles['create-class-pane']}
                    >
-                   <button className={styles['close-login-pane']} onClick={this.handleCloseModal}>X</button>
+                   <button className={styles['close-class-pane']} onClick={this.handleCloseModal}>X</button>
                    <NewClassForm createClass={this.createClass}/>
                    </ReactModal>
             </div>

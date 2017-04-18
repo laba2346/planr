@@ -25,7 +25,7 @@ class CreateAssignment extends Component {
 
     createAssignment (formdata) {
         console.log(formdata)
-        this.props.dispatch(createAssignmentRequest(formdata))
+        this.props.dispatch(createAssignmentRequest(formdata));
     }
 
     render() {
@@ -37,7 +37,7 @@ class CreateAssignment extends Component {
                    contentLabel="Create Assignment"
                    className={styles['create-assignment-pane']}
                    >
-                   <button className={styles['close-login-pane']} onClick={this.handleCloseModal}>X</button>
+                   <button className={styles['close-assignment-pane']} onClick={this.handleCloseModal}>X</button>
                    <NewAssignmentForm createAssignment={this.createAssignment}/>
                    </ReactModal>
             </div>

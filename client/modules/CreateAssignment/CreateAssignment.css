@@ -22,3 +22,18 @@
     width:500px;
     height:500px;
 }
+
+.close-assignment-pane{
+    float:right;
+    border:none;
+    outline:none;
+    font-family: Helvetica;
+    font-size:26px;
+    font-weight:200;
+    color: #444;
+    background:none;
+}
+
+.close-assignment-pane:hover{
+    color:#888;
+}
