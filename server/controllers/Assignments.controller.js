@@ -35,41 +35,16 @@ export function createAssignment(req, res){
     var desc= req.body.desc;
     var date= req.body.date;
     var options = {
-        where: {
-            $or: [{username: username}, {email: email}]
-        },
-        defaults: {
-            username: username,
-            password: hash,
-            email: email
-        }
+        owner_id: req.user.id,
+        class_id: 1,
+        assignment_name: name,
+        assignment_description: desc,
+        assignment_due: date,
     };
     var newRecord = false;
     sequelize.sync().then(function(){
-        assignments.findOrCreate(options).then(function(result){
-            newRecord = result[1];
-            if (!newRecord){
-                var response = {};
-                if (username == result[0].dataValues.username){
-                    response = {
-                        newUser: false,
-                        existingField: 'username'
-                    };
-                }
-                else{
-                    response = {
-                        newUser: false,
-                        existingField: 'email'
-                    }
-                }
-                res.send(response);
-            }
-            else{
-                var response = {
-                    newUser: true,
-                };
-                res.send(response);
-            }
+        assignments.create(options).then(function(result){
+            console.log("INSERTING...");
         });
     });
 }

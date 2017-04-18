@@ -30,11 +30,11 @@ class NewAssignmentForm extends Component {
         return (
             <div>
                 <form className={styles['new-assignment-form']} onSubmit={this.handleSubmit}>
-                    <label> New Assignment </label>
+                    <label> new assignment </label>
                     {this.props.failedLogin && <div className={styles['login-failed']}>!</div>}
                     <input name="name" className={styles['input']} type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange} />
                     <input name="description" className={styles['input']} type="text" placeholder="Description" value={this.state.data} onChange={this.handleChange} />
-                    <input type="submit" className={styles['login-submit'] + ' transition'} value="Submit" />
+                    <input type="submit" className={styles['assignment-submit'] + ' transition'} value="Submit" />
                 </form>
                 <Datetime />
             </div>
