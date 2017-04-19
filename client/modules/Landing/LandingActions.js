@@ -54,7 +54,6 @@ export function checkIfFieldsValid(formState){
 
         if (emailreg.exec(formState.email) === null)
         {
-          console.log("finna dispatch invalidField")
           dispatch(invalidField("email"))
           return false;
         }

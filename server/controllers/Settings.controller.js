@@ -1,5 +1,5 @@
 // Import model
-import {sequelize, settings } from '../models/index.js';
+import {sequelize, users } from '../models/index.js';
 import bcrypt from 'bcryptjs';
 
 export function newSettings(req, res){
@@ -10,17 +10,23 @@ export function newSettings(req, res){
     var newEmail = req.body.email;
     var newPassword = req.body.password1;
     var verifyPassword = req.body.password2;
-    if (newPassword === verifyPassword){
-        var hash = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(8), null);
+    var hash = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(8), null);
+    var values = {};
+    if(color !== ''){
+        values.color = color;
     }
-    var values = {
-        user_id: user_id,
-        color: color
-        
-    };
+    if(newUser !== ''){
+        values.username = newUser;
+    }
+    if(newEmail !== ''){
+        values.email = newEmail;
+    }
+    if(newPassword !== '' && hash !== null){
+        values.password = hash;
+    }
 
     sequelize.sync().then(function(){
-        settings.upsert(values).then(function(result){
+        users.update(values, { where: { id: user_id } }).then(function(result){
             res.send(values);
         });
     });

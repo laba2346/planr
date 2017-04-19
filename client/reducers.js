@@ -12,7 +12,8 @@ import header from './modules/Header/HeaderReducer';
 import createassignment from './modules/CreateAssignment/CreateAssignmentReducer';
 import assignmentlist from './modules/AssignmentList/AssignmentListReducer';
 import classes from './modules/Classes/ClassesReducer.js';
-import createclass from './modules/CreateClass/CreateClassReducer'
+import createclass from './modules/CreateClass/CreateClassReducer';
+import settings from './modules/Settings/SettingsReducer';
 // Combine all reducers into one root reducer
 export default combineReducers({
     container,
@@ -23,5 +24,6 @@ export default combineReducers({
     createassignment,
     assignmentlist,
     createclass,
-    classes
+    classes,
+    settings
 });
