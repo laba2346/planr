@@ -18,5 +18,8 @@ var users = {
     join_date: {
         type: DataTypes.DATE
     },
+    color: {
+        type: DataTypes.STRING
+    },
 }
 module.exports = users;

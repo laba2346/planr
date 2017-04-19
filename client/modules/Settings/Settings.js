@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './Settings.css';
-import { changeSettingRequest } from './SettingsActions.js'
+import { changeSettingRequest, checkIfFieldsValid } from './SettingsActions.js'
 import { CirclePicker } from 'react-color';
 
 class Settings extends Component {
@@ -14,13 +14,14 @@ class Settings extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    changeSetting (formdata) {
-        this.props.dispatch(changeSettingRequest(formdata))
-    }
-
     handleSubmit(event){
         event.preventDefault();
-        this.changeSetting(this.state);
+        if(this.props.dispatch(checkIfFieldsValid(this.state))){
+            this.props.dispatch(changeSettingRequest(this.state))
+        }
+        else{
+            console.log("didn't send to server")
+        }
     }
 
     handleChange(event) {
@@ -44,9 +45,9 @@ class Settings extends Component {
                 <label className={styles['settings-label']}> select themes color </label>
                 <CirclePicker circleSpacing='10'color={this.state.color} onChangeComplete={this.handleChangeColor} />
                 <input name="username" className={styles['valid-field'] + ' ' + styles['input']} type="text" placeholder="Change username" value={this.state.username} onChange={this.handleChange} />
-                <input name="email" className={styles['valid-field'] + ' ' + styles['input']} type="text" placeholder="Change email" value={this.state.email} onChange={this.handleChange} />
-                <input name="password1" className={styles['valid-field'] + ' ' + styles['input']} type="password" placeholder="Change password" value={this.state.password1} onChange={this.handleChange} />
-                <input name="password2" className={styles['valid-field'] + ' ' + styles['input']} type="password" placeholder="Verify new password" value={this.state.password2} onChange={this.handleChange} />
+                <input name="email" className={(this.props.emailInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder="Change email" value={this.state.email} onChange={this.handleChange} />
+                <input name="password1" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Change password" value={this.state.password1} onChange={this.handleChange} />
+                <input name="password2" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Verify new password" value={this.state.password2} onChange={this.handleChange} />
                 <input type="submit" className={styles['settings-submit'] + ' transition'} value="Save" />
             </form>
             </div>
@@ -57,12 +58,15 @@ class Settings extends Component {
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
-
+      emailInvalid: state.settings.emailInvalid,
+      passwordInvalid: state.settings.passwordInvalid,
   };
 }
 
 Settings.propTypes = {
     dispatch: PropTypes.func.isRequired,
+    emailInvalid: PropTypes.bool.isRequired,
+    passwordInvalid: PropTypes.bool.isRequired,
 };
 
 Settings.contextTypes = {
