@@ -12,20 +12,26 @@ export function fetchAssignments(req, res){
     sequelize.sync().then(function(){
         assignments.findAll(options).then(function(result){
             var i = 0
-            var assignments = [];
-            while (i < result.length){
-                var temp = [result[i]];
-                i++;
-                if (i < result.length){
-                    // Horrible hacky solution but you know yo do what you have to
-                    while((new Date(result[i].assignment_due)).setHours(0,0,0,0) == (new Date(result[i-1].assignment_due)).setHours(0,0,0,0)){
-                        temp.push(result[i]);
-                        i++;
+            // Array of objects corresponding to date
+            var dates = [];
+            for(var i=0; i < result.length; i++){
+                var newDate = true;
+                if (dates[dates.length-1]){
+                    if (dates[dates.length-1].date === (new Date(result[i].assignment_due)).setHours(0,0,0,0)){
+                        dates[dates.length-1].assignments.push(result[i]);
+                        newDate = false;
                     }
                 }
-                assignments.push(temp);
+                if(newDate){
+                    var date = (new Date(result[i].assignment_due)).setHours(0,0,0,0);
+                    var newDate = {
+                        date: date,
+                        assignments: [result[i]],
+                    };
+                    dates.push(newDate);
+                }
             }
-            res.send(assignments);
+            res.send(dates);
         });
     });
 }

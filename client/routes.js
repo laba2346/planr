@@ -2,7 +2,7 @@
 import React from 'react';
 import { IndexRoute, Route, Router } from 'react-router';
 import Container from './modules/Container/Container';
-import Landing from './modules/Landing/pages/Landing';
+//import Landing from './modules/Landing/pages/Landing';
 
 
 // require.ensure polyfill for node
@@ -23,8 +23,18 @@ if (process.env.NODE_ENV !== 'production') {
   require('./modules/Landing/components/Description/Description');
 }
 
+import Landing from './modules/Landing/pages/Landing.js'
+import App from './modules/App/App.js'
+
 // react-router setup with code-splitting
 // More info: http://blog.mxstbr.com/2016/01/react-apps-with-pages/
+export default (
+    <Route path="/" component={Container}>
+        <Route path="/landing"  component={Landing}/>
+        <IndexRoute component={App}/>
+  </Route>
+);
+/*
 export default (
     <Route path="/" component={Container}>
         <Route path="/landing"  getComponent={(nextState, cb) => {
@@ -39,4 +49,4 @@ export default (
             });
         }}/>
   </Route>
-);
+);*/

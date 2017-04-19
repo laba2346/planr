@@ -1,6 +1,5 @@
 .add-assignment-button{
-    display:inline-block;
-    float:right;
+    display:block;
     width:75px;
     height:75px;
     line-height:75px;

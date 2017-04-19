@@ -1,4 +1,6 @@
 /* LIBRARY CSS */
+
+/* BIG CAL */
 .rbc-btn {
   color: inherit;
   font: inherit;
@@ -176,7 +178,7 @@ button.rbc-input::-moz-focus-inner {
   cursor: pointer;
   padding: 2px 5px;
   background-color: #3174ad;
-  border-radius: 5px;
+  border-radius: 0px;
   color: #fff;
 }
 .rbc-event.rbc-selected {
@@ -565,6 +567,7 @@ button.rbc-input::-moz-focus-inner {
   right: -3px;
 }
 
+/**** Dropdown *****/
 
 /* Not really sure why, but the inverse version has a bigger gap */
 /* line 42, ../src/scss/_mixins.scss */
@@ -864,7 +867,7 @@ button.rbc-input::-moz-focus-inner {
   margin: 0;
   color: #000;
   background-color: #fefefe;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.29);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.29);
 }
 /* line 34, ../src/scss/_dd-menu.scss */
 .dd-menu .dd-menu-items ul.dd-items-right li > *, .dd-menu .dd-menu-items ol.dd-items-right li > * {

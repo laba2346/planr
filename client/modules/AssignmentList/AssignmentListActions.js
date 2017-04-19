@@ -14,7 +14,6 @@ export function fetchAssignments(){
     return (dispatch) => {
         return callApi(apiUrl).then(res => {
             if (res){
-                console.log(res);
                 dispatch(addAssignments(res));
             }
             else{

@@ -18,10 +18,11 @@ class AssignmentList extends Component {
         return (
             <div className={styles['assignments-list-container']}>
             {
-                this.props.assignments.map(assignmentArray => (
-                  <div key={assignmentArray.key}>
+                this.props.assignments.map((dateObject, index) => (
+                  <div className={styles['date-list-container']} key={dateObject.date}>
                     <DateList
-                        assignments={assignmentArray}
+                        dateObject={dateObject}
+                        index={index}
                     />
                   </div>
                 ))

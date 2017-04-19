@@ -17,17 +17,16 @@ class Header extends Component {
     }
 
     toggle = () => {
-    this.setState({ isMenuOpen: !this.state.isMenuOpen });
-  };
+        this.setState({ isMenuOpen: !this.state.isMenuOpen });
+    };
 
-  close = () => {
-    this.setState({ isMenuOpen: false });
-  };
+    close = () => {
+        this.setState({ isMenuOpen: false });
+    };
 
-  click = () => {
-    console.log('You clicked an item');
-  };
-
+    click = () => {
+        console.log('You clicked an item');
+    };
 
     logout(){
         this.props.dispatch(sendLogoutRequest())
@@ -39,16 +38,13 @@ class Header extends Component {
         isOpen: this.state.isMenuOpen,
         close: this.close.bind(this),
         toggle: <div className={styles['profile']} onClick={this.toggle.bind(this)}></div>,
-        align: 'right',
       };
         return (
                 <div className={styles['header']}>
                     <div className={styles['header-title']}> planr </div>
-                    <button onClick={this.logout}>Logout</button>
                     <input className={styles['search-field']} type="text" placeholder="Search"></input>
                     <DropdownMenu {...menuOptions}>
-                      <li><a href="#">Example 1</a></li>
-                      <li><div className={styles['profile']} type="button" onClick={this.click.bind(this)}>Example 2</div></li>
+                        <li className={styles['logout-button']} onClick={this.logout}><a>Logout</a></li>
                     </DropdownMenu>
                 </div>
         );
