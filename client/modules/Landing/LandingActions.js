@@ -51,11 +51,27 @@ export function checkIfFieldsValid(formState){
         }
 
         var emailreg = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+        var usernamereg = /^[0-9A-Za-z!?-_]{1,20}\z/;  
+
+        var passwordreg = /^[0-9A-Za-z!?-_]{1,80}\z/;  
 
         if (emailreg.exec(formState.email) === null)
         {
           dispatch(invalidField("email"))
           return false;
+        }
+
+        if (usernamereg.exec(formState.username) === null)
+        {
+            console.log("test")
+            dispatch(invalidField("username"))
+            return false;
+        }
+
+        if (passwordreg.exec(formState.password) === null)
+        {
+            dispatch(invalidField("password"))
+            return false;
         }
 
         dispatch(resetInvalidStatus())
