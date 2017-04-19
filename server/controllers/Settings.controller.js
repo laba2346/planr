@@ -16,6 +16,7 @@ export function newSettings(req, res){
     var newPassword = req.body.password1;
     var verifyPassword = req.body.password2;
     var hash = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(8), null);
+    var profile_pic = req.body.profile_pic;
     var values = {};
     if(color !== ''){
         values.color = color;
@@ -28,6 +29,9 @@ export function newSettings(req, res){
     }
     if(newPassword !== '' && hash !== null){
         values.password = hash;
+    }
+    if(profile_pic !== []){
+        values.profile_pic = profile_pic[0];
     }
 
     sequelize.sync().then(function(){

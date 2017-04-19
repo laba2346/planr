@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import styles from './Settings.css';
 import { resetSuccess, changeSettingRequest, checkIfFieldsValid, changeTheme } from './SettingsActions.js'
 import { CirclePicker } from 'react-color';
+var Dropzone = require('react-dropzone');
 
 class Settings extends Component {
 
     constructor () {
         super();
-        this.state = {color: '', username: '', password1: '', password2: '', email: ''};
+        this.state = {color: '', username: '', password1: '', password2: '', email: '', profile_pic: []};
         this.handleChange = this.handleChange.bind(this);
         this.handleChangeColor = this.handleChangeColor.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,6 +40,10 @@ class Settings extends Component {
         this.setState({ color: color.hex });
     };
 
+    onDrop(acceptedFiles) {
+      this.setState({ profile_pic: acceptedFiles });
+    }
+
     render() {
         return (
             <div>
@@ -49,6 +54,7 @@ class Settings extends Component {
                 <input name="email" className={(this.props.emailInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder="Change email" value={this.state.email} onChange={this.handleChange} />
                 <input name="password1" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Change password" value={this.state.password1} onChange={this.handleChange} />
                 <input name="password2" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Verify new password" value={this.state.password2} onChange={this.handleChange} />
+                <Dropzone onDrop={this.onDrop} multiple='false'/>
                 <input type="submit" className={styles['settings-submit'] + ' transition'} value="Save" />
                 {this.props.success && <div className={styles['success']}></div>}
             </form>
