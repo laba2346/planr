@@ -51,9 +51,9 @@ export function checkIfFieldsValid(formState){
         }
 
         var emailreg = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-        var usernamereg = /^[0-9A-Za-z!?-_]{1,20}\z/;  
+        var usernamereg = /^[0-9A-Za-z!?-_]{8,20}\z/;  
 
-        var passwordreg = /^[0-9A-Za-z!?-_]{1,80}\z/;  
+        var passwordreg = /^[0-9A-Za-z!?-_]{8,80}\z/;  
 
         if (emailreg.exec(formState.email) === null)
         {
