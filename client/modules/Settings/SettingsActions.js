@@ -35,6 +35,13 @@ export function changeTheme(themeColor){
     }
 }
 
+export function changeProfilePicRequest(formState){
+  var reader = new FileReader();
+  const apiUrl = 'updateProfilePic';
+  reader.addEventListener("load", function (dispatch) { return callApi(apiUrl, "post", {profile_pic: reader.result})}, false);
+  reader.readAsDataURL(formState.profile_pic);
+}
+
 /**
     Makes an API call to update the settings. If successful, it dispatches success
     @param {Object} formState Object containing information from the submitted settings form
@@ -67,6 +74,15 @@ export function resetSuccess(){
     return {
         type: RESET_SUCCESS,
     }
+}
+
+export function checkIfProfilePicValid(formState){
+  return (dispatch) => {
+    if (formState.profile_pic !== null){
+      return true;
+    }
+    else return false;
+  }
 }
 
 /**
@@ -106,6 +122,10 @@ export function checkIfFieldsValid(formState){
         if (passwordreg.exec(formState.password) === null)
         {
             dispatch(invalidField("password"))
+            return false;
+        }
+
+        if (formState.email == '' && formState.username == '' && formState.password1 == '' && formState.password2 == ''){
             return false;
         }
 
