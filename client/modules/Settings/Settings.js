@@ -3,9 +3,15 @@ import { connect } from 'react-redux';
 import styles from './Settings.css';
 import { resetSuccess, changeSettingRequest, checkIfFieldsValid, changeProfilePicRequest, checkIfProfilePicValid, changeTheme } from './SettingsActions.js'
 import { CirclePicker } from 'react-color';
+import { addSettings, loadSettings } from '../Header/HeaderActions';
+import Avatar from 'react-avatar';
 var Dropzone = require('react-dropzone');
 
 class Settings extends Component {
+
+    componentDidMount() {
+        this.props.dispatch(loadSettings());
+    }
 
     constructor () {
         super();
@@ -14,6 +20,7 @@ class Settings extends Component {
         this.handleChangeColor = this.handleChangeColor.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onDrop = this.onDrop.bind(this);
+        //this.props.dispatch(loadSettings());
     }
 
     handleSubmit(event){
@@ -56,6 +63,8 @@ class Settings extends Component {
     render() {
         return (
             <div>
+            <label className={styles['settings-label']}>Avatar</label><br />
+            <Avatar name={this.props.username} color={this.props.color} size={150} round={true} />
             <form className={styles['settings-form']} onSubmit={this.handleSubmit}>
                 <label className={styles['settings-label']}> select themes color </label>
                 <CirclePicker circleSpacing='10'color={this.state.color} onChangeComplete={this.handleChangeColor} />
@@ -72,12 +81,17 @@ class Settings extends Component {
   }
 }
 
+Settings.need = [() => { return loadSettings(); }];
+
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
       emailInvalid: state.settings.emailInvalid,
       passwordInvalid: state.settings.passwordInvalid,
       success: state.settings.success,
+      //color: state.settings.color,
+      //username: state.settings.username,
+      //email: state.settings.email,
   };
 }
 
@@ -86,6 +100,9 @@ Settings.propTypes = {
     emailInvalid: PropTypes.bool.isRequired,
     passwordInvalid: PropTypes.bool.isRequired,
     success: PropTypes.bool.success,
+    //color: PropTypes.string.isRequired,
+    //username: PropTypes.string.isRequired,
+    //email: PropTypes.string.isRequired,
 };
 
 Settings.contextTypes = {

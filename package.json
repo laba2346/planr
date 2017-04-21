@@ -94,6 +94,7 @@
     "react": "^15.1.0",
     "react-addons-css-transition-group": "^15.5.2",
     "react-addons-test-utils": "^15.1.0",
+    "react-avatar": "^2.3.0",
     "react-big-calendar": "^0.13.0",
     "react-color": "^2.11.4",
     "react-datetime": "^2.8.8",
