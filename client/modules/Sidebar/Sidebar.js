@@ -4,7 +4,7 @@ import ReactModal from 'react-modal';
 import styles from './Sidebar.css';
 
 import { changeView } from './SidebarActions';
-import { resetSuccess } from '../Settings/SettingsActions'
+import { resetSettings } from '../Settings/SettingsActions'
 class Sidebar extends Component {
 
     constructor () {
@@ -15,7 +15,7 @@ class Sidebar extends Component {
 
     onTabChange(newTab){
         this.props.dispatch(changeView(newTab));
-        this.props.dispatch(resetSuccess())
+        this.props.dispatch(resetSettings());
     }
 
 

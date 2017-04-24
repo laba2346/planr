@@ -1,13 +1,14 @@
-import { RESET_SUCCESS, SUCCESS, INVALID_FIELD, RESET_INVALID_STATUS } from './SettingsActions';
+import { RESET_SUCCESS, SUCCESS, INVALID_FIELD, RESET_SETTINGS } from './SettingsActions';
 
 // Initial State
 const initialState = { emailInvalid: false, passwordInvalid: false, success: false };
 const SettingsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case RESET_INVALID_STATUS:
+        case RESET_SETTINGS:
             return Object.assign({}, state, {
                 emailInvalid: false,
                 passwordInvalid: false,
+                success: false,
             });
         case INVALID_FIELD:
             if(action.field === 'email'){
@@ -28,7 +29,7 @@ const SettingsReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 success: false,
             });
-            
+
         default:
             return state;
     }

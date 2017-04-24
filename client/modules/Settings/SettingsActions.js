@@ -1,7 +1,7 @@
 import callApi from '../../util/apiCaller';
 
 export const INVALID_FIELD = 'INVALID_FIELD';
-export const RESET_INVALID_STATUS = 'RESET_INVALID_STATUS';
+export const RESET_SETTINGS = 'RESET_SETTINGS';
 export const SUCCESS = 'SUCCESS';
 export const RESET_SUCCESS = 'RESET_SUCCESS'
 
@@ -44,7 +44,7 @@ export function checkIfFieldsValid(formState){
             return false;
         }
 
-        dispatch(resetInvalidStatus())
+        dispatch(resetSettings())
         return true;
     }
 }
@@ -56,8 +56,8 @@ export function invalidField(field){
         field
     }
 }
-export function resetInvalidStatus(){
+export function resetSettings(){
     return {
-        type: RESET_INVALID_STATUS,
+        type: RESET_SETTINGS,
     }
 }
