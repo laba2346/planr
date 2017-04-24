@@ -1,9 +1,8 @@
-
+import {ADD_ASSIGNMENT} from './CreateAssignmentActions';
 // Initial State
 const initialState = {  };
 const CreateAssignmentReducer= (state = initialState, action) => {
-    switch (action.type) { 
-
+    switch (action.type) {
         default:
             return state;
     }

@@ -4,7 +4,7 @@ import ReactModal from 'react-modal';
 import NewAssignmentForm from './components/NewAssignmentForm/NewAssignmentForm';
 import styles from './CreateAssignment.css';
 import { createAssignmentRequest } from './CreateAssignmentActions';
-
+import { addAssignments } from '../AssignmentList/AssignmentListActions';
 class CreateAssignment extends Component {
 
     constructor () {
@@ -23,9 +23,12 @@ class CreateAssignment extends Component {
         this.setState({ showModal: false });
     }
 
-    createAssignment (formdata) {
-        console.log(formdata)
-        this.props.dispatch(createAssignmentRequest(formdata));
+    createAssignment (formdata, state) {
+        this.handleCloseModal();
+        var assignments = this.props.assignments;
+        this.props.dispatch(createAssignmentRequest(formdata, assignments)).then(() => {
+            console.log(this.state)
+        });
     }
 
     render() {
@@ -47,9 +50,9 @@ class CreateAssignment extends Component {
 
 // Retrieve data from store as props
 function mapStateToProps(state) {
-  return {
-
-  };
+    return {
+        assignments: state.assignmentlist.assignments
+    };
 }
 
 CreateAssignment.propTypes = {
