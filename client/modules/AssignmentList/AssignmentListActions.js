@@ -3,6 +3,7 @@ import callApi from '../../util/apiCaller';
 export const ADD_ASSIGNMENTS = 'ADD_ASSIGNMENTS';
 
 export function addAssignments(assignments){
+    console.log("adding assignments...")
     return{
         type: ADD_ASSIGNMENTS,
         assignments
