@@ -1,14 +1,31 @@
 import callApi from '../../util/apiCaller';
 
-
 export const INVALID_FIELD = 'INVALID_FIELD';
 export const RESET_INVALID_STATUS = 'RESET_INVALID_STATUS';
+export const SUCCESS = 'SUCCESS';
+export const RESET_SUCCESS = 'RESET_SUCCESS'
 
 export function changeSettingRequest(formState){
     const apiUrl = 'updateSettings';
     console.log(formState.email)
     return (dispatch) => {
-        return callApi(apiUrl, "post", formState);
+        return callApi(apiUrl, "post", formState).then(res => {
+            if(res.success){
+                dispatch(success());
+            }
+        });
+    }
+}
+
+export function success(){
+    return {
+        type: SUCCESS,
+    }
+}
+
+export function resetSuccess(){
+    return {
+        type: RESET_SUCCESS,
     }
 }
 

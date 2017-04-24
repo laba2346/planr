@@ -27,7 +27,9 @@ export function newSettings(req, res){
 
     sequelize.sync().then(function(){
         users.update(values, { where: { id: user_id } }).then(function(result){
-            res.send(values);
+            if(result){
+                res.json({success: true});
+            }
         });
     });
 }
