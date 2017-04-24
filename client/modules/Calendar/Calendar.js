@@ -7,7 +7,7 @@ import moment from 'moment'
 
 class Calendar extends Component {
     componentDidMount() {
-        console.log(this.props.assignments)    
+        console.log(this.props.assignments)
         this.props.dispatch(convertAssignments(this.props.assignments));
     }
 
@@ -21,6 +21,7 @@ class Calendar extends Component {
     render(){
         return (
         <BigCalendar
+          popup
           {...this.props}
           events={this.props.events}
           defaultDate={new Date()}
