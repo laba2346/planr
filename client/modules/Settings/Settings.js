@@ -11,6 +11,7 @@ class Settings extends Component {
 
     componentDidMount() {
         this.props.dispatch(loadSettings());
+        this.usernameInput.focus();
     }
 
     constructor () {
@@ -96,7 +97,8 @@ class Settings extends Component {
             <form className={styles['settings-form']} onSubmit={this.handleSubmit}>
                 <label className={styles['settings-label']}> Theme Color </label>
                 <CirclePicker circleSpacing='10'color={this.state.color} onChangeComplete={this.handleChangeColor} />
-                <input name="username" className={styles['valid-field'] + ' ' + styles['input']} type="text" placeholder="Change username" value={this.state.username} onChange={this.handleChange} />
+                <input name="username" className={styles['valid-field'] + ' ' + styles['input']} type="text" placeholder="Change username" value={this.state.username} onChange={this.handleChange}
+                  ref={(input) => { this.usernameInput = input; }} />
                 <input name="email" className={(this.props.emailInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder="Change email" value={this.state.email} onChange={this.handleChange} />
                 <input name="password1" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Change password" value={this.state.password1} onChange={this.handleChange} />
                 <input name="password2" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Verify new password" value={this.state.password2} onChange={this.handleChange} />
