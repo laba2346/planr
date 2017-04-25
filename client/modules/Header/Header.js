@@ -44,7 +44,7 @@ class Header extends Component {
         isOpen: this.state.isMenuOpen,
         close: this.close.bind(this),
         toggle: <div className={styles['profile']} onClick={this.toggle.bind(this)} >
-                <Avatar name={this.props.username} color={this.props.color} size={50} round={true} />
+                <Avatar name={this.props.username} color={this.props.color} src={this.props.profile_pic} size={50} round={true} />
                 </div>
       };
       const headerColor = {
@@ -71,7 +71,9 @@ function mapStateToProps(state) {
       sidebarShown: state.header.sidebarShown,
       color: state.header.color,
       username: state.header.username,
-      //profile_pic: state.header.profile_pic
+      profile_pic: state.header.profile_pic 
+      ? String.fromCharCode.apply(null, new Uint16Array(state.header.profile_pic.data)) 
+      : null
   };
 }
 

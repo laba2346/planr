@@ -1,6 +1,14 @@
 .settings-form{
-    position:relative;
+    position: relative;
     margin: 15px 10px 0px 10px;
+    clear: left;
+}
+
+.settings-avatar div {
+    float: left;
+    clear: none;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 .settings-label {

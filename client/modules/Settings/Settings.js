@@ -61,22 +61,49 @@ class Settings extends Component {
     }
 
     render() {
+        // style the dropzone component dynamically so the background image can change
+        var preview = this.state.profile_pic ? this.state.profile_pic.preview : '';
+        var dropzoneStyle = {
+            backgroundImage: preview ? 'url(' + preview + ')' : '',
+            border: '2px dashed',
+            height: '180px',
+            maxHeight: '180px',
+            width: '180px'
+        };
+
         return (
-            <div>
-            <label className={styles['settings-label']}>Avatar</label><br />
-            <Avatar name={this.props.username} color={this.props.color} size={150} round={true} />
+        <div>
+            <div className={styles['settings-avatar']}>
+                <label className={styles['settings-label']}>Profile Picture</label><br />
+                <Avatar name={this.props.username} color={this.props.color} src={this.props.profile_pic} size={180} round={true} />
+                <Dropzone accept="image/*" maxSize={250 * 1024} onDrop={this.onDrop} multiple={false} style={dropzoneStyle}>
+                {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
+                  if (isDragActive) {
+                    return "New profile picture accepted";
+                  }
+                  if (isDragReject) {
+                    return "Only image files smaller than 250K are accepted";
+                  }
+                  if (acceptedFiles.length) {
+                    return `Accepted ${acceptedFiles[0].name}`;
+                  } else {
+                    return "Drop an image here, or click to choose a file";
+                  }
+                }}
+              </Dropzone>
+             </div>
+
             <form className={styles['settings-form']} onSubmit={this.handleSubmit}>
-                <label className={styles['settings-label']}> select themes color </label>
+                <label className={styles['settings-label']}> Theme Color </label>
                 <CirclePicker circleSpacing='10'color={this.state.color} onChangeComplete={this.handleChangeColor} />
                 <input name="username" className={styles['valid-field'] + ' ' + styles['input']} type="text" placeholder="Change username" value={this.state.username} onChange={this.handleChange} />
                 <input name="email" className={(this.props.emailInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder="Change email" value={this.state.email} onChange={this.handleChange} />
                 <input name="password1" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Change password" value={this.state.password1} onChange={this.handleChange} />
                 <input name="password2" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Verify new password" value={this.state.password2} onChange={this.handleChange} />
-                <Dropzone onDrop={this.onDrop} multiple={false}/>
                 <input type="submit" className={styles['settings-submit'] + ' transition'} value="Save" />
                 {this.props.success && <div className={styles['success']}></div>}
             </form>
-            </div>
+        </div>
         );
   }
 }
@@ -89,9 +116,12 @@ function mapStateToProps(state) {
       emailInvalid: state.settings.emailInvalid,
       passwordInvalid: state.settings.passwordInvalid,
       success: state.settings.success,
-      //color: state.settings.color,
-      //username: state.settings.username,
-      //email: state.settings.email,
+      color: state.header.color,
+      username: state.header.username,
+      email: state.header.email,
+      profile_pic: state.header.profile_pic
+      ? String.fromCharCode.apply(null, new Uint16Array(state.header.profile_pic.data))
+      : null
   };
 }
 

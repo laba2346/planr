@@ -4,16 +4,16 @@ import bcrypt from 'bcryptjs';
 
 export function newProfilePic(req, res){
   var profile_pic = req.body.profile_pic;
-  console.log(profile_pic);
+  console.log(`Received image for user ${user_id}: ${profile_pic.substring(0,100)}...`);
   var user_id = req.user.id;
   var values = {};
   if(profile_pic !== null){
       values.profile_pic = profile_pic;
   }
 
-  sequelize.sync().then(function(){
-      users.update(values, { where: { id: user_id } }).then(function(result){
-          res.send(values);
+ sequelize.sync().then(function(){
+        users.update(values, { fields: ['profile_pic'], where: { id: user_id } } ).then(function(result){
+            res.send(result);
       });
   });
 }
