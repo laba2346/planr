@@ -32,7 +32,6 @@ class Classes extends Component {
             </div>
         );
   }
-
 }
 
 function mapStateToProps(state)

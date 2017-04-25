@@ -3,6 +3,15 @@ import callApi from '../../util/apiCaller';
 
 export const INVALID_FIELD = 'INVALID_FIELD';
 export const RESET_INVALID_STATUS = 'RESET_INVALID_STATUS';
+export const CHANGE_THEME = 'CHANGE_THEME';
+
+
+export function changeTheme(themeColor){
+    return {
+        type: CHANGE_THEME,
+        themeColor
+    }
+}
 
 export function changeSettingRequest(formState){
     const apiUrl = 'updateSettings';
@@ -39,6 +48,7 @@ export function invalidField(field){
         field
     }
 }
+
 export function resetInvalidStatus(){
     return {
         type: RESET_INVALID_STATUS,
