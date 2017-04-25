@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './Settings.css';
-import { resetSuccess, changeSettingRequest, checkIfFieldsValid } from './SettingsActions.js'
+import { resetSuccess, changeSettingRequest, checkIfFieldsValid, changeTheme } from './SettingsActions.js'
 import { CirclePicker } from 'react-color';
 
 class Settings extends Component {
@@ -20,9 +20,6 @@ class Settings extends Component {
             this.props.dispatch(changeSettingRequest(this.state))
             this.state = {color: '', username: '', password1: '', password2: '', email: ''};
         }
-        else{
-            console.log("didn't send to server")
-        }
     }
 
     handleChange(event) {
@@ -36,11 +33,11 @@ class Settings extends Component {
             this.props.dispatch(resetSuccess())
         }
     }
+
     handleChangeColor = (color) => {
-        console.log(color.hex)
+        this.props.dispatch(changeTheme(color.hex));
         this.setState({ color: color.hex });
     };
-
 
     render() {
         return (

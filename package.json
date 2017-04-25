@@ -116,6 +116,7 @@
     "sinon": "^1.17.4",
     "style-loader": "^0.13.1",
     "supertest": "^1.2.0",
+    "tinycolor2": "^1.4.1",
     "url-loader": "^0.5.7",
     "webpack": "1.13",
     "webpack-dev-middleware": "^1.6.1",

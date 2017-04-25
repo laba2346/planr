@@ -39,9 +39,12 @@ class Header extends Component {
         close: this.close.bind(this),
         toggle: <div className={styles['profile']} onClick={this.toggle.bind(this)}></div>,
       };
+      const headerColor = {
+          color: this.props.themeColor
+      }
         return (
                 <div className={styles['header']}>
-                    <div className={styles['header-title']}> planr </div>
+                    <div style={headerColor} className={styles['header-title']}> planr </div>
                     <input className={styles['search-field']} type="text" placeholder="Search"></input>
                     <DropdownMenu {...menuOptions}>
                         <li className={styles['logout-button']} onClick={this.logout}><a>Logout</a></li>
@@ -54,6 +57,7 @@ class Header extends Component {
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
+      themeColor: state.settings.themeColor,
       sidebarShown: state.header.sidebarShown
   };
 }

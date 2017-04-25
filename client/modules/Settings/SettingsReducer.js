@@ -1,9 +1,13 @@
-import { RESET_SUCCESS, SUCCESS, INVALID_FIELD, RESET_SETTINGS } from './SettingsActions';
+import { RESET_SUCCESS, SUCCESS, INVALID_FIELD, RESET_SETTINGS, CHANGE_THEME } from './SettingsActions';
 
 // Initial State
-const initialState = { emailInvalid: false, passwordInvalid: false, success: false };
+const initialState = { emailInvalid: false, passwordInvalid: false, success: false, themeColor: '#705e8b' };
 const SettingsReducer = (state = initialState, action) => {
     switch (action.type) {
+        case CHANGE_THEME:
+            return Object.assign({}, state, {
+                themeColor: action.themeColor,
+            });
         case RESET_SETTINGS:
             return Object.assign({}, state, {
                 emailInvalid: false,

@@ -9,12 +9,11 @@ function DateList(props, context) {
     var dayOfWeek = moment(date).format("ddd");
     var day = moment(date).format("D");
 
-    var colors = ['red', 'green', 'blue', 'purple'];
-    var colorIndex = props.index % colors.length;
-    var classColorName = colors[colorIndex]
-
+    var backgroundStyle = {
+        backgroundColor: props.color
+    }
     return (
-        <div className={styles['date-list']+ ' ' + styles[classColorName]}>
+        <div className={styles['date-list']} style={backgroundStyle}>
             <div className={styles['day-block']}>
                 <label className={styles['dayOfWeek-label']}>{dayOfWeek}</label>
                 <label className={styles['day-label']}>{day}</label>
@@ -37,6 +36,7 @@ function DateList(props, context) {
 DateList.propTypes = {
   dateObject: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
+  color: PropTypes.string.isRequired,
 };
 
 export default DateList;
