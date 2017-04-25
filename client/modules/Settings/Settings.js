@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './Settings.css';
-import { changeSettingRequest, checkIfFieldsValid, changeTheme } from './SettingsActions.js'
+import { resetSuccess, changeSettingRequest, checkIfFieldsValid, changeTheme } from './SettingsActions.js'
 import { CirclePicker } from 'react-color';
 
 class Settings extends Component {
@@ -18,6 +18,7 @@ class Settings extends Component {
         event.preventDefault();
         if(this.props.dispatch(checkIfFieldsValid(this.state))){
             this.props.dispatch(changeSettingRequest(this.state))
+            this.state = {color: '', username: '', password1: '', password2: '', email: ''};
         }
     }
 
@@ -28,6 +29,9 @@ class Settings extends Component {
         this.setState({
           [name]: value
         });
+        if(this.props.success){
+            this.props.dispatch(resetSuccess())
+        }
     }
 
     handleChangeColor = (color) => {
@@ -46,6 +50,7 @@ class Settings extends Component {
                 <input name="password1" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Change password" value={this.state.password1} onChange={this.handleChange} />
                 <input name="password2" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Verify new password" value={this.state.password2} onChange={this.handleChange} />
                 <input type="submit" className={styles['settings-submit'] + ' transition'} value="Save" />
+                {this.props.success && <div className={styles['success']}></div>}
             </form>
             </div>
         );
@@ -57,6 +62,7 @@ function mapStateToProps(state) {
   return {
       emailInvalid: state.settings.emailInvalid,
       passwordInvalid: state.settings.passwordInvalid,
+      success: state.settings.success,
   };
 }
 
@@ -64,6 +70,7 @@ Settings.propTypes = {
     dispatch: PropTypes.func.isRequired,
     emailInvalid: PropTypes.bool.isRequired,
     passwordInvalid: PropTypes.bool.isRequired,
+    success: PropTypes.bool.success,
 };
 
 Settings.contextTypes = {

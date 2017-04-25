@@ -1,7 +1,6 @@
 import { CHANGE_VIEW } from './SidebarActions';
-
 // Initial State
-const initialState = { activeView: 'assignments'};
+const initialState = { activeView: 'assignments', success: true };
 const SidebarReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_VIEW:

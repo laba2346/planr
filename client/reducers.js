@@ -13,6 +13,7 @@ import assignmentlist from './modules/AssignmentList/AssignmentListReducer';
 import classes from './modules/Classes/ClassesReducer.js';
 import createclass from './modules/CreateClass/CreateClassReducer';
 import settings from './modules/Settings/SettingsReducer';
+import calendar from './modules/Calendar/CalendarReducer'
 
 // Combine all reducers into one root reducer
 export default combineReducers({
@@ -24,5 +25,6 @@ export default combineReducers({
     assignmentlist,
     createclass,
     classes,
-    settings
+    settings,
+    calendar,
 });
