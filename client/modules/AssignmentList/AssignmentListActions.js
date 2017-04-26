@@ -40,7 +40,6 @@ export function createAssignmentRequest(formState){
     return (dispatch) => {
         return callApi(apiUrl, "post", formState).then(res => {
             if(res){
-                console.log(res);
                 dispatch(addAssignment(res));
             }
         });
