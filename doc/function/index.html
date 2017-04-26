@@ -92,7 +92,6 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">server/controllers</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createAssignment">createAssignment</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchAssignments">fetchAssignments</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSettings">loadSettings</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newSettings">newSettings</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newUser">newUser</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createClass">createClass</a></span></span></li>
@@ -394,13 +393,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-SettingsReducer">SettingsReducer</a></span></span><span data-ice="signature">(state: <span>*</span>, action: <span>*</span>): <span>*</span></span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-SettingsReducer">SettingsReducer</a></span></span><span data-ice="signature">(state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, action: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>A redux reducer that changes the state for the settings page given certain actions.</p>
+</div>
       </div>
     </td>
     <td>
@@ -421,13 +421,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-SidebarReducer">SidebarReducer</a></span></span><span data-ice="signature">(state: <span>*</span>, action: <span>*</span>): <span>*</span></span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-SidebarReducer">SidebarReducer</a></span></span><span data-ice="signature">(state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, action: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Redux reducer that changes the view given certain actions.</p>
+</div>
       </div>
     </td>
     <td>
@@ -535,7 +536,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>More scaffolding</p>
+</div>
       </div>
     </td>
     <td>
@@ -556,13 +558,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-changeSettingRequest">changeSettingRequest</a></span></span><span data-ice="signature">(formState: <span>*</span>): <span>*</span></span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-changeSettingRequest">changeSettingRequest</a></span></span><span data-ice="signature">(formState: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Makes an API call to update the settings.</p>
+</div>
       </div>
     </td>
     <td>
@@ -583,13 +586,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-changeTheme">changeTheme</a></span></span><span data-ice="signature">(themeColor: <span>*</span>): {&quot;type&quot;: <span>*</span>, &quot;themeColor&quot;: <span>*</span>}</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-changeTheme">changeTheme</a></span></span><span data-ice="signature">(themeColor: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): {&quot;type&quot;: <span>*</span>, &quot;themeColor&quot;: <span>*</span>}</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Returns an object with type CHANGE_THEME and a new theme color.</p>
+</div>
       </div>
     </td>
     <td>
@@ -610,13 +614,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-changeView">changeView</a></span></span><span data-ice="signature">(view: <span>*</span>): {&quot;type&quot;: <span>*</span>, &quot;view&quot;: <span>*</span>}</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-changeView">changeView</a></span></span><span data-ice="signature">(view: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): {&quot;type&quot;: <span>*</span>, &quot;view&quot;: <span>*</span>}</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Returns an object with type CHANGE_VIEW and the new view -- page -- that the user is going to visit.</p>
+</div>
       </div>
     </td>
     <td>
@@ -637,13 +642,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-checkIfFieldsValid">checkIfFieldsValid</a></span></span><span data-ice="signature">(formState: <span>*</span>): <span>*</span></span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-checkIfFieldsValid">checkIfFieldsValid</a></span></span><span data-ice="signature">(formstate: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Confirms that the formState has valid inputs.</p>
+</div>
       </div>
     </td>
     <td>
@@ -724,7 +730,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>scaffolding</p>
+</div>
       </div>
     </td>
     <td>
@@ -827,13 +834,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-createClass">createClass</a></span></span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-createClass">createClass</a></span></span><span data-ice="signature">(req: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, res: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Creates a new class with the form included in the req object and inserts into the database</p>
+</div>
       </div>
     </td>
     <td>
@@ -914,7 +922,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>scaffolding</p>
+</div>
       </div>
     </td>
     <td>
@@ -1050,7 +1059,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>scaffolding</p>
+</div>
       </div>
     </td>
     <td>
@@ -1071,13 +1081,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-invalidField">invalidField</a></span></span><span data-ice="signature">(field: <span>*</span>): {&quot;type&quot;: <span>*</span>, &quot;field&quot;: <span>*</span>}</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-invalidField">invalidField</a></span></span><span data-ice="signature">(field: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): {&quot;type&quot;: <span>*</span>, &quot;field&quot;: <span>*</span>}</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Returns an object with type INVALID_FIELD and the field that was invalid.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1152,40 +1163,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-loadSettings">loadSettings</a></span></span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
           <span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>If this function is called, you did it wrong.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1234,13 +1219,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-newUser">newUser</a></span></span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-newUser">newUser</a></span></span><span data-ice="signature">(req: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, res: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Creates a new user with the form included in the req object and inserts into the database</p>
+</div>
       </div>
     </td>
     <td>
@@ -1294,7 +1280,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Returns an object with type RESET_SETTINGS.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1321,7 +1308,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Returns an object with type RESET_SUCCESS so that the state can change.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1458,7 +1446,8 @@ and it will call them sequentially, one after another</p>
       <div>
         
         
-        
+        <div data-ice="description"><p>Returns an object with type SUCCESS so that the state can change.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2277,18 +2266,20 @@ and it will call them sequentially, one after another</p>
     
     
     
-    <span data-ice="name">SettingsReducer</span><span data-ice="signature">(state: <span>*</span>, action: <span>*</span>): <span>*</span></span>
+    <span data-ice="name">SettingsReducer</span><span data-ice="signature">(state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, action: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsReducer.js.html#lineNumber5">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsReducer.js.html#lineNumber14">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import SettingsReducer from &apos;<span><a href="file/planr/client/modules/Settings/SettingsReducer.js.html#lineNumber5">planr/planr/client/modules/Settings/SettingsReducer.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import SettingsReducer from &apos;<span><a href="file/planr/client/modules/Settings/SettingsReducer.js.html#lineNumber14">planr/planr/client/modules/Settings/SettingsReducer.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>A redux reducer that changes the state for the settings page given certain actions.
+Changes settings based on user inputs.</p>
+</div>
 
   
 
@@ -2302,16 +2293,17 @@ and it will call them sequentially, one after another</p>
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">state</td>
-      <td data-ice="type"><span>*</span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: initialState</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Initialized to initialState</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">action</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Object containing a type that determines how we change the state.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -2355,18 +2347,19 @@ and it will call them sequentially, one after another</p>
     
     
     
-    <span data-ice="name">SidebarReducer</span><span data-ice="signature">(state: <span>*</span>, action: <span>*</span>): <span>*</span></span>
+    <span data-ice="name">SidebarReducer</span><span data-ice="signature">(state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, action: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/client/modules/Sidebar/SidebarReducer.js.html#lineNumber4">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/client/modules/Sidebar/SidebarReducer.js.html#lineNumber12">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import SidebarReducer from &apos;<span><a href="file/planr/client/modules/Sidebar/SidebarReducer.js.html#lineNumber4">planr/planr/client/modules/Sidebar/SidebarReducer.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import SidebarReducer from &apos;<span><a href="file/planr/client/modules/Sidebar/SidebarReducer.js.html#lineNumber12">planr/planr/client/modules/Sidebar/SidebarReducer.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Redux reducer that changes the view given certain actions.</p>
+</div>
 
   
 
@@ -2380,16 +2373,17 @@ and it will call them sequentially, one after another</p>
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">state</td>
-      <td data-ice="type"><span>*</span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: initialState</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>see initialState</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">action</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Object containing the dispatched action and its type</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -2650,14 +2644,15 @@ and it will call them sequentially, one after another</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/client/util/apiCaller.js.html#lineNumber8">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/client/util/apiCaller.js.html#lineNumber12">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import callApi from &apos;<span><a href="file/planr/client/util/apiCaller.js.html#lineNumber8">planr/planr/client/util/apiCaller.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import callApi from &apos;<span><a href="file/planr/client/util/apiCaller.js.html#lineNumber12">planr/planr/client/util/apiCaller.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>More scaffolding</p>
+</div>
 
   
 
@@ -2730,18 +2725,19 @@ and it will call them sequentially, one after another</p>
     
     
     
-    <span data-ice="name">changeSettingRequest</span><span data-ice="signature">(formState: <span>*</span>): <span>*</span></span>
+    <span data-ice="name">changeSettingRequest</span><span data-ice="signature">(formState: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber17">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber42">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeSettingRequest} from &apos;<span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber17">planr/planr/client/modules/Settings/SettingsActions.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeSettingRequest} from &apos;<span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber42">planr/planr/client/modules/Settings/SettingsActions.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Makes an API call to update the settings. If successful, it dispatches success</p>
+</div>
 
   
 
@@ -2755,9 +2751,10 @@ and it will call them sequentially, one after another</p>
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">formState</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Object containing information from the submitted settings form</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -2801,18 +2798,19 @@ and it will call them sequentially, one after another</p>
     
     
     
-    <span data-ice="name">changeTheme</span><span data-ice="signature">(themeColor: <span>*</span>): {&quot;type&quot;: <span>*</span>, &quot;themeColor&quot;: <span>*</span>}</span>
+    <span data-ice="name">changeTheme</span><span data-ice="signature">(themeColor: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): {&quot;type&quot;: <span>*</span>, &quot;themeColor&quot;: <span>*</span>}</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber10">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber31">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeTheme} from &apos;<span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber10">planr/planr/client/modules/Settings/SettingsActions.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeTheme} from &apos;<span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber31">planr/planr/client/modules/Settings/SettingsActions.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Returns an object with type CHANGE_THEME and a new theme color.</p>
+</div>
 
   
 
@@ -2826,9 +2824,10 @@ and it will call them sequentially, one after another</p>
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">themeColor</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>color code for the new theme color.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -2872,18 +2871,19 @@ and it will call them sequentially, one after another</p>
     
     
     
-    <span data-ice="name">changeView</span><span data-ice="signature">(view: <span>*</span>): {&quot;type&quot;: <span>*</span>, &quot;view&quot;: <span>*</span>}</span>
+    <span data-ice="name">changeView</span><span data-ice="signature">(view: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): {&quot;type&quot;: <span>*</span>, &quot;view&quot;: <span>*</span>}</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/client/modules/Sidebar/SidebarActions.js.html#lineNumber3">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/client/modules/Sidebar/SidebarActions.js.html#lineNumber10">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeView} from &apos;<span><a href="file/planr/client/modules/Sidebar/SidebarActions.js.html#lineNumber3">planr/planr/client/modules/Sidebar/SidebarActions.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeView} from &apos;<span><a href="file/planr/client/modules/Sidebar/SidebarActions.js.html#lineNumber10">planr/planr/client/modules/Sidebar/SidebarActions.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Returns an object with type CHANGE_VIEW and the new view -- page -- that the user is going to visit.</p>
+</div>
 
   
 
@@ -2897,9 +2897,10 @@ and it will call them sequentially, one after another</p>
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">view</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>String with name of new view</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -2943,18 +2944,19 @@ and it will call them sequentially, one after another</p>
     
     
     
-    <span data-ice="name">checkIfFieldsValid</span><span data-ice="signature">(formState: <span>*</span>): <span>*</span></span>
+    <span data-ice="name">checkIfFieldsValid</span><span data-ice="signature">(formstate: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber41">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber76">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {checkIfFieldsValid} from &apos;<span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber41">planr/planr/client/modules/Settings/SettingsActions.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {checkIfFieldsValid} from &apos;<span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber76">planr/planr/client/modules/Settings/SettingsActions.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Confirms that the formState has valid inputs.</p>
+</div>
 
   
 
@@ -2967,10 +2969,11 @@ and it will call them sequentially, one after another</p>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">formState</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="name" data-depth="0">formstate</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Object containing information from the submitted settings form</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -3161,14 +3164,15 @@ and it will call them sequentially, one after another</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/server/util/test-helpers.js.html#lineNumber4">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/server/util/test-helpers.js.html#lineNumber6">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {connectDB} from &apos;<span><a href="file/planr/server/util/test-helpers.js.html#lineNumber4">planr/planr/server/util/test-helpers.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {connectDB} from &apos;<span><a href="file/planr/server/util/test-helpers.js.html#lineNumber6">planr/planr/server/util/test-helpers.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>scaffolding</p>
+</div>
 
   
 
@@ -3438,18 +3442,19 @@ and it will call them sequentially, one after another</p>
     
     
     
-    <span data-ice="name">createClass</span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
+    <span data-ice="name">createClass</span><span data-ice="signature">(req: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, res: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/server/controllers/ViewClasses.controller.js.html#lineNumber6">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/server/controllers/ViewClasses.controller.js.html#lineNumber10">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {createClass} from &apos;<span><a href="file/planr/server/controllers/ViewClasses.controller.js.html#lineNumber6">planr/planr/server/controllers/ViewClasses.controller.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {createClass} from &apos;<span><a href="file/planr/server/controllers/ViewClasses.controller.js.html#lineNumber10">planr/planr/server/controllers/ViewClasses.controller.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Creates a new class with the form included in the req object and inserts into the database</p>
+</div>
 
   
 
@@ -3463,15 +3468,17 @@ and it will call them sequentially, one after another</p>
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">req</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>This is the Express req object</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">res</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>This is the Express res object</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -3649,14 +3656,15 @@ and it will call them sequentially, one after another</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/server/util/test-helpers.js.html#lineNumber13">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/server/util/test-helpers.js.html#lineNumber17">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {dropDB} from &apos;<span><a href="file/planr/server/util/test-helpers.js.html#lineNumber13">planr/planr/server/util/test-helpers.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {dropDB} from &apos;<span><a href="file/planr/server/util/test-helpers.js.html#lineNumber17">planr/planr/server/util/test-helpers.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>scaffolding</p>
+</div>
 
   
 
@@ -3831,11 +3839,11 @@ and it will call them sequentially, one after another</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/server/controllers/ViewClasses.controller.js.html#lineNumber39">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/server/controllers/ViewClasses.controller.js.html#lineNumber43">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fetchClasses} from &apos;<span><a href="file/planr/server/controllers/ViewClasses.controller.js.html#lineNumber39">planr/planr/server/controllers/ViewClasses.controller.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fetchClasses} from &apos;<span><a href="file/planr/server/controllers/ViewClasses.controller.js.html#lineNumber43">planr/planr/server/controllers/ViewClasses.controller.js</a></span>&apos;</code></pre></div>
   
   
   
@@ -3951,14 +3959,15 @@ and it will call them sequentially, one after another</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/server/util/fetchData.js.html#lineNumber7">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/server/util/fetchData.js.html#lineNumber6">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fetchComponentData} from &apos;<span><a href="file/planr/server/util/fetchData.js.html#lineNumber7">planr/planr/server/util/fetchData.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fetchComponentData} from &apos;<span><a href="file/planr/server/util/fetchData.js.html#lineNumber6">planr/planr/server/util/fetchData.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>scaffolding</p>
+</div>
 
   
 
@@ -4030,18 +4039,19 @@ and it will call them sequentially, one after another</p>
     
     
     
-    <span data-ice="name">invalidField</span><span data-ice="signature">(field: <span>*</span>): {&quot;type&quot;: <span>*</span>, &quot;field&quot;: <span>*</span>}</span>
+    <span data-ice="name">invalidField</span><span data-ice="signature">(field: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): {&quot;type&quot;: <span>*</span>, &quot;field&quot;: <span>*</span>}</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber82">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber121">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {invalidField} from &apos;<span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber82">planr/planr/client/modules/Settings/SettingsActions.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {invalidField} from &apos;<span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber121">planr/planr/client/modules/Settings/SettingsActions.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Returns an object with type INVALID_FIELD and the field that was invalid.</p>
+</div>
 
   
 
@@ -4055,9 +4065,10 @@ and it will call them sequentially, one after another</p>
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">field</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>The field that was incorrect in checkIfFieldsValid.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -4220,71 +4231,6 @@ and it will call them sequentially, one after another</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-loadSettings">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span data-ice="name">loadSettings</span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/planr/server/controllers/Settings.controller.js.html#lineNumber42">source</a></span></span>
-    </span>
-  </h3>
-
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {loadSettings} from &apos;<span><a href="file/planr/server/controllers/Settings.controller.js.html#lineNumber42">planr/planr/server/controllers/Settings.controller.js</a></span>&apos;</code></pre></div>
-  
-  
-  
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">req</td>
-      <td data-ice="type"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">res</td>
-      <td data-ice="type"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="static-function-login">
     <span class="access" data-ice="access">public</span>
     
@@ -4296,14 +4242,15 @@ and it will call them sequentially, one after another</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/server/controllers/Login.controller.js.html#lineNumber1">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/server/controllers/Login.controller.js.html#lineNumber5">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {login} from &apos;<span><a href="file/planr/server/controllers/Login.controller.js.html#lineNumber1">planr/planr/server/controllers/Login.controller.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {login} from &apos;<span><a href="file/planr/server/controllers/Login.controller.js.html#lineNumber5">planr/planr/server/controllers/Login.controller.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>If this function is called, you did it wrong. It is not supposed to be used.</p>
+</div>
 
   
 
@@ -4425,18 +4372,19 @@ and it will call them sequentially, one after another</p>
     
     
     
-    <span data-ice="name">newUser</span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
+    <span data-ice="name">newUser</span><span data-ice="signature">(req: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, res: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/server/controllers/SignUp.controller.js.html#lineNumber5">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/server/controllers/SignUp.controller.js.html#lineNumber9">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {newUser} from &apos;<span><a href="file/planr/server/controllers/SignUp.controller.js.html#lineNumber5">planr/planr/server/controllers/SignUp.controller.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {newUser} from &apos;<span><a href="file/planr/server/controllers/SignUp.controller.js.html#lineNumber9">planr/planr/server/controllers/SignUp.controller.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Creates a new user with the form included in the req object and inserts into the database</p>
+</div>
 
   
 
@@ -4450,15 +4398,17 @@ and it will call them sequentially, one after another</p>
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">req</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>This is the Express req object</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">res</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>This is the Express res object</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -4549,14 +4499,15 @@ and it will call them sequentially, one after another</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber90">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber131">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {resetSettings} from &apos;<span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber90">planr/planr/client/modules/Settings/SettingsActions.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {resetSettings} from &apos;<span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber131">planr/planr/client/modules/Settings/SettingsActions.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Returns an object with type RESET_SETTINGS.</p>
+</div>
 
   
 
@@ -4604,14 +4555,15 @@ and it will call them sequentially, one after another</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber35">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber66">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {resetSuccess} from &apos;<span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber35">planr/planr/client/modules/Settings/SettingsActions.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {resetSuccess} from &apos;<span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber66">planr/planr/client/modules/Settings/SettingsActions.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Returns an object with type RESET_SUCCESS so that the state can change.</p>
+</div>
 
   
 
@@ -4935,14 +4887,15 @@ and it will call them sequentially, one after another</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber29">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber57">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {success} from &apos;<span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber29">planr/planr/client/modules/Settings/SettingsActions.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {success} from &apos;<span><a href="file/planr/client/modules/Settings/SettingsActions.js.html#lineNumber57">planr/planr/client/modules/Settings/SettingsActions.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Returns an object with type SUCCESS so that the state can change.</p>
+</div>
 
   
 

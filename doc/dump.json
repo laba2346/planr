@@ -4905,7 +4905,7 @@
     "__docId__": 202,
     "kind": "file",
     "name": "planr/client/modules/Settings/SettingsActions.js",
-    "content": "import callApi from '../../util/apiCaller';\n\nexport const INVALID_FIELD = 'INVALID_FIELD';\nexport const RESET_INVALID_STATUS = 'RESET_INVALID_STATUS';\nexport const CHANGE_THEME = 'CHANGE_THEME';\nexport const RESET_SETTINGS = 'RESET_SETTINGS';\nexport const SUCCESS = 'SUCCESS';\nexport const RESET_SUCCESS = 'RESET_SUCCESS'\n\nexport function changeTheme(themeColor){\n    return {\n        type: CHANGE_THEME,\n        themeColor\n    }\n}\n\nexport function changeSettingRequest(formState){\n    const apiUrl = 'updateSettings';\n    console.log(formState.email)\n    return (dispatch) => {\n        return callApi(apiUrl, \"post\", formState).then(res => {\n            if(res.success){\n                dispatch(success());\n            }\n        });\n    }\n}\n\nexport function success(){\n    return {\n        type: SUCCESS,\n    }\n}\n\nexport function resetSuccess(){\n    return {\n        type: RESET_SUCCESS,\n    }\n}\n\nexport function checkIfFieldsValid(formState){\n    return (dispatch) => {\n\n        var emailreg = /^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$/;\n\n\tvar usernamereg = /(?=^.{8,20}$)^[a-zA-Z][a-zA-Z0-9]*[._-]?[a-zA-Z0-9]+$/ \n            \n        var passwordreg = /(?=^.{8,80}$)^[a-zA-Z][a-zA-Z0-9]*[._-]?[a-zA-Z0-9]+$/ \n\n        if (formState.email !== '' && emailreg.exec(formState.email) === null)\n        {\n            dispatch(invalidField(\"email\"))\n            return false;\n        }\n\n        if (formState.password1 !== formState.password2){\n\n            console.log(\"passwords dont match\")\n            dispatch(invalidField(\"password\"))\n            return false;\n        }\n\n        dispatch(resetSettings())\n\tif (usernamereg.exec(formState.username) === null)\n        {\n            console.log(\"test\")\n            dispatch(invalidField(\"username\"))\n            return false;\n        }\n\n        if (passwordreg.exec(formState.password) === null)\n        {\n            dispatch(invalidField(\"password\"))\n            return false;\n        }\n\n        dispatch(resetInvalidStatus())\n        return true;\n    }\n}\n\nexport function invalidField(field){\n    console.log(\"invalid field: \" + field)\n    return {\n        type: INVALID_FIELD,\n        field\n    }\n}\n\nexport function resetSettings(){\n    return {\n        type: RESET_SETTINGS,\n    }\n}\n",
+    "content": "import callApi from '../../util/apiCaller';\n/**\n    A constant containing the string 'INVALID_FIELD'; used in reducer\n*/\nexport const INVALID_FIELD = 'INVALID_FIELD';\n/**\n    A constant containing the string 'RESET_INVALID_STATUS'; used in reducer\n*/\nexport const RESET_INVALID_STATUS = 'RESET_INVALID_STATUS';\n/**\n    A constant containing the string 'CHANGE_THEME'; used in reducer\n*/\nexport const CHANGE_THEME = 'CHANGE_THEME';\n/**\n    A constant containing the string 'RESET_SETTINGS; used in reducer\n*/\nexport const RESET_SETTINGS = 'RESET_SETTINGS';\n/**\n    A constant containing the string 'SUCCESS'; used in reducer\n*/\nexport const SUCCESS = 'SUCCESS';\n/**\n    A constant containing the string 'RESET_SUCCESS'; used in reducer\n*/\nexport const RESET_SUCCESS = 'RESET_SUCCESS'\n\n/**\n    Returns an object with type CHANGE_THEME and a new theme color.\n    @param {String} themeColor color code for the new theme color.\n*/\nexport function changeTheme(themeColor){\n    return {\n        type: CHANGE_THEME,\n        themeColor\n    }\n}\n\n/**\n    Makes an API call to update the settings. If successful, it dispatches success\n    @param {Object} formState Object containing information from the submitted settings form\n*/\nexport function changeSettingRequest(formState){\n    const apiUrl = 'updateSettings';\n    console.log(formState.email)\n    return (dispatch) => {\n        return callApi(apiUrl, \"post\", formState).then(res => {\n            if(res.success){\n                dispatch(success());\n            }\n        });\n    }\n}\n\n/**\n    Returns an object with type SUCCESS so that the state can change.\n*/\nexport function success(){\n    return {\n        type: SUCCESS,\n    }\n}\n\n/**\n    Returns an object with type RESET_SUCCESS so that the state can change.\n*/\nexport function resetSuccess(){\n    return {\n        type: RESET_SUCCESS,\n    }\n}\n\n/**\n    Confirms that the formState has valid inputs.\n    @param {Object} formstate Object containing information from the submitted settings form\n*/\nexport function checkIfFieldsValid(formState){\n    return (dispatch) => {\n\n        var emailreg = /^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$/;\n\n\tvar usernamereg = /(?=^.{8,20}$)^[a-zA-Z][a-zA-Z0-9]*[._-]?[a-zA-Z0-9]+$/\n\n        var passwordreg = /(?=^.{8,80}$)^[a-zA-Z][a-zA-Z0-9]*[._-]?[a-zA-Z0-9]+$/\n\n        if (formState.email !== '' && emailreg.exec(formState.email) === null)\n        {\n            dispatch(invalidField(\"email\"))\n            return false;\n        }\n\n        if (formState.password1 !== formState.password2){\n\n            console.log(\"passwords dont match\")\n            dispatch(invalidField(\"password\"))\n            return false;\n        }\n\n        dispatch(resetSettings())\n\tif (usernamereg.exec(formState.username) === null)\n        {\n            console.log(\"test\")\n            dispatch(invalidField(\"username\"))\n            return false;\n        }\n\n        if (passwordreg.exec(formState.password) === null)\n        {\n            dispatch(invalidField(\"password\"))\n            return false;\n        }\n\n        dispatch(resetInvalidStatus())\n        return true;\n    }\n}\n\n/**\n    Returns an object with type INVALID_FIELD and the field that was invalid.\n    @param {String} field The field that was incorrect in checkIfFieldsValid.\n*/\nexport function invalidField(field){\n    console.log(\"invalid field: \" + field)\n    return {\n        type: INVALID_FIELD,\n        field\n    }\n}\n/**\n    Returns an object with type RESET_SETTINGS.\n*/\nexport function resetSettings(){\n    return {\n        type: RESET_SETTINGS,\n    }\n}\n",
     "static": true,
     "longname": "planr/client/modules/Settings/SettingsActions.js",
     "access": null,
@@ -4923,15 +4923,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Settings/SettingsActions.js",
     "importStyle": "{INVALID_FIELD}",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "A constant containing the string 'INVALID_FIELD'; used in reducer",
+    "lineNumber": 5,
     "type": {
       "types": [
         "string"
@@ -4949,15 +4942,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Settings/SettingsActions.js",
     "importStyle": "{RESET_INVALID_STATUS}",
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "A constant containing the string 'RESET_INVALID_STATUS'; used in reducer",
+    "lineNumber": 9,
     "type": {
       "types": [
         "string"
@@ -4975,15 +4961,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Settings/SettingsActions.js",
     "importStyle": "{CHANGE_THEME}",
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "A constant containing the string 'CHANGE_THEME'; used in reducer",
+    "lineNumber": 13,
     "type": {
       "types": [
         "string"
@@ -5001,15 +4980,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Settings/SettingsActions.js",
     "importStyle": "{RESET_SETTINGS}",
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "A constant containing the string 'RESET_SETTINGS; used in reducer",
+    "lineNumber": 17,
     "type": {
       "types": [
         "string"
@@ -5027,15 +4999,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Settings/SettingsActions.js",
     "importStyle": "{SUCCESS}",
-    "description": null,
-    "lineNumber": 7,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "A constant containing the string 'SUCCESS'; used in reducer",
+    "lineNumber": 21,
     "type": {
       "types": [
         "string"
@@ -5053,15 +5018,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Settings/SettingsActions.js",
     "importStyle": "{RESET_SUCCESS}",
-    "description": null,
-    "lineNumber": 8,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "A constant containing the string 'RESET_SUCCESS'; used in reducer",
+    "lineNumber": 25,
     "type": {
       "types": [
         "string"
@@ -5081,21 +5039,18 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Settings/SettingsActions.js",
     "importStyle": "{changeTheme}",
-    "description": null,
-    "lineNumber": 10,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Returns an object with type CHANGE_THEME and a new theme color.",
+    "lineNumber": 31,
     "params": [
       {
-        "name": "themeColor",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "themeColor",
+        "description": "color code for the new theme color."
       }
     ],
     "return": {
@@ -5117,21 +5072,18 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Settings/SettingsActions.js",
     "importStyle": "{changeSettingRequest}",
-    "description": null,
-    "lineNumber": 17,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Makes an API call to update the settings. If successful, it dispatches success",
+    "lineNumber": 42,
     "params": [
       {
-        "name": "formState",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "formState",
+        "description": "Object containing information from the submitted settings form"
       }
     ],
     "return": {
@@ -5153,15 +5105,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Settings/SettingsActions.js",
     "importStyle": "{success}",
-    "description": null,
-    "lineNumber": 29,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Returns an object with type SUCCESS so that the state can change.",
+    "lineNumber": 57,
     "params": [],
     "return": {
       "types": [
@@ -5182,15 +5127,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Settings/SettingsActions.js",
     "importStyle": "{resetSuccess}",
-    "description": null,
-    "lineNumber": 35,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Returns an object with type RESET_SUCCESS so that the state can change.",
+    "lineNumber": 66,
     "params": [],
     "return": {
       "types": [
@@ -5211,21 +5149,18 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Settings/SettingsActions.js",
     "importStyle": "{checkIfFieldsValid}",
-    "description": null,
-    "lineNumber": 41,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Confirms that the formState has valid inputs.",
+    "lineNumber": 76,
     "params": [
       {
-        "name": "formState",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "formstate",
+        "description": "Object containing information from the submitted settings form"
       }
     ],
     "return": {
@@ -5247,21 +5182,18 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Settings/SettingsActions.js",
     "importStyle": "{invalidField}",
-    "description": null,
-    "lineNumber": 82,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Returns an object with type INVALID_FIELD and the field that was invalid.",
+    "lineNumber": 121,
     "params": [
       {
-        "name": "field",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "field",
+        "description": "The field that was incorrect in checkIfFieldsValid."
       }
     ],
     "return": {
@@ -5283,15 +5215,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Settings/SettingsActions.js",
     "importStyle": "{resetSettings}",
-    "description": null,
-    "lineNumber": 90,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Returns an object with type RESET_SETTINGS.",
+    "lineNumber": 131,
     "params": [],
     "return": {
       "types": [
@@ -5303,7 +5228,7 @@
     "__docId__": 216,
     "kind": "file",
     "name": "planr/client/modules/Settings/SettingsReducer.js",
-    "content": "import { RESET_SUCCESS, SUCCESS, INVALID_FIELD, RESET_SETTINGS, CHANGE_THEME } from './SettingsActions';\n\n// Initial State\nconst initialState = { emailInvalid: false, passwordInvalid: false, success: false, themeColor: '#705e8b' };\nconst SettingsReducer = (state = initialState, action) => {\n    switch (action.type) {\n        case CHANGE_THEME:\n            return Object.assign({}, state, {\n                themeColor: action.themeColor,\n            });\n        case RESET_SETTINGS:\n            return Object.assign({}, state, {\n                emailInvalid: false,\n                passwordInvalid: false,\n                success: false,\n            });\n        case INVALID_FIELD:\n            if(action.field === 'email'){\n                return Object.assign({}, state, {\n                    emailInvalid: true,\n                });\n            }\n            if(action.field === 'password'){\n                return Object.assign({}, state, {\n                    passwordInvalid: true,\n                });\n            }\n        case SUCCESS:\n            return Object.assign({}, state, {\n                success: true,\n            });\n        case RESET_SUCCESS:\n            return Object.assign({}, state, {\n                success: false,\n            });\n\n        default:\n            return state;\n    }\n};\n\n/* Selectors */\n// Export Reducer`\nexport default SettingsReducer;\n",
+    "content": "import { RESET_SUCCESS, SUCCESS, INVALID_FIELD, RESET_SETTINGS, CHANGE_THEME } from './SettingsActions';\n\n/**\n    An object that contains the initial state when the page is loaded.\n*/\nconst initialState = { emailInvalid: false, passwordInvalid: false, success: false, themeColor: '#705e8b' };\n\n/**\n    A redux reducer that changes the state for the settings page given certain actions.\n    Changes settings based on user inputs.\n    @param {Object} state Initialized to initialState\n    @param {Object} action Object containing a type that determines how we change the state.\n*/\nconst SettingsReducer = (state = initialState, action) => {\n    switch (action.type) {\n        case CHANGE_THEME:\n            return Object.assign({}, state, {\n                themeColor: action.themeColor,\n            });\n        case RESET_SETTINGS:\n            return Object.assign({}, state, {\n                emailInvalid: false,\n                passwordInvalid: false,\n                success: false,\n            });\n        case INVALID_FIELD:\n            if(action.field === 'email'){\n                return Object.assign({}, state, {\n                    emailInvalid: true,\n                });\n            }\n            if(action.field === 'password'){\n                return Object.assign({}, state, {\n                    passwordInvalid: true,\n                });\n            }\n        case SUCCESS:\n            return Object.assign({}, state, {\n                success: true,\n            });\n        case RESET_SUCCESS:\n            return Object.assign({}, state, {\n                success: false,\n            });\n\n        default:\n            return state;\n    }\n};\n\n/* Selectors */\n// Export Reducer`\nexport default SettingsReducer;\n",
     "static": true,
     "longname": "planr/client/modules/Settings/SettingsReducer.js",
     "access": null,
@@ -5321,15 +5246,8 @@
     "export": false,
     "importPath": "planr/planr/client/modules/Settings/SettingsReducer.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "An object that contains the initial state when the page is loaded.",
+    "lineNumber": 6,
     "type": {
       "types": [
         "{\"emailInvalid\": *, \"passwordInvalid\": *, \"success\": *, \"themeColor\": string}"
@@ -5349,30 +5267,28 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Settings/SettingsReducer.js",
     "importStyle": "SettingsReducer",
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "A redux reducer that changes the state for the settings page given certain actions.\nChanges settings based on user inputs.",
+    "lineNumber": 14,
     "params": [
       {
-        "name": "state",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "*"
+          "Object"
         ],
-        "defaultRaw": "initialState",
-        "defaultValue": "initialState"
+        "spread": false,
+        "optional": false,
+        "name": "state",
+        "description": "Initialized to initialState"
       },
       {
-        "name": "action",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "action",
+        "description": "Object containing a type that determines how we change the state."
       }
     ],
     "return": {
@@ -5578,7 +5494,7 @@
     "__docId__": 227,
     "kind": "file",
     "name": "planr/client/modules/Sidebar/SidebarActions.js",
-    "content": "export const CHANGE_VIEW = 'CHANGE_VIEW';\n\nexport function changeView(view){\n    return {\n        type: CHANGE_VIEW,\n        view\n    }\n}\n",
+    "content": "/**\n    A constant containing the string 'CHANGE_VIEW'; used in reducer\n*/\nexport const CHANGE_VIEW = 'CHANGE_VIEW';\n\n/**\n    Returns an object with type CHANGE_VIEW and the new view -- page -- that the user is going to visit.\n    @param {String} view String with name of new view\n*/\nexport function changeView(view){\n    return {\n        type: CHANGE_VIEW,\n        view\n    }\n}\n",
     "static": true,
     "longname": "planr/client/modules/Sidebar/SidebarActions.js",
     "access": null,
@@ -5596,15 +5512,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Sidebar/SidebarActions.js",
     "importStyle": "{CHANGE_VIEW}",
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "A constant containing the string 'CHANGE_VIEW'; used in reducer",
+    "lineNumber": 4,
     "type": {
       "types": [
         "string"
@@ -5624,21 +5533,18 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Sidebar/SidebarActions.js",
     "importStyle": "{changeView}",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Returns an object with type CHANGE_VIEW and the new view -- page -- that the user is going to visit.",
+    "lineNumber": 10,
     "params": [
       {
-        "name": "view",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "view",
+        "description": "String with name of new view"
       }
     ],
     "return": {
@@ -5651,7 +5557,7 @@
     "__docId__": 230,
     "kind": "file",
     "name": "planr/client/modules/Sidebar/SidebarReducer.js",
-    "content": "import { CHANGE_VIEW } from './SidebarActions';\n// Initial State\nconst initialState = { activeView: 'assignments', success: true };\nconst SidebarReducer = (state = initialState, action) => {\n    switch (action.type) {\n        case CHANGE_VIEW:\n            return Object.assign({}, state, {\n                activeView: action.view,\n            });\n        default:\n            return state;\n    }\n};\n\n/* Selectors */\n// Export Reducer`\nexport default SidebarReducer;\n",
+    "content": "import { CHANGE_VIEW } from './SidebarActions';\n/**\n    Object containing the initial state when the page is loaded.\n*/\nconst initialState = { activeView: 'assignments', success: true };\n\n/**\n    Redux reducer that changes the view given certain actions.\n    @param {Object} state see initialState\n    @param {Object} action Object containing the dispatched action and its type\n*/\nconst SidebarReducer = (state = initialState, action) => {\n    switch (action.type) {\n        case CHANGE_VIEW:\n            return Object.assign({}, state, {\n                activeView: action.view,\n            });\n        default:\n            return state;\n    }\n};\n\n/* Selectors */\n// Export Reducer`\nexport default SidebarReducer;\n",
     "static": true,
     "longname": "planr/client/modules/Sidebar/SidebarReducer.js",
     "access": null,
@@ -5669,15 +5575,8 @@
     "export": false,
     "importPath": "planr/planr/client/modules/Sidebar/SidebarReducer.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Object containing the initial state when the page is loaded.",
+    "lineNumber": 5,
     "type": {
       "types": [
         "{\"activeView\": string, \"success\": boolean}"
@@ -5697,30 +5596,28 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Sidebar/SidebarReducer.js",
     "importStyle": "SidebarReducer",
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Redux reducer that changes the view given certain actions.",
+    "lineNumber": 12,
     "params": [
       {
-        "name": "state",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "*"
+          "Object"
         ],
-        "defaultRaw": "initialState",
-        "defaultValue": "initialState"
+        "spread": false,
+        "optional": false,
+        "name": "state",
+        "description": "see initialState"
       },
       {
-        "name": "action",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "action",
+        "description": "Object containing the dispatched action and its type"
       }
     ],
     "return": {
@@ -5816,7 +5713,7 @@
     "__docId__": 238,
     "kind": "file",
     "name": "planr/client/util/apiCaller.js",
-    "content": "import fetch from 'isomorphic-fetch';\nimport Config from '../../server/config/config';\n\nexport const API_URL = (typeof window === 'undefined' || process.env.NODE_ENV === 'test') ?\n  process.env.BASE_URL || (`http://localhost:${process.env.PORT || Config.port}/api`) :\n  '/api';\n\nexport default function callApi(endpoint, method = 'get', body) {\n  return fetch(`${API_URL}/${endpoint}`, {\n    headers: { 'content-type': 'application/json' },\n    method,\n    body: JSON.stringify(body),\n    credentials: 'same-origin'\n  })\n  .then(response => response.json().then(json => ({ json, response })))\n  .then(({ json, response }) => {\n    if (!response.ok) {\n      return Promise.reject(json);\n    }\n\n    return json;\n  })\n  .then(\n    response => response,\n    error => error\n  );\n}\n",
+    "content": "import fetch from 'isomorphic-fetch';\nimport Config from '../../server/config/config';\n/**\n    I didn't write this. Scaffolding\n*/\nexport const API_URL = (typeof window === 'undefined' || process.env.NODE_ENV === 'test') ?\n  process.env.BASE_URL || (`http://localhost:${process.env.PORT || Config.port}/api`) :\n  '/api';\n/**\n    More scaffolding\n*/\nexport default function callApi(endpoint, method = 'get', body) {\n  return fetch(`${API_URL}/${endpoint}`, {\n    headers: { 'content-type': 'application/json' },\n    method,\n    body: JSON.stringify(body),\n    credentials: 'same-origin'\n  })\n  .then(response => response.json().then(json => ({ json, response })))\n  .then(({ json, response }) => {\n    if (!response.ok) {\n      return Promise.reject(json);\n    }\n\n    return json;\n  })\n  .then(\n    response => response,\n    error => error\n  );\n}\n",
     "static": true,
     "longname": "planr/client/util/apiCaller.js",
     "access": null,
@@ -5834,15 +5731,8 @@
     "export": true,
     "importPath": "planr/planr/client/util/apiCaller.js",
     "importStyle": "{API_URL}",
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "I didn't write this. Scaffolding",
+    "lineNumber": 6,
     "type": {
       "types": [
         "*"
@@ -5862,15 +5752,8 @@
     "export": true,
     "importPath": "planr/planr/client/util/apiCaller.js",
     "importStyle": "callApi",
-    "description": null,
-    "lineNumber": 8,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "More scaffolding",
+    "lineNumber": 12,
     "params": [
       {
         "name": "endpoint",
@@ -6195,7 +6078,7 @@
     "__docId__": 262,
     "kind": "file",
     "name": "planr/server/config/config.js",
-    "content": "const config = {\n    port: process.env.PORT || 8000,\n};\n\nexport default config;\n",
+    "content": "/**\n    Object that gives the port\n*/\nconst config = {\n    port: process.env.PORT || 8000,\n};\n\nexport default config;\n",
     "static": true,
     "longname": "planr/server/config/config.js",
     "access": null,
@@ -6213,15 +6096,8 @@
     "export": true,
     "importPath": "planr/planr/server/config/config.js",
     "importStyle": "config",
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Object that gives the port",
+    "lineNumber": 4,
     "type": {
       "types": [
         "{\"port\": *}"
@@ -6319,7 +6195,7 @@
     "__docId__": 267,
     "kind": "file",
     "name": "planr/server/controllers/Login.controller.js",
-    "content": "export function login(req, res){\n    // This isn't necessary anymore, redirect can be done through passport.authenticate() call in router\n    res.redirect('/app');\n}\n",
+    "content": "\n/**\n    If this function is called, you did it wrong. It is not supposed to be used.\n*/\nexport function login(req, res){\n    // This isn't necessary anymore, redirect can be done through passport.authenticate() call in router\n    res.redirect('/app');\n}\n",
     "static": true,
     "longname": "planr/server/controllers/Login.controller.js",
     "access": null,
@@ -6339,15 +6215,8 @@
     "export": true,
     "importPath": "planr/planr/server/controllers/Login.controller.js",
     "importStyle": "{login}",
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "If this function is called, you did it wrong. It is not supposed to be used.",
+    "lineNumber": 5,
     "params": [
       {
         "name": "req",
@@ -6367,7 +6236,7 @@
     "__docId__": 269,
     "kind": "file",
     "name": "planr/server/controllers/Settings.controller.js",
-    "content": "// Import model\nimport {sequelize, users } from '../models/index.js';\nimport bcrypt from 'bcryptjs';\n\n/**\n    This updates the database with new settings for the user in req.user().\n    @param {Object} req This is the Express req object\n    @param {Object} res This is the Express res object\n*/\nexport function newSettings(req, res){\n\n    var color = req.body.color;\n    var user_id = req.user.id;\n    var newUser = req.body.username;\n    var newEmail = req.body.email;\n    var newPassword = req.body.password1;\n    var verifyPassword = req.body.password2;\n    var hash = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(8), null);\n    var values = {};\n    if(color !== ''){\n        values.color = color;\n    }\n    if(newUser !== ''){\n        values.username = newUser;\n    }\n    if(newEmail !== ''){\n        values.email = newEmail;\n    }\n    if(newPassword !== '' && hash !== null){\n        values.password = hash;\n    }\n\n    sequelize.sync().then(function(){\n        users.update(values, { where: { id: user_id } }).then(function(result){\n            if(result){\n                res.json({success: true});\n            }\n        });\n    });\n}\n\nexport function loadSettings(req, res){\n\n    sequelize.sync().then(function(){\n        settings.findOne( { where: { userID: req.user.id} }).then(function(result){\n            res.send(result);\n        });\n    });\n}\n",
+    "content": "// Import model\nimport {sequelize, users } from '../models/index.js';\nimport bcrypt from 'bcryptjs';\n\n/**\n    This updates the database with new settings for the user in req.user().\n    @param {Object} req This is the Express req object\n    @param {Object} res This is the Express res object\n*/\nexport function newSettings(req, res){\n\n    var color = req.body.color;\n    var user_id = req.user.id;\n    var newUser = req.body.username;\n    var newEmail = req.body.email;\n    var newPassword = req.body.password1;\n    var verifyPassword = req.body.password2;\n    var hash = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(8), null);\n    var values = {};\n    if(color !== ''){\n        values.color = color;\n    }\n    if(newUser !== ''){\n        values.username = newUser;\n    }\n    if(newEmail !== ''){\n        values.email = newEmail;\n    }\n    if(newPassword !== '' && hash !== null){\n        values.password = hash;\n    }\n\n    sequelize.sync().then(function(){\n        users.update(values, { where: { id: user_id } }).then(function(result){\n            if(result){\n                res.json({success: true});\n            }\n        });\n    });\n}\n",
     "static": true,
     "longname": "planr/server/controllers/Settings.controller.js",
     "access": null,
@@ -6414,46 +6283,9 @@
   },
   {
     "__docId__": 271,
-    "kind": "function",
-    "name": "loadSettings",
-    "memberof": "planr/server/controllers/Settings.controller.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "planr/server/controllers/Settings.controller.js~loadSettings",
-    "access": null,
-    "export": true,
-    "importPath": "planr/planr/server/controllers/Settings.controller.js",
-    "importStyle": "{loadSettings}",
-    "description": null,
-    "lineNumber": 42,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
-    "params": [
-      {
-        "name": "req",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "res",
-        "types": [
-          "*"
-        ]
-      }
-    ]
-  },
-  {
-    "__docId__": 272,
     "kind": "file",
     "name": "planr/server/controllers/SignUp.controller.js",
-    "content": "// Import model\nimport {sequelize, users } from '../models/index.js';\nimport bcrypt from 'bcryptjs';\n\nexport function newUser(req, res){\n\n    var username = req.body.username;\n    var password = req.body.password;\n    var email = req.body.email;\n    var hash = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);\n    var options = {\n        where: {\n            $or: [{username: username}, {email: email}]\n        },\n        defaults: {\n            username: username,\n            password: hash,\n            email: email\n        }\n    };\n    var newRecord = false;\n    sequelize.sync().then(function(){\n        users.findOrCreate(options).then(function(result){\n            newRecord = result[1];\n            if (!newRecord){\n                var response = {};\n                if (username == result[0].dataValues.username){\n                    response = {\n                        newUser: false,\n                        existingField: 'username'\n                    };\n                }\n                else{\n                    response = {\n                        newUser: false,\n                        existingField: 'email'\n                    }\n                }\n                res.send(response);\n            }\n            else{\n                var response = {\n                    newUser: true,\n                };\n                res.send(response);\n            }\n        });\n    });\n}\n",
+    "content": "// Import model\nimport {sequelize, users } from '../models/index.js';\nimport bcrypt from 'bcryptjs';\n/**\n    Creates a new user with the form included in the req object and inserts into the database\n    @param {Object} req This is the Express req object\n    @param {Object} res This is the Express res object\n*/\nexport function newUser(req, res){\n\n    var username = req.body.username;\n    var password = req.body.password;\n    var email = req.body.email;\n    var hash = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);\n    var options = {\n        where: {\n            $or: [{username: username}, {email: email}]\n        },\n        defaults: {\n            username: username,\n            password: hash,\n            email: email\n        }\n    };\n    var newRecord = false;\n    sequelize.sync().then(function(){\n        users.findOrCreate(options).then(function(result){\n            newRecord = result[1];\n            if (!newRecord){\n                var response = {};\n                if (username == result[0].dataValues.username){\n                    response = {\n                        newUser: false,\n                        existingField: 'username'\n                    };\n                }\n                else{\n                    response = {\n                        newUser: false,\n                        existingField: 'email'\n                    }\n                }\n                res.send(response);\n            }\n            else{\n                var response = {\n                    newUser: true,\n                };\n                res.send(response);\n            }\n        });\n    });\n}\n",
     "static": true,
     "longname": "planr/server/controllers/SignUp.controller.js",
     "access": null,
@@ -6461,7 +6293,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 273,
+    "__docId__": 272,
     "kind": "function",
     "name": "newUser",
     "memberof": "planr/server/controllers/SignUp.controller.js",
@@ -6473,35 +6305,36 @@
     "export": true,
     "importPath": "planr/planr/server/controllers/SignUp.controller.js",
     "importStyle": "{newUser}",
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Creates a new user with the form included in the req object and inserts into the database",
+    "lineNumber": 9,
     "params": [
       {
-        "name": "req",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "req",
+        "description": "This is the Express req object"
       },
       {
-        "name": "res",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "res",
+        "description": "This is the Express res object"
       }
     ]
   },
   {
-    "__docId__": 274,
+    "__docId__": 273,
     "kind": "file",
     "name": "planr/server/controllers/ViewClasses.controller.js",
-    "content": "//<--\n//\n//Import model\nimport {sequelize, classes} from '../models/index.js';\n\nexport function createClass(req, res){\n\n    var name= req.body.name;\n    var info= req.body.desc;\n    var times= req.body.times;\n    var color= req.body.color;\n    var options = {\n        class_name: name,\n        class_info: info,\n        class_color: color,\n        class_times: times,\n        user_id: req.user.id,\n\n    };\n    console.log(options);\n    sequelize.sync().then(function(){\n        classes.create(options).then(function(err){\n            var response = {};\n            if(err){\n                response = {\n                    newClass: false,\n                };\n            }\n            else{\n                response = {\n                    newClass: true,\n                };\n            }\n            res.send(response);\n        });\n    });\n}\n\nexport function fetchClasses(req, res){\n    var options = {\n        where: {\n            owner_id: req.user.id\n        },\n        order: ['class_name'],\n    };\n    sequelize.sync().then(function(){\n        classes.findAll(options).then(function(result){\n            var classes = result;\n            res.send(classes);\n        });\n    });\n}\n",
+    "content": "//<--\n//\n//Import model\nimport {sequelize, classes} from '../models/index.js';\n/**\n    Creates a new class with the form included in the req object and inserts into the database\n    @param {Object} req This is the Express req object\n    @param {Object} res This is the Express res object\n*/\nexport function createClass(req, res){\n\n    var name= req.body.name;\n    var info= req.body.desc;\n    var times= req.body.times;\n    var color= req.body.color;\n    var options = {\n        class_name: name,\n        class_info: info,\n        class_color: color,\n        class_times: times,\n        user_id: req.user.id,\n\n    };\n    console.log(options);\n    sequelize.sync().then(function(){\n        classes.create(options).then(function(err){\n            var response = {};\n            if(err){\n                response = {\n                    newClass: false,\n                };\n            }\n            else{\n                response = {\n                    newClass: true,\n                };\n            }\n            res.send(response);\n        });\n    });\n}\n\nexport function fetchClasses(req, res){\n    var options = {\n        where: {\n            owner_id: req.user.id\n        },\n        order: ['class_name'],\n    };\n    sequelize.sync().then(function(){\n        classes.findAll(options).then(function(result){\n            var classes = result;\n            res.send(classes);\n        });\n    });\n}\n",
     "static": true,
     "longname": "planr/server/controllers/ViewClasses.controller.js",
     "access": null,
@@ -6509,7 +6342,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 275,
+    "__docId__": 274,
     "kind": "function",
     "name": "createClass",
     "memberof": "planr/server/controllers/ViewClasses.controller.js",
@@ -6521,8 +6354,46 @@
     "export": true,
     "importPath": "planr/planr/server/controllers/ViewClasses.controller.js",
     "importStyle": "{createClass}",
+    "description": "Creates a new class with the form included in the req object and inserts into the database",
+    "lineNumber": 10,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "req",
+        "description": "This is the Express req object"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "res",
+        "description": "This is the Express res object"
+      }
+    ]
+  },
+  {
+    "__docId__": 275,
+    "kind": "function",
+    "name": "fetchClasses",
+    "memberof": "planr/server/controllers/ViewClasses.controller.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "planr/server/controllers/ViewClasses.controller.js~fetchClasses",
+    "access": null,
+    "export": true,
+    "importPath": "planr/planr/server/controllers/ViewClasses.controller.js",
+    "importStyle": "{fetchClasses}",
     "description": null,
-    "lineNumber": 6,
+    "lineNumber": 43,
     "undocument": true,
     "unknown": [
       {
@@ -6547,43 +6418,6 @@
   },
   {
     "__docId__": 276,
-    "kind": "function",
-    "name": "fetchClasses",
-    "memberof": "planr/server/controllers/ViewClasses.controller.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "planr/server/controllers/ViewClasses.controller.js~fetchClasses",
-    "access": null,
-    "export": true,
-    "importPath": "planr/planr/server/controllers/ViewClasses.controller.js",
-    "importStyle": "{fetchClasses}",
-    "description": null,
-    "lineNumber": 39,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
-    "params": [
-      {
-        "name": "req",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "res",
-        "types": [
-          "*"
-        ]
-      }
-    ]
-  },
-  {
-    "__docId__": 277,
     "kind": "file",
     "name": "planr/server/models/assignments.js",
     "content": "import DataTypes from 'sequelize';\r\n\r\nvar assignments = {\r\n    id: {\r\n        type: DataTypes.BIGINT,\r\n        primaryKey: true,\r\n        autoIncrement: true,\r\n    },\r\n    owner_id:{\r\n        type: DataTypes.BIGINT,\r\n    },\r\n    class_id: {\r\n        type: DataTypes.BIGINT\r\n    },\r\n    assignment_name: {\r\n        type: DataTypes.STRING\r\n    },\r\n    assignment_description: {\r\n        type: DataTypes.STRING\r\n    },\r\n    assignment_due: {\r\n        type: DataTypes.DATE\r\n    },\r\n};\r\n\r\nmodule.exports = assignments;\r\n",
@@ -6594,7 +6428,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 278,
+    "__docId__": 277,
     "kind": "variable",
     "name": "assignments",
     "memberof": "planr/server/models/assignments.js",
@@ -6620,7 +6454,7 @@
     }
   },
   {
-    "__docId__": 279,
+    "__docId__": 278,
     "kind": "file",
     "name": "planr/server/models/classes.js",
     "content": "import DataTypes from 'sequelize';\n\nvar classes = {\n    id: {\n        type: DataTypes.BIGINT,\n        primaryKey: true,\n        autoIncrement: true,\n    },\n    user_id: {\n        type: DataTypes.BIGINT,\n    },\n    class_name: {\n        type: DataTypes.STRING,\n    },\n    class_info: {\n        type: DataTypes.STRING,\n    },\n    class_times: {\n        type: DataTypes.STRING,\n    },\n    class_color: {\n        type: DataTypes.STRING,\n    }\n};\n\nmodule.exports = classes;\n",
@@ -6631,7 +6465,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 280,
+    "__docId__": 279,
     "kind": "variable",
     "name": "classes",
     "memberof": "planr/server/models/classes.js",
@@ -6657,7 +6491,7 @@
     }
   },
   {
-    "__docId__": 281,
+    "__docId__": 280,
     "kind": "file",
     "name": "planr/server/models/index.js",
     "content": "'use strict';\n\nvar fs        = require('fs');\nvar path      = require('path');\nvar Sequelize = require('sequelize');\nvar env       = process.env.NODE_ENV || 'development';\nvar db        = {};\n\nif (process.env.DATABASE_URL) {\n    var config    = require(__dirname + '/../config/dbConfigProduction.json');\n    var sequelize = new Sequelize(process.env.DATABASE_URL,config);\n} else {\n  var config    = require(__dirname + '/../config/dbConfig.json');\n  var sequelize = new Sequelize(config.database, config.username, config.password, config);\n}\n\nvar assignments = require('./assignments.js');\nvar classes = require('./classes.js');\nvar users = require('./users.js');\nvar settings = require('./settings.js');\n\nvar classesModel = sequelize.define('classes', classes, {\n    freezeTableName: true,\n    timestamps: false\n});\n\nvar assignmentsModel = sequelize.define('assignments', assignments, {\n    freezeTableName: true,\n    timestamps: false\n});\n\nvar usersModel = sequelize.define('users', users, {\n    freezeTableName: true,\n    timestamps: false\n});\n\nvar settingsModel = sequelize.define('settings', settings, {\n    freezeTableName: true,\n    timestamps: false\n});\n\ndb.sequelize = sequelize;\ndb.Sequelize = Sequelize;\n\nmodule.exports = {\n    sequelize: sequelize,\n    users: usersModel,\n    assignments: assignmentsModel,\n    classes: classesModel, //should this be classes?\n    settings: settingsModel,\n};\n",
@@ -6668,7 +6502,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 282,
+    "__docId__": 281,
     "kind": "variable",
     "name": "fs",
     "memberof": "planr/server/models/index.js",
@@ -6694,7 +6528,7 @@
     }
   },
   {
-    "__docId__": 283,
+    "__docId__": 282,
     "kind": "variable",
     "name": "path",
     "memberof": "planr/server/models/index.js",
@@ -6720,7 +6554,7 @@
     }
   },
   {
-    "__docId__": 284,
+    "__docId__": 283,
     "kind": "variable",
     "name": "Sequelize",
     "memberof": "planr/server/models/index.js",
@@ -6746,7 +6580,7 @@
     }
   },
   {
-    "__docId__": 285,
+    "__docId__": 284,
     "kind": "variable",
     "name": "env",
     "memberof": "planr/server/models/index.js",
@@ -6772,7 +6606,7 @@
     }
   },
   {
-    "__docId__": 286,
+    "__docId__": 285,
     "kind": "variable",
     "name": "db",
     "memberof": "planr/server/models/index.js",
@@ -6798,7 +6632,7 @@
     }
   },
   {
-    "__docId__": 287,
+    "__docId__": 286,
     "kind": "variable",
     "name": "assignments",
     "memberof": "planr/server/models/index.js",
@@ -6824,7 +6658,7 @@
     }
   },
   {
-    "__docId__": 288,
+    "__docId__": 287,
     "kind": "variable",
     "name": "classes",
     "memberof": "planr/server/models/index.js",
@@ -6850,7 +6684,7 @@
     }
   },
   {
-    "__docId__": 289,
+    "__docId__": 288,
     "kind": "variable",
     "name": "users",
     "memberof": "planr/server/models/index.js",
@@ -6876,7 +6710,7 @@
     }
   },
   {
-    "__docId__": 290,
+    "__docId__": 289,
     "kind": "variable",
     "name": "settings",
     "memberof": "planr/server/models/index.js",
@@ -6902,7 +6736,7 @@
     }
   },
   {
-    "__docId__": 291,
+    "__docId__": 290,
     "kind": "variable",
     "name": "classesModel",
     "memberof": "planr/server/models/index.js",
@@ -6928,7 +6762,7 @@
     }
   },
   {
-    "__docId__": 292,
+    "__docId__": 291,
     "kind": "variable",
     "name": "assignmentsModel",
     "memberof": "planr/server/models/index.js",
@@ -6954,7 +6788,7 @@
     }
   },
   {
-    "__docId__": 293,
+    "__docId__": 292,
     "kind": "variable",
     "name": "usersModel",
     "memberof": "planr/server/models/index.js",
@@ -6980,7 +6814,7 @@
     }
   },
   {
-    "__docId__": 294,
+    "__docId__": 293,
     "kind": "variable",
     "name": "settingsModel",
     "memberof": "planr/server/models/index.js",
@@ -7006,7 +6840,7 @@
     }
   },
   {
-    "__docId__": 295,
+    "__docId__": 294,
     "kind": "file",
     "name": "planr/server/models/settings.js",
     "content": "import DataTypes from 'sequelize';\n\nvar settings = {\n    id: {\n        type: DataTypes.BIGINT,\n        primaryKey: true,\n        autoIncrement: true\n    },\n    user_id: {\n        type: DataTypes.BIGINT,\n        unique: true\n    },\n    color: {\n        type: DataTypes.STRING,\n    },\n};\n\nmodule.exports = settings;\n",
@@ -7017,7 +6851,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 296,
+    "__docId__": 295,
     "kind": "variable",
     "name": "settings",
     "memberof": "planr/server/models/settings.js",
@@ -7043,7 +6877,7 @@
     }
   },
   {
-    "__docId__": 297,
+    "__docId__": 296,
     "kind": "file",
     "name": "planr/server/models/users.js",
     "content": "import DataTypes from 'sequelize';\n\nvar users = {\n    id: {\n        type: DataTypes.BIGINT,\n        primaryKey: true,\n        autoIncrement: true,\n    },\n    username: {\n        type: DataTypes.STRING\n    },\n    email: {\n        type: DataTypes.STRING\n    },\n    password: {\n        type: DataTypes.STRING\n    },\n    join_date: {\n        type: DataTypes.DATE\n    },\n    color: {\n        type: DataTypes.STRING\n    },\n}\nmodule.exports = users;\n",
@@ -7054,7 +6888,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 298,
+    "__docId__": 297,
     "kind": "variable",
     "name": "users",
     "memberof": "planr/server/models/users.js",
@@ -7080,10 +6914,10 @@
     }
   },
   {
-    "__docId__": 299,
+    "__docId__": 298,
     "kind": "file",
     "name": "planr/server/passport/passport.js",
-    "content": "var LocalStrategy = require('passport-local').Strategy;\nvar passport = require('passport');\nvar models = require('../models/index.js');\nimport bcrypt from 'bcryptjs';\n\npassport.use(new LocalStrategy({\n            usernameField: 'email',\n            passwordField: 'password'\n        },\n        function(username, password, done) {\n            var query = {\n                where: {\n                    // This is horribly confusing I know\n                    email: username,\n                }\n            }\n            models.sequelize.sync().then(function(){\n                models.users.findOne(query).then(function(result){\n                    if(result == null){\n                        done(null, false);\n                    }\n                    else{\n                        bcrypt.compare(password, result.password, function(err, validLogin) {\n                            if(validLogin){\n                                done(null, result);\n                            }\n                            else{\n                                done(null, false);\n                            }\n                        });\n                    }\n                });\n            });\n        }\n\n));\n\npassport.serializeUser(function(user, done) {\n    done(null, user.id);\n});\n\npassport.deserializeUser(function(user, done) {\n    models.sequelize.sync().then(function(){\n        models.users.findById(user).then(function(result){\n            done(null, result);\n        });\n    });\n});\n\n\nexport default passport;\n",
+    "content": "var LocalStrategy = require('passport-local').Strategy;\n/**\n    Importing passport\n*/\nvar passport = require('passport');\nvar models = require('../models/index.js');\nimport bcrypt from 'bcryptjs';\n\npassport.use(new LocalStrategy({\n            usernameField: 'email',\n            passwordField: 'password'\n        },\n        function(username, password, done) {\n            var query = {\n                where: {\n                    // This is horribly confusing I know\n                    email: username,\n                }\n            }\n            models.sequelize.sync().then(function(){\n                models.users.findOne(query).then(function(result){\n                    if(result == null){\n                        done(null, false);\n                    }\n                    else{\n                        bcrypt.compare(password, result.password, function(err, validLogin) {\n                            if(validLogin){\n                                done(null, result);\n                            }\n                            else{\n                                done(null, false);\n                            }\n                        });\n                    }\n                });\n            });\n        }\n\n));\n\npassport.serializeUser(function(user, done) {\n    done(null, user.id);\n});\n\npassport.deserializeUser(function(user, done) {\n    models.sequelize.sync().then(function(){\n        models.users.findById(user).then(function(result){\n            done(null, result);\n        });\n    });\n});\n\n\nexport default passport;\n",
     "static": true,
     "longname": "planr/server/passport/passport.js",
     "access": null,
@@ -7091,7 +6925,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 300,
+    "__docId__": 299,
     "kind": "variable",
     "name": "LocalStrategy",
     "memberof": "planr/server/passport/passport.js",
@@ -7117,7 +6951,7 @@
     }
   },
   {
-    "__docId__": 301,
+    "__docId__": 300,
     "kind": "variable",
     "name": "models",
     "memberof": "planr/server/passport/passport.js",
@@ -7128,7 +6962,7 @@
     "importPath": "planr/planr/server/passport/passport.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 3,
+    "lineNumber": 6,
     "undocument": true,
     "unknown": [
       {
@@ -7143,7 +6977,7 @@
     }
   },
   {
-    "__docId__": 302,
+    "__docId__": 301,
     "kind": "variable",
     "name": "passport",
     "memberof": "planr/server/passport/passport.js",
@@ -7153,15 +6987,8 @@
     "export": true,
     "importPath": "planr/planr/server/passport/passport.js",
     "importStyle": "passport",
-    "description": null,
-    "lineNumber": 2,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Importing passport",
+    "lineNumber": 5,
     "type": {
       "types": [
         "*"
@@ -7169,7 +6996,7 @@
     }
   },
   {
-    "__docId__": 303,
+    "__docId__": 302,
     "kind": "file",
     "name": "planr/server/routes/Assignments.routes.js",
     "content": "import { Router } from 'express';\nimport * as AssignmentsController from '../controllers/Assignments.controller';\n\nconst router = new Router();\n\nrouter.route('/createAssignment').post(AssignmentsController.createAssignment);\nrouter.route('/fetchAssignments').get(AssignmentsController.fetchAssignments);\n\n\nexport default router;\n",
@@ -7180,7 +7007,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 304,
+    "__docId__": 303,
     "kind": "file",
     "name": "planr/server/routes/Login.routes.js",
     "content": "import { Router } from 'express';\nimport * as LoginController from '../controllers/Login.controller';\nimport passport from '../passport/passport';\n\nconst router = new Router();\n\nrouter.route('/login').post(function(req,res,next){\n    passport.authenticate('local', function(err, user, info){\n        if(user){\n            req.login(user, function(err){\n                if (err){console.log(err)};\n            });\n            res.json({validLogin: true});\n        }\n        else{\n            res.json({validLogin: false});\n        }\n    })(req,res,next);\n});\n\nexport default router;\n",
@@ -7191,7 +7018,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 305,
+    "__docId__": 304,
     "kind": "file",
     "name": "planr/server/routes/Logout.routes.js",
     "content": "import { Router } from 'express';\nimport * as LoginController from '../controllers/Login.controller';\nimport passport from '../passport/passport';\n\nconst router = new Router();\n\nrouter.route('/logout').get(function(req,res,next){\n    req.logout();\n    res.redirect('/landing');\n});\n\nexport default router;\n",
@@ -7202,7 +7029,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 306,
+    "__docId__": 305,
     "kind": "file",
     "name": "planr/server/routes/Settings.routes.js",
     "content": "import { Router } from 'express';\nimport * as SettingsController from '../controllers/Settings.controller';\n\nconst router = new Router();\n\nrouter.route('/updateSettings').post(SettingsController.newSettings);\nrouter.route('/loadSettings').get(SettingsController.loadSettings);\n\nexport default router;\n",
@@ -7213,7 +7040,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 307,
+    "__docId__": 306,
     "kind": "file",
     "name": "planr/server/routes/SignUp.routes.js",
     "content": "import { Router } from 'express';\nimport * as SignUpController from '../controllers/SignUp.controller';\n\nconst router = new Router();\n\nrouter.route('/signUp').post(SignUpController.newUser);\n\nexport default router;\n",
@@ -7224,7 +7051,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 308,
+    "__docId__": 307,
     "kind": "file",
     "name": "planr/server/routes/ViewClasses.routes.js",
     "content": "import { Router } from 'express';\nimport * as ViewClassesController from '../controllers/ViewClasses.controller';\n\nconst router = new Router();\n\nrouter.route('/createClass').post(ViewClassesController.createClass);\nrouter.route('/fetchClasses').get(ViewClassesController.fetchClasses)\n\nexport default router;\n",
@@ -7235,7 +7062,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 309,
+    "__docId__": 308,
     "kind": "file",
     "name": "planr/server/server.js",
     "content": "import Express from 'express';\nimport compression from 'compression';\nimport bodyParser from 'body-parser';\nimport path from 'path';\n\n// Webpack Requirements\nimport webpack from 'webpack';\nimport config from '../webpack.config.dev';\nimport webpackDevMiddleware from 'webpack-dev-middleware';\nimport webpackHotMiddleware from 'webpack-hot-middleware';\n\n// DB\nimport { Sequelize } from 'sequelize';\nvar models = require('./models');\n\n// Import routers\nimport signUpRouter from './routes/SignUp.routes.js';\nimport loginRouter from './routes/Login.routes.js';\nimport logoutRouter from './routes/Logout.routes.js'\nimport settingsRouter from './routes/Settings.routes.js';\nimport assignmentsRouter from './routes/Assignments.routes.js';\nimport viewClassesRouter from './routes/ViewClasses.routes.js';\n\n\n//models.classes.belongsTo(models.users)\n//models.assignments.belongsTo(models.classes)\n\n// Initialize the Express App\nconst app = new Express();\n\n\n// Run Webpack dev server in development mode\nif (process.env.NODE_ENV === 'development') {\n  const compiler = webpack(config);\n  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));\n  app.use(webpackHotMiddleware(compiler));\n}\n\n// React And Redux Setup\nimport { configureStore } from '../client/store';\nimport { Provider } from 'react-redux';\nimport React from 'react';\nimport { renderToString } from 'react-dom/server';\nimport { match, RouterContext } from 'react-router';\nimport Helmet from 'react-helmet';\n\n// Import required modules\nimport routes from '../client/routes';\nimport { fetchComponentData } from './util/fetchData';\nimport serverConfig from './config/config.js';\n\n//Passport/session stuff\nvar cookieParser = require('cookie-parser');\nvar flash = require('connect-flash');\nvar expressSession = require('express-session');\nimport passport from './passport/passport';\n\n// Apply body Parser and server public assets and routes\napp.use(compression());\napp.use(bodyParser.json({ limit: '20mb' }));\napp.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));\napp.use(Express.static(path.resolve(__dirname, '../dist')));\napp.use(bodyParser());\napp.use(cookieParser(\"keyboard cat\"));\n\n//Initialize some stuff\napp.use(flash());\napp.use(expressSession({\n  secret: 'keyboard cat',\n  resave: true,\n  saveUninitialized: true,\n  cookie: { maxAge: 3600000}\n}));\napp.use(passport.initialize());\napp.use(passport.session());\n\n/**\n    Routes requests to root based on authentication status\n*/\napp.get('/', function(req, res, next){\n    if (req.isAuthenticated()) {\n        next();\n    }\n    else{\n        res.redirect('/landing');\n    }\n});\n\napp.get('/landing', function(req, res, next){\n    if (req.isAuthenticated()){\n        res.redirect('/');\n    }\n    else{\n        next();\n    }\n});\n\n\n// Place routers below here\napp.use('/api', signUpRouter);\napp.use('/api', loginRouter);\napp.use('/api', logoutRouter);\napp.use('/api', settingsRouter);\napp.use('/api', assignmentsRouter);\napp.use('/api', viewClassesRouter);\n\n// Render Initial HTML\nconst renderFullPage = (html, initialState) => {\n  const head = Helmet.rewind();\n\n  // Import Manifests\n  const assetsManifest = process.env.webpackAssets && JSON.parse(process.env.webpackAssets);\n  const chunkManifest = process.env.webpackChunkAssets && JSON.parse(process.env.webpackChunkAssets);\n\n  return `\n    <!doctype html>\n    <html>\n      <head>\n        ${head.base.toString()}\n        ${head.title.toString()}\n        ${head.meta.toString()}\n        ${head.link.toString()}\n        ${head.script.toString()}\n        ${process.env.NODE_ENV === 'production' ? `<link rel='stylesheet' href='${assetsManifest['/app.css']}' />` : ''}\n        <link rel=\"shortcut icon\" href=\"http://res.cloudinary.com/hashnode/image/upload/v1455629445/static_imgs/mern/mern-favicon-circle-fill.png\" type=\"image/png\" />\n      </head>\n      <body>\n        <div id=\"root\">${html}</div>\n        <script>\n          window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};\n          ${process.env.NODE_ENV === 'production' ?\n          `//<![CDATA[\n          window.webpackManifest = ${JSON.stringify(chunkManifest)};\n          //]]>` : ''}\n        </script>\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,500,700,700i\" rel=\"stylesheet\">\n        <script src='${process.env.NODE_ENV === 'production' ? assetsManifest['/vendor.js'] : '/vendor.js'}'></script>\n        <script src='${process.env.NODE_ENV === 'production' ? assetsManifest['/app.js'] : '/app.js'}'></script>\n      </body>\n    </html>\n  `;\n};\n\nconst renderError = err => {\n  const softTab = '&#32;&#32;&#32;&#32;';\n  const errTrace = process.env.NODE_ENV !== 'production' ?\n    `:<br><br><pre style=\"color:red\">${softTab}${err.stack.replace(/\\n/g, `<br>${softTab}`)}</pre>` : '';\n  return renderFullPage(`Server Error${errTrace}`, {});\n};\n\n// Server Side Rendering based on routes matched by React-router.\napp.use((req, res, next) => {\n  match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {\n    if (err) {\n      return res.status(500).end(renderError(err));\n    }\n\n    if (redirectLocation) {\n      return res.redirect(302, redirectLocation.pathname + redirectLocation.search);\n    }\n\n    if (!renderProps) {\n      return next();\n    }\n\n    const store = configureStore();\n\n    return fetchComponentData(store, renderProps.components, renderProps.params)\n      .then(() => {\n        const initialView = renderToString(\n          <Provider store={store}>\n                <RouterContext {...renderProps} />\n          </Provider>\n        );\n        const finalState = store.getState();\n\n        res\n          .set('Content-Type', 'text/html')\n          .status(202)\n          .end(renderFullPage(initialView, finalState));\n      })\n      .catch((error) => next(error));\n  });\n});\n\nmodels.sequelize.sync().then(function() {\n  app.listen(serverConfig.port, function() {\n    console.log('Planr is running on localhost:' + serverConfig.port + '!');\n  });\n});\n\nexport default app;\n",
@@ -7246,7 +7073,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 310,
+    "__docId__": 309,
     "kind": "variable",
     "name": "models",
     "memberof": "planr/server/server.js",
@@ -7272,7 +7099,7 @@
     }
   },
   {
-    "__docId__": 311,
+    "__docId__": 310,
     "kind": "variable",
     "name": "cookieParser",
     "memberof": "planr/server/server.js",
@@ -7298,7 +7125,7 @@
     }
   },
   {
-    "__docId__": 312,
+    "__docId__": 311,
     "kind": "variable",
     "name": "flash",
     "memberof": "planr/server/server.js",
@@ -7324,7 +7151,7 @@
     }
   },
   {
-    "__docId__": 313,
+    "__docId__": 312,
     "kind": "variable",
     "name": "expressSession",
     "memberof": "planr/server/server.js",
@@ -7350,7 +7177,7 @@
     }
   },
   {
-    "__docId__": 314,
+    "__docId__": 313,
     "kind": "function",
     "name": "renderFullPage",
     "memberof": "planr/server/server.js",
@@ -7392,7 +7219,7 @@
     }
   },
   {
-    "__docId__": 315,
+    "__docId__": 314,
     "kind": "function",
     "name": "renderError",
     "memberof": "planr/server/server.js",
@@ -7428,10 +7255,10 @@
     }
   },
   {
-    "__docId__": 316,
+    "__docId__": 315,
     "kind": "file",
     "name": "planr/server/util/fetchData.js",
-    "content": "/*\nUtility function to fetch required data for component to render in server side.\nThis was inspired from https://github.com/caljrimmer/isomorphic-redux-app/blob/73e6e7d43ccd41e2eb557a70be79cebc494ee54b/src/common/api/fetchComponentDataBeforeRender.js\n*/\nimport { sequence } from './promiseUtils';\n\nexport function fetchComponentData(store, components, params) {\n  const needs = components.reduce((prev, current) => {\n    return (current.need || [])\n      .concat((current.WrappedComponent && (current.WrappedComponent.need !== current.need) ? current.WrappedComponent.need : []) || [])\n      .concat(prev);\n  }, []);\n\n  return sequence(needs, need => store.dispatch(need(params, store.getState())));\n}\n",
+    "content": "import { sequence } from './promiseUtils';\n\n/**\nscaffolding\n*/\nexport function fetchComponentData(store, components, params) {\n  const needs = components.reduce((prev, current) => {\n    return (current.need || [])\n      .concat((current.WrappedComponent && (current.WrappedComponent.need !== current.need) ? current.WrappedComponent.need : []) || [])\n      .concat(prev);\n  }, []);\n\n  return sequence(needs, need => store.dispatch(need(params, store.getState())));\n}\n",
     "static": true,
     "longname": "planr/server/util/fetchData.js",
     "access": null,
@@ -7439,7 +7266,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 317,
+    "__docId__": 316,
     "kind": "function",
     "name": "fetchComponentData",
     "memberof": "planr/server/util/fetchData.js",
@@ -7451,15 +7278,8 @@
     "export": true,
     "importPath": "planr/planr/server/util/fetchData.js",
     "importStyle": "{fetchComponentData}",
-    "description": null,
-    "lineNumber": 7,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "scaffolding",
+    "lineNumber": 6,
     "params": [
       {
         "name": "store",
@@ -7487,7 +7307,7 @@
     }
   },
   {
-    "__docId__": 318,
+    "__docId__": 317,
     "kind": "file",
     "name": "planr/server/util/promiseUtils.js",
     "content": "/**\n * Throw an array to it and a function which can generate promises\n * and it will call them sequentially, one after another\n */\nexport function sequence(items, consumer) {\n  const results = [];\n  const runner = () => {\n    const item = items.shift();\n    if (item) {\n      return consumer(item)\n        .then((result) => {\n          results.push(result);\n        })\n        .then(runner);\n    }\n\n    return Promise.resolve(results);\n  };\n\n  return runner();\n}\n",
@@ -7498,7 +7318,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 319,
+    "__docId__": 318,
     "kind": "function",
     "name": "sequence",
     "memberof": "planr/server/util/promiseUtils.js",
@@ -7533,7 +7353,7 @@
     }
   },
   {
-    "__docId__": 320,
+    "__docId__": 319,
     "kind": "file",
     "name": "planr/server/util/setup-test-env.js",
     "content": "// To get normal classnames instead of CSS Modules classnames for testing\nrequire('mock-css-modules');\n\n// Ignore assets\nrequire.extensions['.jpg'] = noop => noop;\nrequire.extensions['.jpeg'] = noop => noop;\nrequire.extensions['.png'] = noop => noop;\nrequire.extensions['.gif'] = noop => noop;\n\nrequire('babel-register');\nrequire('babel-polyfill');\n\nglobal.document = require('jsdom').jsdom('<body></body>');\nglobal.window = document.defaultView;\nglobal.navigator = window.navigator;\n",
@@ -7544,10 +7364,10 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 321,
+    "__docId__": 320,
     "kind": "file",
     "name": "planr/server/util/test-helpers.js",
-    "content": "import mongoose from 'mongoose';\nimport mockgoose from 'mockgoose';\n\nexport function connectDB(t, done) {\n  mockgoose(mongoose).then(() => {\n    mongoose.createConnection('mongodb://localhost:27017/mern-test', err => {\n      if (err) t.fail('Unable to connect to test database');\n      done();\n    });\n  });\n}\n\nexport function dropDB(t) {\n  mockgoose.reset(err => {\n    if (err) t.fail('Unable to reset test database');\n  });\n}\n",
+    "content": "import mongoose from 'mongoose';\nimport mockgoose from 'mockgoose';\n/**\nscaffolding\n*/\nexport function connectDB(t, done) {\n  mockgoose(mongoose).then(() => {\n    mongoose.createConnection('mongodb://localhost:27017/mern-test', err => {\n      if (err) t.fail('Unable to connect to test database');\n      done();\n    });\n  });\n}\n/**\nscaffolding\n*/\nexport function dropDB(t) {\n  mockgoose.reset(err => {\n    if (err) t.fail('Unable to reset test database');\n  });\n}\n",
     "static": true,
     "longname": "planr/server/util/test-helpers.js",
     "access": null,
@@ -7555,7 +7375,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 322,
+    "__docId__": 321,
     "kind": "function",
     "name": "connectDB",
     "memberof": "planr/server/util/test-helpers.js",
@@ -7567,15 +7387,8 @@
     "export": true,
     "importPath": "planr/planr/server/util/test-helpers.js",
     "importStyle": "{connectDB}",
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "scaffolding",
+    "lineNumber": 6,
     "params": [
       {
         "name": "t",
@@ -7592,7 +7405,7 @@
     ]
   },
   {
-    "__docId__": 323,
+    "__docId__": 322,
     "kind": "function",
     "name": "dropDB",
     "memberof": "planr/server/util/test-helpers.js",
@@ -7604,15 +7417,8 @@
     "export": true,
     "importPath": "planr/planr/server/util/test-helpers.js",
     "importStyle": "{dropDB}",
-    "description": null,
-    "lineNumber": 13,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "scaffolding",
+    "lineNumber": 17,
     "params": [
       {
         "name": "t",
@@ -7623,7 +7429,7 @@
     ]
   },
   {
-    "__docId__": 324,
+    "__docId__": 323,
     "kind": "file",
     "name": "planr/webpack.config.babel.js",
     "content": "var cssnext = require('postcss-cssnext');\nvar postcssFocus = require('postcss-focus');\nvar postcssReporter = require('postcss-reporter');\n\nvar cssModulesIdentName = '[name]__[local]__[hash:base64:5]';\nif (process.env.NODE_ENV === 'production') {\n  cssModulesIdentName = '[hash:base64]';\n}\n\nmodule.exports = {\n  output: {\n    publicPath: '/',\n    libraryTarget: 'commonjs2',\n  },\n  resolve: {\n    extensions: ['', '.js', '.jsx'],\n    modules: [\n      'client',\n      'node_modules',\n    ],\n  },\n  module: {\n    loaders: [\n      {\n        test: /\\.css$/,\n        exclude: /node_modules/,\n        loader: 'style-loader!css-loader?localIdentName=' + cssModulesIdentName + '&modules&importLoaders=1&sourceMap!postcss-loader',\n      },\n      {\n        test: /\\.jpe?g$|\\.gif$|\\.png$|\\.svg$/i,\n        loader: 'url-loader?limit=10000',\n      },\n    ],\n  },\n  postcss: () => [\n    postcssFocus(),\n    cssnext({\n      browsers: ['last 2 versions', 'IE > 10'],\n    }),\n    postcssReporter({\n      clearMessages: true,\n    }),\n  ],\n};\n",
@@ -7634,7 +7440,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 325,
+    "__docId__": 324,
     "kind": "variable",
     "name": "cssnext",
     "memberof": "planr/webpack.config.babel.js",
@@ -7660,7 +7466,7 @@
     }
   },
   {
-    "__docId__": 326,
+    "__docId__": 325,
     "kind": "variable",
     "name": "postcssFocus",
     "memberof": "planr/webpack.config.babel.js",
@@ -7686,7 +7492,7 @@
     }
   },
   {
-    "__docId__": 327,
+    "__docId__": 326,
     "kind": "variable",
     "name": "postcssReporter",
     "memberof": "planr/webpack.config.babel.js",
@@ -7712,7 +7518,7 @@
     }
   },
   {
-    "__docId__": 328,
+    "__docId__": 327,
     "kind": "variable",
     "name": "cssModulesIdentName",
     "memberof": "planr/webpack.config.babel.js",
@@ -7738,7 +7544,7 @@
     }
   },
   {
-    "__docId__": 329,
+    "__docId__": 328,
     "kind": "file",
     "name": "planr/webpack.config.dev.js",
     "content": "var webpack = require('webpack');\nvar cssnext = require('postcss-cssnext');\nvar postcssFocus = require('postcss-focus');\nvar postcssReporter = require('postcss-reporter');\n\nmodule.exports = {\n  devtool: 'cheap-module-eval-source-map',\n\n  entry: {\n    app: [\n      'eventsource-polyfill',\n      'webpack-hot-middleware/client',\n      'webpack/hot/only-dev-server',\n      'react-hot-loader/patch',\n      './client/index.js',\n    ],\n    vendor: [\n      'react',\n      'react-dom',\n    ],\n  },\n\n  output: {\n    path: __dirname,\n    filename: 'app.js',\n    publicPath: 'http://0.0.0.0:8000/',\n  },\n\n  resolve: {\n    extensions: ['', '.js', '.jsx'],\n    modules: [\n      'client',\n      'node_modules',\n    ],\n  },\n\n  module: {\n    loaders: [\n      {\n        test: /\\.css$/,\n        exclude: [/node_modules/, /lib\\.css$/],\n        loader: 'style-loader!css-loader?localIdentName=[name]__[local]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader',\n      }, {\n        test: /\\.css$/,\n        include: [/node_modules/, /lib\\.css$/],\n        loaders: ['style-loader', 'css-loader'],\n      }, {\n        test: /\\.jsx*$/,\n        exclude: [/node_modules/, /.+\\.config.js/],\n        loader: 'babel',\n      }, {\n        test: /\\.(jpe?g|gif|png|svg)$/i,\n        loader: 'url-loader?limit=10000',\n      }, {\n        test: /\\.json$/,\n        loader: 'json-loader',\n      },\n    ],\n  },\n\n  plugins: [\n    new webpack.HotModuleReplacementPlugin(),\n    new webpack.optimize.CommonsChunkPlugin({\n      name: 'vendor',\n      minChunks: Infinity,\n      filename: 'vendor.js',\n    }),\n    new webpack.DefinePlugin({\n      'process.env': {\n        CLIENT: JSON.stringify(true),\n        'NODE_ENV': JSON.stringify('development'),\n      }\n    }),\n  ],\n\n  postcss: () => [\n    postcssFocus(),\n    cssnext({\n      browsers: ['last 2 versions', 'IE > 10'],\n    }),\n    postcssReporter({\n      clearMessages: true,\n    }),\n  ],\n};\n",
@@ -7749,7 +7555,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 330,
+    "__docId__": 329,
     "kind": "variable",
     "name": "webpack",
     "memberof": "planr/webpack.config.dev.js",
@@ -7775,7 +7581,7 @@
     }
   },
   {
-    "__docId__": 331,
+    "__docId__": 330,
     "kind": "variable",
     "name": "cssnext",
     "memberof": "planr/webpack.config.dev.js",
@@ -7801,7 +7607,7 @@
     }
   },
   {
-    "__docId__": 332,
+    "__docId__": 331,
     "kind": "variable",
     "name": "postcssFocus",
     "memberof": "planr/webpack.config.dev.js",
@@ -7827,7 +7633,7 @@
     }
   },
   {
-    "__docId__": 333,
+    "__docId__": 332,
     "kind": "variable",
     "name": "postcssReporter",
     "memberof": "planr/webpack.config.dev.js",
@@ -7853,7 +7659,7 @@
     }
   },
   {
-    "__docId__": 334,
+    "__docId__": 333,
     "kind": "file",
     "name": "planr/webpack.config.prod.js",
     "content": "var webpack = require('webpack');\nvar ExtractTextPlugin = require('extract-text-webpack-plugin');\nvar ManifestPlugin = require('webpack-manifest-plugin');\nvar ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');\nvar cssnext = require('postcss-cssnext');\nvar postcssFocus = require('postcss-focus');\nvar postcssReporter = require('postcss-reporter');\nvar cssnano = require('cssnano');\n\nmodule.exports = {\n  devtool: 'hidden-source-map',\n\n  entry: {\n    app: [\n      './client/index.js',\n    ],\n    vendor: [\n      'react',\n      'react-dom',\n    ]\n  },\n\n  output: {\n    path: __dirname + '/dist/',\n    filename: '[name].[chunkhash].js',\n    publicPath: '/',\n  },\n\n  resolve: {\n    extensions: ['', '.js', '.jsx'],\n    modules: [\n      'client',\n      'node_modules',\n    ],\n  },\n\n  module: {\n    loaders: [\n      {\n        test: /\\.css$/,\n        exclude: /node_modules/,\n        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?localIdentName=[hash:base64]&modules&importLoaders=1!postcss-loader'),\n      }, {\n        test: /\\.css$/,\n        include: /node_modules/,\n        loaders: ['style-loader', 'css-loader'],\n      }, {\n        test: /\\.jsx*$/,\n        exclude: /node_modules/,\n        loader: 'babel',\n      }, {\n        test: /\\.(jpe?g|gif|png|svg)$/i,\n        loader: 'url-loader?limit=10000',\n      }, {\n        test: /\\.json$/,\n        loader: 'json-loader',\n      },\n    ],\n  },\n\n  plugins: [\n    new webpack.DefinePlugin({\n      'process.env': {\n        'NODE_ENV': JSON.stringify('production'),\n      }\n    }),\n    new webpack.optimize.CommonsChunkPlugin({\n      name: 'vendor',\n      minChunks: Infinity,\n      filename: 'vendor.js',\n    }),\n    new ExtractTextPlugin('app.[chunkhash].css', { allChunks: true }),\n    new ManifestPlugin({\n      basePath: '/',\n    }),\n    new ChunkManifestPlugin({\n      filename: \"chunk-manifest.json\",\n      manifestVariable: \"webpackManifest\",\n    }),\n    new webpack.optimize.UglifyJsPlugin({\n      compressor: {\n        warnings: false,\n      }\n    }),\n  ],\n\n  postcss: () => [\n    postcssFocus(),\n    cssnext({\n      browsers: ['last 2 versions', 'IE > 10'],\n    }),\n    cssnano({\n      autoprefixer: false\n    }),\n    postcssReporter({\n      clearMessages: true,\n    }),\n  ],\n};\n",
@@ -7864,7 +7670,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 335,
+    "__docId__": 334,
     "kind": "variable",
     "name": "webpack",
     "memberof": "planr/webpack.config.prod.js",
@@ -7890,7 +7696,7 @@
     }
   },
   {
-    "__docId__": 336,
+    "__docId__": 335,
     "kind": "variable",
     "name": "ExtractTextPlugin",
     "memberof": "planr/webpack.config.prod.js",
@@ -7916,7 +7722,7 @@
     }
   },
   {
-    "__docId__": 337,
+    "__docId__": 336,
     "kind": "variable",
     "name": "ManifestPlugin",
     "memberof": "planr/webpack.config.prod.js",
@@ -7942,7 +7748,7 @@
     }
   },
   {
-    "__docId__": 338,
+    "__docId__": 337,
     "kind": "variable",
     "name": "ChunkManifestPlugin",
     "memberof": "planr/webpack.config.prod.js",
@@ -7968,7 +7774,7 @@
     }
   },
   {
-    "__docId__": 339,
+    "__docId__": 338,
     "kind": "variable",
     "name": "cssnext",
     "memberof": "planr/webpack.config.prod.js",
@@ -7994,7 +7800,7 @@
     }
   },
   {
-    "__docId__": 340,
+    "__docId__": 339,
     "kind": "variable",
     "name": "postcssFocus",
     "memberof": "planr/webpack.config.prod.js",
@@ -8020,7 +7826,7 @@
     }
   },
   {
-    "__docId__": 341,
+    "__docId__": 340,
     "kind": "variable",
     "name": "postcssReporter",
     "memberof": "planr/webpack.config.prod.js",
@@ -8046,7 +7852,7 @@
     }
   },
   {
-    "__docId__": 342,
+    "__docId__": 341,
     "kind": "variable",
     "name": "cssnano",
     "memberof": "planr/webpack.config.prod.js",
@@ -8072,7 +7878,7 @@
     }
   },
   {
-    "__docId__": 343,
+    "__docId__": 342,
     "kind": "file",
     "name": "planr/webpack.config.server.js",
     "content": "var fs = require('fs');\nvar path = require('path');\nvar ExternalsPlugin = require('webpack-externals-plugin');\n\nmodule.exports = {\n\n  entry: path.resolve(__dirname, 'server/server.js'),\n\n  output: {\n    path: __dirname + '/dist/',\n    publicPath: '/',\n    filename: 'server.bundle.js',\n  },\n\n  target: 'node',\n\n  node: {\n    __filename: true,\n    __dirname: true,\n  },\n\n  resolve: {\n    extensions: ['', '.js', '.jsx'],\n    modules: [\n      'client',\n      'server',\n      'node_modules',\n    ],\n  },\n\n  module: {\n    loaders: [\n      {\n        test: /\\.js$/,\n        exclude: /node_modules/,\n        loader: 'babel-loader',\n        query: {\n          presets: [\n            'react',\n            'es2015',\n            'stage-0',\n          ],\n          plugins: [\n            [\n              'babel-plugin-webpack-loaders', {\n                'config': './webpack.config.babel.js',\n                \"verbose\": false\n              }\n            ]\n          ]\n        },\n      }, {\n        test: /\\.json$/,\n        loader: 'json-loader',\n      },\n    ],\n  },\n  plugins: [\n    new ExternalsPlugin({\n      type: 'commonjs',\n      include: path.join(__dirname, './node_modules/'),\n    }),\n  ],\n};\n",
@@ -8083,7 +7889,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 344,
+    "__docId__": 343,
     "kind": "variable",
     "name": "fs",
     "memberof": "planr/webpack.config.server.js",
@@ -8109,7 +7915,7 @@
     }
   },
   {
-    "__docId__": 345,
+    "__docId__": 344,
     "kind": "variable",
     "name": "path",
     "memberof": "planr/webpack.config.server.js",
@@ -8135,7 +7941,7 @@
     }
   },
   {
-    "__docId__": 346,
+    "__docId__": 345,
     "kind": "variable",
     "name": "ExternalsPlugin",
     "memberof": "planr/webpack.config.server.js",
@@ -8161,7 +7967,7 @@
     }
   },
   {
-    "__docId__": 348,
+    "__docId__": 347,
     "kind": "external",
     "name": "Infinity",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
@@ -8173,7 +7979,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 349,
+    "__docId__": 348,
     "kind": "external",
     "name": "NaN",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
@@ -8185,7 +7991,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 350,
+    "__docId__": 349,
     "kind": "external",
     "name": "undefined",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
@@ -8197,7 +8003,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 351,
+    "__docId__": 350,
     "kind": "external",
     "name": "null",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
@@ -8209,7 +8015,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 352,
+    "__docId__": 351,
     "kind": "external",
     "name": "Object",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
@@ -8221,7 +8027,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 353,
+    "__docId__": 352,
     "kind": "external",
     "name": "object",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
@@ -8233,7 +8039,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 354,
+    "__docId__": 353,
     "kind": "external",
     "name": "Function",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
@@ -8245,7 +8051,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 355,
+    "__docId__": 354,
     "kind": "external",
     "name": "function",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
@@ -8257,7 +8063,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 356,
+    "__docId__": 355,
     "kind": "external",
     "name": "Boolean",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
@@ -8269,7 +8075,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 357,
+    "__docId__": 356,
     "kind": "external",
     "name": "boolean",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
@@ -8281,7 +8087,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 358,
+    "__docId__": 357,
     "kind": "external",
     "name": "Symbol",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
@@ -8293,7 +8099,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 359,
+    "__docId__": 358,
     "kind": "external",
     "name": "Error",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
@@ -8305,7 +8111,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 360,
+    "__docId__": 359,
     "kind": "external",
     "name": "EvalError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
@@ -8317,7 +8123,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 361,
+    "__docId__": 360,
     "kind": "external",
     "name": "InternalError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
@@ -8329,7 +8135,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 362,
+    "__docId__": 361,
     "kind": "external",
     "name": "RangeError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
@@ -8341,7 +8147,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 363,
+    "__docId__": 362,
     "kind": "external",
     "name": "ReferenceError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
@@ -8353,7 +8159,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 364,
+    "__docId__": 363,
     "kind": "external",
     "name": "SyntaxError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
@@ -8365,7 +8171,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 365,
+    "__docId__": 364,
     "kind": "external",
     "name": "TypeError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
@@ -8377,7 +8183,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 366,
+    "__docId__": 365,
     "kind": "external",
     "name": "URIError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
@@ -8389,7 +8195,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 367,
+    "__docId__": 366,
     "kind": "external",
     "name": "Number",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
@@ -8401,7 +8207,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 368,
+    "__docId__": 367,
     "kind": "external",
     "name": "number",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
@@ -8413,7 +8219,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 369,
+    "__docId__": 368,
     "kind": "external",
     "name": "Date",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
@@ -8425,7 +8231,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 370,
+    "__docId__": 369,
     "kind": "external",
     "name": "String",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
@@ -8437,7 +8243,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 371,
+    "__docId__": 370,
     "kind": "external",
     "name": "string",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
@@ -8449,7 +8255,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 372,
+    "__docId__": 371,
     "kind": "external",
     "name": "RegExp",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
@@ -8461,7 +8267,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 373,
+    "__docId__": 372,
     "kind": "external",
     "name": "Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
@@ -8473,7 +8279,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 374,
+    "__docId__": 373,
     "kind": "external",
     "name": "Int8Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
@@ -8485,7 +8291,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 375,
+    "__docId__": 374,
     "kind": "external",
     "name": "Uint8Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
@@ -8497,7 +8303,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 376,
+    "__docId__": 375,
     "kind": "external",
     "name": "Uint8ClampedArray",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
@@ -8509,7 +8315,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 377,
+    "__docId__": 376,
     "kind": "external",
     "name": "Int16Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
@@ -8521,7 +8327,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 378,
+    "__docId__": 377,
     "kind": "external",
     "name": "Uint16Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
@@ -8533,7 +8339,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 379,
+    "__docId__": 378,
     "kind": "external",
     "name": "Int32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
@@ -8545,7 +8351,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 380,
+    "__docId__": 379,
     "kind": "external",
     "name": "Uint32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
@@ -8557,7 +8363,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 381,
+    "__docId__": 380,
     "kind": "external",
     "name": "Float32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
@@ -8569,7 +8375,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 382,
+    "__docId__": 381,
     "kind": "external",
     "name": "Float64Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
@@ -8581,7 +8387,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 383,
+    "__docId__": 382,
     "kind": "external",
     "name": "Map",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
@@ -8593,7 +8399,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 384,
+    "__docId__": 383,
     "kind": "external",
     "name": "Set",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
@@ -8605,7 +8411,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 385,
+    "__docId__": 384,
     "kind": "external",
     "name": "WeakMap",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
@@ -8617,7 +8423,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 386,
+    "__docId__": 385,
     "kind": "external",
     "name": "WeakSet",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
@@ -8629,7 +8435,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 387,
+    "__docId__": 386,
     "kind": "external",
     "name": "ArrayBuffer",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
@@ -8641,7 +8447,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 388,
+    "__docId__": 387,
     "kind": "external",
     "name": "DataView",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
@@ -8653,7 +8459,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 389,
+    "__docId__": 388,
     "kind": "external",
     "name": "JSON",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
@@ -8665,7 +8471,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 390,
+    "__docId__": 389,
     "kind": "external",
     "name": "Promise",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
@@ -8677,7 +8483,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 391,
+    "__docId__": 390,
     "kind": "external",
     "name": "Generator",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
@@ -8689,7 +8495,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 392,
+    "__docId__": 391,
     "kind": "external",
     "name": "GeneratorFunction",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
@@ -8701,7 +8507,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 393,
+    "__docId__": 392,
     "kind": "external",
     "name": "Reflect",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
@@ -8713,7 +8519,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 394,
+    "__docId__": 393,
     "kind": "external",
     "name": "Proxy",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
@@ -8726,7 +8532,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 396,
+    "__docId__": 395,
     "kind": "external",
     "name": "CanvasRenderingContext2D",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
@@ -8738,7 +8544,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 397,
+    "__docId__": 396,
     "kind": "external",
     "name": "DocumentFragment",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
@@ -8750,7 +8556,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 398,
+    "__docId__": 397,
     "kind": "external",
     "name": "Element",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
@@ -8762,7 +8568,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 399,
+    "__docId__": 398,
     "kind": "external",
     "name": "Event",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
@@ -8774,7 +8580,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 400,
+    "__docId__": 399,
     "kind": "external",
     "name": "Node",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
@@ -8786,7 +8592,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 401,
+    "__docId__": 400,
     "kind": "external",
     "name": "NodeList",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
@@ -8798,7 +8604,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 402,
+    "__docId__": 401,
     "kind": "external",
     "name": "XMLHttpRequest",
     "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
@@ -8810,7 +8616,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 403,
+    "__docId__": 402,
     "kind": "external",
     "name": "AudioContext",
     "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",

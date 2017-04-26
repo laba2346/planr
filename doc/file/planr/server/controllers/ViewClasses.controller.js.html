@@ -92,7 +92,6 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">server/controllers</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createAssignment">createAssignment</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchAssignments">fetchAssignments</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSettings">loadSettings</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newSettings">newSettings</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newUser">newUser</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createClass">createClass</a></span></span></li>
@@ -111,7 +110,11 @@
 //
 //Import model
 import {sequelize, classes} from &apos;../models/index.js&apos;;
-
+/**
+    Creates a new class with the form included in the req object and inserts into the database
+    @param {Object} req This is the Express req object
+    @param {Object} res This is the Express res object
+*/
 export function createClass(req, res){
 
     var name= req.body.name;

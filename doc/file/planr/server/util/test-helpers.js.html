@@ -92,7 +92,6 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">server/controllers</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createAssignment">createAssignment</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchAssignments">fetchAssignments</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSettings">loadSettings</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newSettings">newSettings</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newUser">newUser</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createClass">createClass</a></span></span></li>
@@ -109,7 +108,9 @@
 <div class="content" data-ice="content"><h1 data-ice="title">planr/server/util/test-helpers.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import mongoose from &apos;mongoose&apos;;
 import mockgoose from &apos;mockgoose&apos;;
-
+/**
+scaffolding
+*/
 export function connectDB(t, done) {
   mockgoose(mongoose).then(() =&gt; {
     mongoose.createConnection(&apos;mongodb://localhost:27017/mern-test&apos;, err =&gt; {
@@ -118,7 +119,9 @@ export function connectDB(t, done) {
     });
   });
 }
-
+/**
+scaffolding
+*/
 export function dropDB(t) {
   mockgoose.reset(err =&gt; {
     if (err) t.fail(&apos;Unable to reset test database&apos;);

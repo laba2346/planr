@@ -92,7 +92,6 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">server/controllers</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createAssignment">createAssignment</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchAssignments">fetchAssignments</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSettings">loadSettings</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newSettings">newSettings</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newUser">newUser</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createClass">createClass</a></span></span></li>
@@ -108,14 +107,35 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">planr/client/modules/Settings/SettingsActions.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import callApi from &apos;../../util/apiCaller&apos;;
-
+/**
+    A constant containing the string &apos;INVALID_FIELD&apos;; used in reducer
+*/
 export const INVALID_FIELD = &apos;INVALID_FIELD&apos;;
+/**
+    A constant containing the string &apos;RESET_INVALID_STATUS&apos;; used in reducer
+*/
 export const RESET_INVALID_STATUS = &apos;RESET_INVALID_STATUS&apos;;
+/**
+    A constant containing the string &apos;CHANGE_THEME&apos;; used in reducer
+*/
 export const CHANGE_THEME = &apos;CHANGE_THEME&apos;;
+/**
+    A constant containing the string &apos;RESET_SETTINGS; used in reducer
+*/
 export const RESET_SETTINGS = &apos;RESET_SETTINGS&apos;;
+/**
+    A constant containing the string &apos;SUCCESS&apos;; used in reducer
+*/
 export const SUCCESS = &apos;SUCCESS&apos;;
+/**
+    A constant containing the string &apos;RESET_SUCCESS&apos;; used in reducer
+*/
 export const RESET_SUCCESS = &apos;RESET_SUCCESS&apos;
 
+/**
+    Returns an object with type CHANGE_THEME and a new theme color.
+    @param {String} themeColor color code for the new theme color.
+*/
 export function changeTheme(themeColor){
     return {
         type: CHANGE_THEME,
@@ -123,6 +143,10 @@ export function changeTheme(themeColor){
     }
 }
 
+/**
+    Makes an API call to update the settings. If successful, it dispatches success
+    @param {Object} formState Object containing information from the submitted settings form
+*/
 export function changeSettingRequest(formState){
     const apiUrl = &apos;updateSettings&apos;;
     console.log(formState.email)
@@ -135,26 +159,36 @@ export function changeSettingRequest(formState){
     }
 }
 
+/**
+    Returns an object with type SUCCESS so that the state can change.
+*/
 export function success(){
     return {
         type: SUCCESS,
     }
 }
 
+/**
+    Returns an object with type RESET_SUCCESS so that the state can change.
+*/
 export function resetSuccess(){
     return {
         type: RESET_SUCCESS,
     }
 }
 
+/**
+    Confirms that the formState has valid inputs.
+    @param {Object} formstate Object containing information from the submitted settings form
+*/
 export function checkIfFieldsValid(formState){
     return (dispatch) =&gt; {
 
         var emailreg = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 
-	var usernamereg = /(?=^.{8,20}$)^[a-zA-Z][a-zA-Z0-9]*[._-]?[a-zA-Z0-9]+$/ 
-            
-        var passwordreg = /(?=^.{8,80}$)^[a-zA-Z][a-zA-Z0-9]*[._-]?[a-zA-Z0-9]+$/ 
+	var usernamereg = /(?=^.{8,20}$)^[a-zA-Z][a-zA-Z0-9]*[._-]?[a-zA-Z0-9]+$/
+
+        var passwordreg = /(?=^.{8,80}$)^[a-zA-Z][a-zA-Z0-9]*[._-]?[a-zA-Z0-9]+$/
 
         if (formState.email !== &apos;&apos; &amp;&amp; emailreg.exec(formState.email) === null)
         {
@@ -188,6 +222,10 @@ export function checkIfFieldsValid(formState){
     }
 }
 
+/**
+    Returns an object with type INVALID_FIELD and the field that was invalid.
+    @param {String} field The field that was incorrect in checkIfFieldsValid.
+*/
 export function invalidField(field){
     console.log(&quot;invalid field: &quot; + field)
     return {
@@ -195,7 +233,9 @@ export function invalidField(field){
         field
     }
 }
-
+/**
+    Returns an object with type RESET_SETTINGS.
+*/
 export function resetSettings(){
     return {
         type: RESET_SETTINGS,

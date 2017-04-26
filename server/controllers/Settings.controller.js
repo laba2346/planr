@@ -38,12 +38,3 @@ export function newSettings(req, res){
         });
     });
 }
-
-export function loadSettings(req, res){
-
-    sequelize.sync().then(function(){
-        settings.findOne( { where: { userID: req.user.id} }).then(function(result){
-            res.send(result);
-        });
-    });
-}

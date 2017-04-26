@@ -336,12 +336,6 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "planr/planr/server/controllers/settings.controller.js~loadsettings",
-    "function/index.html#static-function-loadSettings",
-    "<span>loadSettings</span> <span class=\"search-result-import-path\">planr/planr/server/controllers/Settings.controller.js</span>",
-    "function"
-  ],
-  [
     "planr/planr/server/controllers/login.controller.js~login",
     "function/index.html#static-function-login",
     "<span>login</span> <span class=\"search-result-import-path\">planr/planr/server/controllers/Login.controller.js</span>",

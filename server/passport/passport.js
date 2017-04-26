@@ -1,4 +1,7 @@
 var LocalStrategy = require('passport-local').Strategy;
+/**
+    Importing passport
+*/
 var passport = require('passport');
 var models = require('../models/index.js');
 import bcrypt from 'bcryptjs';

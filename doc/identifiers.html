@@ -92,7 +92,6 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">server/controllers</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createAssignment">createAssignment</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchAssignments">fetchAssignments</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSettings">loadSettings</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newSettings">newSettings</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newUser">newUser</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createClass">createClass</a></span></span></li>
@@ -429,13 +428,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-SettingsReducer">SettingsReducer</a></span></span><span data-ice="signature">(state: <span>*</span>, action: <span>*</span>): <span>*</span></span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-SettingsReducer">SettingsReducer</a></span></span><span data-ice="signature">(state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, action: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>A redux reducer that changes the state for the settings page given certain actions.</p>
+</div>
       </div>
     </td>
     <td>
@@ -456,13 +456,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-SidebarReducer">SidebarReducer</a></span></span><span data-ice="signature">(state: <span>*</span>, action: <span>*</span>): <span>*</span></span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-SidebarReducer">SidebarReducer</a></span></span><span data-ice="signature">(state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, action: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Redux reducer that changes the view given certain actions.</p>
+</div>
       </div>
     </td>
     <td>
@@ -570,7 +571,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>More scaffolding</p>
+</div>
       </div>
     </td>
     <td>
@@ -591,13 +593,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-changeSettingRequest">changeSettingRequest</a></span></span><span data-ice="signature">(formState: <span>*</span>): <span>*</span></span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-changeSettingRequest">changeSettingRequest</a></span></span><span data-ice="signature">(formState: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Makes an API call to update the settings.</p>
+</div>
       </div>
     </td>
     <td>
@@ -618,13 +621,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-changeTheme">changeTheme</a></span></span><span data-ice="signature">(themeColor: <span>*</span>): {&quot;type&quot;: <span>*</span>, &quot;themeColor&quot;: <span>*</span>}</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-changeTheme">changeTheme</a></span></span><span data-ice="signature">(themeColor: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): {&quot;type&quot;: <span>*</span>, &quot;themeColor&quot;: <span>*</span>}</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Returns an object with type CHANGE_THEME and a new theme color.</p>
+</div>
       </div>
     </td>
     <td>
@@ -645,13 +649,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-changeView">changeView</a></span></span><span data-ice="signature">(view: <span>*</span>): {&quot;type&quot;: <span>*</span>, &quot;view&quot;: <span>*</span>}</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-changeView">changeView</a></span></span><span data-ice="signature">(view: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): {&quot;type&quot;: <span>*</span>, &quot;view&quot;: <span>*</span>}</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Returns an object with type CHANGE_VIEW and the new view -- page -- that the user is going to visit.</p>
+</div>
       </div>
     </td>
     <td>
@@ -672,13 +677,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-checkIfFieldsValid">checkIfFieldsValid</a></span></span><span data-ice="signature">(formState: <span>*</span>): <span>*</span></span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-checkIfFieldsValid">checkIfFieldsValid</a></span></span><span data-ice="signature">(formstate: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Confirms that the formState has valid inputs.</p>
+</div>
       </div>
     </td>
     <td>
@@ -759,7 +765,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>scaffolding</p>
+</div>
       </div>
     </td>
     <td>
@@ -862,13 +869,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-createClass">createClass</a></span></span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-createClass">createClass</a></span></span><span data-ice="signature">(req: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, res: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Creates a new class with the form included in the req object and inserts into the database</p>
+</div>
       </div>
     </td>
     <td>
@@ -949,7 +957,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>scaffolding</p>
+</div>
       </div>
     </td>
     <td>
@@ -1085,7 +1094,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>scaffolding</p>
+</div>
       </div>
     </td>
     <td>
@@ -1106,13 +1116,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-invalidField">invalidField</a></span></span><span data-ice="signature">(field: <span>*</span>): {&quot;type&quot;: <span>*</span>, &quot;field&quot;: <span>*</span>}</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-invalidField">invalidField</a></span></span><span data-ice="signature">(field: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): {&quot;type&quot;: <span>*</span>, &quot;field&quot;: <span>*</span>}</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Returns an object with type INVALID_FIELD and the field that was invalid.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1187,40 +1198,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-loadSettings">loadSettings</a></span></span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
           <span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>If this function is called, you did it wrong.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1269,13 +1254,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-newUser">newUser</a></span></span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-newUser">newUser</a></span></span><span data-ice="signature">(req: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, res: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Creates a new user with the form included in the req object and inserts into the database</p>
+</div>
       </div>
     </td>
     <td>
@@ -1329,7 +1315,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Returns an object with type RESET_SETTINGS.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1356,7 +1343,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Returns an object with type RESET_SUCCESS so that the state can change.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1493,7 +1481,8 @@ and it will call them sequentially, one after another</p>
       <div>
         
         
-        
+        <div data-ice="description"><p>Returns an object with type SUCCESS so that the state can change.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1662,7 +1651,8 @@ and it will call them sequentially, one after another</p>
       <div>
         
         
-        
+        <div data-ice="description"><p>I didn&apos;t write this. Scaffolding</p>
+</div>
       </div>
     </td>
     <td>
@@ -1689,7 +1679,8 @@ and it will call them sequentially, one after another</p>
       <div>
         
         
-        
+        <div data-ice="description"><p>A constant containing the string &apos;CHANGE_THEME&apos;; used in reducer</p>
+</div>
       </div>
     </td>
     <td>
@@ -1716,7 +1707,8 @@ and it will call them sequentially, one after another</p>
       <div>
         
         
-        
+        <div data-ice="description"><p>A constant containing the string &apos;CHANGE_VIEW&apos;; used in reducer</p>
+</div>
       </div>
     </td>
     <td>
@@ -1770,7 +1762,8 @@ and it will call them sequentially, one after another</p>
       <div>
         
         
-        
+        <div data-ice="description"><p>A constant containing the string &apos;INVALID_FIELD&apos;; used in reducer</p>
+</div>
       </div>
     </td>
     <td>
@@ -1851,7 +1844,8 @@ and it will call them sequentially, one after another</p>
       <div>
         
         
-        
+        <div data-ice="description"><p>A constant containing the string &apos;RESET_INVALID_STATUS&apos;; used in reducer</p>
+</div>
       </div>
     </td>
     <td>
@@ -1878,7 +1872,8 @@ and it will call them sequentially, one after another</p>
       <div>
         
         
-        
+        <div data-ice="description"><p>A constant containing the string &apos;RESET_SETTINGS; used in reducer</p>
+</div>
       </div>
     </td>
     <td>
@@ -1905,7 +1900,8 @@ and it will call them sequentially, one after another</p>
       <div>
         
         
-        
+        <div data-ice="description"><p>A constant containing the string &apos;RESET_SUCCESS&apos;; used in reducer</p>
+</div>
       </div>
     </td>
     <td>
@@ -1932,7 +1928,8 @@ and it will call them sequentially, one after another</p>
       <div>
         
         
-        
+        <div data-ice="description"><p>A constant containing the string &apos;SUCCESS&apos;; used in reducer</p>
+</div>
       </div>
     </td>
     <td>
@@ -1986,7 +1983,8 @@ and it will call them sequentially, one after another</p>
       <div>
         
         
-        
+        <div data-ice="description"><p>Object that gives the port</p>
+</div>
       </div>
     </td>
     <td>
@@ -2013,7 +2011,8 @@ and it will call them sequentially, one after another</p>
       <div>
         
         
-        
+        <div data-ice="description"><p>Importing passport</p>
+</div>
       </div>
     </td>
     <td>

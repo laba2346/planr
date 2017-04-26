@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 138,
+  "end": 379,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 9,
+      "line": 16,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 138,
+    "end": 379,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 9,
+        "line": 16,
         "column": 0
       }
     },
@@ -30,15 +30,15 @@
     "body": [
       {
         "type": "ExportNamedDeclaration",
-        "start": 0,
-        "end": 41,
+        "start": 75,
+        "end": 116,
         "loc": {
           "start": {
-            "line": 1,
+            "line": 4,
             "column": 0
           },
           "end": {
-            "line": 1,
+            "line": 4,
             "column": 41
           }
         },
@@ -46,61 +46,62 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 7,
-          "end": 41,
+          "start": 82,
+          "end": 116,
           "loc": {
             "start": {
-              "line": 1,
+              "line": 4,
               "column": 7
             },
             "end": {
-              "line": 1,
+              "line": 4,
               "column": 41
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 13,
-              "end": 40,
+              "start": 88,
+              "end": 115,
               "loc": {
                 "start": {
-                  "line": 1,
+                  "line": 4,
                   "column": 13
                 },
                 "end": {
-                  "line": 1,
+                  "line": 4,
                   "column": 40
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 13,
-                "end": 24,
+                "start": 88,
+                "end": 99,
                 "loc": {
                   "start": {
-                    "line": 1,
+                    "line": 4,
                     "column": 13
                   },
                   "end": {
-                    "line": 1,
+                    "line": 4,
                     "column": 24
                   },
                   "identifierName": "CHANGE_VIEW"
                 },
-                "name": "CHANGE_VIEW"
+                "name": "CHANGE_VIEW",
+                "leadingComments": null
               },
               "init": {
                 "type": "StringLiteral",
-                "start": 27,
-                "end": 40,
+                "start": 102,
+                "end": 115,
                 "loc": {
                   "start": {
-                    "line": 1,
+                    "line": 4,
                     "column": 27
                   },
                   "end": {
-                    "line": 1,
+                    "line": 4,
                     "column": 40
                   }
                 },
@@ -109,25 +110,96 @@
                   "raw": "'CHANGE_VIEW'"
                 },
                 "value": "CHANGE_VIEW"
-              }
+              },
+              "leadingComments": null
             }
           ],
           "kind": "const",
-          "leadingComments": [],
-          "trailingComments": []
-        }
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n    A constant containing the string 'CHANGE_VIEW'; used in reducer\n",
+              "start": 0,
+              "end": 74,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 0
+                },
+                "end": {
+                  "line": 3,
+                  "column": 2
+                }
+              }
+            }
+          ],
+          "trailingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n    Returns an object with type CHANGE_VIEW and the new view -- page -- that the user is going to visit.\n    @param {String} view String with name of new view\n",
+              "start": 118,
+              "end": 283,
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 0
+                },
+                "end": {
+                  "line": 9,
+                  "column": 2
+                }
+              }
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n    A constant containing the string 'CHANGE_VIEW'; used in reducer\n",
+            "start": 0,
+            "end": 74,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 0
+              },
+              "end": {
+                "line": 3,
+                "column": 2
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n    Returns an object with type CHANGE_VIEW and the new view -- page -- that the user is going to visit.\n    @param {String} view String with name of new view\n",
+            "start": 118,
+            "end": 283,
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 0
+              },
+              "end": {
+                "line": 9,
+                "column": 2
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 43,
-        "end": 137,
+        "start": 284,
+        "end": 378,
         "loc": {
           "start": {
-            "line": 3,
+            "line": 10,
             "column": 0
           },
           "end": {
-            "line": 8,
+            "line": 15,
             "column": 1
           }
         },
@@ -135,34 +207,35 @@
         "source": null,
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 50,
-          "end": 137,
+          "start": 291,
+          "end": 378,
           "loc": {
             "start": {
-              "line": 3,
+              "line": 10,
               "column": 7
             },
             "end": {
-              "line": 8,
+              "line": 15,
               "column": 1
             }
           },
           "id": {
             "type": "Identifier",
-            "start": 59,
-            "end": 69,
+            "start": 300,
+            "end": 310,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 10,
                 "column": 16
               },
               "end": {
-                "line": 3,
+                "line": 10,
                 "column": 26
               },
               "identifierName": "changeView"
             },
-            "name": "changeView"
+            "name": "changeView",
+            "leadingComments": null
           },
           "generator": false,
           "expression": false,
@@ -170,15 +243,15 @@
           "params": [
             {
               "type": "Identifier",
-              "start": 70,
-              "end": 74,
+              "start": 311,
+              "end": 315,
               "loc": {
                 "start": {
-                  "line": 3,
+                  "line": 10,
                   "column": 27
                 },
                 "end": {
-                  "line": 3,
+                  "line": 10,
                   "column": 31
                 },
                 "identifierName": "view"
@@ -188,59 +261,59 @@
           ],
           "body": {
             "type": "BlockStatement",
-            "start": 75,
-            "end": 137,
+            "start": 316,
+            "end": 378,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 10,
                 "column": 32
               },
               "end": {
-                "line": 8,
+                "line": 15,
                 "column": 1
               }
             },
             "body": [
               {
                 "type": "ReturnStatement",
-                "start": 81,
-                "end": 135,
+                "start": 322,
+                "end": 376,
                 "loc": {
                   "start": {
-                    "line": 4,
+                    "line": 11,
                     "column": 4
                   },
                   "end": {
-                    "line": 7,
+                    "line": 14,
                     "column": 5
                   }
                 },
                 "argument": {
                   "type": "ObjectExpression",
-                  "start": 88,
-                  "end": 135,
+                  "start": 329,
+                  "end": 376,
                   "loc": {
                     "start": {
-                      "line": 4,
+                      "line": 11,
                       "column": 11
                     },
                     "end": {
-                      "line": 7,
+                      "line": 14,
                       "column": 5
                     }
                   },
                   "properties": [
                     {
                       "type": "ObjectProperty",
-                      "start": 98,
-                      "end": 115,
+                      "start": 339,
+                      "end": 356,
                       "loc": {
                         "start": {
-                          "line": 5,
+                          "line": 12,
                           "column": 8
                         },
                         "end": {
-                          "line": 5,
+                          "line": 12,
                           "column": 25
                         }
                       },
@@ -249,15 +322,15 @@
                       "computed": false,
                       "key": {
                         "type": "Identifier",
-                        "start": 98,
-                        "end": 102,
+                        "start": 339,
+                        "end": 343,
                         "loc": {
                           "start": {
-                            "line": 5,
+                            "line": 12,
                             "column": 8
                           },
                           "end": {
-                            "line": 5,
+                            "line": 12,
                             "column": 12
                           },
                           "identifierName": "type"
@@ -266,15 +339,15 @@
                       },
                       "value": {
                         "type": "Identifier",
-                        "start": 104,
-                        "end": 115,
+                        "start": 345,
+                        "end": 356,
                         "loc": {
                           "start": {
-                            "line": 5,
+                            "line": 12,
                             "column": 14
                           },
                           "end": {
-                            "line": 5,
+                            "line": 12,
                             "column": 25
                           },
                           "identifierName": "CHANGE_VIEW"
@@ -284,15 +357,15 @@
                     },
                     {
                       "type": "ObjectProperty",
-                      "start": 125,
-                      "end": 129,
+                      "start": 366,
+                      "end": 370,
                       "loc": {
                         "start": {
-                          "line": 6,
+                          "line": 13,
                           "column": 8
                         },
                         "end": {
-                          "line": 6,
+                          "line": 13,
                           "column": 12
                         }
                       },
@@ -301,15 +374,15 @@
                       "computed": false,
                       "key": {
                         "type": "Identifier",
-                        "start": 125,
-                        "end": 129,
+                        "start": 366,
+                        "end": 370,
                         "loc": {
                           "start": {
-                            "line": 6,
+                            "line": 13,
                             "column": 8
                           },
                           "end": {
-                            "line": 6,
+                            "line": 13,
                             "column": 12
                           },
                           "identifierName": "view"
@@ -318,15 +391,15 @@
                       },
                       "value": {
                         "type": "Identifier",
-                        "start": 125,
-                        "end": 129,
+                        "start": 366,
+                        "end": 370,
                         "loc": {
                           "start": {
-                            "line": 6,
+                            "line": 13,
                             "column": 8
                           },
                           "end": {
-                            "line": 6,
+                            "line": 13,
                             "column": 12
                           },
                           "identifierName": "view"
@@ -343,15 +416,99 @@
             ],
             "directives": []
           },
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n    Returns an object with type CHANGE_VIEW and the new view -- page -- that the user is going to visit.\n    @param {String} view String with name of new view\n",
+              "start": 118,
+              "end": 283,
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 0
+                },
+                "end": {
+                  "line": 9,
+                  "column": 2
+                }
+              }
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n    Returns an object with type CHANGE_VIEW and the new view -- page -- that the user is going to visit.\n    @param {String} view String with name of new view\n",
+            "start": 118,
+            "end": 283,
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 0
+              },
+              "end": {
+                "line": 9,
+                "column": 2
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n    A constant containing the string 'CHANGE_VIEW'; used in reducer\n",
+      "start": 0,
+      "end": 74,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 2
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n    Returns an object with type CHANGE_VIEW and the new view -- page -- that the user is going to visit.\n    @param {String} view String with name of new view\n",
+      "start": 118,
+      "end": 283,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 0
+        },
+        "end": {
+          "line": 9,
+          "column": 2
+        }
+      }
+    }
+  ],
   "tokens": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n    A constant containing the string 'CHANGE_VIEW'; used in reducer\n",
+      "start": 0,
+      "end": 74,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 2
+        }
+      }
+    },
     {
       "type": {
         "label": "export",
@@ -367,15 +524,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 0,
-      "end": 6,
+      "start": 75,
+      "end": 81,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 4,
           "column": 0
         },
         "end": {
-          "line": 1,
+          "line": 4,
           "column": 6
         }
       }
@@ -395,15 +552,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 7,
-      "end": 12,
+      "start": 82,
+      "end": 87,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 4,
           "column": 7
         },
         "end": {
-          "line": 1,
+          "line": 4,
           "column": 12
         }
       }
@@ -421,15 +578,15 @@
         "binop": null
       },
       "value": "CHANGE_VIEW",
-      "start": 13,
-      "end": 24,
+      "start": 88,
+      "end": 99,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 4,
           "column": 13
         },
         "end": {
-          "line": 1,
+          "line": 4,
           "column": 24
         }
       }
@@ -448,15 +605,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 25,
-      "end": 26,
+      "start": 100,
+      "end": 101,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 4,
           "column": 25
         },
         "end": {
-          "line": 1,
+          "line": 4,
           "column": 26
         }
       }
@@ -475,15 +632,15 @@
         "updateContext": null
       },
       "value": "CHANGE_VIEW",
-      "start": 27,
-      "end": 40,
+      "start": 102,
+      "end": 115,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 4,
           "column": 27
         },
         "end": {
-          "line": 1,
+          "line": 4,
           "column": 40
         }
       }
@@ -501,16 +658,32 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 40,
-      "end": 41,
+      "start": 115,
+      "end": 116,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 4,
           "column": 40
         },
         "end": {
-          "line": 1,
+          "line": 4,
           "column": 41
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n    Returns an object with type CHANGE_VIEW and the new view -- page -- that the user is going to visit.\n    @param {String} view String with name of new view\n",
+      "start": 118,
+      "end": 283,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 0
+        },
+        "end": {
+          "line": 9,
+          "column": 2
         }
       }
     },
@@ -529,15 +702,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 43,
-      "end": 49,
+      "start": 284,
+      "end": 290,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 10,
           "column": 0
         },
         "end": {
-          "line": 3,
+          "line": 10,
           "column": 6
         }
       }
@@ -556,15 +729,15 @@
         "binop": null
       },
       "value": "function",
-      "start": 50,
-      "end": 58,
+      "start": 291,
+      "end": 299,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 10,
           "column": 7
         },
         "end": {
-          "line": 3,
+          "line": 10,
           "column": 15
         }
       }
@@ -582,15 +755,15 @@
         "binop": null
       },
       "value": "changeView",
-      "start": 59,
-      "end": 69,
+      "start": 300,
+      "end": 310,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 10,
           "column": 16
         },
         "end": {
-          "line": 3,
+          "line": 10,
           "column": 26
         }
       }
@@ -607,15 +780,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 69,
-      "end": 70,
+      "start": 310,
+      "end": 311,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 10,
           "column": 26
         },
         "end": {
-          "line": 3,
+          "line": 10,
           "column": 27
         }
       }
@@ -633,15 +806,15 @@
         "binop": null
       },
       "value": "view",
-      "start": 70,
-      "end": 74,
+      "start": 311,
+      "end": 315,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 10,
           "column": 27
         },
         "end": {
-          "line": 3,
+          "line": 10,
           "column": 31
         }
       }
@@ -658,15 +831,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 74,
-      "end": 75,
+      "start": 315,
+      "end": 316,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 10,
           "column": 31
         },
         "end": {
-          "line": 3,
+          "line": 10,
           "column": 32
         }
       }
@@ -683,15 +856,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 75,
-      "end": 76,
+      "start": 316,
+      "end": 317,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 10,
           "column": 32
         },
         "end": {
-          "line": 3,
+          "line": 10,
           "column": 33
         }
       }
@@ -711,15 +884,15 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 81,
-      "end": 87,
+      "start": 322,
+      "end": 328,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 11,
           "column": 4
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "column": 10
         }
       }
@@ -736,15 +909,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 88,
-      "end": 89,
+      "start": 329,
+      "end": 330,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 11,
           "column": 11
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "column": 12
         }
       }
@@ -762,15 +935,15 @@
         "binop": null
       },
       "value": "type",
-      "start": 98,
-      "end": 102,
+      "start": 339,
+      "end": 343,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 12,
           "column": 8
         },
         "end": {
-          "line": 5,
+          "line": 12,
           "column": 12
         }
       }
@@ -788,15 +961,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 102,
-      "end": 103,
+      "start": 343,
+      "end": 344,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 12,
           "column": 12
         },
         "end": {
-          "line": 5,
+          "line": 12,
           "column": 13
         }
       }
@@ -814,15 +987,15 @@
         "binop": null
       },
       "value": "CHANGE_VIEW",
-      "start": 104,
-      "end": 115,
+      "start": 345,
+      "end": 356,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 12,
           "column": 14
         },
         "end": {
-          "line": 5,
+          "line": 12,
           "column": 25
         }
       }
@@ -840,15 +1013,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 115,
-      "end": 116,
+      "start": 356,
+      "end": 357,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 12,
           "column": 25
         },
         "end": {
-          "line": 5,
+          "line": 12,
           "column": 26
         }
       }
@@ -866,15 +1039,15 @@
         "binop": null
       },
       "value": "view",
-      "start": 125,
-      "end": 129,
+      "start": 366,
+      "end": 370,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 13,
           "column": 8
         },
         "end": {
-          "line": 6,
+          "line": 13,
           "column": 12
         }
       }
@@ -891,15 +1064,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 134,
-      "end": 135,
+      "start": 375,
+      "end": 376,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 14,
           "column": 4
         },
         "end": {
-          "line": 7,
+          "line": 14,
           "column": 5
         }
       }
@@ -916,15 +1089,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 136,
-      "end": 137,
+      "start": 377,
+      "end": 378,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 15,
           "column": 0
         },
         "end": {
-          "line": 8,
+          "line": 15,
           "column": 1
         }
       }
@@ -942,15 +1115,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 138,
-      "end": 138,
+      "start": 379,
+      "end": 379,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 16,
           "column": 0
         },
         "end": {
-          "line": 9,
+          "line": 16,
           "column": 0
         }
       }

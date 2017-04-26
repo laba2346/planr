@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 166,
+  "end": 255,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 5,
+      "line": 9,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 166,
+    "end": 255,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 5,
+        "line": 9,
         "column": 0
       }
     },
@@ -30,15 +30,15 @@
     "body": [
       {
         "type": "ExportNamedDeclaration",
-        "start": 0,
-        "end": 165,
+        "start": 89,
+        "end": 254,
         "loc": {
           "start": {
-            "line": 1,
+            "line": 5,
             "column": 0
           },
           "end": {
-            "line": 4,
+            "line": 8,
             "column": 1
           }
         },
@@ -46,34 +46,35 @@
         "source": null,
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 7,
-          "end": 165,
+          "start": 96,
+          "end": 254,
           "loc": {
             "start": {
-              "line": 1,
+              "line": 5,
               "column": 7
             },
             "end": {
-              "line": 4,
+              "line": 8,
               "column": 1
             }
           },
           "id": {
             "type": "Identifier",
-            "start": 16,
-            "end": 21,
+            "start": 105,
+            "end": 110,
             "loc": {
               "start": {
-                "line": 1,
+                "line": 5,
                 "column": 16
               },
               "end": {
-                "line": 1,
+                "line": 5,
                 "column": 21
               },
               "identifierName": "login"
             },
-            "name": "login"
+            "name": "login",
+            "leadingComments": null
           },
           "generator": false,
           "expression": false,
@@ -81,15 +82,15 @@
           "params": [
             {
               "type": "Identifier",
-              "start": 22,
-              "end": 25,
+              "start": 111,
+              "end": 114,
               "loc": {
                 "start": {
-                  "line": 1,
+                  "line": 5,
                   "column": 22
                 },
                 "end": {
-                  "line": 1,
+                  "line": 5,
                   "column": 25
                 },
                 "identifierName": "req"
@@ -98,15 +99,15 @@
             },
             {
               "type": "Identifier",
-              "start": 27,
-              "end": 30,
+              "start": 116,
+              "end": 119,
               "loc": {
                 "start": {
-                  "line": 1,
+                  "line": 5,
                   "column": 27
                 },
                 "end": {
-                  "line": 1,
+                  "line": 5,
                   "column": 30
                 },
                 "identifierName": "res"
@@ -116,72 +117,72 @@
           ],
           "body": {
             "type": "BlockStatement",
-            "start": 31,
-            "end": 165,
+            "start": 120,
+            "end": 254,
             "loc": {
               "start": {
-                "line": 1,
+                "line": 5,
                 "column": 31
               },
               "end": {
-                "line": 4,
+                "line": 8,
                 "column": 1
               }
             },
             "body": [
               {
                 "type": "ExpressionStatement",
-                "start": 142,
-                "end": 163,
+                "start": 231,
+                "end": 252,
                 "loc": {
                   "start": {
-                    "line": 3,
+                    "line": 7,
                     "column": 4
                   },
                   "end": {
-                    "line": 3,
+                    "line": 7,
                     "column": 25
                   }
                 },
                 "expression": {
                   "type": "CallExpression",
-                  "start": 142,
-                  "end": 162,
+                  "start": 231,
+                  "end": 251,
                   "loc": {
                     "start": {
-                      "line": 3,
+                      "line": 7,
                       "column": 4
                     },
                     "end": {
-                      "line": 3,
+                      "line": 7,
                       "column": 24
                     }
                   },
                   "callee": {
                     "type": "MemberExpression",
-                    "start": 142,
-                    "end": 154,
+                    "start": 231,
+                    "end": 243,
                     "loc": {
                       "start": {
-                        "line": 3,
+                        "line": 7,
                         "column": 4
                       },
                       "end": {
-                        "line": 3,
+                        "line": 7,
                         "column": 16
                       }
                     },
                     "object": {
                       "type": "Identifier",
-                      "start": 142,
-                      "end": 145,
+                      "start": 231,
+                      "end": 234,
                       "loc": {
                         "start": {
-                          "line": 3,
+                          "line": 7,
                           "column": 4
                         },
                         "end": {
-                          "line": 3,
+                          "line": 7,
                           "column": 7
                         },
                         "identifierName": "res"
@@ -191,15 +192,15 @@
                     },
                     "property": {
                       "type": "Identifier",
-                      "start": 146,
-                      "end": 154,
+                      "start": 235,
+                      "end": 243,
                       "loc": {
                         "start": {
-                          "line": 3,
+                          "line": 7,
                           "column": 8
                         },
                         "end": {
-                          "line": 3,
+                          "line": 7,
                           "column": 16
                         },
                         "identifierName": "redirect"
@@ -212,15 +213,15 @@
                   "arguments": [
                     {
                       "type": "StringLiteral",
-                      "start": 155,
-                      "end": 161,
+                      "start": 244,
+                      "end": 250,
                       "loc": {
                         "start": {
-                          "line": 3,
+                          "line": 7,
                           "column": 17
                         },
                         "end": {
-                          "line": 3,
+                          "line": 7,
                           "column": 23
                         }
                       },
@@ -237,15 +238,15 @@
                   {
                     "type": "CommentLine",
                     "value": " This isn't necessary anymore, redirect can be done through passport.authenticate() call in router",
-                    "start": 37,
-                    "end": 137,
+                    "start": 126,
+                    "end": 226,
                     "loc": {
                       "start": {
-                        "line": 2,
+                        "line": 6,
                         "column": 4
                       },
                       "end": {
-                        "line": 2,
+                        "line": 6,
                         "column": 104
                       }
                     }
@@ -255,32 +256,99 @@
             ],
             "directives": []
           },
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n    If this function is called, you did it wrong. It is not supposed to be used.\n",
+              "start": 1,
+              "end": 88,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 0
+                },
+                "end": {
+                  "line": 4,
+                  "column": 2
+                }
+              }
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n    If this function is called, you did it wrong. It is not supposed to be used.\n",
+            "start": 1,
+            "end": 88,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0
+              },
+              "end": {
+                "line": 4,
+                "column": 2
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
   },
   "comments": [
     {
-      "type": "CommentLine",
-      "value": " This isn't necessary anymore, redirect can be done through passport.authenticate() call in router",
-      "start": 37,
-      "end": 137,
+      "type": "CommentBlock",
+      "value": "*\n    If this function is called, you did it wrong. It is not supposed to be used.\n",
+      "start": 1,
+      "end": 88,
       "loc": {
         "start": {
           "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 4,
+          "column": 2
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " This isn't necessary anymore, redirect can be done through passport.authenticate() call in router",
+      "start": 126,
+      "end": 226,
+      "loc": {
+        "start": {
+          "line": 6,
           "column": 4
         },
         "end": {
-          "line": 2,
+          "line": 6,
           "column": 104
         }
       }
     }
   ],
   "tokens": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n    If this function is called, you did it wrong. It is not supposed to be used.\n",
+      "start": 1,
+      "end": 88,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 4,
+          "column": 2
+        }
+      }
+    },
     {
       "type": {
         "label": "export",
@@ -296,15 +364,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 0,
-      "end": 6,
+      "start": 89,
+      "end": 95,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 0
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 6
         }
       }
@@ -323,15 +391,15 @@
         "binop": null
       },
       "value": "function",
-      "start": 7,
-      "end": 15,
+      "start": 96,
+      "end": 104,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 7
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 15
         }
       }
@@ -349,15 +417,15 @@
         "binop": null
       },
       "value": "login",
-      "start": 16,
-      "end": 21,
+      "start": 105,
+      "end": 110,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 16
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 21
         }
       }
@@ -374,15 +442,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 21,
-      "end": 22,
+      "start": 110,
+      "end": 111,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 21
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 22
         }
       }
@@ -400,15 +468,15 @@
         "binop": null
       },
       "value": "req",
-      "start": 22,
-      "end": 25,
+      "start": 111,
+      "end": 114,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 22
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 25
         }
       }
@@ -426,15 +494,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 25,
-      "end": 26,
+      "start": 114,
+      "end": 115,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 25
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 26
         }
       }
@@ -452,15 +520,15 @@
         "binop": null
       },
       "value": "res",
-      "start": 27,
-      "end": 30,
+      "start": 116,
+      "end": 119,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 27
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 30
         }
       }
@@ -477,15 +545,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 30,
-      "end": 31,
+      "start": 119,
+      "end": 120,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 30
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 31
         }
       }
@@ -502,15 +570,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 31,
-      "end": 32,
+      "start": 120,
+      "end": 121,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 31
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 32
         }
       }
@@ -518,15 +586,15 @@
     {
       "type": "CommentLine",
       "value": " This isn't necessary anymore, redirect can be done through passport.authenticate() call in router",
-      "start": 37,
-      "end": 137,
+      "start": 126,
+      "end": 226,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 6,
           "column": 4
         },
         "end": {
-          "line": 2,
+          "line": 6,
           "column": 104
         }
       }
@@ -544,15 +612,15 @@
         "binop": null
       },
       "value": "res",
-      "start": 142,
-      "end": 145,
+      "start": 231,
+      "end": 234,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 7,
           "column": 4
         },
         "end": {
-          "line": 3,
+          "line": 7,
           "column": 7
         }
       }
@@ -570,15 +638,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 145,
-      "end": 146,
+      "start": 234,
+      "end": 235,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 7,
           "column": 7
         },
         "end": {
-          "line": 3,
+          "line": 7,
           "column": 8
         }
       }
@@ -596,15 +664,15 @@
         "binop": null
       },
       "value": "redirect",
-      "start": 146,
-      "end": 154,
+      "start": 235,
+      "end": 243,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 7,
           "column": 8
         },
         "end": {
-          "line": 3,
+          "line": 7,
           "column": 16
         }
       }
@@ -621,15 +689,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 154,
-      "end": 155,
+      "start": 243,
+      "end": 244,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 7,
           "column": 16
         },
         "end": {
-          "line": 3,
+          "line": 7,
           "column": 17
         }
       }
@@ -648,15 +716,15 @@
         "updateContext": null
       },
       "value": "/app",
-      "start": 155,
-      "end": 161,
+      "start": 244,
+      "end": 250,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 7,
           "column": 17
         },
         "end": {
-          "line": 3,
+          "line": 7,
           "column": 23
         }
       }
@@ -673,15 +741,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 161,
-      "end": 162,
+      "start": 250,
+      "end": 251,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 7,
           "column": 23
         },
         "end": {
-          "line": 3,
+          "line": 7,
           "column": 24
         }
       }
@@ -699,15 +767,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 162,
-      "end": 163,
+      "start": 251,
+      "end": 252,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 7,
           "column": 24
         },
         "end": {
-          "line": 3,
+          "line": 7,
           "column": 25
         }
       }
@@ -724,15 +792,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 164,
-      "end": 165,
+      "start": 253,
+      "end": 254,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 8,
           "column": 0
         },
         "end": {
-          "line": 4,
+          "line": 8,
           "column": 1
         }
       }
@@ -750,15 +818,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 166,
-      "end": 166,
+      "start": 255,
+      "end": 255,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 9,
           "column": 0
         },
         "end": {
-          "line": 5,
+          "line": 9,
           "column": 0
         }
       }

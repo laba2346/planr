@@ -92,7 +92,6 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">server/controllers</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createAssignment">createAssignment</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchAssignments">fetchAssignments</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSettings">loadSettings</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newSettings">newSettings</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newUser">newUser</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createClass">createClass</a></span></span></li>
@@ -109,11 +108,15 @@
 <div class="content" data-ice="content"><h1 data-ice="title">planr/client/util/apiCaller.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import fetch from &apos;isomorphic-fetch&apos;;
 import Config from &apos;../../server/config/config&apos;;
-
+/**
+    I didn&apos;t write this. Scaffolding
+*/
 export const API_URL = (typeof window === &apos;undefined&apos; || process.env.NODE_ENV === &apos;test&apos;) ?
   process.env.BASE_URL || (`http://localhost:${process.env.PORT || Config.port}/api`) :
   &apos;/api&apos;;
-
+/**
+    More scaffolding
+*/
 export default function callApi(endpoint, method = &apos;get&apos;, body) {
   return fetch(`${API_URL}/${endpoint}`, {
     headers: { &apos;content-type&apos;: &apos;application/json&apos; },
