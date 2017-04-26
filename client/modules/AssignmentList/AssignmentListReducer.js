@@ -22,10 +22,14 @@ const DateExistsReducer = (state = {}, action) => {
 const AssignmentListReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ASSIGNMENT:
-            // i wish this worked!
-            return Object.assign({}, state, {
-                assignments: newList,
-            });
+            var date = (new Date(action.assignment.assignment_due)).setHours(0,0,0,0);
+            var newDate = {
+                date: date,
+                assignments: [action.assignment],
+            };
+            return {
+                assignments: [newDate, ...state.assignments],
+            };
         case ADD_ASSIGNMENTS:
             return Object.assign({}, state, {
                 assignments: action.assignments

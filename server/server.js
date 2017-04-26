@@ -77,13 +77,22 @@ app.use(passport.session());
 /**
     Routes requests to root based on authentication status
 */
-
 app.get('/', function(req, res, next){
-    next();
+    if (req.isAuthenticated()) {
+        next();
+    }
+    else{
+        res.redirect('/landing');
+    }
 });
 
 app.get('/landing', function(req, res, next){
-    next();
+    if (req.isAuthenticated()){
+        res.redirect('/');
+    }
+    else{
+        next();
+    }
 });
 
 
