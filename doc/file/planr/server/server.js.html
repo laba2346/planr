@@ -34,8 +34,7 @@
     
   <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-App">App</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureStore">configureStore</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/App</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/planr/client/modules/App/Container.js~Container.html">Container</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-AppReducer">AppReducer</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/App</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-AppReducer">AppReducer</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/AssignmentList</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addAssignment">addAssignment</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addAssignments">addAssignments</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createAssignmentRequest">createAssignmentRequest</a></span></span></li>
@@ -184,6 +183,9 @@ app.use(expressSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
+/**
+    Routes requests to root based on authentication status
+*/
 app.get(&apos;/&apos;, function(req, res, next){
     if (req.isAuthenticated()) {
         next();

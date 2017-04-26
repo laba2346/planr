@@ -74,6 +74,9 @@ app.use(expressSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
+/**
+    Routes requests to root based on authentication status
+*/
 app.get('/', function(req, res, next){
     if (req.isAuthenticated()) {
         next();

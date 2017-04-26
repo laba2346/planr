@@ -34,8 +34,7 @@
     
   <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-App">App</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureStore">configureStore</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/App</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/planr/client/modules/App/Container.js~Container.html">Container</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-AppReducer">AppReducer</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/App</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-AppReducer">AppReducer</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/AssignmentList</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addAssignment">addAssignment</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addAssignments">addAssignments</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createAssignmentRequest">createAssignmentRequest</a></span></span></li>
@@ -773,13 +772,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-createAssignment">createAssignment</a></span></span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-createAssignment">createAssignment</a></span></span><span data-ice="signature">(req: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, res: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Creates an assignment in the database for the user with id in req.user</p>
+</div>
       </div>
     </td>
     <td>
@@ -935,13 +935,14 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-fetchAssignments">fetchAssignments</a></span></span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-fetchAssignments">fetchAssignments</a></span></span><span data-ice="signature">(req: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, res: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>This fetches the assignments from the database for the user with id stored in req.user</p>
+</div>
       </div>
     </td>
     <td>
@@ -3292,18 +3293,19 @@ and it will call them sequentially, one after another</p>
     
     
     
-    <span data-ice="name">createAssignment</span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
+    <span data-ice="name">createAssignment</span><span data-ice="signature">(req: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, res: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/server/controllers/Assignments.controller.js.html#lineNumber39">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/server/controllers/Assignments.controller.js.html#lineNumber49">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {createAssignment} from &apos;<span><a href="file/planr/server/controllers/Assignments.controller.js.html#lineNumber39">planr/planr/server/controllers/Assignments.controller.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {createAssignment} from &apos;<span><a href="file/planr/server/controllers/Assignments.controller.js.html#lineNumber49">planr/planr/server/controllers/Assignments.controller.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Creates an assignment in the database for the user with id in req.user</p>
+</div>
 
   
 
@@ -3317,15 +3319,17 @@ and it will call them sequentially, one after another</p>
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">req</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>This is the Express req object</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">res</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>This is the Express res object</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -3700,18 +3704,19 @@ and it will call them sequentially, one after another</p>
     
     
     
-    <span data-ice="name">fetchAssignments</span><span data-ice="signature">(req: <span>*</span>, res: <span>*</span>)</span>
+    <span data-ice="name">fetchAssignments</span><span data-ice="signature">(req: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, res: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/planr/server/controllers/Assignments.controller.js.html#lineNumber4">source</a></span></span>
+      <span data-ice="source"><span><a href="file/planr/server/controllers/Assignments.controller.js.html#lineNumber9">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fetchAssignments} from &apos;<span><a href="file/planr/server/controllers/Assignments.controller.js.html#lineNumber4">planr/planr/server/controllers/Assignments.controller.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fetchAssignments} from &apos;<span><a href="file/planr/server/controllers/Assignments.controller.js.html#lineNumber9">planr/planr/server/controllers/Assignments.controller.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>This fetches the assignments from the database for the user with id stored in req.user</p>
+</div>
 
   
 
@@ -3725,15 +3730,17 @@ and it will call them sequentially, one after another</p>
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">req</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>This is the Express req object</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">res</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>This is the Express res object</p>
+</td>
     </tr>
 </tbody>
   </table>

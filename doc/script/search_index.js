@@ -78,12 +78,6 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "planr/planr/client/modules/app/container.js~container",
-    "class/planr/client/modules/App/Container.js~Container.html",
-    "<span>Container</span> <span class=\"search-result-import-path\">planr/planr/client/modules/App/Container.js</span>",
-    "class"
-  ],
-  [
     "planr/planr/client/modules/container/container.js~container",
     "class/planr/client/modules/Container/Container.js~Container.html",
     "<span>Container</span> <span class=\"search-result-import-path\">planr/planr/client/modules/Container/Container.js</span>",
@@ -784,42 +778,6 @@ window.esdocSearchIndex = [
     "file/planr/client/modules/App/AppReducer.js.html",
     "planr/client/modules/App/AppReducer.js",
     "file"
-  ],
-  [
-    "planr/client/modules/app/container.js",
-    "file/planr/client/modules/App/Container.js.html",
-    "planr/client/modules/App/Container.js",
-    "file"
-  ],
-  [
-    "planr/client/modules/app/container.js~container#componentdidmount",
-    "class/planr/client/modules/App/Container.js~Container.html#instance-method-componentDidMount",
-    "planr/client/modules/App/Container.js~Container#componentDidMount",
-    "method"
-  ],
-  [
-    "planr/client/modules/app/container.js~container#constructor",
-    "class/planr/client/modules/App/Container.js~Container.html#instance-constructor-constructor",
-    "planr/client/modules/App/Container.js~Container#constructor",
-    "method"
-  ],
-  [
-    "planr/client/modules/app/container.js~container#login",
-    "class/planr/client/modules/App/Container.js~Container.html#instance-method-login",
-    "planr/client/modules/App/Container.js~Container#login",
-    "method"
-  ],
-  [
-    "planr/client/modules/app/container.js~container#render",
-    "class/planr/client/modules/App/Container.js~Container.html#instance-method-render",
-    "planr/client/modules/App/Container.js~Container#render",
-    "method"
-  ],
-  [
-    "planr/client/modules/app/container.js~container#state",
-    "class/planr/client/modules/App/Container.js~Container.html#instance-member-state",
-    "planr/client/modules/App/Container.js~Container#state",
-    "member"
   ],
   [
     "planr/client/modules/assignmentlist/assignmentlist.js",

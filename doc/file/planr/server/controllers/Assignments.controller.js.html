@@ -34,8 +34,7 @@
     
   <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-App">App</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureStore">configureStore</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/App</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/planr/client/modules/App/Container.js~Container.html">Container</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-AppReducer">AppReducer</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/App</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-AppReducer">AppReducer</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/AssignmentList</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addAssignment">addAssignment</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addAssignments">addAssignments</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createAssignmentRequest">createAssignmentRequest</a></span></span></li>
@@ -111,6 +110,11 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// Import model
 import {sequelize, assignments} from &apos;../models/index.js&apos;;
 
+/**
+    This fetches the assignments from the database for the user with id stored in req.user
+    @param {Object} req This is the Express req object
+    @param {Object} res This is the Express res object
+*/
 export function fetchAssignments(req, res){
     // fetch req.user&apos;s assignments from db and return
     var options = {
@@ -146,6 +150,11 @@ export function fetchAssignments(req, res){
     });
 }
 
+/**
+    Creates an assignment in the database for the user with id in req.user
+    @param {Object} req This is the Express req object
+    @param {Object} res This is the Express res object
+*/
 export function createAssignment(req, res){
     var name= req.body.name;
     var desc= req.body.desc;
