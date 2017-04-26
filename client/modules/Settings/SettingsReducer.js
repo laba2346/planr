@@ -1,7 +1,16 @@
 import { RESET_SUCCESS, SUCCESS, INVALID_FIELD, RESET_SETTINGS, CHANGE_THEME } from './SettingsActions';
 
-// Initial State
+/**
+    An object that contains the initial state when the page is loaded.
+*/
 const initialState = { emailInvalid: false, passwordInvalid: false, success: false, themeColor: '#705e8b' };
+
+/**
+    A redux reducer that changes the state for the settings page given certain actions.
+    Changes settings based on user inputs.
+    @param {Object} state Initialized to initialState
+    @param {Object} action Object containing a type that determines how we change the state.
+*/
 const SettingsReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_THEME:

@@ -2,7 +2,11 @@
 //
 //Import model
 import {sequelize, classes} from '../models/index.js';
-
+/**
+    Creates a new class with the form included in the req object and inserts into the database
+    @param {Object} req This is the Express req object
+    @param {Object} res This is the Express res object
+*/
 export function createClass(req, res){
 
     var name= req.body.name;
