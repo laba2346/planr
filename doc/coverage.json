@@ -1,6 +1,6 @@
 {
-  "coverage": "2.5%",
-  "expectCount": 80,
+  "coverage": "2.7%",
+  "expectCount": 74,
   "actualCount": 2,
   "files": {
     "planr/client/modules/AssignmentList/AssignmentListActions.js": {
@@ -118,18 +118,6 @@
         12,
         21,
         14
-      ]
-    },
-    "planr/client/modules/App/Container.js": {
-      "expectCount": 6,
-      "actualCount": 0,
-      "undocumentLines": [
-        13,
-        20,
-        14,
-        24,
-        28,
-        16
       ]
     },
     "planr/client/modules/Container/ContainerReducer.js": {
