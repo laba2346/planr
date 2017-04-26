@@ -1098,6 +1098,7 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+<<<<<<< HEAD
     "planr/doc/script/inherited-summary.js",
     "file/planr/doc/script/inherited-summary.js.html",
     "planr/doc/script/inherited-summary.js",
@@ -1170,6 +1171,8 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+=======
+>>>>>>> 93031577c09b91331e61995944831073dcdab9be
     "planr/index.js",
     "file/planr/index.js.html",
     "planr/index.js",

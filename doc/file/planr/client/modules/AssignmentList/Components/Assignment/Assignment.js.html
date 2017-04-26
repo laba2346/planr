@@ -111,7 +111,11 @@
 import styles from &apos;./Assignment.css&apos;;
 import moment from &apos;moment&apos;;
 
-
+/**
+    Renders individual assignment.
+    @param {Object} props The properies inherited from DateList
+    @param {Object} context The context.
+*/
 function Assignment(props, context) {
     var date = new Date(props.assignment.assignment_due);
     var time = moment(date).format(&quot; h:mm a&quot;);

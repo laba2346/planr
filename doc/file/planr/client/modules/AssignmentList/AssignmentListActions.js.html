@@ -109,9 +109,19 @@
 <div class="content" data-ice="content"><h1 data-ice="title">planr/client/modules/AssignmentList/AssignmentListActions.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import callApi from &apos;../../util/apiCaller&apos;;
 
+/**
+    Variable with string name to be used in reducer.
+*/
 export const ADD_ASSIGNMENTS = &apos;ADD_ASSIGNMENTS&apos;;
+/**
+    Variable with string name to be used in reducer.
+*/
 export const ADD_ASSIGNMENT = &apos;ADD_ASSIGNMENT&apos;;
 
+/**
+    Adds multiple assignments to the store
+    @param {Object} assignments Assignments to add to the store
+*/
 export function addAssignments(assignments){
     return{
         type: ADD_ASSIGNMENTS,
@@ -119,6 +129,10 @@ export function addAssignments(assignments){
     }
 }
 
+/**
+    Add single assignment to the store
+    @param {Object} assignment Assignment to add to the store
+*/
 export function addAssignment(assignment){
     return{
         type: ADD_ASSIGNMENT,
@@ -126,7 +140,11 @@ export function addAssignment(assignment){
     }
 }
 
-export function createAssignmentRequest(formState, assignments){
+/**
+    Sends a request to the server to create a new assignment for the user
+    @param {Object} formState The current state of NewAssignmentForm as an object
+*/
+export function createAssignmentRequest(formState){
     const apiUrl = &apos;createAssignment&apos;;
     return (dispatch) =&gt; {
         return callApi(apiUrl, &quot;post&quot;, formState).then(res =&gt; {
@@ -138,6 +156,9 @@ export function createAssignmentRequest(formState, assignments){
     }
 }
 
+/**
+    Fetches all of the users assignments from the server
+*/
 export function fetchAssignments(){
     const apiUrl = &apos;fetchAssignments&apos;;
     return (dispatch) =&gt; {

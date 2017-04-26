@@ -112,6 +112,11 @@ import Assignment from &apos;../Assignment/Assignment&apos;;
 import styles from &apos;./DateList.css&apos;;
 import moment from &apos;moment&apos;;
 
+/**
+    Renders a single day&apos;s assignments. Variable background color based on theme.
+    @param {Object} props The properies inherited from DateList
+    @param {Object} context The context.
+*/
 function DateList(props, context) {
     var date = new Date(props.dateObject.date);
     //var day = moment(date).format(&quot;dddd, MMMM Do&quot;);

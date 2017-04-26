@@ -109,8 +109,15 @@
 <div class="content" data-ice="content"><h1 data-ice="title">planr/client/modules/Calendar/CalendarActions.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import callApi from &apos;../../util/apiCaller&apos;;
 
+/**
+    Variable with string name to be used in reducer.
+*/
 export const ADD_EVENTS = &apos;ADD_EVENTS&apos;;
 
+/**
+    Converts assignments datafrom the store to correct format to be display on calendar
+    @param {Object} assignments Assignment object from store.
+*/
 export function convertAssignments(assignments){
     var length = assignments.length;
     console.log(assignments)

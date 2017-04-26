@@ -110,6 +110,11 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// Import model
 import {sequelize, assignments} from &apos;../models/index.js&apos;;
 
+/**
+    This fetches the assignments from the database for the user with id stored in req.user
+    @param {Object} req This is the Express req object
+    @param {Object} res This is the Express res object
+*/
 export function fetchAssignments(req, res){
     // fetch req.user&apos;s assignments from db and return
     var options = {
@@ -145,6 +150,11 @@ export function fetchAssignments(req, res){
     });
 }
 
+/**
+    Creates an assignment in the database for the user with id in req.user
+    @param {Object} req This is the Express req object
+    @param {Object} res This is the Express res object
+*/
 export function createAssignment(req, res){
     var name= req.body.name;
     var desc= req.body.desc;
