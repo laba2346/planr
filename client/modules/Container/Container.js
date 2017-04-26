@@ -51,7 +51,10 @@ Container.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-// Retrieve data from store as props
+/**
+  Retrives data from the store as a prop
+  @param {Object} The store you'll be getting props from
+*/
 function mapStateToProps(store) {
   return {
   };

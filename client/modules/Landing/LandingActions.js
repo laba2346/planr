@@ -5,12 +5,19 @@ export const RESET_INVALID_STATUS = 'RESET_INVALID_STATUS';
 export const INVALID_LOGIN = 'INVALID_LOGIN';
 
 
+/**
+ Returns an invalid login if that login isn't in the database 
+*/
 export function invalidLogin(){
     return {
         type: INVALID_LOGIN,
     }
 }
 
+/**
+ Sends a login request to the server if the login info is valid
+ @param {formstate} Gives the state 
+*/
 export function sendLoginRequest(formState){
     const apiUrl = 'login';
     return (dispatch) => {
@@ -26,6 +33,10 @@ export function sendLoginRequest(formState){
     }
 }
 
+/**
+ Highlights a field if it's invalid
+ @param {field} the field that we want to mark as invalid
+*/
 export function invalidField(field){
     console.log("invalid field: " + field)
     return {
@@ -33,12 +44,19 @@ export function invalidField(field){
         field
     }
 }
+/**
+ After submitting this resets the status of the form
+*/
 export function resetInvalidStatus(){
     return {
         type: RESET_INVALID_STATUS,
     }
 }
 
+/**
+ This function checks if the current field is valid based on regex
+ @param {formstate} The form to check 
+*/
 export function checkIfFieldsValid(formState){
     console.log(formState)
     return (dispatch) => {
@@ -80,6 +98,10 @@ export function checkIfFieldsValid(formState){
     }
 }
 
+/**
+ Sends the sign up request to the api
+ @param {formstate} The formstate of the form 
+*/
 export function sendSignUpRequest(formState){
     const apiUrl = 'signUp';
     return (dispatch) => {
