@@ -2,6 +2,11 @@
 import {sequelize, users } from '../models/index.js';
 import bcrypt from 'bcryptjs';
 
+/**
+    This updates the database with new settings for the user in req.user().
+    @param {Object} req This is the Express req object
+    @param {Object} res This is the Express res object
+*/
 export function newSettings(req, res){
 
     var color = req.body.color;

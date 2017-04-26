@@ -14,7 +14,8 @@
     "build:server": "cross-env NODE_ENV=production webpack --config webpack.config.server.js",
     "clean": "rimraf dist",
     "slate": "rimraf node_modules && npm install",
-    "lint": "eslint client server"
+    "lint": "eslint client server",
+    "document": "esdoc && open ./doc/index.html"
   },
   "pre-commit": [
     "lint",
@@ -164,5 +165,10 @@
       "html"
     ]
   },
-  "main": "index.js"
+  "main": "index.js",
+  "devDependencies": {
+    "esdoc": "^0.5.2",
+    "jsdoc": "^3.4.3",
+    "jsdoc-jsx": "^0.1.0"
+  }
 }

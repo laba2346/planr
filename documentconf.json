@@ -1,0 +1,12 @@
+{
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc","closure"]
+    },
+    "source": {
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "node_modules/"
+    },
+    "plugins": ["node_modules/jsdoc-jsx"]
+}
+
