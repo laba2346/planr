@@ -2,7 +2,11 @@ import React, { PropTypes } from 'react';
 import styles from './Assignment.css';
 import moment from 'moment';
 
-
+/**
+    Renders individual assignment.
+    @param {Object} props The properies inherited from DateList
+    @param {Object} context The context.
+*/
 function Assignment(props, context) {
     var date = new Date(props.assignment.assignment_due);
     var time = moment(date).format(" h:mm a");

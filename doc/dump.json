@@ -3,7 +3,7 @@
     "__docId__": 0,
     "kind": "file",
     "name": "planr/client/App.js",
-    "content": "/**\n * Root Component\n */\nimport React from 'react';\nimport { Provider } from 'react-redux';\nimport { Router, browserHistory } from 'react-router';\n\n// Import Routes\nimport routes from './routes';\n\n// Base stylesheet\nrequire('./main.css');\nrequire('./lib.css');\n\nexport default function App(props) {\n  return (\n      <Provider store={props.store}>\n          <Router history={browserHistory}>\n            {routes}\n          </Router>\n      </Provider>\n  );\n}\n\nApp.propTypes = {\n  store: React.PropTypes.object.isRequired,\n};\n",
+    "content": "/**\n * Root Component\n */\nimport React from 'react';\nimport { Provider } from 'react-redux';\nimport { Router, browserHistory } from 'react-router';\n\n// Import Routes\nimport routes from './routes';\n\n// Base stylesheet\nrequire('./main.css');\nrequire('./lib.css');\n\n/**\n    Constructrs the root App that uses the store and router.\n    @param {Object} props Inherits props object from component super class.\n*/\nexport default function App(props) {\n  return (\n      <Provider store={props.store}>\n          <Router history={browserHistory}>\n            {routes}\n          </Router>\n      </Provider>\n  );\n}\n\nApp.propTypes = {\n  store: React.PropTypes.object.isRequired,\n};\n",
     "static": true,
     "longname": "planr/client/App.js",
     "access": null,
@@ -23,21 +23,18 @@
     "export": true,
     "importPath": "planr/planr/client/App.js",
     "importStyle": "App",
-    "description": null,
-    "lineNumber": 15,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Constructrs the root App that uses the store and router.",
+    "lineNumber": 19,
     "params": [
       {
-        "name": "props",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "props",
+        "description": "Inherits props object from component super class."
       }
     ],
     "return": {
@@ -250,7 +247,7 @@
     "__docId__": 11,
     "kind": "file",
     "name": "planr/client/modules/App/AppReducer.js",
-    "content": "\n// Initial State\nconst initialState = {};\nconst AppReducer = (state = initialState, action) => {\n    switch (action.type) {\n        default:\n            return state;\n    }\n};\n\n/* Selectors */\n// Export Reducer`\nexport default AppReducer;\n",
+    "content": "\n// Initial State\nconst initialState = {};\n/**\n    Sets up reducer for the application\n    @param {Object} state Initialized to initialState, which is inherited from store\n    @param {Object} action Action for the reducer to handle \n*/\nconst AppReducer = (state = initialState, action) => {\n    switch (action.type) {\n        default:\n            return state;\n    }\n};\n\n/* Selectors */\n// Export Reducer`\nexport default AppReducer;\n",
     "static": true,
     "longname": "planr/client/modules/App/AppReducer.js",
     "access": null,
@@ -296,30 +293,28 @@
     "export": true,
     "importPath": "planr/planr/client/modules/App/AppReducer.js",
     "importStyle": "AppReducer",
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Sets up reducer for the application",
+    "lineNumber": 9,
     "params": [
       {
-        "name": "state",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "*"
+          "Object"
         ],
-        "defaultRaw": "initialState",
-        "defaultValue": "initialState"
+        "spread": false,
+        "optional": false,
+        "name": "state",
+        "description": "Initialized to initialState, which is inherited from store"
       },
       {
-        "name": "action",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "action",
+        "description": "Action for the reducer to handle"
       }
     ],
     "return": {
@@ -640,7 +635,7 @@
     "__docId__": 27,
     "kind": "file",
     "name": "planr/client/modules/AssignmentList/AssignmentListActions.js",
-    "content": "import callApi from '../../util/apiCaller';\n\nexport const ADD_ASSIGNMENTS = 'ADD_ASSIGNMENTS';\nexport const ADD_ASSIGNMENT = 'ADD_ASSIGNMENT';\n\nexport function addAssignments(assignments){\n    return{\n        type: ADD_ASSIGNMENTS,\n        assignments\n    }\n}\n\nexport function addAssignment(assignment){\n    return{\n        type: ADD_ASSIGNMENT,\n        assignment\n    }\n}\n\nexport function createAssignmentRequest(formState, assignments){\n    const apiUrl = 'createAssignment';\n    return (dispatch) => {\n        return callApi(apiUrl, \"post\", formState).then(res => {\n            if(res){\n                console.log(res);\n                dispatch(addAssignment(res));\n            }\n        });\n    }\n}\n\nexport function fetchAssignments(){\n    const apiUrl = 'fetchAssignments';\n    return (dispatch) => {\n        return callApi(apiUrl).then(res => {\n            if (res){\n                dispatch(addAssignments(res));\n            }\n            else{\n                // dispatch no assignments yet thing\n            }\n        });\n    }\n}\n",
+    "content": "import callApi from '../../util/apiCaller';\n\n/**\n    Variable with string name to be used in reducer.\n*/\nexport const ADD_ASSIGNMENTS = 'ADD_ASSIGNMENTS';\n/**\n    Variable with string name to be used in reducer.\n*/\nexport const ADD_ASSIGNMENT = 'ADD_ASSIGNMENT';\n\n/**\n    Adds multiple assignments to the store\n    @param {Object} assignments Assignments to add to the store\n*/\nexport function addAssignments(assignments){\n    return{\n        type: ADD_ASSIGNMENTS,\n        assignments\n    }\n}\n\n/**\n    Add single assignment to the store\n    @param {Object} assignment Assignment to add to the store\n*/\nexport function addAssignment(assignment){\n    return{\n        type: ADD_ASSIGNMENT,\n        assignment\n    }\n}\n\n/**\n    Sends a request to the server to create a new assignment for the user\n    @param {Object} formState The current state of NewAssignmentForm as an object\n*/\nexport function createAssignmentRequest(formState){\n    const apiUrl = 'createAssignment';\n    return (dispatch) => {\n        return callApi(apiUrl, \"post\", formState).then(res => {\n            if(res){\n                console.log(res);\n                dispatch(addAssignment(res));\n            }\n        });\n    }\n}\n\n/**\n    Fetches all of the users assignments from the server\n*/\nexport function fetchAssignments(){\n    const apiUrl = 'fetchAssignments';\n    return (dispatch) => {\n        return callApi(apiUrl).then(res => {\n            if (res){\n                dispatch(addAssignments(res));\n            }\n            else{\n                // dispatch no assignments yet thing\n            }\n        });\n    }\n}\n",
     "static": true,
     "longname": "planr/client/modules/AssignmentList/AssignmentListActions.js",
     "access": null,
@@ -658,15 +653,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/AssignmentList/AssignmentListActions.js",
     "importStyle": "{ADD_ASSIGNMENTS}",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Variable with string name to be used in reducer.",
+    "lineNumber": 6,
     "type": {
       "types": [
         "string"
@@ -684,15 +672,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/AssignmentList/AssignmentListActions.js",
     "importStyle": "{ADD_ASSIGNMENT}",
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Variable with string name to be used in reducer.",
+    "lineNumber": 10,
     "type": {
       "types": [
         "string"
@@ -712,21 +693,18 @@
     "export": true,
     "importPath": "planr/planr/client/modules/AssignmentList/AssignmentListActions.js",
     "importStyle": "{addAssignments}",
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Adds multiple assignments to the store",
+    "lineNumber": 16,
     "params": [
       {
-        "name": "assignments",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "assignments",
+        "description": "Assignments to add to the store"
       }
     ],
     "return": {
@@ -748,21 +726,18 @@
     "export": true,
     "importPath": "planr/planr/client/modules/AssignmentList/AssignmentListActions.js",
     "importStyle": "{addAssignment}",
-    "description": null,
-    "lineNumber": 13,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Add single assignment to the store",
+    "lineNumber": 27,
     "params": [
       {
-        "name": "assignment",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "assignment",
+        "description": "Assignment to add to the store"
       }
     ],
     "return": {
@@ -784,27 +759,18 @@
     "export": true,
     "importPath": "planr/planr/client/modules/AssignmentList/AssignmentListActions.js",
     "importStyle": "{createAssignmentRequest}",
-    "description": null,
-    "lineNumber": 20,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Sends a request to the server to create a new assignment for the user",
+    "lineNumber": 38,
     "params": [
       {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
         "name": "formState",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "assignments",
-        "types": [
-          "*"
-        ]
+        "description": "The current state of NewAssignmentForm as an object"
       }
     ],
     "return": {
@@ -826,15 +792,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/AssignmentList/AssignmentListActions.js",
     "importStyle": "{fetchAssignments}",
-    "description": null,
-    "lineNumber": 32,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Fetches all of the users assignments from the server",
+    "lineNumber": 53,
     "params": [],
     "return": {
       "types": [
@@ -846,7 +805,7 @@
     "__docId__": 34,
     "kind": "file",
     "name": "planr/client/modules/AssignmentList/AssignmentListReducer.js",
-    "content": "import {ADD_ASSIGNMENTS, ADD_ASSIGNMENT} from './AssignmentListActions';\n\n// Initial State\nconst initialState = { assignments: [] };\n\nconst DateExistsReducer = (state = {}, action) => {\n    switch (action.type) {\n        // idk nothing works\n        case ADD_ASSIGNMENT:\n            return Object.assign({}, state, {\n                assignment: [],\n            });\n        default:\n            return state;\n    }\n};\n\nconst AssignmentListReducer = (state = initialState, action) => {\n    switch (action.type) {\n        case ADD_ASSIGNMENT:\n            var newList = state.assignments.map(DateObject => {\n                DateExistsReducer(DateObject, action);\n            });\n            return Object.assign({}, state, {\n                assignments: newList,\n            });\n        case ADD_ASSIGNMENTS:\n            return Object.assign({}, state, {\n                assignments: action.assignments\n            });\n        default:\n            return state;\n    }\n};\n\n// Export Reducer`\nexport default AssignmentListReducer;\n\n/*if(newDate){\n    var date = (new Date(result[i].assignment_due)).setHours(0,0,0,0);\n    var newDate = {\n        date: date,\n        assignments: [result[i]],\n    };\n    dates.push(newDate);\n}*/\n",
+    "content": "import {ADD_ASSIGNMENTS, ADD_ASSIGNMENT} from './AssignmentListActions';\n\n// Initial State\nconst initialState = { assignments: [] };\n\nconst DateExistsReducer = (state = {}, action) => {\n    switch (action.type) {\n        // idk nothing works\n        case ADD_ASSIGNMENT:\n            return Object.assign({}, state, {\n                assignment: [],\n            });\n        default:\n            return state;\n    }\n};\n\n/**\n    The reducer for the AssignmentList. Adds or removes assignments from the store\n    @param {Object} state State is the current active state\n    @param {Object} action The action to do.\n*/\nconst AssignmentListReducer = (state = initialState, action) => {\n    switch (action.type) {\n        case ADD_ASSIGNMENT:\n            var newList = state.assignments.map(DateObject => {\n                DateExistsReducer(DateObject, action);\n            });\n            return Object.assign({}, state, {\n                assignments: newList,\n            });\n        case ADD_ASSIGNMENTS:\n            return Object.assign({}, state, {\n                assignments: action.assignments\n            });\n        default:\n            return state;\n    }\n};\n\n// Export Reducer`\nexport default AssignmentListReducer;\n\n/*if(newDate){\n    var date = (new Date(result[i].assignment_due)).setHours(0,0,0,0);\n    var newDate = {\n        date: date,\n        assignments: [result[i]],\n    };\n    dates.push(newDate);\n}*/\n",
     "static": true,
     "longname": "planr/client/modules/AssignmentList/AssignmentListReducer.js",
     "access": null,
@@ -937,30 +896,28 @@
     "export": true,
     "importPath": "planr/planr/client/modules/AssignmentList/AssignmentListReducer.js",
     "importStyle": "AssignmentListReducer",
-    "description": null,
-    "lineNumber": 18,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "The reducer for the AssignmentList. Adds or removes assignments from the store",
+    "lineNumber": 23,
     "params": [
       {
-        "name": "state",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "*"
+          "Object"
         ],
-        "defaultRaw": "initialState",
-        "defaultValue": "initialState"
+        "spread": false,
+        "optional": false,
+        "name": "state",
+        "description": "State is the current active state"
       },
       {
-        "name": "action",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "action",
+        "description": "The action to do."
       }
     ],
     "return": {
@@ -973,7 +930,7 @@
     "__docId__": 38,
     "kind": "file",
     "name": "planr/client/modules/AssignmentList/Components/Assignment/Assignment.js",
-    "content": "import React, { PropTypes } from 'react';\nimport styles from './Assignment.css';\nimport moment from 'moment';\n\n\nfunction Assignment(props, context) {\n    var date = new Date(props.assignment.assignment_due);\n    var time = moment(date).format(\" h:mm a\");\n  return (\n    <div className={styles['assignment']}>\n        {props.assignment.assignment_name}\n        <label className={styles['time-label']}> {time} </label>\n    </div>\n  );\n}\n\nAssignment.propTypes = {\n    assignment: PropTypes.object.isRequired,\n};\n\nexport default Assignment;\n",
+    "content": "import React, { PropTypes } from 'react';\nimport styles from './Assignment.css';\nimport moment from 'moment';\n\n/**\n    Renders individual assignment.\n    @param {Object} props The properies inherited from DateList\n    @param {Object} context The context.\n*/\nfunction Assignment(props, context) {\n    var date = new Date(props.assignment.assignment_due);\n    var time = moment(date).format(\" h:mm a\");\n  return (\n    <div className={styles['assignment']}>\n        {props.assignment.assignment_name}\n        <label className={styles['time-label']}> {time} </label>\n    </div>\n  );\n}\n\nAssignment.propTypes = {\n    assignment: PropTypes.object.isRequired,\n};\n\nexport default Assignment;\n",
     "static": true,
     "longname": "planr/client/modules/AssignmentList/Components/Assignment/Assignment.js",
     "access": null,
@@ -993,27 +950,28 @@
     "export": true,
     "importPath": "planr/planr/client/modules/AssignmentList/Components/Assignment/Assignment.js",
     "importStyle": "Assignment",
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Renders individual assignment.",
+    "lineNumber": 10,
     "params": [
       {
-        "name": "props",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "props",
+        "description": "The properies inherited from DateList"
       },
       {
-        "name": "context",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "context",
+        "description": "The context."
       }
     ],
     "return": {
@@ -1026,7 +984,7 @@
     "__docId__": 40,
     "kind": "file",
     "name": "planr/client/modules/AssignmentList/Components/DateList/DateList.js",
-    "content": "import React, { PropTypes } from 'react';\nimport Assignment from '../Assignment/Assignment';\nimport styles from './DateList.css';\nimport moment from 'moment';\n\nfunction DateList(props, context) {\n    var date = new Date(props.dateObject.date);\n    //var day = moment(date).format(\"dddd, MMMM Do\");\n    var dayOfWeek = moment(date).format(\"ddd\");\n    var day = moment(date).format(\"D\");\n\n    var backgroundStyle = {\n        backgroundColor: props.color\n    }\n    return (\n        <div className={styles['date-list']} style={backgroundStyle}>\n            <div className={styles['day-block']}>\n                <label className={styles['dayOfWeek-label']}>{dayOfWeek}</label>\n                <label className={styles['day-label']}>{day}</label>\n            </div>\n            <div className={styles['assignment-list-container']}>\n            {\n                props.dateObject.assignments.map(assignment => (\n                  <div key={assignment.id}>\n                    <Assignment\n                        assignment={assignment}\n                    />\n                  </div>\n                ))\n            }\n            </div>\n        </div>\n    );\n}\n\nDateList.propTypes = {\n  dateObject: PropTypes.object.isRequired,\n  index: PropTypes.number.isRequired,\n  color: PropTypes.string.isRequired,\n};\n\nexport default DateList;\n",
+    "content": "import React, { PropTypes } from 'react';\nimport Assignment from '../Assignment/Assignment';\nimport styles from './DateList.css';\nimport moment from 'moment';\n\n/**\n    Renders a single day's assignments. Variable background color based on theme.\n    @param {Object} props The properies inherited from DateList\n    @param {Object} context The context.\n*/\nfunction DateList(props, context) {\n    var date = new Date(props.dateObject.date);\n    //var day = moment(date).format(\"dddd, MMMM Do\");\n    var dayOfWeek = moment(date).format(\"ddd\");\n    var day = moment(date).format(\"D\");\n\n    var backgroundStyle = {\n        backgroundColor: props.color\n    }\n    return (\n        <div className={styles['date-list']} style={backgroundStyle}>\n            <div className={styles['day-block']}>\n                <label className={styles['dayOfWeek-label']}>{dayOfWeek}</label>\n                <label className={styles['day-label']}>{day}</label>\n            </div>\n            <div className={styles['assignment-list-container']}>\n            {\n                props.dateObject.assignments.map(assignment => (\n                  <div key={assignment.id}>\n                    <Assignment\n                        assignment={assignment}\n                    />\n                  </div>\n                ))\n            }\n            </div>\n        </div>\n    );\n}\n\nDateList.propTypes = {\n  dateObject: PropTypes.object.isRequired,\n  index: PropTypes.number.isRequired,\n  color: PropTypes.string.isRequired,\n};\n\nexport default DateList;\n",
     "static": true,
     "longname": "planr/client/modules/AssignmentList/Components/DateList/DateList.js",
     "access": null,
@@ -1046,27 +1004,28 @@
     "export": true,
     "importPath": "planr/planr/client/modules/AssignmentList/Components/DateList/DateList.js",
     "importStyle": "DateList",
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Renders a single day's assignments. Variable background color based on theme.",
+    "lineNumber": 11,
     "params": [
       {
-        "name": "props",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "props",
+        "description": "The properies inherited from DateList"
       },
       {
-        "name": "context",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "context",
+        "description": "The context."
       }
     ],
     "return": {
@@ -1686,7 +1645,7 @@
     "__docId__": 67,
     "kind": "file",
     "name": "planr/client/modules/Calendar/CalendarActions.js",
-    "content": "import callApi from '../../util/apiCaller';\n\nexport const ADD_EVENTS = 'ADD_EVENTS';\n\nexport function convertAssignments(assignments){\n    var length = assignments.length;\n    console.log(assignments)\n    var events = []\n    for(var i = 0; i < length; i++){\n        var daysAssignments = assignments[i].assignments;\n        var numAssignments = daysAssignments.length\n        for(var j = 0; j < numAssignments; j++){\n            var newObj = {\"title\": daysAssignments[j].assignment_name,\n                            \"start\": daysAssignments[j].assignment_due,\n                            \"end\": daysAssignments[j].assignment_due};\n            events.push(newObj)\n        }\n        console.log(\"one day done\")\n    }\n    return{\n        type: ADD_EVENTS,\n        events\n    }\n}\n",
+    "content": "import callApi from '../../util/apiCaller';\n\n/**\n    Variable with string name to be used in reducer.\n*/\nexport const ADD_EVENTS = 'ADD_EVENTS';\n\n/**\n    Converts assignments datafrom the store to correct format to be display on calendar\n    @param {Object} assignments Assignment object from store.\n*/\nexport function convertAssignments(assignments){\n    var length = assignments.length;\n    console.log(assignments)\n    var events = []\n    for(var i = 0; i < length; i++){\n        var daysAssignments = assignments[i].assignments;\n        var numAssignments = daysAssignments.length\n        for(var j = 0; j < numAssignments; j++){\n            var newObj = {\"title\": daysAssignments[j].assignment_name,\n                            \"start\": daysAssignments[j].assignment_due,\n                            \"end\": daysAssignments[j].assignment_due};\n            events.push(newObj)\n        }\n        console.log(\"one day done\")\n    }\n    return{\n        type: ADD_EVENTS,\n        events\n    }\n}\n",
     "static": true,
     "longname": "planr/client/modules/Calendar/CalendarActions.js",
     "access": null,
@@ -1704,15 +1663,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Calendar/CalendarActions.js",
     "importStyle": "{ADD_EVENTS}",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Variable with string name to be used in reducer.",
+    "lineNumber": 6,
     "type": {
       "types": [
         "string"
@@ -1732,21 +1684,18 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Calendar/CalendarActions.js",
     "importStyle": "{convertAssignments}",
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Converts assignments datafrom the store to correct format to be display on calendar",
+    "lineNumber": 12,
     "params": [
       {
-        "name": "assignments",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "assignments",
+        "description": "Assignment object from store."
       }
     ],
     "return": {
@@ -1759,7 +1708,7 @@
     "__docId__": 70,
     "kind": "file",
     "name": "planr/client/modules/Calendar/CalendarReducer.js",
-    "content": "import {ADD_EVENTS} from './CalendarActions';\n\n// Initial State\nconst initialState = { events: []};\nconst CalendarReducer= (state = initialState, action) => {\n    switch (action.type) {\n        case ADD_EVENTS:\n            return Object.assign({}, state, {\n                events: action.events\n            });\n        default:\n            return state;\n    }\n};\n\n/* Selectors */\n\n// Export Reducer`\nexport default CalendarReducer;\n",
+    "content": "import {ADD_EVENTS} from './CalendarActions';\n\n// Initial State\nconst initialState = { events: []};\n\n/**\n    The reducer for the Calendar. Adds or removes events from the calendar\n    @param {Object} state State is the current active state\n    @param {Object} action The action to do.\n*/\nconst CalendarReducer= (state = initialState, action) => {\n    switch (action.type) {\n        case ADD_EVENTS:\n            return Object.assign({}, state, {\n                events: action.events\n            });\n        default:\n            return state;\n    }\n};\n\n/* Selectors */\n\n// Export Reducer`\nexport default CalendarReducer;\n",
     "static": true,
     "longname": "planr/client/modules/Calendar/CalendarReducer.js",
     "access": null,
@@ -1805,30 +1754,28 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Calendar/CalendarReducer.js",
     "importStyle": "CalendarReducer",
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "The reducer for the Calendar. Adds or removes events from the calendar",
+    "lineNumber": 11,
     "params": [
       {
-        "name": "state",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "*"
+          "Object"
         ],
-        "defaultRaw": "initialState",
-        "defaultValue": "initialState"
+        "spread": false,
+        "optional": false,
+        "name": "state",
+        "description": "State is the current active state"
       },
       {
-        "name": "action",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "action",
+        "description": "The action to do."
       }
     ],
     "return": {
@@ -2015,7 +1962,7 @@
     "__docId__": 81,
     "kind": "file",
     "name": "planr/client/modules/ClassList/ClassListActions.js",
-    "content": "import callApi from '../../util/apiCaller';\n\nexport const ADD_CLASSES = 'ADD_CLASSES';\n\nexport function addClasses(classes){\n    return{\n        type: ADD_CLASSES,\n        classes\n    }\n}\n\nexport function fetchClasses(){\n    const apiUrl = 'fetchClasses';\n    return (dispatch) => {\n        return callApi(apiUrl).then(res => {\n            if (res){\n                console.log(res);\n                dispatch(addClasses(res));\n            }\n            else{\n                // dispatch no classes yet thing. oh yeah\n            }\n        });\n    }\n}\n",
+    "content": "import callApi from '../../util/apiCaller';\n\n/**\n    Variable with string name to be used in reducer.\n*/\nexport const ADD_CLASSES = 'ADD_CLASSES';\n\n/**\n    Sends classes to the reducer to be added to store.\n    @param {Object} classes The classes to add\n*/\nexport function addClasses(classes){\n    return{\n        type: ADD_CLASSES,\n        classes\n    }\n}\n\n/**\n    Sends request to server to get user's classes from database.\n*/\nexport function fetchClasses(){\n    const apiUrl = 'fetchClasses';\n    return (dispatch) => {\n        return callApi(apiUrl).then(res => {\n            if (res){\n                console.log(res);\n                dispatch(addClasses(res));\n            }\n            else{\n                // dispatch no classes yet thing. oh yeah\n            }\n        });\n    }\n}\n",
     "static": true,
     "longname": "planr/client/modules/ClassList/ClassListActions.js",
     "access": null,
@@ -2033,15 +1980,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/ClassList/ClassListActions.js",
     "importStyle": "{ADD_CLASSES}",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Variable with string name to be used in reducer.",
+    "lineNumber": 6,
     "type": {
       "types": [
         "string"
@@ -2061,21 +2001,18 @@
     "export": true,
     "importPath": "planr/planr/client/modules/ClassList/ClassListActions.js",
     "importStyle": "{addClasses}",
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Sends classes to the reducer to be added to store.",
+    "lineNumber": 12,
     "params": [
       {
-        "name": "classes",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "classes",
+        "description": "The classes to add"
       }
     ],
     "return": {
@@ -2097,15 +2034,8 @@
     "export": true,
     "importPath": "planr/planr/client/modules/ClassList/ClassListActions.js",
     "importStyle": "{fetchClasses}",
-    "description": null,
-    "lineNumber": 12,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Sends request to server to get user's classes from database.",
+    "lineNumber": 22,
     "params": [],
     "return": {
       "types": [
@@ -2358,7 +2288,7 @@
     "__docId__": 96,
     "kind": "file",
     "name": "planr/client/modules/Classes/ClassesActions.js",
-    "content": "import callApi from '../../util/apiCaller';\n   \nexport function createClassRequest(formState){\n    const apiUrl = 'createClass';\n    return (dispatch) => {\n        return callApi(apiUrl, \"post\", formState).then(validLogin => {\n            if(validLogin){\n\n            }\n            else{\n\n            }\n        });\n    }\n}\n",
+    "content": "import callApi from '../../util/apiCaller';\n\n/**\n    Sends create class request to the server\n    @param {Object} formState The current fields in the create class form.\n*/\nexport function createClassRequest(formState){\n    const apiUrl = 'createClass';\n    return (dispatch) => {\n        return callApi(apiUrl, \"post\", formState).then(validLogin => {\n            if(validLogin){\n\n            }\n            else{\n\n            }\n        });\n    }\n}\n",
     "static": true,
     "longname": "planr/client/modules/Classes/ClassesActions.js",
     "access": null,
@@ -2378,21 +2308,18 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Classes/ClassesActions.js",
     "importStyle": "{createClassRequest}",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Sends create class request to the server",
+    "lineNumber": 7,
     "params": [
       {
-        "name": "formState",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "formState",
+        "description": "The current fields in the create class form."
       }
     ],
     "return": {
@@ -2405,7 +2332,7 @@
     "__docId__": 98,
     "kind": "file",
     "name": "planr/client/modules/Classes/ClassesReducer.js",
-    "content": "//Initial State\nconst initialState = { };\nconst ClassesReducer= (state = initialState, action) => {\n    switch (action.type) {\n        default:\n            return state;\n    }\n};\n\nexport default ClassesReducer;\n",
+    "content": "//Initial State\nconst initialState = { };\n\n/**\n    The reducer for the Classes. Adds or removes Classes to/from the store\n    @param {Object} state State is the current active state\n    @param {Object} action The action to do.\n*/\nconst ClassesReducer= (state = initialState, action) => {\n    switch (action.type) {\n        default:\n            return state;\n    }\n};\n\nexport default ClassesReducer;\n",
     "static": true,
     "longname": "planr/client/modules/Classes/ClassesReducer.js",
     "access": null,
@@ -2451,30 +2378,28 @@
     "export": true,
     "importPath": "planr/planr/client/modules/Classes/ClassesReducer.js",
     "importStyle": "ClassesReducer",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "The reducer for the Classes. Adds or removes Classes to/from the store",
+    "lineNumber": 9,
     "params": [
       {
-        "name": "state",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "*"
+          "Object"
         ],
-        "defaultRaw": "initialState",
-        "defaultValue": "initialState"
+        "spread": false,
+        "optional": false,
+        "name": "state",
+        "description": "State is the current active state"
       },
       {
-        "name": "action",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "action",
+        "description": "The action to do."
       }
     ],
     "return": {
@@ -5755,7 +5680,7 @@
     "__docId__": 235,
     "kind": "file",
     "name": "planr/client/store.js",
-    "content": "/**\n * Main store function\n */\nimport { createStore, applyMiddleware, compose } from 'redux';\nimport thunk from 'redux-thunk';\nimport rootReducer from './reducers';\n\nexport function configureStore(initialState = {}) {\n  // Middleware and store enhancers\n  const enhancers = [\n    applyMiddleware(thunk),\n  ];\n\n  const store = createStore(rootReducer, initialState, compose(...enhancers));\n\n  // For hot reloading reducers\n  if (module.hot) {\n    // Enable Webpack hot module replacement for reducers\n    module.hot.accept('./reducers', () => {\n      const nextReducer = require('./reducers').default; // eslint-disable-line global-require\n      store.replaceReducer(nextReducer);\n    });\n  }\n\n  return store;\n}\n",
+    "content": "/**\n * Main store function\n */\nimport { createStore, applyMiddleware, compose } from 'redux';\nimport thunk from 'redux-thunk';\nimport rootReducer from './reducers';\n\n/**\n    This sets up the store on the initial load\n    @param {Object} initialState Initializes an empty initial state for the store\n*/\nexport function configureStore(initialState = {}) {\n  // Middleware and store enhancers\n  const enhancers = [\n    applyMiddleware(thunk),\n  ];\n\n  const store = createStore(rootReducer, initialState, compose(...enhancers));\n\n  // For hot reloading reducers\n  if (module.hot) {\n    // Enable Webpack hot module replacement for reducers\n    module.hot.accept('./reducers', () => {\n      const nextReducer = require('./reducers').default; // eslint-disable-line global-require\n      store.replaceReducer(nextReducer);\n    });\n  }\n\n  return store;\n}\n",
     "static": true,
     "longname": "planr/client/store.js",
     "access": null,
@@ -5775,24 +5700,18 @@
     "export": true,
     "importPath": "planr/planr/client/store.js",
     "importStyle": "{configureStore}",
-    "description": null,
-    "lineNumber": 8,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "This sets up the store on the initial load",
+    "lineNumber": 12,
     "params": [
       {
-        "name": "initialState",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "{}"
+          "Object"
         ],
-        "defaultRaw": {},
-        "defaultValue": "{}"
+        "spread": false,
+        "optional": false,
+        "name": "initialState",
+        "description": "Initializes an empty initial state for the store"
       }
     ],
     "return": {

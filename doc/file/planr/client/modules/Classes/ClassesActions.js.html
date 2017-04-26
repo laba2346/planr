@@ -108,7 +108,11 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">planr/client/modules/Classes/ClassesActions.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import callApi from &apos;../../util/apiCaller&apos;;
-   
+
+/**
+    Sends create class request to the server
+    @param {Object} formState The current fields in the create class form.
+*/
 export function createClassRequest(formState){
     const apiUrl = &apos;createClass&apos;;
     return (dispatch) =&gt; {

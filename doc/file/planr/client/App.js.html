@@ -121,6 +121,10 @@ import routes from &apos;./routes&apos;;
 require(&apos;./main.css&apos;);
 require(&apos;./lib.css&apos;);
 
+/**
+    Constructrs the root App that uses the store and router.
+    @param {Object} props Inherits props object from component super class.
+*/
 export default function App(props) {
   return (
       &lt;Provider store={props.store}&gt;

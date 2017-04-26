@@ -15,6 +15,11 @@ const DateExistsReducer = (state = {}, action) => {
     }
 };
 
+/**
+    The reducer for the AssignmentList. Adds or removes assignments from the store
+    @param {Object} state State is the current active state
+    @param {Object} action The action to do.
+*/
 const AssignmentListReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ASSIGNMENT:

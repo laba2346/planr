@@ -1,36 +1,22 @@
 {
-  "coverage": "5.4%",
+  "coverage": "32.43%",
   "expectCount": 74,
-  "actualCount": 4,
+  "actualCount": 24,
   "files": {
     "planr/client/modules/AssignmentList/AssignmentListActions.js": {
       "expectCount": 6,
-      "actualCount": 0,
-      "undocumentLines": [
-        4,
-        3,
-        13,
-        6,
-        20,
-        32
-      ]
+      "actualCount": 6,
+      "undocumentLines": []
     },
     "planr/client/modules/ClassList/ClassListActions.js": {
       "expectCount": 3,
-      "actualCount": 0,
-      "undocumentLines": [
-        3,
-        5,
-        12
-      ]
+      "actualCount": 3,
+      "undocumentLines": []
     },
     "planr/client/modules/Calendar/CalendarActions.js": {
       "expectCount": 2,
-      "actualCount": 0,
-      "undocumentLines": [
-        3,
-        5
-      ]
+      "actualCount": 2,
+      "undocumentLines": []
     },
     "planr/client/util/apiCaller.js": {
       "expectCount": 2,
@@ -42,31 +28,23 @@
     },
     "planr/client/App.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        15
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "planr/client/modules/App/AppReducer.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        4
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "planr/client/modules/AssignmentList/Components/Assignment/Assignment.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        6
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "planr/client/modules/AssignmentList/AssignmentListReducer.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        18
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "planr/client/modules/Settings/SettingsActions.js": {
       "expectCount": 13,
@@ -97,17 +75,13 @@
     },
     "planr/client/modules/Calendar/CalendarReducer.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        5
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "planr/client/modules/Classes/ClassesReducer.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        3
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "planr/client/modules/Container/Container.js": {
       "expectCount": 5,
@@ -129,10 +103,8 @@
     },
     "planr/client/modules/AssignmentList/Components/DateList/DateList.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        6
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "planr/client/modules/Header/HeaderReducer.js": {
       "expectCount": 1,
@@ -195,10 +167,8 @@
     },
     "planr/client/store.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        8
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "planr/server/util/test-helpers.js": {
       "expectCount": 2,
@@ -230,10 +200,8 @@
     },
     "planr/client/modules/Classes/ClassesActions.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        3
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "planr/server/util/fetchData.js": {
       "expectCount": 1,

@@ -1,7 +1,14 @@
 import callApi from '../../util/apiCaller';
 
+/**
+    Variable with string name to be used in reducer.
+*/
 export const ADD_EVENTS = 'ADD_EVENTS';
 
+/**
+    Converts assignments datafrom the store to correct format to be display on calendar
+    @param {Object} assignments Assignment object from store.
+*/
 export function convertAssignments(assignments){
     var length = assignments.length;
     console.log(assignments)

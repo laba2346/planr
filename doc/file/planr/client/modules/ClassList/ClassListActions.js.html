@@ -109,8 +109,15 @@
 <div class="content" data-ice="content"><h1 data-ice="title">planr/client/modules/ClassList/ClassListActions.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import callApi from &apos;../../util/apiCaller&apos;;
 
+/**
+    Variable with string name to be used in reducer.
+*/
 export const ADD_CLASSES = &apos;ADD_CLASSES&apos;;
 
+/**
+    Sends classes to the reducer to be added to store.
+    @param {Object} classes The classes to add
+*/
 export function addClasses(classes){
     return{
         type: ADD_CLASSES,
@@ -118,6 +125,9 @@ export function addClasses(classes){
     }
 }
 
+/**
+    Sends request to server to get user&apos;s classes from database.
+*/
 export function fetchClasses(){
     const apiUrl = &apos;fetchClasses&apos;;
     return (dispatch) =&gt; {

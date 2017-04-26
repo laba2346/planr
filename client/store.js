@@ -5,6 +5,10 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
+/**
+    This sets up the store on the initial load
+    @param {Object} initialState Initializes an empty initial state for the store
+*/
 export function configureStore(initialState = {}) {
   // Middleware and store enhancers
   const enhancers = [

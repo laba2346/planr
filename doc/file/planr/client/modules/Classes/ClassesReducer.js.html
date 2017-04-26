@@ -109,6 +109,12 @@
 <div class="content" data-ice="content"><h1 data-ice="title">planr/client/modules/Classes/ClassesReducer.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">//Initial State
 const initialState = { };
+
+/**
+    The reducer for the Classes. Adds or removes Classes to/from the store
+    @param {Object} state State is the current active state
+    @param {Object} action The action to do.
+*/
 const ClassesReducer= (state = initialState, action) =&gt; {
     switch (action.type) {
         default:
