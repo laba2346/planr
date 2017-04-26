@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import mockgoose from 'mockgoose';
-
+/**
+scaffolding
+*/
 export function connectDB(t, done) {
   mockgoose(mongoose).then(() => {
     mongoose.createConnection('mongodb://localhost:27017/mern-test', err => {
@@ -9,7 +11,9 @@ export function connectDB(t, done) {
     });
   });
 }
-
+/**
+scaffolding
+*/
 export function dropDB(t) {
   mockgoose.reset(err => {
     if (err) t.fail('Unable to reset test database');

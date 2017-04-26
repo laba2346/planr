@@ -77,22 +77,13 @@ app.use(passport.session());
 /**
     Routes requests to root based on authentication status
 */
+
 app.get('/', function(req, res, next){
-    if (req.isAuthenticated()) {
-        next();
-    }
-    else{
-        res.redirect('/landing');
-    }
+    next();
 });
 
 app.get('/landing', function(req, res, next){
-    if (req.isAuthenticated()){
-        res.redirect('/');
-    }
-    else{
-        next();
-    }
+    next();
 });
 
 
@@ -176,7 +167,7 @@ app.use((req, res, next) => {
 
         res
           .set('Content-Type', 'text/html')
-          .status(202)
+          .status(200)
           .end(renderFullPage(initialView, finalState));
       })
       .catch((error) => next(error));
