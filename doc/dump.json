@@ -2487,7 +2487,7 @@
     "__docId__": 101,
     "kind": "file",
     "name": "planr/client/modules/Container/Container.js",
-    "content": "import React, { Component, PropTypes } from 'react';\nimport { connect } from 'react-redux';\n\n// Import Style\nimport styles from './Container.css';\n\n// Import Components\nimport Helmet from 'react-helmet';\n\n// Import Actions\nexport class Container extends Component {\n    constructor(props) {\n        super(props);\n        this.state = { isMounted: false };\n    }\n\n    componentDidMount() {\n        this.setState({isMounted: true}); // eslint-disable-line\n    }\n\n    render() {\n        return (\n            <div>\n                <div>\n                  <Helmet\n                    title=\"Planr\"\n                    titleTemplate=\"%s - Planr\"\n                    meta={[\n                      { charset: 'utf-8' },\n                      {\n                        'http-equiv': 'X-UA-Compatible',\n                        content: 'IE=edge',\n                      },\n                      {\n                        name: 'viewport',\n                        content: 'width=device-width, initial-scale=1',\n                      },\n                    ]}\n                  />\n                  <div className={styles.container}>\n                    {this.props.children}\n                  </div>\n                </div>\n            </div>\n        );\n    }\n}\n\nContainer.propTypes = {\n  children: PropTypes.object.isRequired,\n  dispatch: PropTypes.func.isRequired,\n};\n\n// Retrieve data from store as props\nfunction mapStateToProps(store) {\n  return {\n  };\n}\n\nexport default connect(mapStateToProps)(Container);\n",
+    "content": "import React, { Component, PropTypes } from 'react';\nimport { connect } from 'react-redux';\n\n// Import Style\nimport styles from './Container.css';\n\n// Import Components\nimport Helmet from 'react-helmet';\n\n// Import Actions\nexport class Container extends Component {\n    constructor(props) {\n        super(props);\n        this.state = { isMounted: false };\n    }\n\n    componentDidMount() {\n        this.setState({isMounted: true}); // eslint-disable-line\n    }\n\n    render() {\n        return (\n            <div>\n                <div>\n                  <Helmet\n                    title=\"Planr\"\n                    titleTemplate=\"%s - Planr\"\n                    meta={[\n                      { charset: 'utf-8' },\n                      {\n                        'http-equiv': 'X-UA-Compatible',\n                        content: 'IE=edge',\n                      },\n                      {\n                        name: 'viewport',\n                        content: 'width=device-width, initial-scale=1',\n                      },\n                    ]}\n                  />\n                  <div className={styles.container}>\n                    {this.props.children}\n                  </div>\n                </div>\n            </div>\n        );\n    }\n}\n\nContainer.propTypes = {\n  children: PropTypes.object.isRequired,\n  dispatch: PropTypes.func.isRequired,\n};\n\n/**\n  Retrives data from the store as a prop\n  @param {Object} The store you'll be getting props from\n*/\nfunction mapStateToProps(store) {\n  return {\n  };\n}\n\nexport default connect(mapStateToProps)(Container);\n",
     "static": true,
     "longname": "planr/client/modules/Container/Container.js",
     "access": null,
@@ -2630,21 +2630,18 @@
     "export": false,
     "importPath": "planr/planr/client/modules/Container/Container.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 55,
-    "undocument": true,
-    "unknown": [
-      {
-        "tagName": "@_undocument",
-        "tagValue": ""
-      }
-    ],
+    "description": "Retrives data from the store as a prop",
+    "lineNumber": 58,
     "params": [
       {
-        "name": "store",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "The",
+        "description": "store you'll be getting props from"
       }
     ],
     "return": {
