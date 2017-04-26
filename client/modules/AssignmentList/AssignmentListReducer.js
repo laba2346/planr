@@ -5,7 +5,6 @@ const initialState = { assignments: [] };
 
 const DateExistsReducer = (state = {}, action) => {
     switch (action.type) {
-        // idk nothing works
         case ADD_ASSIGNMENT:
             return Object.assign({}, state, {
                 assignment: [],
@@ -23,9 +22,7 @@ const DateExistsReducer = (state = {}, action) => {
 const AssignmentListReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ASSIGNMENT:
-            var newList = state.assignments.map(DateObject => {
-                DateExistsReducer(DateObject, action);
-            });
+            // i wish this worked!
             return Object.assign({}, state, {
                 assignments: newList,
             });

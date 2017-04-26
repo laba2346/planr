@@ -1,7 +1,11 @@
 // Import model
 import {sequelize, users } from '../models/index.js';
 import bcrypt from 'bcryptjs';
-
+/**
+    Creates a new user with the form included in the req object and inserts into the database
+    @param {Object} req This is the Express req object
+    @param {Object} res This is the Express res object
+*/
 export function newUser(req, res){
 
     var username = req.body.username;
