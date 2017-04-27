@@ -21,5 +21,8 @@ var users = {
     color: {
         type: DataTypes.STRING
     },
+    profile_pic: {
+        type: DataTypes.BLOB
+    }
 }
 module.exports = users;

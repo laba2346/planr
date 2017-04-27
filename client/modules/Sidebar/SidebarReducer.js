@@ -2,7 +2,7 @@ import { CHANGE_VIEW } from './SidebarActions';
 /**
     Object containing the initial state when the page is loaded.
 */
-const initialState = { activeView: 'assignments', success: true };
+const initialState = { activeView: 'assignments', success: false };
 
 /**
     Redux reducer that changes the view given certain actions.

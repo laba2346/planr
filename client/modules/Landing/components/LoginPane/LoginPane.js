@@ -11,6 +11,10 @@ class LoginPane extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount(){
+        this.emailInput.focus();
+    }
+
 
     handleSubmit(event){
         event.preventDefault();
@@ -32,7 +36,8 @@ class LoginPane extends Component {
                 <form className={styles['login-form']} onSubmit={this.handleSubmit}>
                     <label> Login </label>
                     {this.props.failedLogin && <div className={styles['login-failed']}>!</div>}
-                    <input name="email" className={styles['input']} type="text" placeholder="Email" value={this.state.email} onChange={this.handleChange} />
+                    <input name="email" className={styles['input']} type="text" placeholder="Email" value={this.state.email} onChange={this.handleChange}
+                      ref={(input) => { this.emailInput = input; }} />
                     <input name="password" className={styles['input']} type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
                     <input type="submit" className={styles['login-submit'] + ' transition'} value="Submit" />
                 </form>

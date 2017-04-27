@@ -35,6 +35,13 @@ export function changeTheme(themeColor){
     }
 }
 
+export function changeProfilePicRequest(formState){
+  var reader = new FileReader();
+  const apiUrl = 'updateProfilePic';
+  reader.addEventListener("load", function (dispatch) { return callApi(apiUrl, "post", {profile_pic: reader.result})}, false);
+  reader.readAsDataURL(formState.profile_pic);
+}
+
 /**
     Makes an API call to update the settings. If successful, it dispatches success
     @param {Object} formState Object containing information from the submitted settings form
@@ -55,6 +62,7 @@ export function changeSettingRequest(formState){
     Returns an object with type SUCCESS so that the state can change.
 */
 export function success(){
+    console.log("memes")
     return {
         type: SUCCESS,
     }
@@ -69,6 +77,15 @@ export function resetSuccess(){
     }
 }
 
+export function checkIfProfilePicValid(formState){
+  return (dispatch) => {
+    if (formState.profile_pic !== null){
+      return true;
+    }
+    else return false;
+  }
+}
+
 /**
     Confirms that the formState has valid inputs.
     @param {Object} formstate Object containing information from the submitted settings form
@@ -77,39 +94,35 @@ export function checkIfFieldsValid(formState){
     return (dispatch) => {
 
         var emailreg = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-
-	var usernamereg = /(?=^.{8,20}$)^[a-zA-Z][a-zA-Z0-9]*[._-]?[a-zA-Z0-9]+$/
-
+        var usernamereg = /(?=^.{8,20}$)^[a-zA-Z][a-zA-Z0-9]*[._-]?[a-zA-Z0-9]+$/
         var passwordreg = /(?=^.{8,80}$)^[a-zA-Z][a-zA-Z0-9]*[._-]?[a-zA-Z0-9]+$/
 
-        if (formState.email !== '' && emailreg.exec(formState.email) === null)
-        {
-            dispatch(invalidField("email"))
+        if (formState.email !== '' && emailreg.exec(formState.email) === null){
+            dispatch(invalidField("email"));
             return false;
         }
 
         if (formState.password1 !== formState.password2){
+            dispatch(invalidField("password"));
+            return false;
+        }
 
-            console.log("passwords dont match")
+        if (formState.username !== '' & usernamereg.exec(formState.username) === null){
+            dispatch(invalidField("username"));
+            return false;
+        }
+
+        if (passwordreg.exec(formState.password) === null){
             dispatch(invalidField("password"))
             return false;
         }
 
+        if (formState.email == '' && formState.username == '' && formState.password1 == '' && formState.password2 == '' && formState.color == ''){
+            return false;
+        }
+        // TODO: import this from Landing.js?
+        //dispatch(resetInvalidStatus())
         dispatch(resetSettings())
-	if (usernamereg.exec(formState.username) === null)
-        {
-            console.log("test")
-            dispatch(invalidField("username"))
-            return false;
-        }
-
-        if (passwordreg.exec(formState.password) === null)
-        {
-            dispatch(invalidField("password"))
-            return false;
-        }
-
-        dispatch(resetInvalidStatus())
         return true;
     }
 }

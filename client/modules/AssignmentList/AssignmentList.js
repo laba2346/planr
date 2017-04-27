@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import tinycolor from 'TinyColor2';
+import tinycolor from 'tinycolor2';
 
 import { fetchAssignments, createAssignmentRequest } from './AssignmentListActions';
 import DateList from './Components/DateList/DateList';

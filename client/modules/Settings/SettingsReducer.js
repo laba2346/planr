@@ -3,7 +3,7 @@ import { RESET_SUCCESS, SUCCESS, INVALID_FIELD, RESET_SETTINGS, CHANGE_THEME } f
 /**
     An object that contains the initial state when the page is loaded.
 */
-const initialState = { emailInvalid: false, passwordInvalid: false, success: false, themeColor: '#705e8b' };
+const initialState = { emailInvalid: false, passwordInvalid: false, usernameInvalid: false, success: false, themeColor: '#705e8b' };
 
 /**
     A redux reducer that changes the state for the settings page given certain actions.
@@ -20,6 +20,7 @@ const SettingsReducer = (state = initialState, action) => {
         case RESET_SETTINGS:
             return Object.assign({}, state, {
                 emailInvalid: false,
+                usernameInvalid: false,
                 passwordInvalid: false,
                 success: false,
             });
@@ -32,6 +33,11 @@ const SettingsReducer = (state = initialState, action) => {
             if(action.field === 'password'){
                 return Object.assign({}, state, {
                     passwordInvalid: true,
+                });
+            }
+            if(action.field === 'username'){
+                return Object.assign({}, state, {
+                    usernameInvalid: true,
                 });
             }
         case SUCCESS:

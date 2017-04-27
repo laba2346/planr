@@ -1,11 +1,17 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import { addSettings, loadSettings } from './HeaderActions'
 import ReactModal from 'react-modal';
 import { toggleSidebar, sendLogoutRequest } from './HeaderActions';
 import styles from './Header.css';
+import Avatar from 'react-avatar';
 import DropdownMenu from 'react-dd-menu';
 
 class Header extends Component {
+
+  componentDidMount() {
+        this.props.dispatch(loadSettings());
+    }
 
     constructor () {
         super();
@@ -37,7 +43,9 @@ class Header extends Component {
       let menuOptions = {
         isOpen: this.state.isMenuOpen,
         close: this.close.bind(this),
-        toggle: <div className={styles['profile']} onClick={this.toggle.bind(this)}></div>,
+        toggle: <div className={styles['profile']} onClick={this.toggle.bind(this)} >
+                <Avatar name={this.props.username} color={this.props.color} src={this.props.profile_pic} size={50} round={true} />
+                </div>
       };
       const headerColor = {
           color: this.props.themeColor
@@ -53,16 +61,26 @@ class Header extends Component {
   }
 }
 
+Header.need = [() => { return loadSettings(); }];
+
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
       themeColor: state.settings.themeColor,
-      sidebarShown: state.header.sidebarShown
+      sidebarShown: state.header.sidebarShown,
+      color: state.header.color,
+      username: state.header.username,
+      profile_pic: state.header.profile_pic 
+      ? String.fromCharCode.apply(null, new Uint16Array(state.header.profile_pic.data)) 
+      : null
   };
 }
 
 Header.propTypes = {
     dispatch: PropTypes.func.isRequired,
+    //color: PropTypes.string.isRequired,
+    //username: PropTypes.string.isRequired,
+    //profile_pic: PropTypes.string.isRequired
 };
 
 Header.contextTypes = {
