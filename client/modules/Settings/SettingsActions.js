@@ -111,7 +111,6 @@ export function checkIfFieldsValid(formState){
             return false;
         }
 
-        dispatch(resetSettings())
 	if (usernamereg.exec(formState.username) === null)
         {
             console.log("test")
@@ -125,11 +124,12 @@ export function checkIfFieldsValid(formState){
             return false;
         }
 
-        if (formState.email == '' && formState.username == '' && formState.password1 == '' && formState.password2 == ''){
+        if (formState.email == '' && formState.username == '' && formState.password1 == '' && formState.password2 == '' && formState.color == ''){
             return false;
         }
-
-        dispatch(resetInvalidStatus())
+        // TODO: import this from Landing.js?
+        //dispatch(resetInvalidStatus())
+        dispatch(resetSettings())
         return true;
     }
 }

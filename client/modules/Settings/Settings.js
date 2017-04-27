@@ -29,13 +29,10 @@ class Settings extends Component {
         event.preventDefault();
         if(this.props.dispatch(checkIfFieldsValid(this.state))){
             this.props.dispatch(changeSettingRequest(this.state))
-            this.state = {color: '', username: '', password1: '', password2: '', email: ''};
+            // this.state = {color: '', username: '', password1: '', password2: '', email: ''};
         }
         if(this.props.dispatch(checkIfProfilePicValid(this.state))){
             this.props.dispatch(changeProfilePicRequest(this.state))
-        }
-        else{
-            console.log("didn't send to server")
         }
     }
 
