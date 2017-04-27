@@ -39,6 +39,7 @@
 
 .sidebar-tab:hover{
     color: #644b84;
+    cursor: pointer;
 }
 
 .logo{
