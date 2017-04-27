@@ -777,13 +777,13 @@ button.rbc-input::-moz-focus-inner {
 /* line 2, ../src/scss/_dd-menu.scss */
 .dd-menu {
   display: inline-block;
+  float:right;
   position: relative;
 }
 /* line 6, ../src/scss/_dd-menu.scss */
 .dd-menu.dd-menu-center .dd-menu-items {
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  left: -30%;
+  top: 75%;
 }
 /* line 18, ../src/scss/_mixins.scss */
 .dd-menu.dd-menu-left .dd-menu-items {

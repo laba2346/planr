@@ -1,4 +1,5 @@
 import callApi from '../../util/apiCaller';
+import getAssignments from './AssignmentListReducer';
 
 /**
     Variable with string name to be used in reducer.
