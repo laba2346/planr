@@ -11,6 +11,10 @@ class NewClassForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        this.classnameInput.focus();
+    }
+
     handleSubmit(event) {
         event.preventDefault();
         this.props.createClass(this.state);
@@ -32,7 +36,8 @@ class NewClassForm extends Component {
                 <form className={styles['new-class-form']} onSubmit={this.handleSubmit}>
                     <label> new class </label>
                     {this.props.failedLogin && <div className={styles['login-failed']}>!</div>}
-                    <input name="name" className={styles['input']} type="text" placeholder="Class Name" value={this.state.class_name} onChange={this.handleChange} />
+                    <input name="name" className={styles['input']} type="text" placeholder="Class Name" value={this.state.class_name} onChange={this.handleChange}
+                      ref={(input) => { this.classnameInput = input; }} />
                     <input name="desc" className={styles['input']} type="text" placeholder="Class Description" value={this.state.class_info} onChange={this.handleChange} />
                     <input name="times" className={styles['input']} type="text" placeholder="Times" value={this.state.class_times} onChange={this.handleChange} />
                     <input name="color" className={styles['input']} type="text" placeholder="Colors" value={this.state.class_color} onChange={this.handleChange} />

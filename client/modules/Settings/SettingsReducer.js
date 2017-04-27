@@ -20,6 +20,7 @@ const SettingsReducer = (state = initialState, action) => {
         case RESET_SETTINGS:
             return Object.assign({}, state, {
                 emailInvalid: false,
+                usernameInvalid: false,
                 passwordInvalid: false,
                 success: false,
             });

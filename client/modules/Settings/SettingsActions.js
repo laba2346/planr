@@ -35,6 +35,13 @@ export function changeTheme(themeColor){
     }
 }
 
+export function changeProfilePicRequest(formState){
+  var reader = new FileReader();
+  const apiUrl = 'updateProfilePic';
+  reader.addEventListener("load", function (dispatch) { return callApi(apiUrl, "post", {profile_pic: reader.result})}, false);
+  reader.readAsDataURL(formState.profile_pic);
+}
+
 /**
     Makes an API call to update the settings. If successful, it dispatches success
     @param {Object} formState Object containing information from the submitted settings form
@@ -70,6 +77,15 @@ export function resetSuccess(){
     }
 }
 
+export function checkIfProfilePicValid(formState){
+  return (dispatch) => {
+    if (formState.profile_pic !== null){
+      return true;
+    }
+    else return false;
+  }
+}
+
 /**
     Confirms that the formState has valid inputs.
     @param {Object} formstate Object containing information from the submitted settings form
@@ -97,13 +113,18 @@ export function checkIfFieldsValid(formState){
             dispatch(invalidField("username"));
             return false;
         }
-
+        
         if (passwordreg.exec(formState.password) === null){
             dispatch(invalidField("password"))
             return false;
         }
 
-        dispatch(resetSettings());
+        if (formState.email == '' && formState.username == '' && formState.password1 == '' && formState.password2 == '' && formState.color == ''){
+            return false;
+        }
+        // TODO: import this from Landing.js?
+        //dispatch(resetInvalidStatus())
+        dispatch(resetSettings())
         return true;
     }
 }
