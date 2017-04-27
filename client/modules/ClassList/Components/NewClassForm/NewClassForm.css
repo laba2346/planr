@@ -12,6 +12,10 @@
     outline:none;
 }
 
+input:focus{
+    border: 1px #705e8b solid;
+}
+
 .new-class-form label{
     font-family:Helvetica;
     letter-spacing: -2px;
@@ -19,6 +23,7 @@
     font-weight:600;
     color: #705e8b;
 }
+
 
 .class-submit{
     width:300px;
@@ -35,8 +40,4 @@
 .class-submit:hover{
     background:#705e8b;
     color: #FFF;
-}
-
-input:focus{
-    border: 1px #705e8b solid;
 }
