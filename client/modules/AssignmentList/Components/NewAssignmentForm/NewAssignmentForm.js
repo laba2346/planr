@@ -13,6 +13,10 @@ class NewAssignmentForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        this.nameInput.focus();
+    }
+
     handleSubmit(event){
         console.log(this.state);
         event.preventDefault();
@@ -42,7 +46,8 @@ class NewAssignmentForm extends Component {
                 <form className={styles['new-assignment-form']} onSubmit={this.handleSubmit}>
                     <label> new assignment </label>
                     {this.props.failedLogin && <div className={styles['login-failed']}>!</div>}
-                    <input name="name" className={styles['input']} type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange} />
+                    <input name="name" className={styles['input']} type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange}
+                      ref={(input) => { this.nameInput = input; }} />
                     <input name="desc" className={styles['input']} type="text" placeholder="Description" value={this.state.desc} onChange={this.handleChange} />
                     <Datetime name="date" placeholder="Due Date" value={this.state.date} onChange={this.handleDateChange}/>
                     <input type="submit" className={styles['assignment-submit'] + ' transition'} value="Submit" />
