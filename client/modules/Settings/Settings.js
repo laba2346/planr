@@ -45,7 +45,7 @@ class Settings extends Component {
             <form className={styles['settings-form']} onSubmit={this.handleSubmit}>
                 <label className={styles['settings-label']}> select themes color </label>
                 <CirclePicker circleSpacing='10'color={this.state.color} onChangeComplete={this.handleChangeColor} />
-                <input name="username" className={styles['valid-field'] + ' ' + styles['input']} type="text" placeholder="Change username" value={this.state.username} onChange={this.handleChange} />
+                <input name="username" className={(this.props.usernameInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder="Change username" value={this.state.username} onChange={this.handleChange} />
                 <input name="email" className={(this.props.emailInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder="Change email" value={this.state.email} onChange={this.handleChange} />
                 <input name="password1" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Change password" value={this.state.password1} onChange={this.handleChange} />
                 <input name="password2" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Verify new password" value={this.state.password2} onChange={this.handleChange} />
@@ -62,6 +62,7 @@ function mapStateToProps(state) {
   return {
       emailInvalid: state.settings.emailInvalid,
       passwordInvalid: state.settings.passwordInvalid,
+      usernameInvalid: state.settings.usernameInvalid,
       success: state.settings.success,
   };
 }
@@ -70,6 +71,7 @@ Settings.propTypes = {
     dispatch: PropTypes.func.isRequired,
     emailInvalid: PropTypes.bool.isRequired,
     passwordInvalid: PropTypes.bool.isRequired,
+    usernameInvalid: PropTypes.bool.isRequired,
     success: PropTypes.bool.success,
 };
 

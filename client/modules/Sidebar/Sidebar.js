@@ -48,7 +48,6 @@ function mapStateToProps(state) {
   return {
     activeView: state.sidebar.activeView,
     sidebarShown: state.header.sidebarShown,
-    success: state.settings.success,
   };
 }
 
