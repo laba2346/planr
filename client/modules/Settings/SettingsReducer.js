@@ -41,7 +41,6 @@ const SettingsReducer = (state = initialState, action) => {
                 });
             }
         case SUCCESS:
-            console.log("SUCCESS!!")
             return Object.assign({}, state, {
                 success: true,
             });

@@ -103,17 +103,15 @@ export function checkIfFieldsValid(formState){
         }
 
         if (formState.password1 !== formState.password2){
-            console.log("passwords dont match");
             dispatch(invalidField("password"));
             return false;
         }
 
         if (formState.username !== '' & usernamereg.exec(formState.username) === null){
-            console.log("test");
             dispatch(invalidField("username"));
             return false;
         }
-        
+
         if (passwordreg.exec(formState.password) === null){
             dispatch(invalidField("password"))
             return false;
