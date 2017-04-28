@@ -71,21 +71,18 @@ class AssignmentList extends Component {
             }
         }
 
-        /*
-        <div style={addAssignmentStyles} className={styles['add-assignment-button']} onClick={() => this.handleOpenModal()}> Create Assignment </div>
-            <ReactModal
-                   isOpen={this.state.showModal}
-                   contentLabel="Create Assignment"
-                   style={modalStyle}
-            >
-                   <button className={styles['close-assignment-pane']} onClick={this.handleCloseModal}>X</button>
-                   <NewAssignmentForm createAssignment={this.createAssignment}/>
-             </ReactModal>
-        <div className={styles['assignments-list-container']}>
-        */
 
         return (
             <div>
+            <div style={addAssignmentStyles} className={styles['add-assignment-button']} onClick={() => this.handleOpenModal()}> Create Assignment </div>
+                <ReactModal
+                       isOpen={this.state.showModal}
+                       contentLabel="Create Assignment"
+                       style={modalStyle}
+                >
+                       <button className={styles['close-assignment-pane']} onClick={this.handleCloseModal}>X</button>
+                       <NewAssignmentForm createAssignment={this.createAssignment}/>
+                 </ReactModal>
                 {
                     this.props.assignments.map((dateObject, index) => (
                       <div className={styles['date-list-container']} key={dateObject.date}>
