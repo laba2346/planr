@@ -18,7 +18,7 @@ class ClassList extends Component {
         this.state = {}
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
-        this.createAssignment = this.createAssignment.bind(this);
+        this.createClass = this.createClass.bind(this);
     }
 
     handleOpenModal () {

@@ -22,7 +22,7 @@ const DateExistsReducer = (state = {}, action) => {
 const ClassListReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_CLASS:
-            var date = (new Date(action.assignment.assignment_due)).setHours(0,0,0,0);
+            var date = (new Date(action._class._class)).setHours(0,0,0,0);
             var newDate = {
                 date: date,
                 classes: [action._class],

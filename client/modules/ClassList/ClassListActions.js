@@ -32,8 +32,8 @@ export function addClass(_class){
 }
 
 /**
-    Sends a request to the server to create a new assignment for the user
-    @param {Object} formState The current state of NewAssignmentForm as an object
+    Sends a request to the server to create a new class for the user
+    @param {Object} formState The current state of classform as an object
 */
 export function createClassRequest(formState){
     const apiUrl = 'createClass';
@@ -47,7 +47,7 @@ export function createClassRequest(formState){
 }
 
 /**
-    Fetches all of the users assignments from the server
+    Fetches all of the users classes from the server
 */
 export function fetchClasses(){
     const apiUrl = 'fetchClasses';
