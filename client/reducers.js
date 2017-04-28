@@ -10,7 +10,6 @@ import app from './modules/App/AppReducer';
 import sidebar from './modules/Sidebar/SidebarReducer';
 import header from './modules/Header/HeaderReducer';
 import assignmentlist from './modules/AssignmentList/AssignmentListReducer';
-import classes from './modules/Classes/ClassesReducer.js';
 import classlist from './modules/ClassList/ClassListReducer.js';
 import settings from './modules/Settings/SettingsReducer';
 import calendar from './modules/Calendar/CalendarReducer'
@@ -23,7 +22,6 @@ export default combineReducers({
     sidebar,
     header,
     assignmentlist,
-    createclass,
     classlist,
     settings,
     calendar,
