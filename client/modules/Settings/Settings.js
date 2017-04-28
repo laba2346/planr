@@ -74,27 +74,7 @@ class Settings extends Component {
         };
 
         return (
-        <div>
-            <div className={styles['settings-avatar']}>
-                <label className={styles['settings-label']}>Profile Picture</label><br />
-                <Avatar name={this.props.username} color={this.props.color} src={this.props.profile_pic} size={180} round={true} />
-                <Dropzone accept="image/*" maxSize={250 * 1024} onDrop={this.onDrop} multiple={false} style={dropzoneStyle}>
-                {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
-                  if (isDragActive) {
-                    return "New profile picture accepted";
-                  }
-                  if (isDragReject) {
-                    return "Only image files smaller than 250K are accepted";
-                  }
-                  if (acceptedFiles.length) {
-                    return `Accepted ${acceptedFiles[0].name}`;
-                  } else {
-                    return "Drop an image here, or click to choose a file";
-                  }
-                }}
-              </Dropzone>
-             </div>
-
+        <div className={styles['settings-container']}>
             <form className={styles['settings-form']} onSubmit={this.handleSubmit}>
                 <label className={styles['settings-label']}> Theme Color </label>
                 <CirclePicker circleSpacing='10'color={this.state.color} onChangeComplete={this.handleChangeColor} />

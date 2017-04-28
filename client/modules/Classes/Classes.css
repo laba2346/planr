@@ -1,6 +1,6 @@
 .classes-container{
     left:250px;
-    margin: 0px auto;
+    margin: 95px auto;
 }
 
 .add-class-button{
@@ -14,9 +14,8 @@
     font-size:54px;
     background:#776990;
     border-radius:100%;
-} 
+}
 
 .add-class-button:hover{
     background:#554b67;
 }
-
