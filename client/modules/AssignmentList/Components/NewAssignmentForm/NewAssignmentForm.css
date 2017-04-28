@@ -1,3 +1,8 @@
+.new-assignment-form-container{
+    width:300px;
+    height:400px;
+}
+
 .new-assignment-form input{
     display:block;
     font-size:16px;

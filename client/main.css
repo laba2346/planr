@@ -40,6 +40,19 @@ body {
 	font-size: 16px;
 }
 
+body::-webkit-scrollbar {
+    width: 0em;
+}
+
+body::-webkit-scrollbar-track {
+    background: #ccc;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  outline: 1px solid slategrey;
+}
+
 /*!
  * https://github:.com/YouCanBookMe/react-datetime
  */

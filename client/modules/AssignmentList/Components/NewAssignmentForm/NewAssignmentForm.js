@@ -41,10 +41,11 @@ class NewAssignmentForm extends Component {
     }
 
     render() {
+        var theme = this.props.themeColor;
         return (
             <div>
                 <form className={styles['new-assignment-form']} onSubmit={this.handleSubmit}>
-                    <label> new assignment </label>
+                    <label> New Assignment </label>
                     {this.props.failedLogin && <div className={styles['login-failed']}>!</div>}
                     <input name="name" className={styles['input']} type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange}
                       ref={(input) => { this.nameInput = input; }} />
@@ -52,8 +53,6 @@ class NewAssignmentForm extends Component {
                     <Datetime name="date" placeholder="Due Date" value={this.state.date} onChange={this.handleDateChange}/>
                     <input type="submit" className={styles['assignment-submit'] + ' transition'} value="Submit" />
                 </form>
-
-
             </div>
         );
   }
@@ -62,6 +61,7 @@ class NewAssignmentForm extends Component {
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
+      themeColor: state.settings.themeColor,
   };
 }
 

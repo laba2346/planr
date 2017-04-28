@@ -5,6 +5,24 @@
     outline: black;
 }
 
+.add-assignment-button{
+    width:200px;
+    height:35px;
+    line-height: 35px;
+    border-radius:4px;
+    font-size:16px;
+    text-align: center;
+}
+
+.add-assignment-button hover{
+    background-color:none;
+    color: #ccc
+}
+
 .date-list-container{
     height:100%;
+}
+
+.create-assignment-pane{
+
 }
