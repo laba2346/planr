@@ -65,10 +65,11 @@ export function fetchAssignments(){
 }
 
 export function deleteAssignment(assignmentId){
-    const apiUrl = 'deleteAssignment'
-
+    const apiUrl = 'deleteAssignment';
+    console.log("about to call api")
+    var assignment = { id: assignmentId };
     return (dispatch) => {
-        return callApi(apiUrl, "post", assignmentId);
+        return callApi(apiUrl, "post", assignment);
     }
 
 }
