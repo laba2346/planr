@@ -32,6 +32,7 @@ class DateList extends Component {
     }
 
     handleDelete (assignmentId) {
+        console.log("About to delete!")
         this.props.dispatch(deleteAssignment(assignmentId));
     }
 
@@ -63,8 +64,10 @@ class DateList extends Component {
                                 </div>
                             </div>
                             <ReactTooltip place="right" type="light" effect="solid">
-                                <div className={styles['edit']} onClick={this.handleOpenModal}/>
-                                <div className={styles['delete']} onClick={this.handleDelete(assignment.id)}/>
+                                <div className={styles['edit']}/>
+                                <div onClick={() => this.handleDelete(assignment.id)}>
+                                    <div className={styles['delete']}/>
+                                </div>
                             </ReactTooltip>
                         </div>
                     ))
