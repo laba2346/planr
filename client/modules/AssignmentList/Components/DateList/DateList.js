@@ -32,7 +32,6 @@ class DateList extends Component {
     }
 
     handleDelete (assignmentId) {
-        console.log("About to delete!")
         this.props.dispatch(deleteAssignment(assignmentId));
     }
 
@@ -55,20 +54,11 @@ class DateList extends Component {
                 <div className={styles['assignment-list-container']}>
                 {
                     this.props.dateObject.assignments.map(assignment => (
-                        <div>
-                            <div class='tooltip' data-tip="React-tooltip" data-event='click focus'>
-                                <div key={assignment.id}>
-                                    <Assignment
-                                        assignment={assignment}
-                                    />
-                                </div>
-                            </div>
-                            <ReactTooltip place="right" type="light" effect="solid">
-                                <div className={styles['edit']}/>
-                                <div onClick={() => this.handleDelete(assignment.id)}>
-                                    <div className={styles['delete']}/>
-                                </div>
-                            </ReactTooltip>
+                        <div key={assignment.id}>
+                            <Assignment
+                                assignment={assignment}
+                                handleDelete={this.handleDelete}
+                            />
                         </div>
                     ))
                 }
