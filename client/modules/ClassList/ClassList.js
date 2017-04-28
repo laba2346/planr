@@ -57,10 +57,10 @@ class ClassList extends Component {
                      </ReactModal>
                 <div className={styles['classes-list-container']}>
                 {
-                    this.props.classes.map((dateObject, index) => (
-                      <div className={styles['date-list-container']} key={dateObject.date}>
+                    this.props.classes.map((classObject, index) => (
+                      <div className={styles['date-list-container']} key={classObject.date}>
                         <DateList
-                            dateObject={dateObject}
+                            classObject={classObject}
                             index={index}
                             color={dateListColors[index%(dateListColors.length)]}
                         />
