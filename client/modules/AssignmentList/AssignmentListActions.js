@@ -63,3 +63,12 @@ export function fetchAssignments(){
         });
     }
 }
+
+export function deleteAssignment(assignmentId){
+    const apiUrl = 'deleteAssignment'
+
+    return (dispatch) => {
+        return callApi(apiUrl, "post", assignmentId);
+    }
+
+}

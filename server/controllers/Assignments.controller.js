@@ -68,3 +68,7 @@ export function createAssignment(req, res){
     });
 
 }
+
+export function deleteAssignment(req, res){
+    console.log("memes")
+}
