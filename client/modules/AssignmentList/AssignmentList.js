@@ -15,7 +15,7 @@ class AssignmentList extends Component {
 
     constructor () {
         super();
-        this.state = {}
+        this.state = { createAssignmentActive: false}
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.createAssignment = this.createAssignment.bind(this);
@@ -36,6 +36,22 @@ class AssignmentList extends Component {
             console.log(this.state)
         });
     }
+
+    handleNewAssignmentClick(e){
+        this.setState({ createAssignmentActive: true });
+        if (e.stopPropagation) {
+              e.stopPropagation();   // W3C model
+        }
+        else {
+            e.cancelBubble = true; // IE model
+        }
+    }
+
+    turnShadowOff(){
+        console.log('get called');
+        this.setState({ createAssignmentActive: false });
+    }
+
     render() {
         var theme = this.props.themeColor;
         var dateListColors = [
@@ -76,9 +92,10 @@ class AssignmentList extends Component {
         }
 
         return (
-            <div>
+            <div onClick={this.turnShadowOff.bind(this)} >
                 <div style={createAssignmentDiv} className={styles['createAssignment']}>
                     <label className={styles['assignments-label']}> Assignments </label>
+                    <div onClick={this.handleNewAssignmentClick.bind(this)} className={this.state.createAssignmentActive ? styles['new-assignment-container'] + ' ' + styles['new-assignment-container-active'] : styles['new-assignment-container'] + ' ' + styles['new-assignment-container-inactive'] } type="text" placeholder="New Assignment"><input className={styles['new-assignment']} type="text"/ ><div className={styles['calendar']}></div></div>
                 </div>
                 {
                     this.props.assignments.map((dateObject, index) => (
@@ -91,6 +108,7 @@ class AssignmentList extends Component {
                       </div>
                     ))
                 }
+                <div className={this.state.createAssignmentActive ? styles['shadow'] + ' ' + styles['shadow-open'] : styles['shadow'] + ' ' + styles['shadow-hidden']} ></div>
             </div>
         );
   }
