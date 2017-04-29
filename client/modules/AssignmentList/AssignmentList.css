@@ -23,6 +23,18 @@
     height:100%;
 }
 
-.create-assignment-pane{
+.createAssignment{
+    width:100%;
+    padding:15px;
+}
 
+.assignments-label{
+    color: #fff;
+    font-family:Helvetica;
+    font-size:26px;
+    letter-spacing: -1px;
+    height:100%;
+    line-height: 80px;
+    display: inline-block;
+    font-weight:200;
 }
