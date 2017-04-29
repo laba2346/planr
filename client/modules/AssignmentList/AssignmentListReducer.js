@@ -46,20 +46,22 @@ const AssignmentListReducer = (state = initialState, action) => {
             var delAssignment = action.assignment;
             var length = currentAssignments.length;
             for(var i = 0; i < length; i++){
-                if(delAssignment.date.setHours(0,0,0,0) === currentAssignments[i].date){
-                    var numEvents = currentAssignments[i].assignments.length;
-                    for(var j = 0; j < numEvents; j++){
-                        if(delAssignment.id === currentAssignments[i].assignments[j].id){
-                            currentAssignments[i].assignments.slice(j, 1);
-                            break;
+                var numEvents = currentAssignments[i].assignments.length;
+                for(var j = 0; j < numEvents; j++){
+                    if(delAssignment.id === currentAssignments[i].assignments[j].id){
+                        console.log("found and deleted assignment")
+                        currentAssignments[i].assignments.splice(j, 1);
+                        if(numEvents == 1){
+                            currentAssignments.splice(i,1);
                         }
+                        break;
                     }
                 }
             }
-
-            return {
+            console.log(currentAssignments);
+            return Object.assign({}, state, {
                 assignments: currentAssignments,
-            }
+            })
         default:
             return state;
     }

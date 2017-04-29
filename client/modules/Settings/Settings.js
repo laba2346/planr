@@ -30,6 +30,7 @@ class Settings extends Component {
         event.preventDefault();
         if(this.props.dispatch(checkIfFieldsValid(this.state))){
             this.props.dispatch(changeSettingRequest(this.state))
+            console.log("REEEEEEEEEEEEE")
             this.state.color = '';
             this.state.username = '';
             this.state.password1 = '';
