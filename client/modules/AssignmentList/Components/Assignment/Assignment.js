@@ -27,8 +27,8 @@ class Assignment extends Component {
         var time = moment(date).format(" h:mm a");
         return (
             <div>
-                <div className={this.state.optionsShown ? styles['assignment'] + ' ' + styles['extend'] : styles['assignment'] + ' ' +  styles['default']} onClick={this.showHide}>
-                    <div className={'name-label'}>
+                <div className={this.state.optionsShown ? styles['assignment'] + ' ' + styles['extend'] : styles['assignment'] + ' ' +  styles['default']}>
+                    <div className={'name-label'}  onClick={this.showHide}>
                         {this.props.assignment.assignment_name}
                         <label className={styles['time-label']}> {time} </label>
                     </div>
@@ -41,7 +41,7 @@ class Assignment extends Component {
                             <div className={this.state.optionsShown ? styles['pencil'] + ' ' + styles['shown'] : styles['pencil'] + ' ' + styles['hidden']}>
                             </div>
                         </div>
-                        <div className={this.state.optionsShown ? styles['delete'] + ' ' + styles['shown'] : styles['delete'] + ' ' + styles['hidden']} onClick={this.props.handleDelete(this.props.assignment.id)}>
+                        <div className={this.state.optionsShown ? styles['delete'] + ' ' + styles['shown'] : styles['delete'] + ' ' + styles['hidden']} onClick={console.log("fuck")}>
                             <div className={this.state.optionsShown ? styles['bin'] + ' ' + styles['shown'] : styles['bin'] + ' ' + styles['hidden']}>
                             </div>
                         </div>

@@ -31,7 +31,8 @@ class DateList extends Component {
         this.setState({ showModal: false });
     }
 
-    handleDelete (assignmentId) {
+    handleDelete (assignmentId, event) {
+        event.stopPropogation();
         this.props.dispatch(deleteAssignment(assignmentId));
     }
 
