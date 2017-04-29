@@ -7,6 +7,9 @@
 }
 
 .calendar{
+    -webkit-box-shadow: 0px 0px 86px -22px rgba(0,0,0,0.81);
+    -moz-box-shadow: 0px 0px 86px -22px rgba(0,0,0,0.81);
+    box-shadow: 0px 0px 86px -22px rgba(0,0,0,0.81);
     background: #fff;
     border: 1px solid #ccc;
     border-radius:5px;

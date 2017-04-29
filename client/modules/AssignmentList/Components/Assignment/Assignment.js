@@ -11,6 +11,7 @@ class Assignment extends Component {
             optionsShown: false
         };
         this.showHide = this.showHide.bind(this);
+        this.delete = this.delete.bind(this);
     }
 
     showHide () {
@@ -22,13 +23,17 @@ class Assignment extends Component {
         }
     }
 
+    delete(id){
+        this.props.handleDelete(id);
+    }
+
     render() {
         var date = new Date(this.props.assignment.assignment_due);
         var time = moment(date).format(" h:mm a");
         return (
             <div>
-                <div className={this.state.optionsShown ? styles['assignment'] + ' ' + styles['extend'] : styles['assignment'] + ' ' +  styles['default']} onClick={this.showHide}>
-                    <div className={styles['assignment-text-container']}>
+                <div className={this.state.optionsShown ? styles['assignment'] + ' ' + styles['extend'] : styles['assignment'] + ' ' +  styles['default']} >
+                    <div className={styles['assignment-text-container']} onClick={this.showHide}>
                         {this.props.assignment.assignment_name}
                         <label className={styles['time-label']}> {time} </label>
                     </div>
@@ -41,7 +46,7 @@ class Assignment extends Component {
                             <div className={this.state.optionsShown ? styles['pencil'] + ' ' + styles['shown'] : styles['pencil'] + ' ' + styles['hidden']}>
                             </div>
                         </div>
-                        <div className={this.state.optionsShown ? styles['block'] + ' ' + styles['shown'] + ' ' + styles['delete']  : styles['delete'] + ' ' + styles['hidden']} onClick={this.props.handleDelete(this.props.assignment.id)}>
+                        <div className={this.state.optionsShown ? styles['block'] + ' ' + styles['shown'] + ' ' + styles['delete']  : styles['delete'] + ' ' + styles['hidden']} onClick={() => this.delete(this.props.assignment.id)}>
                             <div className={this.state.optionsShown ? styles['bin'] + ' ' + styles['shown'] : styles['bin'] + ' ' + styles['hidden']}>
                             </div>
                         </div>

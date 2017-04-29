@@ -70,10 +70,11 @@ export function createAssignment(req, res){
 }
 
 export function deleteAssignment(req, res){
+    console.log('in deleteAssignment serverside');
     var id = req.body.id;
     var options = {
         where: {
-            id: req.user.id
+            id: id
         },
     };
     sequelize.sync().then(function(){
