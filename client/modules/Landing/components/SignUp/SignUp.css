@@ -69,5 +69,13 @@
 }
 
 .tooltip{
-    position: right;
+    width:23;
+    height:23;
+    display: inline-block;
+    font-family:Helvetica;
+    letter-spacing: -1px;
+    font-size: 20px;
+    font-weight:200;
+    margin-left: 270px;
+    user-select: none;
 }
