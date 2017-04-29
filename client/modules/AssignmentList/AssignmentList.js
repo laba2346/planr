@@ -91,16 +91,6 @@ class AssignmentList extends Component {
             background: tinycolor(theme).darken(3).toString(),
         }
 
-        /*var oldadd = <div style={addAssignmentStyles} className={styles['add-assignment-button']} onClick={() => this.handleOpenModal()}> Create Assignment </div>
-                    <ReactModal
-                           isOpen={this.state.showModal}
-                           contentLabel="Create Assignment"
-                           style={modalStyle}
-                    >
-                           <button className={styles['close-assignment-pane']} onClick={this.handleCloseModal}>X</button>
-                           <NewAssignmentForm createAssignment={this.createAssignment}/>
-                    </ReactModal>*/
-                    var oldadd = null;
 
         return (
             <div onClick={this.turnShadowOff.bind(this)} >
@@ -108,8 +98,15 @@ class AssignmentList extends Component {
                     <label className={styles['assignments-label']}> Assignments </label>
                     <div onClick={this.handleNewAssignmentClick.bind(this)} className={this.state.createAssignmentActive ? styles['new-assignment-container'] + ' ' + styles['new-assignment-container-active'] : styles['new-assignment-container'] + ' ' + styles['new-assignment-container-inactive'] } type="text" placeholder="New Assignment"><input className={styles['new-assignment']} type="text"/ ><div className={styles['calendar']}></div></div>
                 </div>
-                {oldadd}
-                {
+                <div style={addAssignmentStyles} className={styles['add-assignment-button']} onClick={() => this.handleOpenModal()}> Create Assignment </div>
+                            <ReactModal
+                                   isOpen={this.state.showModal}
+                                   contentLabel="Create Assignment"
+                                   style={modalStyle}
+                            >
+                                   <button className={styles['close-assignment-pane']} onClick={this.handleCloseModal}>X</button>
+                                   <NewAssignmentForm createAssignment={this.createAssignment}/>
+                            </ReactModal>                {
                     this.props.assignments.map((dateObject, index) => (
                       <div className={styles['date-list-container']} key={dateObject.date}>
                         <DateList
