@@ -11,6 +11,11 @@ export const ADD_ASSIGNMENTS = 'ADD_ASSIGNMENTS';
 export const ADD_ASSIGNMENT = 'ADD_ASSIGNMENT';
 
 /**
+    Variable with string name to be used in reducer.
+*/
+
+export const DELETE_ASSIGNMENT = 'DELETE_ASSIGNMENT';
+/**
     Adds multiple assignments to the store
     @param {Object} assignments Assignments to add to the store
 */
@@ -29,6 +34,17 @@ export function addAssignment(assignment){
     return{
         type: ADD_ASSIGNMENT,
         assignment
+    }
+}
+/**
+    Dispatches the frontend deleteAssignment to update the assignments list
+    @param {Integer} id Assignment ID to be deleted
+*/
+export function delAssignment(id){
+    var assignment = { id: id };
+    return{
+        type: DELETE_ASSIGNMENT,
+        assignment,
     }
 }
 

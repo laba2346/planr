@@ -32,6 +32,7 @@ class DateList extends Component {
     }
 
     handleDelete (assignmentId) {
+        console.log("memes")
     //    this.props.dispatch(deleteAssignment(assignmentId));
     }
 

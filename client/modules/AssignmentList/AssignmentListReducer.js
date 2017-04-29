@@ -1,4 +1,4 @@
-import {ADD_ASSIGNMENTS, ADD_ASSIGNMENT} from './AssignmentListActions';
+import {ADD_ASSIGNMENTS, ADD_ASSIGNMENT, DELETE_ASSIGNMENT} from './AssignmentListActions';
 
 // Initial State
 const initialState = { assignments: [] };
@@ -41,6 +41,25 @@ const AssignmentListReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 assignments: action.assignments
             });
+        case DELETE_ASSIGNMENT:
+            let currentAssignments = state.assignments.slice();
+            var delAssignment = action.assignment;
+            var length = currentAssignments.length;
+            for(var i = 0; i < length; i++){
+                if(delAssignment.date.setHours(0,0,0,0) === currentAssignments[i].date){
+                    var numEvents = currentAssignments[i].assignments.length;
+                    for(var j = 0; j < numEvents; j++){
+                        if(delAssignment.id === currentAssignments[i].assignments[j].id){
+                            currentAssignments[i].assignments.slice(j, 1);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return {
+                assignments: currentAssignments,
+            }
         default:
             return state;
     }
