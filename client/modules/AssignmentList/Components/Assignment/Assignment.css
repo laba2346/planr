@@ -4,7 +4,7 @@
     letter-spacing: -.5px;
     font-size: 20px;
     color: #fff;
-
+    user-select: none;
     width: 350px;
     border:1px solid #fff;
     border-radius:5px;
@@ -12,16 +12,110 @@
     margin: 10px 30px;
 }
 
+.extend{
+    height: 100px;
+}
+
+.default{
+    height: 60px;
+}
+
 .assignment:hover{
     color: #fff;
     background: #465b7d;
+    cursor: pointer;
 }
 
+.edit{
+    width:100px;
+    height:40px;
+    padding-left:40px;
+    padding-right:65px;
+    display:inline-block;
+    padding-top:5px;
+    margin-top:20px;
+    cursor:pointer;
+    border-right:1px solid #fff;
+    border-left:1px solid #fff;
+    border-top:1px solid #fff;
+
+}
+
+.complete{
+    width:100px;
+    height:40px;
+    padding-left:40px;
+    padding-right:65px;
+    display:inline-block;
+    padding-top:8px;
+    margin-top:20px;
+    cursor:pointer;
+    border-top:1px solid #fff;
+
+}
+
+.delete{
+    width:100px;
+    height:40px;
+    padding-left:40px;
+    padding-right:65px;
+    display:inline-block;
+    padding-top:4px;
+    margin-top:20px;
+    cursor:pointer;
+    border-top:1px solid #fff;
+}
+
+.pencil{
+    width:26px;
+    height:26px;
+    background:url('./edit.png');
+    background-size:100% 100%;
+}
+
+.pencil:hover{
+    opacity:.6;
+}
+
+.bin{
+    width:20px;
+    height:26px;
+    background:url('./bin.png');
+    background-size:100% 100%;
+}
+
+.bin:hover{
+    opacity:.6;
+}
+
+.checkmark{
+    width:29px;
+    height:22px;
+    background:url('./ok.png');
+    background-size:100% 100%;
+}
+
+.checkmark:hover{
+    opacity:.6;
+}
+
+.options{
+    display:block;
+}
+
+.hidden{
+    visibility:hidden;
+}
+
+.shown{
+    visibility:visible;
+}
 .time-label{
     display:inline-block;
     float: right;
     font-size: 16px;
     font-weight:300;
+    margin-top:2px;
     letter-spacing:-.5px;
     line-height: 20px;
 }

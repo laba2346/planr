@@ -42,28 +42,6 @@
     letter-spacing: -4px;
 }
 
-.delete{
-    width:25px;
-    height:19px;
-    padding-left:6px;
-    padding-top:8px;
-    background:url('./ok.png');
-    background-size:100% 100%;
-    display:inline-block;
-
-}
-.edit{
-    width:22px;
-    height:22px;
-    padding-left:6px;
-    padding-top:8px;
-    display:inline-block;
-    background:url('./edit.png');
-    background-size:100% 100%;
-    margin-right: 10px;
-
-}
-
 
 .delete:hover{
     background:red;
