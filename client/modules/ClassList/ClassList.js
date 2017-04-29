@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import tinycolor from 'tinycolor2';
 
 import { fetchClasses, createClassRequest } from './ClassListActions';
-import DateList from './Components/DateList/DateList';
+import Class from './Components/Class/Class';
 import ReactModal from 'react-modal';
 import NewClassForm from './Components/NewClassForm/NewClassForm';
 import styles from './ClassList.css';
@@ -57,12 +57,10 @@ class ClassList extends Component {
                      </ReactModal>
                 <div className={styles['classes-list-container']}>
                 {
-                    this.props.classes.map((classObject, index) => (
-                      <div className={styles['date-list-container']} key={classObject.date}>
-                        <DateList
-                            classObject={classObject}
-                            index={index}
-                            color={dateListColors[index%(dateListColors.length)]}
+                    this.props.classes.map((dateObject, index) => (
+                      <div className={styles['date-list-container']} key={dateObject.date}>
+                        <Class
+                            _class = {dateObject}
                         />
                       </div>
                     ))

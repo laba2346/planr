@@ -10,6 +10,7 @@ import moment from 'moment';
 function Class(props, context) {
     var date = new Date(props._class.class_due);
     var time = moment(date).format(" h:mm a");
+    console.log(props._class)
   return (
     <div className={styles['class']}>
         {props._class.class_name}
