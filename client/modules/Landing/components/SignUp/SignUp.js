@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './SignUp.css';
+import ReactTooltip from 'react-tooltip';
 
 class SignUp extends Component {
     constructor(props){
@@ -32,6 +33,8 @@ class SignUp extends Component {
             <div className={styles['homepage-splash']}></div>
             <form className={styles['sign-up-form']} onSubmit={this.handleSubmit}>
                 <label> Sign Up </label>
+                <div className="tooltip"  data-tip="Username and Password must at least 8 characters long">?</div>
+                <ReactTooltip place="bottom" />
                 <input name="email" className={(this.props.emailInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder="Email" value={this.state.email} onChange={this.handleChange} />
                 <input name="username" className={(this.props.usernameInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder="Username" value={this.state.username} onChange={this.handleChange} />
                 <input name="password" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']}type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
