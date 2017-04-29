@@ -43,7 +43,7 @@ export function createClass(req, res){
 export function fetchClasses(req, res){
     var options = {
         where: {
-            owner_id: req.user.id
+            user_id: req.user.id
         },
         order: ['class_name'],
     };
