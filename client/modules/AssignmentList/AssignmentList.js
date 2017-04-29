@@ -37,7 +37,7 @@ class AssignmentList extends Component {
         });
     }
     render() {
-        var theme = this.props.themeColor;
+        var theme = this.props.color;
         var dateListColors = [
             tinycolor(theme).darken(10).toString(),
             tinycolor(theme).darken(5).toString(),
@@ -108,7 +108,7 @@ AssignmentList.need = [() => { return fetchAssignments(); }];
 function mapStateToProps(state) {
     return {
         assignments: state.assignmentlist.assignments,
-        themeColor: state.settings.themeColor,
+        color: state.settings.color,
     };
 }
 
