@@ -32,7 +32,7 @@ class DateList extends Component {
     }
 
     handleDelete (assignmentId) {
-        this.props.dispatch(deleteAssignment(assignmentId));
+    //    this.props.dispatch(deleteAssignment(assignmentId));
     }
 
     render() {

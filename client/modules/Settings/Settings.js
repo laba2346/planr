@@ -2,17 +2,12 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './Settings.css';
 import { resetSuccess, changeSettingRequest, checkIfFieldsValid, changeProfilePicRequest, checkIfProfilePicValid, changeTheme } from './SettingsActions.js'
-import { CirclePicker } from 'react-color';
+import { GithubPicker } from 'react-color';
 import { addSettings, loadSettings } from '../Header/HeaderActions';
 import Avatar from 'react-avatar';
 var Dropzone = require('react-dropzone');
 
 class Settings extends Component {
-
-    componentDidMount() {
-        this.props.dispatch(loadSettings());
-        this.usernameInput.focus();
-    }
 
     constructor () {
         super();
@@ -22,6 +17,12 @@ class Settings extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onDrop = this.onDrop.bind(this);
         //this.props.dispatch(loadSettings());
+    }
+
+    componentDidMount() {
+        this.props.dispatch(loadSettings());
+        this.usernameInput.focus();
+        this.setState({ color: this.props.color });
     }
 
     handleSubmit(event){
@@ -72,20 +73,44 @@ class Settings extends Component {
             maxHeight: '180px',
             width: '180px'
         };
+        var settingsContainerStyle = {
+            background: this.state.color,
+        }
+
+        var colorOptions = ['#705e8b', '#607D8B', '#476846', '#D06E70', '#697689', '#5F6A9B'];
 
         return (
-        <div className={styles['settings-container']}>
-            <form className={styles['settings-form']} onSubmit={this.handleSubmit}>
-                <label className={styles['settings-label']}> Theme Color </label>
-                <CirclePicker circleSpacing='10'color={this.state.color} onChangeComplete={this.handleChangeColor} />
-                <input name="username" className={(this.props.usernameInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder="Change username" value={this.state.username} onChange={this.handleChange}
-                  ref={(input) => { this.usernameInput = input; }} />
-                <input name="email" className={(this.props.emailInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder="Change email" value={this.state.email} onChange={this.handleChange} />
-                <input name="password1" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Change password" value={this.state.password1} onChange={this.handleChange} />
-                <input name="password2" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Verify new password" value={this.state.password2} onChange={this.handleChange} />
-                <input type="submit" className={styles['settings-submit'] + ' transition'} value="Save" />
-                {this.props.success && <div className={styles['success']}></div>}
-            </form>
+        <div style={settingsContainerStyle} className={styles['settings-container']}>
+            <div className={styles['settings']}>
+                <div className={styles['item-container']}>
+                    <div className={styles['settings-label']}>Settings</div>
+                </div>
+                <form className={styles['settings-form']} onSubmit={this.handleSubmit}>
+                    <div className={styles['item-container']}>
+                        <label className={styles['item-label'] + ' ' + styles['color-label']}> Theme Color </label>
+                        <div className={styles['color-container']}>
+                            <GithubPicker width={'165px'} colors={colorOptions} triangle={'hide'} color={this.state.color} onChangeComplete={this.handleChangeColor} />
+                        </div>
+                    </div>
+                    <div className={styles['item-container']}>
+                        <label className={styles['item-label']}> Username </label>
+                        <input name="username" className={(this.props.usernameInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder={this.props.username} value={this.state.username} onChange={this.handleChange}
+                          ref={(input) => { this.usernameInput = input; }} />
+                    </div>
+                    <div className={styles['item-container']}>
+                    <label className={styles['item-label']}> Email </label>
+                    <input name="email" className={(this.props.emailInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder={this.props.email} value={this.state.email} onChange={this.handleChange} />
+                    </div>
+                    <div className={styles['item-container']}>
+                    <label className={styles['item-label']}> New Password </label>
+                    <input name="password1" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Change password" value={this.state.password1} onChange={this.handleChange} />
+                    <label className={styles['item-label']}> Confirm Password </label>
+                    <input name="password2" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Verify new password" value={this.state.password2} onChange={this.handleChange} />
+                    </div>
+                    <input type="submit" className={styles['settings-submit'] + ' transition'} value="Save" />
+                    {this.props.success && <div className={styles['success']}></div>}
+                </form>
+            </div>
         </div>
         );
   }

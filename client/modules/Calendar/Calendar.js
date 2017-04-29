@@ -19,13 +19,23 @@ class Calendar extends Component {
     }
 
     render(){
+        var theme = this.props.themeColor;
+        var bgStyle = {
+            backgroundColor: theme,
+        }
+
+
         return (
-        <BigCalendar
-          popup
-          {...this.props}
-          events={this.props.events}
-          defaultDate={new Date()}
-        />
+            <div style={bgStyle} className={styles['calendar-container']}>
+                <div className={styles['calendar']}>
+                <BigCalendar
+                  popup
+                  {...this.props}
+                  events={this.props.events}
+                  defaultDate={new Date()}
+                />
+                </div>
+            </div>
         )
     }
 }
@@ -35,6 +45,7 @@ function mapStateToProps(state) {
   return {
       assignments: state.assignmentlist.assignments,
       events: state.calendar.events,
+      themeColor: state.settings.themeColor,
   };
 }
 

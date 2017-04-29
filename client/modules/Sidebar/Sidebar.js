@@ -20,18 +20,26 @@ class Sidebar extends Component {
 
 
     render() {
+        var theme = this.props.themeColor;
+        var activeStyle = {
+            color: theme
+        };
+        var inactiveStyle = {
+            color: '#777',
+        }
+
         var bar = <div className={styles['sidebar'] }>
                 <div className={styles['logo']}></div>
-                <div className={styles['sidebar-tab'] + " " + (this.props.activeView === 'assignments' ? styles['active-sidebar-tab'] : null)} onClick={() => {this.onTabChange('assignments')}}>
+                <div style={(this.props.activeView === 'assignments') ? activeStyle : null} className={styles['sidebar-tab']} onClick={() => {this.onTabChange('assignments')}}>
                     Assignments
                 </div>
-                <div className={styles['sidebar-tab'] + " " + (this.props.activeView === 'classes' ? styles['active-sidebar-tab'] : null)} onClick={() => {this.onTabChange('classes')}}>
+                <div style={(this.props.activeView === 'classes') ? activeStyle : null} className={styles['sidebar-tab']} onClick={() => {this.onTabChange('classes')}}>
                     Classes
                 </div>
-                <div className={styles['sidebar-tab'] + " " + (this.props.activeView === 'calendar' ? styles['active-sidebar-tab'] : null)} onClick={() => {this.onTabChange('calendar')}}>
+                <div style={(this.props.activeView === 'calendar') ? activeStyle : null} className={styles['sidebar-tab']} onClick={() => {this.onTabChange('calendar')}}>
                     Calendar
                 </div>
-                <div className={styles['sidebar-tab'] + " " + (this.props.activeView === 'settings' ? styles['active-sidebar-tab'] : null)} onClick={() => {this.onTabChange('settings')}}>
+                <div style={(this.props.activeView === 'settings') ? activeStyle : null} className={styles['sidebar-tab']} onClick={() => {this.onTabChange('settings')}}>
                     Settings
                 </div>
             </div>
@@ -48,6 +56,7 @@ function mapStateToProps(state) {
   return {
     activeView: state.sidebar.activeView,
     sidebarShown: state.header.sidebarShown,
+    themeColor: state.settings.themeColor,
   };
 }
 

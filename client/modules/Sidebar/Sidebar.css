@@ -33,12 +33,8 @@
     color:#777;
 }
 
-.active-sidebar-tab{
-    color: #644b84;
-}
-
 .sidebar-tab:hover{
-    color: #644b84;
+    color: #555;
     cursor: pointer;
 }
 
