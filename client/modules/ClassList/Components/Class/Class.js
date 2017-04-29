@@ -8,13 +8,10 @@ import moment from 'moment';
     @param {Object} context The context.
 */
 function Class(props, context) {
-    var date = new Date(props._class.class_due);
-    var time = moment(date).format(" h:mm a");
     console.log(props._class)
   return (
     <div className={styles['class']}>
         {props._class.class_name}
-        <label className={styles['time-label']}> {time} </label>
     </div>
   );
 }
