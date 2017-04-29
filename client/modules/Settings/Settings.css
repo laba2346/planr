@@ -1,12 +1,31 @@
 .settings-container{
     margin:95px auto;
+    position:fixed;
+    height:100%;
+    width: calc(100% - 270px);;
 }
 
+.settings{
+    margin:0px auto;
+    width:700px;
+    height:100%;
+    background-color: #f2f2f2;
+
+}
+
+.settings-label{
+    font-size:24px;
+    font-family:Helvetica;
+    font-weight:100;
+    padding:30px 0px 30px 50px;
+}
 
 .settings-form{
     position: relative;
-    margin: 15px 10px 0px 10px;
+    margin: 0px 10px 0px 10px;
     clear: left;
+    font-family: Helvetica;
+    font-weight:100;
 }
 
 .settings-avatar div {
@@ -16,24 +35,43 @@
     margin-right: 10px;
 }
 
-.settings-label {
-    font-family:Helvetica;
-    letter-spacing: -1px;
-    font-size: 20px;
-    font-weight:200;
-}
-
 .settings-form input{
-    display:block;
+    display:inline-block;
     font-size:16px;
     padding:15px;
 
-    margin:10px 0px;
+    margin:10px 15px;
 
     height:40px;
-    width:350px;
     border-radius:4px;
     outline:none;
+}
+
+.input{
+    width:275px;
+}
+
+.item-container{
+    padding: 15px;
+    border-bottom:1px solid #ccc;
+}
+
+.item-label{
+    width:150px;
+    margin: 0px 15px;
+    text-align: right;
+    display:inline-block;
+}
+
+.color-label{
+    vertical-align: top;
+    line-height: 65px;
+}
+
+.color-container{
+    display:inline-block;
+    padding:15px;
+    border-radius:5px;
 }
 
 .invalid-field{
@@ -48,12 +86,12 @@
 }
 
 .settings-submit{
-    width:300px;
+    float:right;
+    width:150px;
     height:40px;
     font-family: 'Open Sans', Helvetica;
     line-height: 0px;
     outline: none;
-    float:left;
     border-radius: 3px;
     background: none;
     color: #705e8b;
@@ -68,7 +106,7 @@
 .success{
     margin:20px 0px 0px 10px;
     display:inline-block;
-    float:left;
+    float:right;
     background:url('./checkmark.png');
     background-size:100% 100%;
     height: 20px;

@@ -1,4 +1,18 @@
 .calendar-container{
-    left:250px;
-    margin: 95px auto;
+    position: absolute;
+    left:270px;
+    height: calc(100% - 95px);
+    width: calc(100% - 270px);
+    margin: 95px 0px;
+}
+
+.calendar{
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius:5px;
+    margin: 50px auto;
+    padding:50px;
+    height:600px;
+    min-height:600px;
+    max-width: 80%;
 }

@@ -27,21 +27,21 @@ class Assignment extends Component {
         var time = moment(date).format(" h:mm a");
         return (
             <div>
-                <div className={this.state.optionsShown ? styles['assignment'] + ' ' + styles['extend'] : styles['assignment'] + ' ' +  styles['default']}>
-                    <div className={'name-label'}  onClick={this.showHide}>
+                <div className={this.state.optionsShown ? styles['assignment'] + ' ' + styles['extend'] : styles['assignment'] + ' ' +  styles['default']} onClick={this.showHide}>
+                    <div className={styles['assignment-text-container']}>
                         {this.props.assignment.assignment_name}
                         <label className={styles['time-label']}> {time} </label>
                     </div>
-                    <div className={this.state.optionsShown ? styles['options'] + ' ' + styles['shown'] : styles['options'] + ' ' + styles['hidden']}>
-                        <div className={this.state.optionsShown ? styles['complete'] + ' ' + styles['shown'] : styles['complete'] + ' ' + styles['hidden']}>
+                    <div className={this.state.optionsShown ? styles['options'] + ' ' + styles['shown']  : styles['options'] + ' ' + styles['hidden']}>
+                        <div className={this.state.optionsShown ? styles['block'] + ' ' + styles['shown'] + ' ' + styles['complete']  : styles['complete'] + ' ' + styles['hidden']}>
                             <div className={this.state.optionsShown ? styles['checkmark'] + ' ' + styles['shown'] : styles['pencil'] + ' ' + styles['hidden']}>
                             </div>
                         </div>
-                        <div className={this.state.optionsShown ? styles['edit'] + ' ' + styles['shown'] : styles['edit'] + ' ' + styles['hidden']}>
+                        <div className={ this.state.optionsShown ? styles['block'] + ' ' + styles['shown'] + ' ' + styles['edit']  : styles['edit'] + ' ' + styles['hidden']}>
                             <div className={this.state.optionsShown ? styles['pencil'] + ' ' + styles['shown'] : styles['pencil'] + ' ' + styles['hidden']}>
                             </div>
                         </div>
-                        <div className={this.state.optionsShown ? styles['delete'] + ' ' + styles['shown'] : styles['delete'] + ' ' + styles['hidden']} onClick={console.log("fuck")}>
+                        <div className={this.state.optionsShown ? styles['block'] + ' ' + styles['shown'] + ' ' + styles['delete']  : styles['delete'] + ' ' + styles['hidden']} onClick={this.props.handleDelete(this.props.assignment.id)}>
                             <div className={this.state.optionsShown ? styles['bin'] + ' ' + styles['shown'] : styles['bin'] + ' ' + styles['hidden']}>
                             </div>
                         </div>

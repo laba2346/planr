@@ -8,8 +8,18 @@
     width: 350px;
     border:1px solid #fff;
     border-radius:5px;
-    padding: 15px;
     margin: 10px 30px;
+    overflow:hidden;
+    -webkit-transition: 200ms;
+    -moz-transition: 200ms;
+    -o-transition: 200ms;
+    transition: 200ms;
+}
+
+.assignment:hover{
+    color: #fff;
+    background: #fff;
+    cursor: pointer;
 }
 
 .extend{
@@ -20,61 +30,37 @@
     height: 60px;
 }
 
-.assignment:hover{
-    color: #fff;
-    background: #465b7d;
-    cursor: pointer;
+.assignment-text-container{
+    padding:15px;
 }
 
-.edit{
-    width:100px;
+.block{
+    width:33.33%;
     height:40px;
     padding-left:40px;
     padding-right:65px;
     display:inline-block;
-    padding-top:5px;
-    margin-top:20px;
+    margin-top:4px;
     cursor:pointer;
-    border-right:1px solid #fff;
-    border-left:1px solid #fff;
-    border-top:1px solid #fff;
-
 }
 
 .complete{
-    width:100px;
-    height:40px;
-    padding-left:40px;
-    padding-right:65px;
-    display:inline-block;
-    padding-top:8px;
-    margin-top:20px;
-    cursor:pointer;
-    border-top:1px solid #fff;
-
+    background-color: green;
 }
 
 .delete{
-    width:100px;
-    height:40px;
-    padding-left:40px;
-    padding-right:65px;
-    display:inline-block;
-    padding-top:4px;
-    margin-top:20px;
-    cursor:pointer;
-    border-top:1px solid #fff;
+    background-color: red;
+}
+
+.edit{
+    background-color: yellow;
 }
 
 .pencil{
-    width:26px;
+    width:20px;
     height:26px;
     background:url('./edit.png');
     background-size:100% 100%;
-}
-
-.pencil:hover{
-    opacity:.6;
 }
 
 .bin{
@@ -84,10 +70,6 @@
     background-size:100% 100%;
 }
 
-.bin:hover{
-    opacity:.6;
-}
-
 .checkmark{
     width:29px;
     height:22px;
@@ -95,12 +77,9 @@
     background-size:100% 100%;
 }
 
-.checkmark:hover{
-    opacity:.6;
-}
-
 .options{
     display:block;
+    width:100%;
 }
 
 .hidden{
@@ -110,6 +89,7 @@
 .shown{
     visibility:visible;
 }
+
 .time-label{
     display:inline-block;
     float: right;
