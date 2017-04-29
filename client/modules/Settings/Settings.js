@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import styles from './Settings.css';
 import { resetSuccess, changeSettingRequest, checkIfFieldsValid, changeProfilePicRequest, checkIfProfilePicValid, changeTheme } from './SettingsActions.js'
 import { GithubPicker } from 'react-color';
-import { addSettings, loadSettings } from '../Header/HeaderActions';
+import { addSettings } from '../Header/HeaderActions';
+import { importSettings } from './SettingsActions';
 import Avatar from 'react-avatar';
+
 var Dropzone = require('react-dropzone');
 
 class Settings extends Component {
@@ -20,7 +22,6 @@ class Settings extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(loadSettings());
         this.usernameInput.focus();
         this.setState({ color: this.props.color });
     }
@@ -125,7 +126,7 @@ function mapStateToProps(state) {
       passwordInvalid: state.settings.passwordInvalid,
       usernameInvalid: state.settings.usernameInvalid,
       success: state.settings.success,
-      color: state.header.color,
+      color: state.settings.color,
       username: state.header.username,
       email: state.header.email,
       profile_pic: state.header.profile_pic
@@ -139,7 +140,7 @@ Settings.propTypes = {
     emailInvalid: PropTypes.bool.isRequired,
     passwordInvalid: PropTypes.bool.isRequired,
     usernameInvalid: PropTypes.bool.isRequired,
-    success: PropTypes.bool.success,
+    success: PropTypes.bool.isRequired,
     //color: PropTypes.string.isRequired,
     //username: PropTypes.string.isRequired,
     //email: PropTypes.string.isRequired,

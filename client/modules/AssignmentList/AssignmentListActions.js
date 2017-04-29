@@ -40,8 +40,7 @@ export function addAssignment(assignment){
     Dispatches the frontend deleteAssignment to update the assignments list
     @param {Integer} id Assignment ID to be deleted
 */
-export function delAssignment(id){
-    var assignment = { id: id };
+export function delAssignment(assignment){
     return{
         type: DELETE_ASSIGNMENT,
         assignment,
@@ -81,11 +80,13 @@ export function fetchAssignments(){
 }
 
 export function deleteAssignment(assignmentId){
-    console.log('called');
     const apiUrl = 'deleteAssignment';
-    console.log(assignmentId);
     var assignment = { id: assignmentId };
     return (dispatch) => {
-        return callApi(apiUrl, "post", assignment);
+        return callApi(apiUrl, "post", assignment).then(res => {
+            if(res.success){
+                dispatch(delAssignment(assignment))
+            }
+        });
     }
 }

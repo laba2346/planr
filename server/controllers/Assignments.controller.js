@@ -79,5 +79,6 @@ export function deleteAssignment(req, res){
     };
     sequelize.sync().then(function(){
         assignments.destroy(options);
+        res.json({success:true});
     });
 }

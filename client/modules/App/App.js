@@ -7,12 +7,13 @@ import Assignments from '../Assignments/Assignments';
 import Classes from '../Classes/Classes';
 import Calendar from '../Calendar/Calendar';
 import Settings from '../Settings/Settings';
-
+import {importSettings} from '../Settings/SettingsActions.js';
 import styles from './App.css'
 
 class App extends Component {
     constructor(props){
         super(props);
+        this.props.dispatch(importSettings());
     }
 
     render() {

@@ -53,7 +53,7 @@ class AssignmentList extends Component {
     }
 
     render() {
-        var theme = this.props.themeColor;
+        var theme = this.props.color;
         var dateListColors = [
             tinycolor(theme).darken(10).toString(),
             tinycolor(theme).darken(5).toString(),
@@ -91,12 +91,23 @@ class AssignmentList extends Component {
             background: tinycolor(theme).darken(3).toString(),
         }
 
+        var oldadd = <div style={addAssignmentStyles} className={styles['add-assignment-button']} onClick={() => this.handleOpenModal()}> Create Assignment </div>
+            <ReactModal
+                   isOpen={this.state.showModal}
+                   contentLabel="Create Assignment"
+                   style={modalStyle}
+            >
+                   <button className={styles['close-assignment-pane']} onClick={this.handleCloseModal}>X</button>
+                   <NewAssignmentForm createAssignment={this.createAssignment}/>
+            </ReactModal>
+
         return (
             <div onClick={this.turnShadowOff.bind(this)} >
                 <div style={createAssignmentDiv} className={styles['createAssignment']}>
                     <label className={styles['assignments-label']}> Assignments </label>
                     <div onClick={this.handleNewAssignmentClick.bind(this)} className={this.state.createAssignmentActive ? styles['new-assignment-container'] + ' ' + styles['new-assignment-container-active'] : styles['new-assignment-container'] + ' ' + styles['new-assignment-container-inactive'] } type="text" placeholder="New Assignment"><input className={styles['new-assignment']} type="text"/ ><div className={styles['calendar']}></div></div>
                 </div>
+                {oldadd}
                 {
                     this.props.assignments.map((dateObject, index) => (
                       <div className={styles['date-list-container']} key={dateObject.date}>
@@ -120,7 +131,7 @@ AssignmentList.need = [() => { return fetchAssignments(); }];
 function mapStateToProps(state) {
     return {
         assignments: state.assignmentlist.assignments,
-        themeColor: state.settings.themeColor,
+        color: state.settings.color,
     };
 }
 
