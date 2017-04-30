@@ -3,11 +3,10 @@ import { connect } from 'react-redux';
 import styles from './Settings.css';
 import { resetSuccess, changeSettingRequest, checkIfFieldsValid, changeProfilePicRequest, checkIfProfilePicValid, changeTheme } from './SettingsActions.js'
 import { GithubPicker } from 'react-color';
-import { addSettings } from '../Header/HeaderActions';
+import { addSettings, loadSettings } from '../Header/HeaderActions';
+import ReactTooltip from 'react-tooltip';
 import { importSettings } from './SettingsActions';
 import Avatar from 'react-avatar';
-
-var Dropzone = require('react-dropzone');
 
 class Settings extends Component {
 
@@ -65,15 +64,7 @@ class Settings extends Component {
     }
 
     render() {
-        // style the dropzone component dynamically so the background image can change
-        var preview = this.state.profile_pic ? this.state.profile_pic.preview : '';
-        var dropzoneStyle = {
-            backgroundImage: preview ? 'url(' + preview + ')' : '',
-            border: '2px dashed',
-            height: '180px',
-            maxHeight: '180px',
-            width: '180px'
-        };
+
         var settingsContainerStyle = {
             background: this.state.color,
         }
@@ -97,17 +88,30 @@ class Settings extends Component {
                         <label className={styles['item-label']}> Username </label>
                         <input name="username" className={(this.props.usernameInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder={this.props.username} value={this.state.username} onChange={this.handleChange}
                           ref={(input) => { this.usernameInput = input; }} />
+                        <label className={styles['tooltip']} data-tip="Username must be at least 8 characters long">?</label>
+                        <ReactTooltip place="bottom" />
+
+
                     </div>
                     <div className={styles['item-container']}>
                     <label className={styles['item-label']}> Email </label>
                     <input name="email" className={(this.props.emailInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder={this.props.email} value={this.state.email} onChange={this.handleChange} />
+                    <label className={styles['tooltip']} data-tip="Email must be a valid email"> ? </label>
+                    <ReactTooltip place="bottom" />
+
                     </div>
                     <div className={styles['item-container']}>
                     <label className={styles['item-label']}> New Password </label>
                     <input name="password1" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Change password" value={this.state.password1} onChange={this.handleChange} />
+
+                    <label className={styles['tooltip']} data-tip="Password must be at least 8 characters">?</label>
+                    <ReactTooltip place="bottom" />
                     <label className={styles['item-label']}> Confirm Password </label>
                     <input name="password2" className={(this.props.passwordInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="password" placeholder="Verify new password" value={this.state.password2} onChange={this.handleChange} />
                     </div>
+
+
+
                     <input type="submit" className={styles['settings-submit'] + ' transition'} value="Save" />
                     {this.props.success && <div className={styles['success']}></div>}
                 </form>

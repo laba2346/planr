@@ -45,7 +45,7 @@ class DateList extends Component {
         var backgroundStyle = {
             backgroundColor: this.props.color
         }
-        
+
 
         return (
             <div className={styles['date-list']} style={backgroundStyle}>

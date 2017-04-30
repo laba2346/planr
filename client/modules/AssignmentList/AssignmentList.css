@@ -1,3 +1,4 @@
+
 .assignments-list-container{
     display:block;
     width: 100%;
@@ -26,12 +27,13 @@
 .createAssignment{
     width:100%;
     height:120px;
-    padding:30px;
+    padding:15px 100px;
 }
 
 .assignments-label{
     color: #fff;
     font-family:Helvetica;
+    width:430px;
     font-size:26px;
     letter-spacing: -1px;
     display: inline-block;
@@ -39,14 +41,10 @@
 }
 
 .new-assignment-container{
-    float:right;
     z-index:5;
     position:relative;
-    width:350px;
-    height:70px;
-    border:1px solid #ccc;
-    border-radius:3px;
-    background:#fff;
+    float:right;
+    display:inline-block;
 }
 
 .new-assignment-container-inactive{
@@ -58,14 +56,21 @@
 }
 
 .new-assignment{
-    margin:0px 0px;
-    width:200px;
-    height:40px;
+    float:right;
+    z-index:5;
+    position:absolute;
+    right:80px;
+    width:350px;
+    height:60px;
+    border:1px solid #ccc;
+    border-radius:3px;
+    background:#fff;
     font-size:16px;
     border:none;
     outline:none;
     padding:5px 15px;
 }
+
 .new-assignment:active{
     outline:none;
     border:none;
@@ -73,10 +78,79 @@
 
 .calendar{
     display:block;
-    width:29px;
-    height:22px;
+    position:absolute;
+    right:95px;
+    top:15px;
+    opacity:.5;
+    z-index:6;
+    width:23px;
+    height:24px;
     background:url('./calendar.png');
     background-size:100% 100%;
+}
+
+.create{
+    display:inline-block;
+    position:absolute;
+    z-index:4;
+    left:-85px;
+    top:0px;
+    border-radius:3px;
+    padding-left: 5px;
+    line-height: 60px;
+    color: #444;
+    background: #f2f2f2;
+    text-align: center;
+    height:60px;
+    -webkit-transition: 200ms;
+    -moz-transition: 200ms;
+    -o-transition: 200ms;
+    transition: 200ms;
+    -webkit-box-shadow: inset 22px 0px 23px -30px rgba(0,0,0,0.75);
+-moz-box-shadow: inset 22px 0px 23px -30px rgba(0,0,0,0.75);
+box-shadow: inset 22px 0px 23px -30px rgba(0,0,0,0.75);
+}
+
+.create:hover{
+    cursor:pointer;
+    color: #4286f4;
+    border-left:1px solid #444;
+    background: #f6f6f6;
+}
+
+.create:active{
+    color: #4286f4;
+    border-left:1px solid #444;
+    background: #f2f2f2;
+}
+
+
+.create-inactive{
+    width:0px;
+    visibility: hidden;
+    overflow:hidden;
+}
+
+.create-active{
+    width:80px;
+}
+
+
+.datetime-container{
+    display:inline-block;
+    position:absolute;
+    right:0px;
+    top:60px;
+}
+
+.datetime-visible{
+    display:inline-block;
+    visibility: visible;
+}
+
+.datetime-hidden{
+    height:0px;
+    visibility: hidden;
 }
 
 .shadow{
