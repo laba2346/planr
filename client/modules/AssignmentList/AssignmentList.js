@@ -7,6 +7,7 @@ import DateList from './Components/DateList/DateList';
 import ReactModal from 'react-modal';
 import NewAssignmentForm from './Components/NewAssignmentForm/NewAssignmentForm';
 import styles from './AssignmentList.css';
+import Datetime from 'react-datetime';
 
 class AssignmentList extends Component {
     componentDidMount() {
@@ -15,27 +16,36 @@ class AssignmentList extends Component {
 
     constructor () {
         super();
-        this.state = { createAssignmentActive: false}
-        this.handleOpenModal = this.handleOpenModal.bind(this);
-        this.handleCloseModal = this.handleCloseModal.bind(this);
-        this.createAssignment = this.createAssignment.bind(this);
+        this.state = { createAssignmentActive: false, createDateOpen: true, date: '', name: ''};
     }
 
-    handleOpenModal () {
-        this.setState({ showModal: true });
+    createAssignment() {
+        var formdata = {
+            name: this.state.name,
+            date: this.state.date,
+        }
+        this.setState({ createAssignmentActive: false });
+        this.setState({ createDateOpen: false });
+        this.props.dispatch(createAssignmentRequest(formdata));
     }
 
-    handleCloseModal () {
-        this.setState({ showModal: false });
-    }
-
-    createAssignment (formdata, state) {
-        this.handleCloseModal();
-        var assignments = this.props.assignments;
-        this.props.dispatch(createAssignmentRequest(formdata, assignments)).then(() => {
-            console.log(this.state)
+    handleChange(event) {
+        const target = event.target;
+        const value = target.value;
+        console.log(value);
+        const name = target.name;
+        this.setState({
+          [name]: value
         });
     }
+
+    handleDateChange(moment){
+        console.log(moment._d);
+        this.setState({
+            date: moment._d,
+        })
+    }
+
 
     handleNewAssignmentClick(e){
         this.setState({ createAssignmentActive: true });
@@ -48,8 +58,13 @@ class AssignmentList extends Component {
     }
 
     turnShadowOff(){
-        console.log('get called');
         this.setState({ createAssignmentActive: false });
+        this.setState({ createDateOpen: false });
+    }
+
+    newAssignmentTime(){
+        var current = this.state.createDateOpen;
+        this.setState({ createDateOpen: !current });
     }
 
     render() {
@@ -91,24 +106,19 @@ class AssignmentList extends Component {
             background: tinycolor(theme).darken(3).toString(),
         }
 
-        /*var oldadd = <div style={addAssignmentStyles} className={styles['add-assignment-button']} onClick={() => this.handleOpenModal()}> Create Assignment </div>
-                    <ReactModal
-                           isOpen={this.state.showModal}
-                           contentLabel="Create Assignment"
-                           style={modalStyle}
-                    >
-                           <button className={styles['close-assignment-pane']} onClick={this.handleCloseModal}>X</button>
-                           <NewAssignmentForm createAssignment={this.createAssignment}/>
-                    </ReactModal>*/
-                    var oldadd = null;
-
         return (
             <div onClick={this.turnShadowOff.bind(this)} >
                 <div style={createAssignmentDiv} className={styles['createAssignment']}>
                     <label className={styles['assignments-label']}> Assignments </label>
-                    <div onClick={this.handleNewAssignmentClick.bind(this)} className={this.state.createAssignmentActive ? styles['new-assignment-container'] + ' ' + styles['new-assignment-container-active'] : styles['new-assignment-container'] + ' ' + styles['new-assignment-container-inactive'] } type="text" placeholder="New Assignment"><input className={styles['new-assignment']} type="text"/ ><div className={styles['calendar']}></div></div>
+                    <div className={styles['new-assignment-container']} onClick={this.handleNewAssignmentClick.bind(this)} >
+                        <input name="name" className={styles['new-assignment']} placeholder="New Assignment" type="text" onChange={this.handleChange.bind(this)} />
+                        <div className={styles['calendar']} onClick={this.newAssignmentTime.bind(this)}></div>
+                        <div className={styles['datetime-container']}>
+                            <Datetime name="date" className={this.state.createDateOpen ? styles['datetime-visible'] : styles['datetime-hidden']} disableOnClickOutside={true} input={false} name="date" placeholder="Due Date" value={this.state.date} onChange={this.handleDateChange.bind(this)}/>
+                        </div>
+                        <div onClick={this.createAssignment.bind(this)} className={this.state.createAssignmentActive ? styles['create'] + ' ' + styles['create-active'] : styles['create'] + ' ' + styles['create-inactive'] }> Create </div>
+                    </div>
                 </div>
-                {oldadd}
                 {
                     this.props.assignments.map((dateObject, index) => (
                       <div className={styles['date-list-container']} key={dateObject.date}>
