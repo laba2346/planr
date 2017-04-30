@@ -10,7 +10,7 @@ import moment from 'moment';
 
 function Class(props, context) {
      var backgroundStyle = {
-            backgroundColor: props.color
+            backgroundColor: props._class.class_color
         }
         
     console.log(props._class)
