@@ -107,7 +107,7 @@ class Settings extends Component {
                     <div className={styles['item-container']}>
                     <label className={styles['item-label']}> Email </label>
                     <input name="email" className={(this.props.emailInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder={this.props.email} value={this.state.email} onChange={this.handleChange} />
-                    <label className={styles['tooltip']} data-tip="Email must be a valid email">?</label>
+                    <label className={styles['tooltip']} data-tip="Email must be a valid email"> ? </label>
                     <ReactTooltip place="bottom" />
 
                     </div>
