@@ -13,7 +13,9 @@ export function createClass(req, res){
     var info= req.body.desc;
     var times= req.body.times;
     var color= req.body.color;
+    var user_id = req.user.id;
     var values = {}
+    values.user_id = user_id
 
     if(name !== ''){
         values.class_name = name;
