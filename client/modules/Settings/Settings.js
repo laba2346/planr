@@ -4,7 +4,9 @@ import styles from './Settings.css';
 import { resetSuccess, changeSettingRequest, checkIfFieldsValid, changeProfilePicRequest, checkIfProfilePicValid, changeTheme } from './SettingsActions.js'
 import { GithubPicker } from 'react-color';
 import { addSettings, loadSettings } from '../Header/HeaderActions';
+import ReactTooltip from 'react-tooltip';
 import Avatar from 'react-avatar';
+
 var Dropzone = require('react-dropzone');
 
 class Settings extends Component {
@@ -97,6 +99,10 @@ class Settings extends Component {
                         <label className={styles['item-label']}> Username </label>
                         <input name="username" className={(this.props.usernameInvalid ? styles['invalid-field'] : styles['valid-field']) + ' ' + styles['input']} type="text" placeholder={this.props.username} value={this.state.username} onChange={this.handleChange}
                           ref={(input) => { this.usernameInput = input; }} />
+                        <label className={styles['tooltip']} data-tip="Username must be at least 8 characters long">?</label>
+                        <ReactTooltip place="bottom" />
+
+
                     </div>
                     <div className={styles['item-container']}>
                     <label className={styles['item-label']}> Email </label>
