@@ -17,13 +17,42 @@
 }
 
 .assignment:hover{
-    color: #fff;
-    background: #fff;
     cursor: pointer;
 }
 
 .extend{
     height: 100px;
+}
+
+.edit-name{
+    cursor:text;
+    background:none;
+    border: none;
+    outline: none;
+    display:inline-block;
+    font-family: Helvetica Neue;
+    font-weight: 300;
+    letter-spacing: -.5px;
+    font-size: 20px;
+    width: 80px;
+    color: #fff;
+    border-bottom:1px solid #fff;
+}
+.edit-date{
+    cursor:text;
+    background:none;
+    display:inline-block;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight:300;
+    margin-top:2px;
+    letter-spacing:-.5px;
+    line-height: 20px;
+    width: 80px;
+    float:right;
+    color: #fff;
+    border-bottom:1px solid #fff;
 }
 
 .default{
@@ -42,23 +71,31 @@
     display:inline-block;
     margin-top:4px;
     cursor:pointer;
+    border-top: 1px solid #fff;
 }
 
 .complete{
-    background-color: green;
 }
 
 .delete{
-    background-color: red;
 }
 
 .edit{
-    background-color: yellow;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+
+.edit-hidden{
+    height:0px;
+    visibility: hidden;
+    display:none;
+    width:0px;
 }
 
 .pencil{
-    width:20px;
-    height:26px;
+    width:24px;
+    height:24px;
+    margin-top:5px;
     background:url('./edit.png');
     background-size:100% 100%;
 }
@@ -66,11 +103,13 @@
 .bin{
     width:20px;
     height:26px;
+    margin-top: 5px;
     background:url('./bin.png');
     background-size:100% 100%;
 }
 
 .checkmark{
+    margin-top: 6px;
     width:29px;
     height:22px;
     background:url('./ok.png');
@@ -98,4 +137,5 @@
     margin-top:2px;
     letter-spacing:-.5px;
     line-height: 20px;
+    cursor:pointer;
 }
