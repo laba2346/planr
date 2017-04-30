@@ -105,7 +105,6 @@ class AssignmentList extends Component {
         var createAssignmentDiv = {
             background: tinycolor(theme).darken(3).toString(),
         }
-
         return (
             <div onClick={this.turnShadowOff.bind(this)} >
                 <div style={createAssignmentDiv} className={styles['createAssignment']}>
@@ -119,7 +118,8 @@ class AssignmentList extends Component {
                         <div onClick={this.createAssignment.bind(this)} className={this.state.createAssignmentActive ? styles['create'] + ' ' + styles['create-active'] : styles['create'] + ' ' + styles['create-inactive'] }> Create </div>
                     </div>
                 </div>
-                {
+
+                    {
                     this.props.assignments.map((dateObject, index) => (
                       <div className={styles['date-list-container']} key={dateObject.date}>
                         <DateList

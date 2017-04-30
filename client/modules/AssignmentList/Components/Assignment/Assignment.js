@@ -8,10 +8,12 @@ class Assignment extends Component {
     constructor(props){
         super(props);
         this.state = {
-            optionsShown: false
+            optionsShown: false,
+            editing: false,
         };
         this.showHide = this.showHide.bind(this);
         this.delete = this.delete.bind(this);
+        this.edit = this.edit.bind(this);
     }
 
     showHide () {
@@ -20,6 +22,15 @@ class Assignment extends Component {
         }
         else{
             this.setState({ optionsShown: true })
+        }
+    }
+
+    edit () {
+        if(this.state.editing){
+            this.setState({ edit: false });
+        }
+        else {
+            this.setState({ edit: false });
         }
     }
 

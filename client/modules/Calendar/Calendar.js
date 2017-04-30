@@ -19,7 +19,7 @@ class Calendar extends Component {
     }
 
     render(){
-        var theme = this.props.themeColor;
+        var theme = this.props.color;
         var bgStyle = {
             backgroundColor: theme,
         }
@@ -45,7 +45,7 @@ function mapStateToProps(state) {
   return {
       assignments: state.assignmentlist.assignments,
       events: state.calendar.events,
-      themeColor: state.settings.themeColor,
+      color: state.settings.color,
   };
 }
 
