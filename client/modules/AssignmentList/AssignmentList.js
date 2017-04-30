@@ -16,7 +16,7 @@ class AssignmentList extends Component {
 
     constructor () {
         super();
-        this.state = { createAssignmentActive: false, createDateOpen: true, date: '', name: ''};
+        this.state = { createAssignmentActive: false, createDateOpen: false, date: '', name: ''};
     }
 
     createAssignment() {
