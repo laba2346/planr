@@ -38,6 +38,7 @@ class ClassList extends Component {
     }
     render() {
         var theme = this.props.themeColor;
+        console.log(theme)
         var dateListColors = [
             tinycolor(theme).darken(10).toString(),
             tinycolor(theme).darken(5).toString(),
@@ -61,6 +62,7 @@ class ClassList extends Component {
                       <div className={styles['date-list-container']} key={dateObject.date}>
                         <Class
                             _class = {dateObject}
+                            color = {dateListColors[index%(dateListColors.length)]}
                         />
                       </div>
                     ))

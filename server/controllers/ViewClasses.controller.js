@@ -13,17 +13,36 @@ export function createClass(req, res){
     var info= req.body.desc;
     var times= req.body.times;
     var color= req.body.color;
-    var options = {
-        class_name: name,
-        class_info: info,
-        class_color: color,
-        class_times: times,
-        user_id: req.user.id,
+    var user_id = req.user.id;
+    var values = {}
+    values.user_id = user_id
 
-    };
-    console.log(options);
+    if(name !== ''){
+        values.class_name = name;
+    }
+
+    if(info !== ''){
+        values.class_info = info;
+    }
+
+    if(times !== ''){
+        values.color = color;
+    }
+
+    function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+    }
+
+    values.class_color = getRandomColor();
+
+    console.log(values);
     sequelize.sync().then(function(){
-        classes.create(options).then(function(err){
+        classes.create(values).then(function(err){
             var response = {};
             if(err){
                 response = {
