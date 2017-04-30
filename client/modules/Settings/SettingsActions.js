@@ -22,8 +22,11 @@ export const SUCCESS = 'SUCCESS';
 /**
     A constant containing the string 'RESET_SUCCESS'; used in reducer
 */
-export const RESET_SUCCESS = 'RESET_SUCCESS'
-
+export const RESET_SUCCESS = 'RESET_SUCCESS';
+/**
+    A constant containing the string 'IMPORT_THEME'; used in reducer
+*/
+export const IMPORT_THEME = 'IMPORT_THEME';
 /**
     Returns an object with type CHANGE_THEME and a new theme color.
     @param {String} themeColor color code for the new theme color.
@@ -59,10 +62,35 @@ export function changeSettingRequest(formState){
 }
 
 /**
+    Updates the state with the user's current themeColor.
+    @param {Object} user The user object for the current user
+*/
+export function importTheme(user){
+    return {
+        type: IMPORT_THEME,
+        user
+    }
+}
+
+/**
+    Dispatches an action that imports the user and dispatches actions
+    to update the state
+*/
+export function importSettings(){
+    const apiUrl = 'loadSettings';
+    return (dispatch) => {
+        return callApi(apiUrl).then(res => {
+            if(res){
+                dispatch(importTheme(res));
+            }
+        });
+    }
+}
+
+/**
     Returns an object with type SUCCESS so that the state can change.
 */
 export function success(){
-    console.log("memes")
     return {
         type: SUCCESS,
     }

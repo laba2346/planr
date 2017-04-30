@@ -48,7 +48,7 @@ class Header extends Component {
                 </div>
       };
       const headerColor = {
-          color: this.props.themeColor
+          color: this.props.color
       }
         return (
                 <div className={styles['header']}>
@@ -66,19 +66,17 @@ Header.need = [() => { return loadSettings(); }];
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
-      themeColor: state.settings.themeColor,
+      color: state.settings.color,
       sidebarShown: state.header.sidebarShown,
-      color: state.header.color,
       username: state.header.username,
-      profile_pic: state.header.profile_pic 
-      ? String.fromCharCode.apply(null, new Uint16Array(state.header.profile_pic.data)) 
+      profile_pic: state.header.profile_pic
+      ? String.fromCharCode.apply(null, new Uint16Array(state.header.profile_pic.data))
       : null
   };
 }
 
 Header.propTypes = {
     dispatch: PropTypes.func.isRequired,
-    //color: PropTypes.string.isRequired,
     //username: PropTypes.string.isRequired,
     //profile_pic: PropTypes.string.isRequired
 };

@@ -1,4 +1,4 @@
-import { RESET_SUCCESS, SUCCESS, INVALID_FIELD, RESET_SETTINGS, CHANGE_THEME } from './SettingsActions';
+import { IMPORT_THEME, RESET_SUCCESS, SUCCESS, INVALID_FIELD, RESET_SETTINGS, CHANGE_THEME } from './SettingsActions';
 
 /**
     An object that contains the initial state when the page is loaded.
@@ -15,7 +15,7 @@ const SettingsReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_THEME:
             return Object.assign({}, state, {
-                themeColor: action.themeColor,
+                color: action.themeColor,
             });
         case RESET_SETTINGS:
             return Object.assign({}, state, {
@@ -48,7 +48,10 @@ const SettingsReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 success: false,
             });
-
+        case IMPORT_THEME:
+            return Object.assign({}, state, {
+                color: action.user.color,
+            });
         default:
             return state;
     }

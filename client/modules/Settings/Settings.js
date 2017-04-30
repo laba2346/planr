@@ -5,6 +5,8 @@ import { resetSuccess, changeSettingRequest, checkIfFieldsValid, changeProfilePi
 import { GithubPicker } from 'react-color';
 import { addSettings, loadSettings } from '../Header/HeaderActions';
 import ReactTooltip from 'react-tooltip';
+import { addSettings } from '../Header/HeaderActions';
+import { importSettings } from './SettingsActions';
 import Avatar from 'react-avatar';
 
 var Dropzone = require('react-dropzone');
@@ -22,7 +24,6 @@ class Settings extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(loadSettings());
         this.usernameInput.focus();
         this.setState({ color: this.props.color });
     }
@@ -32,7 +33,6 @@ class Settings extends Component {
         event.preventDefault();
         if(this.props.dispatch(checkIfFieldsValid(this.state))){
             this.props.dispatch(changeSettingRequest(this.state))
-            console.log("REEEEEEEEEEEEE")
             this.state.color = '';
             this.state.username = '';
             this.state.password1 = '';
@@ -141,7 +141,7 @@ function mapStateToProps(state) {
       passwordInvalid: state.settings.passwordInvalid,
       usernameInvalid: state.settings.usernameInvalid,
       success: state.settings.success,
-      color: state.header.color,
+      color: state.settings.color,
       username: state.header.username,
       email: state.header.email,
       profile_pic: state.header.profile_pic
@@ -155,7 +155,7 @@ Settings.propTypes = {
     emailInvalid: PropTypes.bool.isRequired,
     passwordInvalid: PropTypes.bool.isRequired,
     usernameInvalid: PropTypes.bool.isRequired,
-    success: PropTypes.bool.success,
+    success: PropTypes.bool.isRequired,
     //color: PropTypes.string.isRequired,
     //username: PropTypes.string.isRequired,
     //email: PropTypes.string.isRequired,

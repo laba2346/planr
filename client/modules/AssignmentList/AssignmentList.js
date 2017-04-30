@@ -15,7 +15,7 @@ class AssignmentList extends Component {
 
     constructor () {
         super();
-        this.state = {}
+        this.state = { createAssignmentActive: false}
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.createAssignment = this.createAssignment.bind(this);
@@ -36,8 +36,24 @@ class AssignmentList extends Component {
             console.log(this.state)
         });
     }
+
+    handleNewAssignmentClick(e){
+        this.setState({ createAssignmentActive: true });
+        if (e.stopPropagation) {
+              e.stopPropagation();   // W3C model
+        }
+        else {
+            e.cancelBubble = true; // IE model
+        }
+    }
+
+    turnShadowOff(){
+        console.log('get called');
+        this.setState({ createAssignmentActive: false });
+    }
+
     render() {
-        var theme = this.props.themeColor;
+        var theme = this.props.color;
         var dateListColors = [
             tinycolor(theme).darken(10).toString(),
             tinycolor(theme).darken(5).toString(),
@@ -75,18 +91,22 @@ class AssignmentList extends Component {
             background: tinycolor(theme).darken(3).toString(),
         }
 
+
         return (
-            <div>
-            <div style={addAssignmentStyles} className={styles['add-assignment-button']} onClick={() => this.handleOpenModal()}> Create Assignment </div>
-                <ReactModal
-                       isOpen={this.state.showModal}
-                       contentLabel="Create Assignment"
-                       style={modalStyle}
-                >
-                       <button className={styles['close-assignment-pane']} onClick={this.handleCloseModal}>X</button>
-                       <NewAssignmentForm createAssignment={this.createAssignment}/>
-                </ReactModal>
-                {
+            <div onClick={this.turnShadowOff.bind(this)} >
+                <div style={createAssignmentDiv} className={styles['createAssignment']}>
+                    <label className={styles['assignments-label']}> Assignments </label>
+                    <div onClick={this.handleNewAssignmentClick.bind(this)} className={this.state.createAssignmentActive ? styles['new-assignment-container'] + ' ' + styles['new-assignment-container-active'] : styles['new-assignment-container'] + ' ' + styles['new-assignment-container-inactive'] } type="text" placeholder="New Assignment"><input className={styles['new-assignment']} type="text"/ ><div className={styles['calendar']}></div></div>
+                </div>
+                <div style={addAssignmentStyles} className={styles['add-assignment-button']} onClick={() => this.handleOpenModal()}> Create Assignment </div>
+                            <ReactModal
+                                   isOpen={this.state.showModal}
+                                   contentLabel="Create Assignment"
+                                   style={modalStyle}
+                            >
+                                   <button className={styles['close-assignment-pane']} onClick={this.handleCloseModal}>X</button>
+                                   <NewAssignmentForm createAssignment={this.createAssignment}/>
+                            </ReactModal>                {
                     this.props.assignments.map((dateObject, index) => (
                       <div className={styles['date-list-container']} key={dateObject.date}>
                         <DateList
@@ -97,6 +117,7 @@ class AssignmentList extends Component {
                       </div>
                     ))
                 }
+                <div className={this.state.createAssignmentActive ? styles['shadow'] + ' ' + styles['shadow-open'] : styles['shadow'] + ' ' + styles['shadow-hidden']} ></div>
             </div>
         );
   }
@@ -108,7 +129,7 @@ AssignmentList.need = [() => { return fetchAssignments(); }];
 function mapStateToProps(state) {
     return {
         assignments: state.assignmentlist.assignments,
-        themeColor: state.settings.themeColor,
+        color: state.settings.color,
     };
 }
 

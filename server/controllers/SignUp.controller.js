@@ -19,7 +19,8 @@ export function newUser(req, res){
         defaults: {
             username: username,
             password: hash,
-            email: email
+            email: email,
+            color: "#705e8b",
         }
     };
     var newRecord = false;

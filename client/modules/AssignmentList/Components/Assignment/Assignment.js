@@ -8,10 +8,12 @@ class Assignment extends Component {
     constructor(props){
         super(props);
         this.state = {
-            optionsShown: false
+            optionsShown: false,
+            editing: false,
         };
         this.showHide = this.showHide.bind(this);
         this.delete = this.delete.bind(this);
+        this.edit = this.edit.bind(this);
     }
 
     showHide () {
@@ -20,6 +22,15 @@ class Assignment extends Component {
         }
         else{
             this.setState({ optionsShown: true })
+        }
+    }
+
+    edit () {
+        if(this.state.editing){
+            this.setState({ edit: false });
+        }
+        else {
+            this.setState({ edit: false });
         }
     }
 
@@ -37,6 +48,7 @@ class Assignment extends Component {
                         {this.props.assignment.assignment_name}
                         <label className={styles['time-label']}> {time} </label>
                     </div>
+                    <div className={this.state.editingstyles['edit-assignment']}></div>
                     <div className={this.state.optionsShown ? styles['options'] + ' ' + styles['shown']  : styles['options'] + ' ' + styles['hidden']}>
                         <div className={this.state.optionsShown ? styles['block'] + ' ' + styles['shown'] + ' ' + styles['complete']  : styles['complete'] + ' ' + styles['hidden']} onClick={() => this.delete(this.props.assignment.id)}>
                             <div className={this.state.optionsShown ? styles['checkmark'] + ' ' + styles['shown'] : styles['pencil'] + ' ' + styles['hidden']}>
