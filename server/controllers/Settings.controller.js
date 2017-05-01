@@ -56,9 +56,11 @@ export function newSettings(req, res){
 }
 
 export function loadSettings(req, res){
-  sequelize.sync().then(function(){
-    users.findOne( { where: { id: req.user.id} }).then(function(result){
-             res.send(result);
+    if(req.user){
+        sequelize.sync().then(function(){
+            users.findOne( { where: { id: req.user.id} }).then(function(result){
+                 res.send(result);
+            });
         });
-    });
+    }
 }
