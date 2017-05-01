@@ -13,8 +13,13 @@ export const ADD_ASSIGNMENT = 'ADD_ASSIGNMENT';
 /**
     Variable with string name to be used in reducer.
 */
-
 export const DELETE_ASSIGNMENT = 'DELETE_ASSIGNMENT';
+
+/**
+    Variable with string name to be used in the reducer.
+*/
+export const EDIT_ASSIGNMENT = 'EDIT_ASSIGNMENT';
+
 /**
     Adds multiple assignments to the store
     @param {Object} assignments Assignments to add to the store
@@ -86,6 +91,35 @@ export function deleteAssignment(assignmentId){
         return callApi(apiUrl, "post", assignment).then(res => {
             if(res.success){
                 dispatch(delAssignment(assignment))
+            }
+        });
+    }
+}
+
+/**
+    Edits one assignment in the store
+    @param {Object} formState object containing the new assignment name/date/id
+*/
+export function editAssignmentFront(assignment){
+    return {
+        type: EDIT_ASSIGNMENT,
+        assignment
+    }
+}
+
+/**
+    Makes an API call to edit the assignment in the backend.
+    @param {Object} formState object containing the new assignment name/date/id
+*/
+export function editAssignment(assignment){
+    const apiUrl = 'editAssignment';
+    return (dispatch) => {
+        return callApi(apiUrl, "post", assignment).then(res => {
+            if(res.success){
+                dispatch(editAssignmentFront(assignment));
+            }
+            else {
+                console.log("grr");
             }
         });
     }

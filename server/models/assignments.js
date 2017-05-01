@@ -15,9 +15,6 @@ var assignments = {
     assignment_name: {
         type: DataTypes.STRING
     },
-    assignment_description: {
-        type: DataTypes.STRING
-    },
     assignment_due: {
         type: DataTypes.DATE
     },
