@@ -44,10 +44,6 @@ class Assignment extends Component {
         this.setState({
             date: moment._d,
         })
-        date = moment(date).format("MD  h:mm a"),
-        this.setState({
-            time: date
-        })
     }
 
     editAssignmentTime(){
@@ -66,7 +62,7 @@ class Assignment extends Component {
     }
 
     save() {
-        // this doesn't do anything rn
+
     }
 
     delete(id){

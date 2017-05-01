@@ -2,6 +2,19 @@ import {ADD_ASSIGNMENTS, ADD_ASSIGNMENT, DELETE_ASSIGNMENT} from './AssignmentLi
 
 // Initial State
 const initialState = { assignments: [] };
+const DateObjectReducer = (state, action) => {
+    switch (action.type) {
+        case ADD_ASSIGNMENT:
+            var newAssignmentDate = (new Date(action.assignment.assignment_due)).setHours(0,0,0,0);
+            if(state.date == newAssignmentDate){
+                return Object.assign({}, state, {
+                    assignments: [action.assignment, ...state.assignments]
+                });
+            }
+        default:
+            return state;
+    }
+};
 
 /**
     The reducer for the AssignmentList. Adds or removes assignments from the store
@@ -11,29 +24,46 @@ const initialState = { assignments: [] };
 const AssignmentListReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ASSIGNMENT:
-            let newAssignments = state.assignments.slice();
+            let assignmentCopy = state.assignments.slice();
+            // check if date exists already
             var newAssignmentDate = (new Date(action.assignment.assignment_due)).setHours(0,0,0,0);
-            var added = false;
-            for (var i in newAssignments){
-                if (newAssignments[i].date == newAssignmentDate){
-                    newAssignments[i].assignments.push(action.assignment);
-                    added = true;
+            var newDate = true;
+            for (var i in assignmentCopy){
+                if (assignmentCopy[i].date == newAssignmentDate){
+                    console.log('not new date!');
+                    newDate = false;
                 }
             }
-            if (!added){
-                var newDate = {
+            let newDateObject = null;
+            let newAssignments = null;
+            if(newDate){
+                var newDateObject = {
                     date: action.assignment.assignment_due,
                     assignments: [action.assignment],
                 };
-                for (var i in newAssignments){
-                    var currentDate = (new Date(newAssignments[i].date)).setHours(0,0,0,0);
-                    if (currentDate > newAssignmentDate){
-                        newAssignments.splice(newDate, 0, i-1);
-                        break;
+                var added = false;
+                if(assignmentCopy.length > 0){
+                    for (var i in assignmentCopy){
+                        var currentDate = (new Date(assignmentCopy[i].date)).setHours(0,0,0,0);
+                        if (currentDate > newAssignmentDate){
+                            assignmentCopy.splice(newDateObject, 0, i-1);
+                            added = true;
+                            break;
+                        }
                     }
                 }
-                newAssignments.push(newDate);
+                if (!added){
+                    assignmentCopy.push(newDateObject);
+                }
+                console.log(assignmentCopy);
+                newAssignments = assignmentCopy;
             }
+            else{
+                newAssignments = assignmentCopy.map(dateObject =>
+                        DateObjectReducer(dateObject, action)
+                );
+            }
+            console.log(newAssignments);
             return {
                 assignments: newAssignments,
             };

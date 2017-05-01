@@ -1,18 +1,3 @@
-.add-class-button{
-    display:block;
-    width:75px;
-    height:75px;
-    line-height:75px;
-    color: #FFF;
-    text-align:center;
-    font-size:54px;
-    background:#776990;
-    border-radius:100%;
-}
-
-.add-class-button:hover{
-    background:#554b67;
-}
 
 .create-class-pane{
     margin: 50px auto;

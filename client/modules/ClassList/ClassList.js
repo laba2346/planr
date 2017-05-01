@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import tinycolor from 'tinycolor2';
-
 import { fetchClasses, createClassRequest } from './ClassListActions';
 import Class from './Components/Class/Class';
 import ReactModal from 'react-modal';
@@ -38,7 +37,7 @@ class ClassList extends Component {
         });
     }
     render() {
-        var theme = this.props.themeColor;
+        var theme = this.props.color;
         var dateListColors = [
             tinycolor(theme).darken(10).toString(),
             tinycolor(theme).darken(5).toString(),
@@ -49,22 +48,26 @@ class ClassList extends Component {
             background: this.state.color,
         }
 
+        var createBg = tinycolor(theme).darken(9).toString();
         var createClassDiv = {
-            background: tinycolor(theme).darken(3).toString(),
+            background: createBg,
         }
 
         return (
             <div style={classContainerStyle} className={styles['classes-list-container']}>
                 <div style={createClassDiv} className={styles['createClass']}>
                     <label className={styles['classes-label']}> Classes </label>
+                    <div className={styles['create-class-button']} onClick={this.handleOpenModal}>New Class</div>
+                    <div >
                     <ReactModal
                            isOpen={this.state.showModal}
                            contentLabel="Create Class"
-                           className={styles['create-class-pane']}
+                           className={styles['create-class-modal-container']}
                            >
                            <button className={styles['close-class-pane']} onClick={this.handleCloseModal}>X</button>
                            <NewClassForm createClass={this.createClass}/>
                      </ReactModal>
+                     </div>
                 </div>
                 <div className={styles['classes']}>
                 {
