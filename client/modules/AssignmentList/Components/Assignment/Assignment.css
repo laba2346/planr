@@ -1,15 +1,9 @@
 .assignment{
-    font-family: Helvetica Neue;
-    font-weight: 300;
-    letter-spacing: -.5px;
-    font-size: 20px;
-    color: #fff;
     user-select: none;
     width: 350px;
     border:1px solid #fff;
     border-radius:5px;
     margin: 10px 30px;
-    overflow:hidden;
     -webkit-transition: 200ms;
     -moz-transition: 200ms;
     -o-transition: 200ms;
@@ -65,6 +59,11 @@
 }
 
 .assignment-text-container{
+    font-family: Helvetica Neue;
+    font-weight: 300;
+    letter-spacing: -.5px;
+    font-size: 20px;
+    color: #fff;
     padding:15px;
 }
 
@@ -79,6 +78,15 @@
     border-top: 1px solid #fff;
 }
 
+.edit-block{
+    width:50%;
+    height:40px;
+    display:inline-block;
+    margin:4px auto;
+    cursor:pointer;
+    border-top: 1px solid #fff;
+}
+
 .complete{
 }
 
@@ -86,8 +94,6 @@
 }
 
 .edit{
-    border-left: 1px solid #fff;
-    border-right: 1px solid #fff;
 }
 
 .edit-hidden{
@@ -100,7 +106,7 @@
 .pencil{
     width:24px;
     height:24px;
-    margin-top:5px;
+    margin:5px auto;
     background:url('./edit.png');
     background-size:100% 100%;
 }
@@ -108,13 +114,13 @@
 .bin{
     width:20px;
     height:26px;
-    margin-top: 5px;
+    margin: 5px auto;
     background:url('./bin.png');
     background-size:100% 100%;
 }
 
 .checkmark{
-    margin-top: 6px;
+    margin: 6px auto;
     width:29px;
     height:22px;
     background:url('./ok.png');
@@ -166,4 +172,21 @@
     letter-spacing:-.5px;
     line-height: 20px;
     cursor:pointer;
+}
+
+.datetime-container{
+    display:inline-block;
+    position:absolute;
+    right:0px;
+    top:60px;
+}
+
+.datetime-visible{
+    display:inline-block;
+    visibility: visible;
+}
+
+.datetime-hidden{
+    height:0px;
+    visibility: hidden;
 }
