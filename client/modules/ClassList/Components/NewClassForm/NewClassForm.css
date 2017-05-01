@@ -12,10 +12,6 @@
     outline:none;
 }
 
-input:focus{
-    border: 1px #705e8b solid;
-}
-
 .new-class-form label{
     font-family:Helvetica;
     letter-spacing: -2px;

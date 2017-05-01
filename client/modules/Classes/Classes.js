@@ -13,6 +13,7 @@ class Classes extends Component {
     render() {
         return (
             <div className={styles['classes-container']} >
+                <ClassList />
             </div>
         );
   }

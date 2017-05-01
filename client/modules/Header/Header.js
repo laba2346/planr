@@ -53,9 +53,11 @@ class Header extends Component {
         return (
                 <div className={styles['header']}>
                     <div style={headerColor} className={styles['header-title']}> planr </div>
+                    <div className={styles['profile-container']}>
                     <DropdownMenu {...menuOptions}>
                         <li className={styles['logout-button']} onClick={this.logout}><a>Logout</a></li>
                     </DropdownMenu>
+                    </div>
                 </div>
         );
   }

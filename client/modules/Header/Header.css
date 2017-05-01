@@ -6,6 +6,7 @@
     padding:20px 0px 0px 0px;
     background: #FFF;
     border-bottom: 1px solid #ccc;
+    min-width: 600px;
 }
 
 .header-title{
@@ -23,12 +24,19 @@
 }
 
 .profile{
+    float:right;
     margin: 5px 30px;
     width:50px;
     height:50px;
     border-radius:100%;
     background: #ccc;
     cursor: pointer;
+}
+
+.profile-container{
+    position: relative;
+    margin-right: 300px;
+    float: right;
 }
 
 .search-field{
