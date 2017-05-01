@@ -31,7 +31,6 @@ class Assignment extends Component {
     handleChange(event) {
         const target = event.target;
         const value = target.value;
-        console.log(value);
         const name = target.name;
         this.setState({
           [name]: value
@@ -43,7 +42,6 @@ class Assignment extends Component {
             this.setState({ editing: false });
         }
         else {
-            console.log("editing!");
             this.setState({ editing: true });
             this.setState({ optionsShown: false});
         }

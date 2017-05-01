@@ -5,7 +5,6 @@ import tinycolor from 'tinycolor2';
 import { fetchAssignments, createAssignmentRequest } from './AssignmentListActions';
 import DateList from './Components/DateList/DateList';
 import ReactModal from 'react-modal';
-import NewAssignmentForm from './Components/NewAssignmentForm/NewAssignmentForm';
 import styles from './AssignmentList.css';
 import Datetime from 'react-datetime';
 
@@ -50,7 +49,7 @@ class AssignmentList extends Component {
     handleNewAssignmentClick(e){
         this.setState({ createAssignmentActive: true });
         if (e.stopPropagation) {
-              e.stopPropagation();   // W3C model
+            e.stopPropagation();   // W3C model
         }
         else {
             e.cancelBubble = true; // IE model
@@ -82,29 +81,14 @@ class AssignmentList extends Component {
             color: 'white',
         }
 
-        var modalStyle = {
-            overlay : {
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.5)'
-            },
-            content : {
-                width:'500px',
-                height:'600px',
-                top: '50%',
-                left: '50%',
-                right: 'auto',
-                bottom: 'auto',
-                transform: 'translate(-50%, -50%)'
-            }
-        }
-
         var createAssignmentDiv = {
             background: tinycolor(theme).darken(3).toString(),
         }
+
+        var assignmentsExist = (this.props.assignments.length > 0);
+        var assignmentsDontExist = (this.props.assignments.length == 0);
+        var noAssignments = <div className={styles['no-assignments']}><label>No assignments yet!<br/> Create one above to get started.</label></div>
+
         return (
             <div onClick={this.turnShadowOff.bind(this)} >
                 <div style={createAssignmentDiv} className={styles['createAssignment']}>
@@ -119,17 +103,16 @@ class AssignmentList extends Component {
                     </div>
                 </div>
 
-                    {
-                    this.props.assignments.map((dateObject, index) => (
-                      <div className={styles['date-list-container']} key={dateObject.date}>
-                        <DateList
-                            dateObject={dateObject}
-                            index={index}
-                            color={dateListColors[index%(dateListColors.length)]}
-                        />
-                      </div>
-                    ))
-                }
+                    {assignmentsExist && this.props.assignments.map((dateObject, index) => (
+                            <div className={styles['date-list-container']} key={dateObject.date}>
+                                <DateList
+                                dateObject={dateObject}
+                                index={index}
+                                color={dateListColors[index%(dateListColors.length)]}
+                                />
+                            </div>
+                        ))}
+                    {assignmentsDontExist && noAssignments}
                 <div className={this.state.createAssignmentActive ? styles['shadow'] + ' ' + styles['shadow-open'] : styles['shadow'] + ' ' + styles['shadow-hidden']} ></div>
             </div>
         );

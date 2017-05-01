@@ -24,10 +24,6 @@
     outline:none;
 }
 
-input:focus{
-    border: 1px #705e8b solid;
-}
-
 .login-submit{
     width:300px;
     height:40px;
