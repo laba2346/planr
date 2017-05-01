@@ -16,6 +16,11 @@
     transition: 200ms;
 }
 
+.editing-assignment{
+    position:relative;
+    z-index:6;
+}
+
 .assignment:hover{
     cursor: pointer;
 }
@@ -129,6 +134,29 @@
     visibility:visible;
 }
 
+.shadow{
+    z-index:2;
+    background: #000;
+    display:block;
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    -webkit-transition: 200ms;
+    -moz-transition: 200ms;
+    -o-transition: 200ms;
+    transition: 200ms;
+}
+
+.shadow-open{
+    opacity:.3;
+}
+
+.shadow-hidden{
+    opacity:0;
+    visibility: hidden;
+}
 .time-label{
     display:inline-block;
     float: right;

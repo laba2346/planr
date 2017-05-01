@@ -3,7 +3,6 @@ import styles from './Assignment.css';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-
 class Assignment extends Component {
     constructor(props){
         super(props);
@@ -54,34 +53,66 @@ class Assignment extends Component {
     render() {
         var date = new Date(this.props.assignment.assignment_due);
         var time = moment(date).format(" h:mm a");
+
+
+        var displayOptionsDiv =
+            (<div className={styles['options']}>
+                <div className={styles['block'] + ' ' + styles['complete']} onClick={() => this.delete(this.props.assignment.id)}>
+                    <div className={styles['checkmark'] + ' ' + styles['shown']}></div>
+                </div>
+                <div className={styles['block'] + ' ' + styles['edit']} onClick={() => this.edit()}>
+                    <div className={styles['pencil'] + ' ' + styles['shown']}></div>
+                </div>
+                <div className={styles['block'] + ' ' + styles['delete']} onClick={() => this.delete(this.props.assignment.id)}>
+                    <div className={styles['bin'] + ' ' + styles['shown']}></div>
+                </div>
+            </div>);
+
+        var editOptionsDiv = (
+            <div className={styles['options']}>
+                <div className={styles['block'] + ' ' + styles['complete']} onClick={() => this.delete(this.props.assignment.id)}>
+                    <div className={styles['checkmark'] + ' ' + styles['shown']}></div>
+                </div>
+                <div className={styles['block'] + ' ' + styles['delete']} onClick={() => this.edit()}>
+                    <div className={styles['bin'] + ' ' + styles['shown']}></div>
+                </div>
+            </div>
+        );
+
+        let assignmentDiv = null;
+        let optionsDiv = null;
+
+        var editingAssigment =
+            (<div className={styles['editing-assignment'] + ' ' + styles['assignment'] + ' ' + styles['extend']}>
+            <div className={styles['assignment-text-container']}>
+                <input name="assignmentName" className={styles['edit-name']} value={this.state.assignmentName} onChange={this.handleChange}/>
+                <input name="assignmentDate" className={styles['edit-date']} value={time} onChange={this.handleChange}/>
+            </div>
+            {editOptionsDiv}
+            </div>);
+
+        var displayAssignment =
+            <div className={this.state.optionsShown ? styles['assignment'] + ' ' + styles['extend'] : styles['assignment'] + ' ' +  styles['default']} >
+                <div className={styles['assignment-text-container']} onClick={this.showHide}>
+                    {this.props.assignment.assignment_name}
+                    <label className={styles['time-label']}> {time} </label>
+                </div>
+                {this.state.optionsShown && displayOptionsDiv}
+            </div>
+
+        if (this.state.editing){
+            assignmentDiv = editingAssigment;
+            optionsDiv = editOptionsDiv;
+        }
+        else{
+            assignmentDiv = displayAssignment;
+            optionsDiv = displayOptionsDiv;
+        }
+
         return (
             <div>
-                <div className={this.state.optionsShown ? styles['assignment'] + ' ' + styles['extend'] : styles['assignment'] + ' ' +  styles['default']} >
-                    <div className={!this.state.editing ? styles['assignment-text-container'] + ' ' + styles['shown'] : styles['edit-hidden']} onClick={this.showHide}>
-                        {this.props.assignment.assignment_name}
-                        <label className={styles['time-label']}> {time} </label>
-                    </div>
-                    <div className={this.state.editing ? styles['assignment-text-container'] : styles['edit-hidden']}>
-                        <input name="assignmentName" className={styles['edit-name']} value={this.state.assignmentName} onChange={this.handleChange}/>
-                        <input name="assignmentDate" className={styles['edit-date']} value={time} onChange={this.handleChange}/>
-                    </div>
-
-                    <div className={this.state.optionsShown ? styles['options'] + ' ' + styles['shown']  : styles['options'] + ' ' + styles['hidden']}>
-                        <div className={this.state.optionsShown ? styles['block'] + ' ' + styles['shown'] + ' ' + styles['complete']  : styles['complete'] + ' ' + styles['hidden']} onClick={() => this.delete(this.props.assignment.id)}>
-                            <div className={this.state.optionsShown ? styles['checkmark'] + ' ' + styles['shown'] : styles['pencil'] + ' ' + styles['hidden']}>
-                            </div>
-                        </div>
-                        <div className={ this.state.optionsShown ? styles['block'] + ' ' + styles['shown'] + ' ' + styles['edit']  : styles['edit'] + ' ' + styles['hidden']} onClick={() => this.edit()}>
-                            <div className={this.state.optionsShown ? styles['pencil'] + ' ' + styles['shown'] : styles['pencil'] + ' ' + styles['hidden']}>
-                            </div>
-                        </div>
-                        <div className={this.state.optionsShown ? styles['block'] + ' ' + styles['shown'] + ' ' + styles['delete']  : styles['delete'] + ' ' + styles['hidden']} onClick={() => this.delete(this.props.assignment.id)}>
-                            <div className={this.state.optionsShown ? styles['bin'] + ' ' + styles['shown'] : styles['bin'] + ' ' + styles['hidden']}>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                {assignmentDiv}
+                <div className={this.state.editing ? styles['shadow'] + ' ' + styles['shadow-open'] : styles['shadow'] + ' ' + styles['shadow-hidden']} ></div>
             </div>
         );
     }
