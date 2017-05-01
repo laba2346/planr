@@ -45,6 +45,10 @@ class AssignmentList extends Component {
         })
     }
 
+    validDate(current){
+        var yesterday = Datetime.moment().subtract( 1, 'day' );
+        return current.isAfter( yesterday );
+    }
 
     handleNewAssignmentClick(e){
         this.setState({ createAssignmentActive: true });
@@ -97,7 +101,7 @@ class AssignmentList extends Component {
                         <input name="name" className={styles['new-assignment']} placeholder="New Assignment" type="text" onChange={this.handleChange.bind(this)} />
                         <div className={styles['calendar']} onClick={this.newAssignmentTime.bind(this)}></div>
                         <div className={styles['datetime-container']}>
-                            <Datetime name="date" className={this.state.createDateOpen ? styles['datetime-visible'] : styles['datetime-hidden']} disableOnClickOutside={true} input={false} name="date" placeholder="Due Date" value={this.state.date} onChange={this.handleDateChange.bind(this)}/>
+                            <Datetime isValidDate={this.validDate.bind(this)} name="date" className={this.state.createDateOpen ? styles['datetime-visible'] : styles['datetime-hidden']} disableOnClickOutside={true} input={false} name="date" placeholder="Due Date" value={this.state.date} onChange={this.handleDateChange.bind(this)}/>
                         </div>
                         <div onClick={this.createAssignment.bind(this)} className={this.state.createAssignmentActive ? styles['create'] + ' ' + styles['create-active'] : styles['create'] + ' ' + styles['create-inactive'] }> Create </div>
                     </div>
