@@ -25,7 +25,7 @@ class AssignmentList extends Component {
         }
         this.setState({ createAssignmentActive: false });
         this.setState({ createDateOpen: false });
-        this.setState({ date: new Date() })
+        this.setState({ date: ''})
         this.props.dispatch(createAssignmentRequest(formdata));
     }
 
@@ -41,7 +41,6 @@ class AssignmentList extends Component {
 
     handleDateChange(moment){
         console.log(moment._d);
-        this.setState({ createDateOpen: false });
         this.setState({
             date: moment._d,
         })

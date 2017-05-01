@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import styles from './Assignment.css';
+import { editAssignment } from '../../AssignmentListActions';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import Datetime from 'react-datetime';
@@ -42,12 +43,8 @@ class Assignment extends Component {
 
     handleDateChange(moment){
         this.setState({
-            date: moment._d,
-        })
-        date = moment(date).format("MD  h:mm a"),
-        this.setState({
-            time: date
-        })
+            assignmentDate: moment._d,
+        });
     }
 
     editAssignmentTime(){
@@ -66,7 +63,20 @@ class Assignment extends Component {
     }
 
     save() {
-        // this doesn't do anything rn
+        var assignmentName = this.state.assignmentName;
+        var assignmentDate = this.state.assignmentDate;
+        var assignmentId = this.props.assignment.id;
+        var ownerId = this.props.assignment.owner_id;
+        var editedAssignment = {
+            id: assignmentId,
+            owner_id: ownerId,
+            class_id: null,
+            assignment_name: assignmentName,
+            assignment_due: assignmentDate,
+        };
+        this.props.dispatch(editAssignment(editedAssignment));
+        this.edit();
+
     }
 
     delete(id){

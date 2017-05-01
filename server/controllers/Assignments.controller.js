@@ -82,3 +82,21 @@ export function deleteAssignment(req, res){
         res.json({success:true});
     });
 }
+
+export function editAssignment(req, res){
+    var id = req.body.id;
+    var user_id = req.user.id;
+    var name = req.body.assignment_name;
+    var date = req.body.assignment_due;
+    var values = {
+        assignment_name: name,
+        assignment_due: date,
+    }
+    sequelize.sync().then(function(){
+        assignments.update(values, { where: { id: id } }).then(function(result){
+            if(result){
+                res.json({success: true});
+            }
+        });
+    });
+}
