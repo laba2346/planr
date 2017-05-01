@@ -90,7 +90,7 @@ class AssignmentList extends Component {
         var noAssignments = <div className={styles['no-assignments']}><label>No assignments yet!<br/> Create one above to get started.</label></div>
 
         return (
-            <div onClick={this.turnShadowOff.bind(this)} >
+            <div onClick={this.turnShadowOff.bind(this)}>
                 <div style={createAssignmentDiv} className={styles['createAssignment']}>
                     <label className={styles['assignments-label']}> Assignments </label>
                     <div className={styles['new-assignment-container']} onClick={this.handleNewAssignmentClick.bind(this)} >

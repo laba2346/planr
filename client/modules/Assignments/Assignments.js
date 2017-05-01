@@ -11,8 +11,12 @@ class Assignments extends Component {
     }
 
     render() {
+        var theme = this.props.color;
+        var bgStyle = {
+            backgroundColor: theme,
+        }
         return (
-            <div className={styles['assignments-container']} >
+            <div style={bgStyle} className={styles['assignments-container']} >
                 <AssignmentList />
             </div>
         );
@@ -22,7 +26,7 @@ class Assignments extends Component {
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
-
+      color: state.settings.color,
   };
 }
 

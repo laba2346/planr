@@ -1,4 +1,7 @@
 .assignments-container{
-    left:250px;
-    margin: 95px auto;
+    position: absolute;
+    left:270px;
+    height: calc(100% - 95px);
+    width: calc(100% - 270px);
+    margin: 95px 0px;
 }
