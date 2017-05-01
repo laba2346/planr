@@ -1,8 +1,29 @@
 .classes-list-container{
-    display:block;
-    width: 100%;
+    margin:95px auto;
+    position:fixed;
     height:100%;
-    outline: black;
+    width: calc(100% - 270px);;
 }
 
+.classes{
+    margin:0px auto;
+    width:700px;
+    height:100%;
+    background-color: #f2f2f2;
+}
 
+.createClass{
+    width:100%;
+    height:120px;
+    padding:15px 100px;
+}
+
+.classes-label{
+    color: #fff;
+    font-family:Helvetica;
+    width:430px;
+    font-size:26px;
+    letter-spacing: -1px;
+    display: inline-block;
+    font-weight:200;
+}

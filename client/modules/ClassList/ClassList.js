@@ -11,11 +11,12 @@ import styles from './ClassList.css';
 class ClassList extends Component {
     componentDidMount() {
            this.props.dispatch(fetchClasses());
+           this.setState({ color: this.props.color });
     }
 
     constructor () {
         super();
-        this.state = {}
+        this.state = { color: '' };
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.createClass = this.createClass.bind(this);
@@ -38,16 +39,24 @@ class ClassList extends Component {
     }
     render() {
         var theme = this.props.themeColor;
-        console.log(theme)
         var dateListColors = [
             tinycolor(theme).darken(10).toString(),
             tinycolor(theme).darken(5).toString(),
             tinycolor(theme).darken(13).toString(),
             tinycolor(theme).darken(8).toString(),
         ]
+        var classContainerStyle={
+            background: this.state.color,
+        }
+
+        var createClassDiv = {
+            background: tinycolor(theme).darken(3).toString(),
+        }
+
         return (
-            <div>
-                <div className={styles['add-class-button']} onClick={() => this.handleOpenModal()}> + </div>
+            <div style={classContainerStyle} className={styles['classes-list-container']}>
+                <div style={createClassDiv} className={styles['createClass']}>
+                    <label className={styles['classes-label']}> Classes </label>
                     <ReactModal
                            isOpen={this.state.showModal}
                            contentLabel="Create Class"
@@ -56,10 +65,11 @@ class ClassList extends Component {
                            <button className={styles['close-class-pane']} onClick={this.handleCloseModal}>X</button>
                            <NewClassForm createClass={this.createClass}/>
                      </ReactModal>
-                <div className={styles['classes-list-container']}>
+                </div>
+                <div className={styles['classes']}>
                 {
                     this.props.classes.map((dateObject, index) => (
-                      <div className={styles['date-list-container']} key={dateObject.date}>
+                      <div key={dateObject.date}>
                         <Class
                             _class = {dateObject}
                             color = {dateListColors[index%(dateListColors.length)]}
@@ -79,7 +89,7 @@ ClassList.need = [() => { return fetchClasses(); }];
 function mapStateToProps(state) {
     return {
         classes: state.classlist.classes,
-        themeColor: state.settings.themeColor,
+        color: state.settings.color,
     };
 }
 
