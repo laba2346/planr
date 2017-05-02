@@ -6,11 +6,30 @@ const DateObjectReducer = (state, action) => {
     switch (action.type) {
         case ADD_ASSIGNMENT:
             var newAssignmentDate = (new Date(action.assignment.assignment_due)).setHours(0,0,0,0);
-            if(state.date == newAssignmentDate){
+            var currentDate = (new Date(state.date)).setHours(0,0,0,0);
+            let currentAssignments = state.assignments.slice();
+            if(currentDate == newAssignmentDate){
+                if (currentAssignments.length > 0){
+                    // add by time
+                }
                 return Object.assign({}, state, {
                     assignments: [action.assignment, ...state.assignments]
                 });
             }
+        case DELETE_ASSIGNMENT:
+            let currentAssignmentList = state.assignments.slice();
+            var numOfAssignments = state.assignments.length;
+            var delAssignmentId = action.assignment.id;
+            for(var i = 0; i < numOfAssignments; i++){
+                if(delAssignmentId === state.assignments[i].id){
+                    currentAssignmentList.splice(i, 1);
+                    break;
+                }
+            }
+            console.log(currentAssignmentList)
+            return Object.assign({}, state, {
+                assignments: currentAssignmentList
+            });
         default:
             return state;
     }
@@ -29,8 +48,9 @@ const AssignmentListReducer = (state = initialState, action) => {
             var newAssignmentDate = (new Date(action.assignment.assignment_due)).setHours(0,0,0,0);
             var newDate = true;
             for (var i in assignmentCopy){
-                if (assignmentCopy[i].date == newAssignmentDate){
-                    console.log('not new date!');
+                // set date to 0 hours you doofus
+                var assignmentCopyDate = (new Date(assignmentCopy[i].date)).setHours(0,0,0,0);
+                if (assignmentCopyDate == newAssignmentDate){
                     newDate = false;
                 }
             }
@@ -55,7 +75,6 @@ const AssignmentListReducer = (state = initialState, action) => {
                 if (!added){
                     assignmentCopy.push(newDateObject);
                 }
-                console.log(assignmentCopy);
                 newAssignments = assignmentCopy;
             }
             else{
@@ -63,7 +82,6 @@ const AssignmentListReducer = (state = initialState, action) => {
                         DateObjectReducer(dateObject, action)
                 );
             }
-            console.log(newAssignments);
             return {
                 assignments: newAssignments,
             };
@@ -73,24 +91,21 @@ const AssignmentListReducer = (state = initialState, action) => {
             });
         case DELETE_ASSIGNMENT:
             let currentAssignments = state.assignments.slice();
-            var delAssignment = action.assignment;
+            var delAssignmentId = action.assignment.id;
             var length = currentAssignments.length;
-            for(var i = 0; i < length; i++){
-                var numEvents = currentAssignments[i].assignments.length;
-                for(var j = 0; j < numEvents; j++){
-                    if(delAssignment.id === currentAssignments[i].assignments[j].id){
-                        console.log("found and deleted assignment")
-                        currentAssignments[i].assignments.splice(j, 1);
-                        if(numEvents == 1){
-                            currentAssignments.splice(i,1);
-                        }
-                        break;
+            var newAssignments = currentAssignments.map(dateObject =>
+                    DateObjectReducer(dateObject, action)
+            );
+
+            if (newAssignments.length > 0){
+                for (var i in newAssignments){
+                    if (newAssignments[i].assignments.length == 0){
+                        newAssignments.splice(i, 1);
                     }
                 }
             }
-            console.log(currentAssignments);
             return Object.assign({}, state, {
-                assignments: currentAssignments,
+                assignments: newAssignments,
             })
         case EDIT_ASSIGNMENT:
             let editedAssignments = state.assignments.slice();
