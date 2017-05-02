@@ -19,14 +19,16 @@ class AssignmentList extends Component {
     }
 
     createAssignment() {
-        var formdata = {
-            name: this.state.name,
-            date: this.state.date,
+        if(this.state.name && this.state.date){
+            var formdata = {
+                name: this.state.name,
+                date: this.state.date,
+            }
+            this.setState({ createAssignmentActive: false });
+            this.setState({ createDateOpen: false });
+            this.setState({ date: ''})
+            this.props.dispatch(createAssignmentRequest(formdata));
         }
-        this.setState({ createAssignmentActive: false });
-        this.setState({ createDateOpen: false });
-        this.setState({ date: ''})
-        this.props.dispatch(createAssignmentRequest(formdata));
     }
 
     handleChange(event) {

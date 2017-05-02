@@ -15,10 +15,12 @@ class ClassList extends Component {
 
     constructor () {
         super();
-        this.state = { color: '' };
+        this.state = { color: '', buttonHover: false };
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.createClass = this.createClass.bind(this);
+        this.hover = this.hover.bind(this);
+        this.exitHover = this.exitHover.bind(this);
     }
 
     handleOpenModal () {
@@ -33,8 +35,15 @@ class ClassList extends Component {
         this.handleCloseModal();
         var classes = this.props.classes;
         this.props.dispatch(createClassRequest(formdata, classes)).then(() => {
-            console.log(this.state)
+            console.log(this.state);
         });
+    }
+    hover () {
+        this.setState({ buttonHover: true });
+    }
+
+    exitHover () {
+        this.setState({ buttonHover: false });
     }
     render() {
         var theme = this.props.color;
@@ -52,13 +61,16 @@ class ClassList extends Component {
         var createClassDiv = {
             background: createBg,
         }
+        var buttonHover = {
+            color: theme,
+        }
 
         return (
             <div style={classContainerStyle} className={styles['classes-list-container']}>
                 <div style={createClassDiv} className={styles['createClass']}>
                     <label className={styles['classes-label']}> Classes </label>
-                    <div className={styles['create-class-button']} onClick={this.handleOpenModal}>New Class</div>
-                    <div >
+                    <div onMouseEnter={() => {this.hover()}} onMouseLeave={() => {this.exitHover()}} style={this.state.buttonHover ? buttonHover : null} className={styles['create-class-button']} onClick={this.handleOpenModal}>New Class</div>
+                    <div>
                     <ReactModal
                            isOpen={this.state.showModal}
                            contentLabel="Create Class"
