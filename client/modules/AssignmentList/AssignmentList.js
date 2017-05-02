@@ -16,7 +16,7 @@ class AssignmentList extends Component {
 
     constructor (props) {
         super(props);
-        this.state = { createAssignmentActive: false, createDateOpen: false, date: '', name: '', classes: props.classes};
+        this.state = { createAssignmentActive: false, createDateOpen: false, date: '', name: '', classes: props.classes, classFilters: []};
     }
 
     createAssignment() {
@@ -96,13 +96,15 @@ class AssignmentList extends Component {
         var assignmentsExist = (this.props.assignments.length > 0);
         var assignmentsDontExist = (this.props.assignments.length == 0);
         var noAssignments = <div className={styles['no-assignments']}><label>No assignments yet!<br/> Create one above to get started.</label></div>
-        var options = [
-          { value: 'one', label: 'One' },
-            { value: 'two', label: 'Two' }
-        ];
+
+        function onChange(newState){
+          this.setState({classFilters: [newState]});
+        }
+
         function mapClassToName(obj) {
           return obj.class_name;
         }
+
         return (
             <div onClick={this.turnShadowOff.bind(this)}>
                 <div style={createAssignmentDiv} className={styles['createAssignment']}>
@@ -110,7 +112,8 @@ class AssignmentList extends Component {
                     <form>
                     <Select
                       name="form-field-name"
-                      value="one"
+                      value={this.state.classFilters}
+                      onChange={onChange}
                       options={this.state.classes}
                       optionRenderer={mapClassToName}
                       multi={true}
