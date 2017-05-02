@@ -9,7 +9,6 @@ class NewClassForm extends Component {
         super(props);
         this.state = {name: '', desc: '', date: ''};
         this.handleChange = this.handleChange.bind(this);
-        this.handleDateChange = this.handleDateChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -33,13 +32,6 @@ class NewClassForm extends Component {
         });
     }
 
-    handleDateChange(moment){
-        console.log(moment._d);
-        this.setState({
-            date: moment._d,
-        })
-    }
-
     render() {
         return (
             <div>
@@ -49,7 +41,6 @@ class NewClassForm extends Component {
                     <input name="name" className={styles['input']} type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange}
                       ref={(input) => { this.nameInput = input; }} />
                     <input name="desc" className={styles['input']} type="text" placeholder="Description" value={this.state.desc} onChange={this.handleChange} />
-                    <Datetime name="times" placeholder="Class Times" value={this.state.date} onChange={this.handleDateChange}/>
                     <input type="submit" className={styles['class-submit'] + ' transition'} value="Submit" />
                 </form>
 

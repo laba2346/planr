@@ -9,15 +9,21 @@ import moment from 'moment';
 */
 
 function Class(props, context) {
-     var backgroundStyle = {
+     var stripeStyle = {
             backgroundColor: props._class.class_color
         }
-        
-    console.log(props._class)
-    console.log(props.color)
+
   return (
-    <div className={styles['class']} style={backgroundStyle}>
+    <div className={styles['class']}>
+        <div className={styles['class-text']}>
         {props._class.class_name}
+        <br/>
+        {props._class.class_info}
+        <br/>
+        {props._class.class_times}
+        </div>
+        <div style={stripeStyle} className={styles['class-color']}>
+        </div>
     </div>
   );
 }

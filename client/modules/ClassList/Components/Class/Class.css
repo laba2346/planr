@@ -4,9 +4,8 @@
     letter-spacing: -.5px;
     font-size: 20px;
     color: #fff;
-
+    border: 1px solid #fff;
     width: 350px;
-    background:#5a749e;
     border-radius:3px;
     padding: 15px;
     margin: 10px 30px;
@@ -14,6 +13,15 @@
 
 .class:hover{
     color: #fff;
-    background: #465b7d;
 }
 
+.class-text{
+  display: inline-block;
+}
+
+.class-color{
+    display: inline-block;
+    float:right;
+    width:10px;
+    height:10px;
+}

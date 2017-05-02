@@ -23,6 +23,11 @@ class DateList extends Component {
         this.handleCloseModal = this.handleCloseModal.bind(this);
     }
 
+    // On component mount should apply the animation class?? probably
+    onComponentMount() {
+
+    }
+
     handleOpenModal () {
         this.setState({ showModal: true });
     }

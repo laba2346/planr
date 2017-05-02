@@ -7,15 +7,16 @@ import DateList from './Components/DateList/DateList';
 import ReactModal from 'react-modal';
 import styles from './AssignmentList.css';
 import Datetime from 'react-datetime';
+import Select from 'react-select';
 
 class AssignmentList extends Component {
     componentDidMount() {
            this.props.dispatch(fetchAssignments());
     }
 
-    constructor () {
-        super();
-        this.state = { createAssignmentActive: false, createDateOpen: false, date: '', name: ''};
+    constructor (props) {
+        super(props);
+        this.state = { createAssignmentActive: false, createDateOpen: false, date: '', name: '', classes: props.classes};
     }
 
     createAssignment() {
@@ -95,11 +96,26 @@ class AssignmentList extends Component {
         var assignmentsExist = (this.props.assignments.length > 0);
         var assignmentsDontExist = (this.props.assignments.length == 0);
         var noAssignments = <div className={styles['no-assignments']}><label>No assignments yet!<br/> Create one above to get started.</label></div>
-
+        var options = [
+          { value: 'one', label: 'One' },
+            { value: 'two', label: 'Two' }
+        ];
+        function mapClassToName(obj) {
+          return obj.class_name;
+        }
         return (
             <div onClick={this.turnShadowOff.bind(this)}>
                 <div style={createAssignmentDiv} className={styles['createAssignment']}>
                     <label className={styles['assignments-label']}> Assignments </label>
+                    <form>
+                    <Select
+                      name="form-field-name"
+                      value="one"
+                      options={this.state.classes}
+                      optionRenderer={mapClassToName}
+                      multi={true}
+                    />
+                    </form>
                     <div className={styles['new-assignment-container']} onClick={this.handleNewAssignmentClick.bind(this)} >
                         <input name="name" className={styles['new-assignment']} placeholder="New Assignment" type="text" onChange={this.handleChange.bind(this)} />
                         <div className={styles['calendar']} onClick={this.newAssignmentTime.bind(this)}></div>
@@ -133,6 +149,7 @@ function mapStateToProps(state) {
     return {
         assignments: state.assignmentlist.assignments,
         color: state.settings.color,
+        classes: state.classlist.classes
     };
 }
 

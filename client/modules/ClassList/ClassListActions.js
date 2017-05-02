@@ -16,7 +16,7 @@ export const ADD_CLASS = 'ADD_CLASS';
 export function addClasses(classes){
     return{
         type: ADD_CLASSES,
-        classes 
+        classes
     }
 }
 
@@ -27,7 +27,7 @@ export function addClasses(classes){
 export function addClass(_class){
     return{
         type: ADD_CLASS,
-        _class 
+        _class
     }
 }
 

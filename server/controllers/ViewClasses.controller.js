@@ -30,31 +30,20 @@ export function createClass(req, res){
     }
 
     function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++ ) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+        var letters = '0123456789abcdef';
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
     }
 
     values.class_color = getRandomColor();
 
-    console.log(values);
     sequelize.sync().then(function(){
-        classes.create(values).then(function(err){
-            var response = {};
-            if(err){
-                response = {
-                    newClass: false,
-                };
-            }
-            else{
-                response = {
-                    newClass: true,
-                };
-            }
-            res.send(response);
+        classes.create(values).then(function(response){
+            console.log(response);
+            res.json(response);
         });
     });
 }
@@ -69,6 +58,7 @@ export function fetchClasses(req, res){
     sequelize.sync().then(function(){
         classes.findAll(options).then(function(result){
             var classes = result;
+            console.log(classes);
             res.send(classes);
         });
     });

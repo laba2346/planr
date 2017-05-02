@@ -83,10 +83,10 @@ class ClassList extends Component {
                 </div>
                 <div className={styles['classes']}>
                 {
-                    this.props.classes.map((dateObject, index) => (
-                      <div key={dateObject.date}>
+                    this.props.classes.map((_class, index) => (
+                      <div key={_class.id}>
                         <Class
-                            _class = {dateObject}
+                            _class = {_class}
                             color = {dateListColors[index%(dateListColors.length)]}
                         />
                       </div>
