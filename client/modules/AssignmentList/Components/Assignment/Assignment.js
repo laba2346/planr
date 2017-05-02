@@ -74,6 +74,7 @@ class Assignment extends Component {
             assignment_name: assignmentName,
             assignment_due: assignmentDate,
         };
+
         this.props.dispatch(editAssignment(editedAssignment));
         this.edit();
     }
@@ -83,7 +84,7 @@ class Assignment extends Component {
     }
 
     render() {
-        var date = new Date(this.props.assignment.assignment_due);
+        var date = new Date(this.state.assignmentDate);
         var time = moment(date).format(" h:mm a");
 
 
@@ -129,7 +130,7 @@ class Assignment extends Component {
         var displayAssignment =
             <div className={this.state.optionsShown ? styles['assignment'] + ' ' + styles['extend'] : styles['assignment'] + ' ' +  styles['default']} >
                 <div className={styles['assignment-text-container']} onClick={this.showHide}>
-                    {this.props.assignment.assignment_name}
+                    {this.state.assignmentName}
                     <label className={styles['time-label']}> {time} </label>
                 </div>
                 {this.state.optionsShown && displayOptionsDiv}

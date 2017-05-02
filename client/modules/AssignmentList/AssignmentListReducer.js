@@ -47,26 +47,29 @@ const AssignmentListReducer = (state = initialState, action) => {
             // check if date exists already
             var newAssignmentDate = (new Date(action.assignment.assignment_due)).setHours(0,0,0,0);
             var newDate = true;
-            for (var i in assignmentCopy){
-                // set date to 0 hours you doofus
-                var assignmentCopyDate = (new Date(assignmentCopy[i].date)).setHours(0,0,0,0);
-                if (assignmentCopyDate == newAssignmentDate){
-                    newDate = false;
+            if (assignmentCopy.length > 0){
+                for (var i in assignmentCopy){
+                    // set date to 0 hours you doofus
+                    var assignmentCopyDate = (new Date(assignmentCopy[i].date)).setHours(0,0,0,0);
+                    if (assignmentCopyDate == newAssignmentDate){
+                        newDate = false;
+                    }
                 }
             }
             let newDateObject = null;
             let newAssignments = null;
             if(newDate){
                 var newDateObject = {
-                    date: action.assignment.assignment_due,
+                    date: newAssignmentDate,
                     assignments: [action.assignment],
                 };
+
                 var added = false;
                 if(assignmentCopy.length > 0){
                     for (var i in assignmentCopy){
                         var currentDate = (new Date(assignmentCopy[i].date)).setHours(0,0,0,0);
                         if (currentDate > newAssignmentDate){
-                            assignmentCopy.splice(newDateObject, 0, i-1);
+                            assignmentCopy.splice(i, 0, newDateObject);
                             added = true;
                             break;
                         }
@@ -75,6 +78,9 @@ const AssignmentListReducer = (state = initialState, action) => {
                 if (!added){
                     assignmentCopy.push(newDateObject);
                 }
+                console.log('ASSIGNMENT COPY');
+                console.log(assignmentCopy)
+                console.log(' ');
                 newAssignments = assignmentCopy;
             }
             else{
