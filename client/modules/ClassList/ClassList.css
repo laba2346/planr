@@ -22,6 +22,7 @@
     margin-top:23px;
 }
 
+
 .createClass{
     width:100%;
     height:120px;
@@ -30,6 +31,7 @@
 
 .create-class-button{
     display:block;
+    cursor:pointer;
     width:150px;
     height:40px;
     line-height:40px;
@@ -52,12 +54,22 @@
     background:#fff;
 }
 
+.close-class-pane{
+    float:right;
+    border:none;
+    outline:none;
+    font-family: Helvetica;
+    font-size:26px;
+    font-weight:200;
+    color: #444;
+    background:none;
+}
 .create-class-modal-container{
-    position:relative;
-    margin: 30px auto;
-    border:1px solid white;
-    background: #fff;
-    outline: none;
-    padding:30px;
-    z-index: 2;
+    margin: 150px auto;
+    padding:10px;
+    outline:none;
+    background:#FFF;
+    border:1px solid #705e8b;
+    width:400px;
+    height:260px;
 }

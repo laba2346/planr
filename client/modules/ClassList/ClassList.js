@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import tinycolor from 'tinycolor2';
-import { fetchClasses, createClassRequest } from './ClassListActions';
+import { fetchClasses, createClassRequest, deleteClass } from './ClassListActions';
 import Class from './Components/Class/Class';
 import ReactModal from 'react-modal';
 import NewClassForm from './Components/NewClassForm/NewClassForm';
@@ -21,6 +21,7 @@ class ClassList extends Component {
         this.createClass = this.createClass.bind(this);
         this.hover = this.hover.bind(this);
         this.exitHover = this.exitHover.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     handleOpenModal () {
@@ -29,6 +30,10 @@ class ClassList extends Component {
 
     handleCloseModal () {
         this.setState({ showModal: false });
+    }
+
+    handleDelete (_class) {
+        this.props.dispatch(deleteClass(_class));
     }
 
     createClass (formdata, state) {
@@ -88,6 +93,7 @@ class ClassList extends Component {
                         <Class
                             _class = {_class}
                             color = {dateListColors[index%(dateListColors.length)]}
+                            handleDelete = {this.handleDelete}
                         />
                       </div>
                     ))

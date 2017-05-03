@@ -7,7 +7,7 @@ class NewClassForm extends Component {
 
     constructor(props){
         super(props);
-        this.state = {name: '', desc: '', date: ''};
+        this.state = {name: '', desc: '', times: ''};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -41,6 +41,7 @@ class NewClassForm extends Component {
                     <input name="name" className={styles['input']} type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange}
                       ref={(input) => { this.nameInput = input; }} />
                     <input name="desc" className={styles['input']} type="text" placeholder="Description" value={this.state.desc} onChange={this.handleChange} />
+                    <input name="times" className={styles['input']} type="text" placeholder="Class times" value={this.state.times} onChange={this.handleChange} />
                     <input type="submit" className={styles['class-submit'] + ' transition'} value="Submit" />
                 </form>
 
