@@ -62,7 +62,6 @@ export function createAssignment(req, res){
     console.log(options)
     sequelize.sync().then(function(){
         assignments.create(options).then(function(result){
-            console.log("INSERTING...");
             res.send(result);
         });
     });
@@ -70,7 +69,6 @@ export function createAssignment(req, res){
 }
 
 export function deleteAssignment(req, res){
-    console.log('in deleteAssignment serverside');
     var id = req.body.id;
     var options = {
         where: {

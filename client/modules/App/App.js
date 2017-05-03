@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import Assignments from '../Assignments/Assignments';
 import Classes from '../Classes/Classes';
+import {fetchClasses} from '../ClassList/ClassListActions';
 import Calendar from '../Calendar/Calendar';
 import Settings from '../Settings/Settings';
 import {importSettings} from '../Settings/SettingsActions.js';
@@ -13,7 +14,11 @@ import styles from './App.css'
 class App extends Component {
     constructor(props){
         super(props);
+    }
+
+    componentDidMount(){
         this.props.dispatch(importSettings());
+        this.props.dispatch(fetchClasses());
     }
 
     render() {
@@ -51,6 +56,7 @@ class App extends Component {
 function mapStateToProps(state) {
     return {
         view: state.sidebar.activeView,
+        classes: state.classlist.classes,
         color: state.settings.color,
     };
 }

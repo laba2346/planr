@@ -4,6 +4,8 @@ import tinycolor from 'tinycolor2';
 
 import { fetchAssignments, createAssignmentRequest } from './AssignmentListActions';
 import DateList from './Components/DateList/DateList';
+import {fetchClasses} from '../ClassList/ClassListActions';
+
 import ReactModal from 'react-modal';
 import styles from './AssignmentList.css';
 import Datetime from 'react-datetime';
@@ -16,7 +18,7 @@ class AssignmentList extends Component {
 
     constructor (props) {
         super(props);
-        this.state = { createAssignmentActive: false, createDateOpen: false, date: '', name: '', classes: props.classes, classFilters: []};
+        this.state = { createAssignmentActive: false, createDateOpen: false, date: '', name: '', classFilters: []};
     }
 
     createAssignment() {
@@ -35,7 +37,6 @@ class AssignmentList extends Component {
     handleChange(event) {
         const target = event.target;
         const value = target.value;
-        console.log(value);
         const name = target.name;
         this.setState({
           [name]: value
@@ -103,6 +104,7 @@ class AssignmentList extends Component {
         var noAssignments = <div className={styles['no-assignments']}><label>No assignments yet!<br/> Create one above to get started.</label></div>
 
         function mapClassToName(obj) {
+            console.log("made it to mapclasstoname");
           return obj.class_name;
         }
 
@@ -114,7 +116,7 @@ class AssignmentList extends Component {
                     <Select
                       name="form-field-name"
                       value={this.state.classFilters}
-                      options={this.state.classes}
+                      options={this.props.classes}
                       optionRenderer={mapClassToName}
                       valueRenderer={mapClassToName}
                       onChange={this.updateClassFilter.bind(this)}
