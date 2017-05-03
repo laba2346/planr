@@ -70,6 +70,33 @@ class ClassList extends Component {
             color: theme,
         }
 
+        var modalstyles = {
+          overlay : {
+            position          : 'fixed',
+            zIndex: 10,
+            top               : 0,
+            left              : 0,
+            right             : 0,
+            bottom            : 0,
+            backgroundColor   : 'rgba(0, 0, 0, 0.75)'
+          },
+          content : {
+            position                   : 'absolute',
+            top                        : '40px',
+            left                       : '40px',
+            right                      : '40px',
+            bottom                     : '40px',
+            border                     : '1px solid #ccc',
+            background                 : '#fff',
+            overflow                   : 'auto',
+            WebkitOverflowScrolling    : 'touch',
+            borderRadius               : '4px',
+            outline                    : 'none',
+            padding                    : '20px'
+
+          }
+        }
+
         return (
             <div style={classContainerStyle} className={styles['classes-list-container']}>
                 <div style={createClassDiv} className={styles['createClass']}>
@@ -77,6 +104,7 @@ class ClassList extends Component {
                     <div onMouseEnter={() => {this.hover()}} onMouseLeave={() => {this.exitHover()}} style={this.state.buttonHover ? buttonHover : null} className={styles['create-class-button']} onClick={this.handleOpenModal}>New Class</div>
                     <div>
                     <ReactModal
+                           style={modalstyles}
                            isOpen={this.state.showModal}
                            contentLabel="Create Class"
                            className={styles['create-class-modal-container']}

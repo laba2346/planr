@@ -114,12 +114,12 @@ class AssignmentList extends Component {
                     <div className={styles['select-container']}>
                     <Select
                       name="form-field-name"
+                      placeholder="Filter..."
                       value={this.state.classFilters}
                       options={this.props.classes}
                       optionRenderer={mapClassToName}
                       valueRenderer={mapClassToName}
                       onChange={this.updateClassFilter.bind(this)}
-                      multi={true}
                     />
                     </div>
                     <div className={styles['new-assignment-container']} onClick={this.handleNewAssignmentClick.bind(this)} >
