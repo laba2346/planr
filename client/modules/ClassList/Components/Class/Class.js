@@ -30,6 +30,7 @@ class Class extends Component {
     }
 
     delete(id) {
+        console.log('why are you like this');
         var _class = {
             id: id,
         }
