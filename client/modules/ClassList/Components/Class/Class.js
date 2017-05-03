@@ -30,7 +30,6 @@ class Class extends Component {
     }
 
     delete(id) {
-        console.log('why are you like this');
         var _class = {
             id: id,
         }
@@ -53,7 +52,7 @@ class Class extends Component {
                 </div>
 
                 <div className={styles['options-container']}>
-                    <div onClick={this.delete(this.props._class.id)} className={this.state.hover ? styles['class-X'] : styles['hidden']}>X</div>
+                    <div onClick={() => this.delete(this.props._class.id)} className={this.state.hover ? styles['class-X'] : styles['hidden']}>X</div>
                     <div style={stripeStyle} className={styles['class-color']}>
                     </div>
                 </div>
