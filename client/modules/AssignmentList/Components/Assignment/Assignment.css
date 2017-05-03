@@ -15,6 +15,13 @@
     z-index:6;
 }
 
+.classBand{
+    height:100px;
+    float:right;
+    display:block;
+    position:absolute;
+    width:3px;
+}
 .assignment:hover{
     cursor: pointer;
 }

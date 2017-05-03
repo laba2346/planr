@@ -4,7 +4,7 @@ import { editAssignment } from '../../AssignmentListActions';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import Datetime from 'react-datetime';
-
+import Select from 'react-select';
 
 class Assignment extends Component {
     constructor(props){
@@ -16,7 +16,11 @@ class Assignment extends Component {
             assignmentDate: props.assignment.assignment_due,
             createDateOpen: false,
             time: moment(props.assignment.assignment_due).format(" h:mm a"),
+            _class: null,
+            loadedClasses: false,
+            color: null,
         };
+
         this.showHide = this.showHide.bind(this);
         this.delete = this.delete.bind(this);
         this.edit = this.edit.bind(this);
@@ -24,12 +28,32 @@ class Assignment extends Component {
     }
 
     showHide () {
+        if(!this.state.loadedClasses){
+            var numClasses = this.props.classes.length;
+            console.log(numClasses);
+            var classId = this.props.assignment.class_id;
+            console.log(classId);
+            console.log(this.props.classes);
+            for(var i = 0; i < numClasses; i++){
+
+                if(classId === this.props.classes[i].id){
+                    this.setState({_class: this.props.classes[i]})
+                    this.setState({color: this.props.classes[i].color})
+                    console.log("found this class");
+                }
+            }
+            this.setState({ loadedClasses: true })
+        }
         if(this.state.optionsShown){
             this.setState({ optionsShown: false })
         }
         else{
             this.setState({ optionsShown: true })
         }
+    }
+
+    updateClassFilter(obj){
+        this.setState({ _class: obj });
     }
 
     handleChange(event) {
@@ -67,14 +91,14 @@ class Assignment extends Component {
         var assignmentDate = this.state.assignmentDate;
         var assignmentId = this.props.assignment.id;
         var ownerId = this.props.assignment.owner_id;
+        var class_id = this.state._class.id;
         var editedAssignment = {
             id: assignmentId,
             owner_id: ownerId,
-            class_id: null,
+            class_id: class_id,
             assignment_name: assignmentName,
             assignment_due: assignmentDate,
         };
-
         this.props.dispatch(editAssignment(editedAssignment));
         this.edit();
     }
@@ -86,6 +110,7 @@ class Assignment extends Component {
     render() {
         var date = new Date(this.state.assignmentDate);
         var time = moment(date).format(" h:mm a");
+
 
 
         var displayOptionsDiv =
@@ -115,6 +140,11 @@ class Assignment extends Component {
         let assignmentDiv = null;
         let optionsDiv = null;
 
+        function mapClassToName(obj) {
+            console.log("made it to mapclasstoname");
+          return obj.class_name;
+        }
+
         var editingAssigment =
             (<div className={styles['editing-assignment'] + ' ' + styles['assignment'] + ' ' + styles['extend']}>
             <div className={styles['assignment-text-container']}>
@@ -125,6 +155,15 @@ class Assignment extends Component {
                 <Datetime name="date" className={this.state.createDateOpen ? styles['datetime-visible'] : styles['datetime-hidden']} disableOnClickOutside={true} input={false} name="date" placeholder="Due Date" value={this.state.date} onChange={this.handleDateChange.bind(this)}/>
             </div>
             {editOptionsDiv}
+            <Select
+              name="form-field-name"
+              value={this.state._class}
+              options={this.props.classes}
+              optionRenderer={mapClassToName}
+              valueRenderer={mapClassToName}
+              onChange={this.updateClassFilter.bind(this)}
+              placeholder="Select a class"
+            />
             </div>);
 
         var displayAssignment =
@@ -155,6 +194,7 @@ class Assignment extends Component {
 }
 function mapStateToProps(state) {
     return {
+        classes: state.classlist.classes,
     };
 }
 Assignment.propTypes = {
@@ -163,7 +203,7 @@ Assignment.propTypes = {
 };
 
 Assignment.contextTypes = {
-  router: React.PropTypes.object,
+    router: React.PropTypes.object,
 };
 
 export default connect(mapStateToProps)(Assignment);

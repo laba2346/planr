@@ -42,7 +42,6 @@ export function createClass(req, res){
 
     sequelize.sync().then(function(){
         classes.create(values).then(function(response){
-            console.log(response);
             res.json(response);
         });
     });
@@ -59,7 +58,6 @@ export function fetchClasses(req, res){
     sequelize.sync().then(function(){
         classes.findAll(options).then(function(result){
             var classes = result;
-            console.log(classes);
             res.send(classes);
         });
     });

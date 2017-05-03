@@ -86,9 +86,11 @@ export function editAssignment(req, res){
     var user_id = req.user.id;
     var name = req.body.assignment_name;
     var date = req.body.assignment_due;
+    var class_id = req.body.class_id;
     var values = {
         assignment_name: name,
         assignment_due: date,
+        class_id: class_id,
     }
     sequelize.sync().then(function(){
         assignments.update(values, { where: { id: id } }).then(function(result){

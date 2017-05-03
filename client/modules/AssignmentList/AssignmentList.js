@@ -76,7 +76,6 @@ class AssignmentList extends Component {
     }
 
     updateClassFilter(obj){
-        console.log(obj);
         this.setState({ classFilters: obj });
     }
 
