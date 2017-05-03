@@ -1,4 +1,4 @@
-import {ADD_CLASSES, ADD_CLASS} from './ClassListActions';
+import {ADD_CLASSES, ADD_CLASS, DELETE_CLASS} from './ClassListActions';
 
 // Initial State
 const initialState = { classes: [] };
@@ -29,6 +29,17 @@ const ClassListReducer = (state = initialState, action) => {
             console.log(action.classes);
             return Object.assign({}, state, {
                 classes: action.classes
+            });
+        case DELETE_CLASS:
+            var numClasses = state.classes.length;
+            let classes = state.classes.slice();
+            for(var i = 0; i < numClasses; i++){
+                if(action._class.id === classes[i].id){
+                    classes.splice(i, 1);
+                }
+            }
+            return Object.assign({}, state, {
+                classes: classes,
             });
         default:
             return state;

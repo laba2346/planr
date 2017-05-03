@@ -107,7 +107,7 @@ class Assignment extends Component {
                     <div className={styles['checkmark'] + ' ' + styles['shown']}></div>
                 </div>
                 <div className={styles['edit-block'] + ' ' + styles['delete']} onClick={() => this.edit()}>
-                    <div className={styles['bin'] + ' ' + styles['shown']}></div>
+                    <div className={styles['notok'] + ' ' + styles['shown']}></div>
                 </div>
             </div>
         );

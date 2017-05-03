@@ -75,6 +75,11 @@ class AssignmentList extends Component {
         this.setState({ createDateOpen: !current });
     }
 
+    updateClassFilter(obj){
+        console.log(obj);
+        this.setState({ classFilters: obj });
+    }
+
     render() {
         var theme = this.props.color;
         var dateListColors = [
@@ -107,14 +112,17 @@ class AssignmentList extends Component {
             <div onClick={this.turnShadowOff.bind(this)}>
                 <div style={createAssignmentDiv} className={styles['createAssignment']}>
                     <label className={styles['assignments-label']}> Assignments </label>
-                    <form>
+                    <div className={styles['select-container']}>
                     <Select
                       name="form-field-name"
+                      value={this.state.classFilters}
                       options={this.props.classes}
                       optionRenderer={mapClassToName}
+                      valueRenderer={mapClassToName}
+                      onChange={this.updateClassFilter.bind(this)}
                       multi={true}
                     />
-                    </form>
+                    </div>
                     <div className={styles['new-assignment-container']} onClick={this.handleNewAssignmentClick.bind(this)} >
                         <input name="name" className={styles['new-assignment']} placeholder="New Assignment" type="text" onChange={this.handleChange.bind(this)} />
                         <div className={styles['calendar']} onClick={this.newAssignmentTime.bind(this)}></div>

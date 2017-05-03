@@ -64,4 +64,14 @@ export function fetchClasses(req, res){
         });
     });
 }
+/**
+    Delete a class id provided by req
+    @param {Object} req This is the Express req object
+    @param {Object} res This is the Express res object
+*/
+export function deleteClass(req, res){
+    var classId = req.body.id;
+    sequelize.sync().then(function(){
+        classes.destroy({ where: { id: classId } });
+    });
 }

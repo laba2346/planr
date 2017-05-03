@@ -15,6 +15,20 @@
     color: #fff;
 }
 
+.class-X{
+    font-family: Helvetica Neue;
+    margin-left:15px;
+    cursor:pointer;
+}
+
+.options-container{
+    float:right;
+    margin-bottom: 15px;
+}
+.hidden{
+    visibility: hidden;
+}
+
 .class-text{
   display: inline-block;
 }
@@ -22,6 +36,7 @@
 .class-color{
     display: inline-block;
     float:right;
+    margin-top:20px;
     width:10px;
     height:10px;
 }

@@ -10,6 +10,10 @@ export const ADD_CLASSES = 'ADD_CLASSES';
 export const ADD_CLASS = 'ADD_CLASS';
 
 /**
+    Variable with string name to be used in reducer.
+*/
+export const DELETE_CLASS = 'DELETE_CLASS';
+/**
     Adds multiple classes to the store
     @param {Object} adds Classes to add to the store
 */
@@ -46,6 +50,27 @@ export function createClassRequest(formState){
     }
 }
 
+/**
+    Delete class that corresponds to the object _class, which contains id of deleted class
+    @param {Object} _class Object containing id of class
+*/
+export function deleteClass(_class){
+    const apiUrl = 'deleteClass';
+    return (dispatch) => {
+        return callApi(apiUrl, "post", _class).then(res => {
+            if(res){
+                dispatch(deleteClassFront(_class));
+            }
+        });
+    }
+}
+
+export function deleteClassFront(_class){
+    return {
+        type: DELETE_CLASS,
+        _class
+    }
+}
 /**
     Fetches all of the users classes from the server
 */

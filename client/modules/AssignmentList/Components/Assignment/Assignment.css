@@ -33,7 +33,6 @@
     font-weight: 300;
     letter-spacing: -.5px;
     font-size: 20px;
-    width: 80px;
     color: #fff;
     border-bottom:1px solid #fff;
 }
@@ -109,7 +108,12 @@
     margin:5px auto;
     background:url('./edit.png');
     background-size:100% 100%;
+    opacity:.4;
 }
+.pencil:hover{
+    opacity:.7;
+}
+
 
 .bin{
     width:20px;
@@ -117,6 +121,24 @@
     margin: 5px auto;
     background:url('./bin.png');
     background-size:100% 100%;
+    opacity:.4;
+}
+.bin:hover{
+    opacity:.7;
+}
+
+
+.notok{
+    width:18px;
+    height:18px;
+    margin: 9px auto;
+    background:url('./notok.png');
+    background-size:100% 100%;
+    opacity:.4;
+}
+
+.notok:hover{
+    opacity:.7;
 }
 
 .checkmark{
@@ -125,7 +147,12 @@
     height:22px;
     background:url('./ok.png');
     background-size:100% 100%;
+    opacity:.4;
 }
+.checkmark:hover{
+    opacity:.7;
+}
+
 
 .options{
     display:block;

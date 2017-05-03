@@ -44,8 +44,9 @@ class DateList extends Component {
     render() {
         var date = new Date(this.props.dateObject.date);
         //var day = moment(date).format("dddd, MMMM Do");
-        var dayOfWeek = moment(date).format("ddd");
+        var dayOfWeek = moment(date).format("dddd");
         var day = moment(date).format("D");
+        var month = moment(date).format("MMM");
 
         var backgroundStyle = {
             backgroundColor: this.props.color
@@ -54,9 +55,12 @@ class DateList extends Component {
 
         return (
             <div className={styles['date-list']} style={backgroundStyle}>
+                <div className={styles['date']}>
+                <label className={styles['dayOfWeek-label']}>{dayOfWeek}</label>
                 <div className={styles['day-block']}>
-                    <label className={styles['dayOfWeek-label']}>{dayOfWeek}</label>
+                    <label className={styles['month-label']}>{month}</label>
                     <label className={styles['day-label']}>{day}</label>
+                </div>
                 </div>
                 <div className={styles['assignment-list-container']}>
                 {

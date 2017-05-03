@@ -23,6 +23,10 @@ class App extends Component {
 
     render() {
         let view = null;
+        console.log(this.props.color);
+        if(this.props.color === 'david' && require('./david.css')){
+            
+        }
         if (this.props.view === 'assignments') {
             view = <Assignments />;
         }
@@ -53,6 +57,7 @@ function mapStateToProps(state) {
     return {
         view: state.sidebar.activeView,
         classes: state.classlist.classes,
+        color: state.settings.color,
     };
 }
 
