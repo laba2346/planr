@@ -117,7 +117,7 @@ export function editAssignment(assignment){
         return callApi(apiUrl, "post", assignment).then(res => {
             if(res.success){
                 //dispatch(editAssignmentFront(assignment));
-                dispatch(deleteAssignment(assignment.id)).then(() => {
+                dispatch(delAssignment(assignment.id)).then(() => {
                     dispatch(addAssignment(assignment));
                 });
             }

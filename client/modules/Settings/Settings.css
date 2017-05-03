@@ -1,5 +1,5 @@
 .settings-container{
-    margin:95px auto;
+    margin:95px auto 0px auto;
     position:fixed;
     height:100%;
     width: calc(100% - 270px);;

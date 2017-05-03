@@ -97,10 +97,6 @@ class AssignmentList extends Component {
         var assignmentsDontExist = (this.props.assignments.length == 0);
         var noAssignments = <div className={styles['no-assignments']}><label>No assignments yet!<br/> Create one above to get started.</label></div>
 
-        function onChange(newState){
-          this.setState({classFilters: [newState]});
-        }
-
         function mapClassToName(obj) {
           return obj.class_name;
         }
@@ -112,8 +108,6 @@ class AssignmentList extends Component {
                     <form>
                     <Select
                       name="form-field-name"
-                      value={this.state.classFilters}
-                      onChange={onChange}
                       options={this.state.classes}
                       optionRenderer={mapClassToName}
                       multi={true}
