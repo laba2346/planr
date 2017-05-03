@@ -53,8 +53,13 @@ class Settings extends Component {
     }
 
     handleChangeColor = (color) => {
-        this.props.dispatch(changeTheme(color.hex));
-        this.setState({ color: color.hex });
+        if(color.hex === '#000000'){
+            this.props.dispatch(changeTheme('david'));
+        }
+        else{
+            this.props.dispatch(changeTheme(color.hex));
+            this.setState({ color: color.hex });
+        }
     };
 
     onDrop(acceptedFile) {
@@ -68,7 +73,7 @@ class Settings extends Component {
             background: this.state.color,
         }
 
-        var colorOptions = ['#705e8b', '#607D8B', '#476846', '#D06E70', '#697689', '#5F6A9B'];
+        var colorOptions = ['#705e8b', '#607D8B', '#476846', '#D06E70', '#697689', '#5F6A9B', '#000'];
 
         return (
         <div style={settingsContainerStyle} className={styles['settings-container']}>
@@ -80,7 +85,7 @@ class Settings extends Component {
                     <div className={styles['item-container']}>
                         <label className={styles['item-label'] + ' ' + styles['color-label']}> Theme Color </label>
                         <div className={styles['color-container']}>
-                            <GithubPicker width={'165px'} colors={colorOptions} triangle={'hide'} color={this.state.color} onChangeComplete={this.handleChangeColor} />
+                            <GithubPicker width={'190px'} colors={colorOptions} triangle={'hide'} color={this.state.color} onChangeComplete={this.handleChangeColor} />
                         </div>
                     </div>
                     <div className={styles['item-container']}>
