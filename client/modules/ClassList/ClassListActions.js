@@ -62,3 +62,17 @@ export function fetchClasses(){
         });
     }
 }
+
+export function loadClasses(){
+    const apiUrl = 'loadClasses';
+    return (dispatch) => {
+        return callApi(apiUrl).then(res => {
+            if (res){
+                dispatch(addAssignments(res));
+            }
+            else{
+                // dispatch no assignments yet thing
+            }
+        });
+    }
+}

@@ -49,6 +49,7 @@ export function createClass(req, res){
 }
 
 export function fetchClasses(req, res){
+    if (req.user){
     var options = {
         where: {
             user_id: req.user.id
@@ -62,4 +63,5 @@ export function fetchClasses(req, res){
             res.send(classes);
         });
     });
+}
 }

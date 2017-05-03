@@ -98,6 +98,7 @@ class AssignmentList extends Component {
         var noAssignments = <div className={styles['no-assignments']}><label>No assignments yet!<br/> Create one above to get started.</label></div>
 
         function mapClassToName(obj) {
+            console.log("made it to mapclasstoname");
           return obj.class_name;
         }
 
