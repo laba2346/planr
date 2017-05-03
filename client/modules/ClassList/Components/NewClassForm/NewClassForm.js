@@ -36,8 +36,7 @@ class NewClassForm extends Component {
         return (
             <div>
                 <form className={styles['new-class-form']} onSubmit={this.handleSubmit}>
-                    <label> new class </label>
-                    {this.props.failedLogin && <div className={styles['login-failed']}>!</div>}
+                    <label> Create Class </label>
                     <input name="name" className={styles['input']} type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange}
                       ref={(input) => { this.nameInput = input; }} />
                     <input name="desc" className={styles['input']} type="text" placeholder="Description" value={this.state.desc} onChange={this.handleChange} />

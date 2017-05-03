@@ -6,8 +6,8 @@
 }
 
 .select-container{
-    margin: 45px 0px 0px 0px;
-    width:150px;
+    margin: 15px 0px 0px 0px;
+    width:200px;
     display:inline-block;
     float:right;
 }
@@ -39,10 +39,11 @@
 .assignments-label{
     color: #fff;
     font-family:Helvetica;
-    width:430px;
+    float:left;
+    width:100%;
     font-size:26px;
     letter-spacing: -1px;
-    display: inline-block;
+    display: block;
     font-weight:200;
 }
 
@@ -92,7 +93,7 @@
     z-index:6;
     width:23px;
     height:24px;
-    background:url('./calendar.png');
+    background:url('../AssignmentList/calendar.png');
     background-size:100% 100%;
 }
 

@@ -44,7 +44,7 @@ class DateList extends Component {
     render() {
         var date = new Date(this.props.dateObject.date);
         //var day = moment(date).format("dddd, MMMM Do");
-        var dayOfWeek = moment(date).format("dddd");
+        var dayOfWeek = moment(date).format("ddd");
         var day = moment(date).format("D");
         var month = moment(date).format("MMM");
 
