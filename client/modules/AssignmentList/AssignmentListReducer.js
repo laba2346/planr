@@ -26,7 +26,6 @@ const DateObjectReducer = (state, action) => {
                     break;
                 }
             }
-            console.log(currentAssignmentList)
             return Object.assign({}, state, {
                 assignments: currentAssignmentList
             });

@@ -51,7 +51,8 @@ class App extends Component {
 // Retrieve data from store as props
 function mapStateToProps(state) {
     return {
-        view: state.sidebar.activeView
+        view: state.sidebar.activeView,
+        classes: state.classlist.classes,
     };
 }
 
