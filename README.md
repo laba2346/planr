@@ -5,7 +5,7 @@
 + Darwin Boersma (ogghead) 
 + Josef Los (jlos842)  
 
-A webapp that manages assignments for students
+A webapp that manages assignments for students. The application is designed to make adding assignments quick and easy. Students can also add classes and associate new assignments with classes. Students also can get a calendar view to get a broad sense of when items are due. Planr is fully customizable and designed to suit to aesthetic preferences. 
 
 ### Vision
 User friendly task manager that students will actually use.
@@ -39,3 +39,13 @@ We are going to apply Agile for this project.
 ### Project Plan
 
 Can be found on [Trello](https://trello.com/b/ep7GrBzb/planr).
+
+### Repo Organization
+
++ All client side assets are in the client directory, all server side assets are in the server directory
++ To run in production, go to http://shittygooglecalendar.herokuapp.com/
++ To find the docs, go to http://shittygooglecalendar.herokuapp.com/docs
++ To install locally, clone the repo, run <code>npm install</code> 
++ To run locally, ensure a mysql database called planr existed, and run <code>npm start</code>
++ To run tests, run <code> npm test </code>
+
