@@ -3,20 +3,30 @@
     font-size:16px;
     padding:15px;
 
-    margin:10px 0px;
+    margin:20px 0px;
 
     height:40px;
-    width:300px;
+    width:400px;
     border-radius:0px;
-    border:1.5px solid #ccc;
+    border:1px solid #ccc;
     outline:none;
+}
+
+.new-class-form input:hover{
+    border: 1px solid #444;
+}
+
+.class-label{
+    display:block;
+    padding: 5px 0px 10px 0px;
+    border-bottom: 1px solid #ccc;
 }
 
 .new-class-form label{
     font-family:Helvetica;
     letter-spacing: -2px;
     font-size: 30px;
-    font-weight:600;
+    font-weight:200;
     color: #705e8b;
 
 }

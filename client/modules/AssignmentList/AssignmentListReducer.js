@@ -1,7 +1,7 @@
-import {ADD_ASSIGNMENTS, ADD_ASSIGNMENT, DELETE_ASSIGNMENT, EDIT_ASSIGNMENT} from './AssignmentListActions';
+import {ADD_ASSIGNMENTS, ADD_ASSIGNMENT, DELETE_ASSIGNMENT, EDIT_ASSIGNMENT, FILTER_BY_CLASS} from './AssignmentListActions';
 
 // Initial State
-const initialState = { assignments: [] };
+const initialState = { assignments: [], filteredAssignments: [] };
 const DateObjectReducer = (state, action) => {
     switch (action.type) {
         case ADD_ASSIGNMENT:
@@ -28,6 +28,19 @@ const DateObjectReducer = (state, action) => {
             }
             return Object.assign({}, state, {
                 assignments: currentAssignmentList
+            });
+        case FILTER_BY_CLASS:
+            let currentAssignmentsArray = state.assignments.slice();
+            var num = currentAssignmentsArray.length;
+            var classId = action._class.id;
+            for(var i = 0; i < num; i++){
+                if(classId != currentAssignmentsArray[i].class_id){
+                    currentAssignmentsArray.splice(i, 1);
+                }
+            }
+            console.log(currentAssignmentsArray);
+            return Object.assign({}, state, {
+                assignments: currentAssignmentsArray
             });
         default:
             return state;
@@ -86,10 +99,12 @@ const AssignmentListReducer = (state = initialState, action) => {
             }
             return {
                 assignments: newAssignments,
+                filteredAssignments: [],
             };
         case ADD_ASSIGNMENTS:
             return Object.assign({}, state, {
-                assignments: action.assignments
+                assignments: action.assignments,
+                filteredAssignments: [],
             });
         case DELETE_ASSIGNMENT:
             let currentAssignments = state.assignments.slice();
@@ -108,6 +123,7 @@ const AssignmentListReducer = (state = initialState, action) => {
             }
             return Object.assign({}, state, {
                 assignments: newAssignments,
+                filteredAssignments: [],
             })
         case EDIT_ASSIGNMENT:
             let editedAssignments = state.assignments.slice();
@@ -124,6 +140,28 @@ const AssignmentListReducer = (state = initialState, action) => {
             }
             return Object.assign({}, state, {
                 assignments: editedAssignments,
+                filteredAssignments: [],
+            })
+        case FILTER_BY_CLASS:
+            console.log(state.assignments);
+            let oldAssignments = state.assignments.slice();
+            var newAssignments = oldAssignments.map(dateObject =>
+                    DateObjectReducer(dateObject, action)
+            );
+            var len = newAssignments.length;
+            var i = 0;
+            while(i < len){
+                if(newAssignments[i]){
+                    if(newAssignments[i].assignments.length == 0){
+                        newAssignments.splice(i,1);
+                        i--;
+                    }
+                }
+                i++;
+            }
+            return Object.assign({}, state, {
+                assignments: state.assignments,
+                filteredAssignments: newAssignments,
             })
         default:
             return state;
