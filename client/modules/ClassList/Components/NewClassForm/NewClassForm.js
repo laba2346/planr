@@ -36,15 +36,13 @@ class NewClassForm extends Component {
         return (
             <div>
                 <form className={styles['new-class-form']} onSubmit={this.handleSubmit}>
-                    <label> Create Class </label>
+                    <div className={styles['class-label']}><label> Create Class </label></div>
                     <input name="name" className={styles['input']} type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange}
                       ref={(input) => { this.nameInput = input; }} />
                     <input name="desc" className={styles['input']} type="text" placeholder="Description" value={this.state.desc} onChange={this.handleChange} />
                     <input name="times" className={styles['input']} type="text" placeholder="Class times" value={this.state.times} onChange={this.handleChange} />
                     <input type="submit" className={styles['class-submit'] + ' transition'} value="Submit" />
                 </form>
-
-
             </div>
         );
   }

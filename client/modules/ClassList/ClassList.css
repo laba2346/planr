@@ -6,7 +6,7 @@
 }
 
 .classes{
-    margin:0px auto;
+    margin:50px 70px;
     width:700px;
     height:100%;
 }
@@ -70,6 +70,6 @@
     outline:none;
     background:#FFF;
     border:1px solid #705e8b;
-    width:400px;
-    height:300px;
+    width:450px;
+    height:370px;
 }

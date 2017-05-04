@@ -21,6 +21,12 @@ export const DELETE_ASSIGNMENT = 'DELETE_ASSIGNMENT';
 export const EDIT_ASSIGNMENT = 'EDIT_ASSIGNMENT';
 
 /**
+    Variable with string name to be used in the reducer.
+*/
+export const FILTER_BY_CLASS = 'FILTER_BY_CLASS';
+
+
+/**
     Adds multiple assignments to the store
     @param {Object} assignments Assignments to add to the store
 */
@@ -30,6 +36,18 @@ export function addAssignments(assignments){
         assignments
     }
 }
+
+/**
+    Filter by class
+    @param {Object} class Class to filter by
+*/
+export function filterByClass(_class){
+    return{
+        type: FILTER_BY_CLASS,
+        _class
+    }
+}
+
 
 /**
     Add single assignment to the store
@@ -117,9 +135,8 @@ export function editAssignment(assignment){
         return callApi(apiUrl, "post", assignment).then(res => {
             if(res.success){
                 //dispatch(editAssignmentFront(assignment));
-                dispatch(delAssignment(assignment.id)).then(() => {
-                    dispatch(addAssignment(assignment));
-                });
+                dispatch(delAssignment(assignment.id));
+                dispatch(addAssignment(assignment));
             }
             else {
                 console.log("grr");
