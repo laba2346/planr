@@ -1,0 +1,195 @@
+{
+  "coverage": "73.46%",
+  "expectCount": 98,
+  "actualCount": 72,
+  "files": {
+    "planr/client/modules/AssignmentList/AssignmentListActions.js": {
+      "expectCount": 14,
+      "actualCount": 13,
+      "undocumentLines": [
+        105
+      ]
+    },
+    "planr/client/modules/ClassList/ClassListActions.js": {
+      "expectCount": 10,
+      "actualCount": 8,
+      "undocumentLines": [
+        68,
+        91
+      ]
+    },
+    "planr/client/modules/Calendar/CalendarActions.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "planr/client/util/apiCaller.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "planr/client/App.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "planr/client/modules/App/AppReducer.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "planr/client/modules/AssignmentList/AssignmentListReducer.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        172
+      ]
+    },
+    "planr/client/modules/Settings/SettingsActions.js": {
+      "expectCount": 18,
+      "actualCount": 16,
+      "undocumentLines": [
+        41,
+        107
+      ]
+    },
+    "planr/client/modules/Sidebar/SidebarActions.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "planr/client/modules/Calendar/CalendarReducer.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "planr/client/modules/ClassList/ClassListReducer.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "planr/client/modules/Container/Container.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        11,
+        17,
+        12,
+        21,
+        14
+      ]
+    },
+    "planr/client/modules/Container/ContainerReducer.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        6
+      ]
+    },
+    "planr/client/modules/Header/HeaderReducer.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "planr/client/modules/Landing/LandingActions.js": {
+      "expectCount": 9,
+      "actualCount": 6,
+      "undocumentLines": [
+        3,
+        5,
+        4
+      ]
+    },
+    "planr/client/modules/Header/HeaderActions.js": {
+      "expectCount": 6,
+      "actualCount": 2,
+      "undocumentLines": [
+        8,
+        16,
+        37,
+        10
+      ]
+    },
+    "planr/client/modules/Landing/LandingReducer.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        5
+      ]
+    },
+    "planr/client/modules/Settings/SettingsReducer.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "planr/client/modules/Sidebar/SidebarReducer.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "planr/server/config/config.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "planr/client/store.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "planr/server/util/test-helpers.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "planr/server/controllers/Assignments.controller.js": {
+      "expectCount": 4,
+      "actualCount": 2,
+      "undocumentLines": [
+        70,
+        83
+      ]
+    },
+    "planr/server/controllers/ViewClasses.controller.js": {
+      "expectCount": 3,
+      "actualCount": 1,
+      "undocumentLines": [
+        66,
+        50
+      ]
+    },
+    "planr/server/util/fetchData.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "planr/server/controllers/Settings.controller.js": {
+      "expectCount": 3,
+      "actualCount": 1,
+      "undocumentLines": [
+        57,
+        5
+      ]
+    },
+    "planr/server/controllers/Login.controller.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "planr/server/controllers/SignUp.controller.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "planr/server/passport/passport.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "planr/server/util/promiseUtils.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    }
+  }
+}

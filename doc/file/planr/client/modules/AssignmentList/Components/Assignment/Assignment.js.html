@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../../../../">
+  <title data-ice="title">planr/client/modules/AssignmentList/Components/Assignment/Assignment.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/Hashnode/mern-starter" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-App">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureStore">configureStore</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/App</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-AppReducer">AppReducer</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/AssignmentList</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addAssignment">addAssignment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addAssignments">addAssignments</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createAssignmentRequest">createAssignmentRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-delAssignment">delAssignment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteAssignment">deleteAssignment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-editAssignment">editAssignment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-editAssignmentFront">editAssignmentFront</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchAssignments">fetchAssignments</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-filterByClass">filterByClass</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-AssignmentListReducer">AssignmentListReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAssignments">getAssignments</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_ASSIGNMENT">ADD_ASSIGNMENT</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_ASSIGNMENTS">ADD_ASSIGNMENTS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DELETE_ASSIGNMENT">DELETE_ASSIGNMENT</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-EDIT_ASSIGNMENT">EDIT_ASSIGNMENT</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-FILTER_BY_CLASS">FILTER_BY_CLASS</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/Calendar</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-convertAssignments">convertAssignments</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-CalendarReducer">CalendarReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_EVENTS">ADD_EVENTS</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/ClassList</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addClass">addClass</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addClasses">addClasses</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createClassRequest">createClassRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteClass">deleteClass</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteClassFront">deleteClassFront</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchClasses">fetchClasses</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadClasses">loadClasses</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ClassListReducer">ClassListReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_CLASS">ADD_CLASS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_CLASSES">ADD_CLASSES</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DELETE_CLASS">DELETE_CLASS</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/Container</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/planr/client/modules/Container/Container.js~Container.html">Container</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ContainerReducer">ContainerReducer</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/Header</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addSettings">addSettings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSettings">loadSettings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sendLogoutRequest">sendLogoutRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toggleSidebar">toggleSidebar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-HeaderReducer">HeaderReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOAD_SETTINGS">LOAD_SETTINGS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-TOGGLE_SIDEBAR">TOGGLE_SIDEBAR</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/Landing</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkIfFieldsValid">checkIfFieldsValid</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-invalidField">invalidField</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-invalidLogin">invalidLogin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-resetInvalidStatus">resetInvalidStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sendLoginRequest">sendLoginRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sendSignUpRequest">sendSignUpRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-LandingReducer">LandingReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-INVALID_FIELD">INVALID_FIELD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-INVALID_LOGIN">INVALID_LOGIN</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RESET_INVALID_STATUS">RESET_INVALID_STATUS</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/Settings</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeProfilePicRequest">changeProfilePicRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeSettingRequest">changeSettingRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeTheme">changeTheme</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkIfFieldsValid">checkIfFieldsValid</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkIfProfilePicValid">checkIfProfilePicValid</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-importSettings">importSettings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-importTheme">importTheme</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-invalidField">invalidField</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-resetSettings">resetSettings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-resetSuccess">resetSuccess</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-success">success</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SettingsReducer">SettingsReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CHANGE_THEME">CHANGE_THEME</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-IMPORT_THEME">IMPORT_THEME</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-INVALID_FIELD">INVALID_FIELD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RESET_INVALID_STATUS">RESET_INVALID_STATUS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RESET_SETTINGS">RESET_SETTINGS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RESET_SUCCESS">RESET_SUCCESS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SUCCESS">SUCCESS</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/modules/Sidebar</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeView">changeView</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SidebarReducer">SidebarReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CHANGE_VIEW">CHANGE_VIEW</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">client/util</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-callApi">callApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-API_URL">API_URL</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">server/config</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-config">config</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">server/controllers</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createAssignment">createAssignment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteAssignment">deleteAssignment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-editAssignment">editAssignment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchAssignments">fetchAssignments</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSettings">loadSettings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newProfilePic">newProfilePic</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newSettings">newSettings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-newUser">newUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createClass">createClass</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteClass">deleteClass</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchClasses">fetchClasses</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">server/passport</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-passport">passport</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">server/util</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchComponentData">fetchComponentData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sequence">sequence</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-connectDB">connectDB</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dropDB">dropDB</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">planr/client/modules/AssignmentList/Components/Assignment/Assignment.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { PropTypes, Component } from &apos;react&apos;;
+import styles from &apos;./Assignment.css&apos;;
+import { editAssignment } from &apos;../../AssignmentListActions&apos;;
+import { connect } from &apos;react-redux&apos;;
+import moment from &apos;moment&apos;;
+import Datetime from &apos;react-datetime&apos;;
+import Select from &apos;react-select&apos;;
+
+class Assignment extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            optionsShown: false,
+            editing: false,
+            assignmentName: props.assignment.assignment_name,
+            assignmentDate: props.assignment.assignment_due,
+            createDateOpen: false,
+            time: moment(props.assignment.assignment_due).format(&quot; h:mm a&quot;),
+            _class: null,
+            loadedClasses: false,
+            color: null,
+        };
+
+        this.showHide = this.showHide.bind(this);
+        this.delete = this.delete.bind(this);
+        this.edit = this.edit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    showHide () {
+        if(!this.state.loadedClasses){
+            var numClasses = this.props.classes.length;
+            console.log(numClasses);
+            var classId = this.props.assignment.class_id;
+            console.log(classId);
+            console.log(this.props.classes);
+            for(var i = 0; i &lt; numClasses; i++){
+
+                if(classId === this.props.classes[i].id){
+                    this.setState({_class: this.props.classes[i]})
+                    this.setState({color: this.props.classes[i].color})
+                    console.log(&quot;found this class&quot;);
+                }
+            }
+            this.setState({ loadedClasses: true })
+        }
+        if(this.state.optionsShown){
+            this.setState({ optionsShown: false })
+        }
+        else{
+            this.setState({ optionsShown: true })
+        }
+    }
+
+    updateClassFilter(obj){
+        this.setState({ _class: obj });
+    }
+
+    handleChange(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        this.setState({
+          [name]: value
+        });
+    }
+
+    handleDateChange(moment){
+        this.setState({
+            assignmentDate: moment._d,
+        });
+    }
+
+    editAssignmentTime(){
+        var current = this.state.createDateOpen;
+        this.setState({ createDateOpen: !current });
+    }
+
+    edit () {
+        if(this.state.editing){
+            this.setState({ editing: false });
+        }
+        else {
+            this.setState({ editing: true });
+            this.setState({ optionsShown: false});
+        }
+    }
+
+    save() {
+        var assignmentName = this.state.assignmentName;
+        var assignmentDate = this.state.assignmentDate;
+        var assignmentId = this.props.assignment.id;
+        var ownerId = this.props.assignment.owner_id;
+        var class_id = &apos;&apos;;
+        if(this.state._class){
+            class_id = this.state._class.id;
+        }
+        else{
+            class_id = null;
+        }
+        var editedAssignment = {
+            id: assignmentId,
+            owner_id: ownerId,
+            class_id: class_id,
+            assignment_name: assignmentName,
+            assignment_due: assignmentDate,
+        };
+        this.props.dispatch(editAssignment(editedAssignment));
+        this.edit();
+    }
+
+    delete(id){
+        this.props.handleDelete(id);
+    }
+
+    render() {
+        var date = new Date(this.state.assignmentDate);
+        var time = moment(date).format(&quot; h:mm a&quot;);
+
+
+
+        var displayOptionsDiv =
+            (&lt;div className={styles[&apos;options&apos;]}&gt;
+                &lt;div className={styles[&apos;block&apos;] + &apos; &apos; + styles[&apos;complete&apos;]} onClick={() =&gt; this.delete(this.props.assignment.id)}&gt;
+                    &lt;div className={styles[&apos;checkmark&apos;] + &apos; &apos; + styles[&apos;shown&apos;]}&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div className={styles[&apos;block&apos;] + &apos; &apos; + styles[&apos;edit&apos;]} onClick={() =&gt; this.edit()}&gt;
+                    &lt;div className={styles[&apos;pencil&apos;] + &apos; &apos; + styles[&apos;shown&apos;]}&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div className={styles[&apos;block&apos;] + &apos; &apos; + styles[&apos;delete&apos;]} onClick={() =&gt; this.delete(this.props.assignment.id)}&gt;
+                    &lt;div className={styles[&apos;bin&apos;] + &apos; &apos; + styles[&apos;shown&apos;]}&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;);
+
+        var editOptionsDiv = (
+            &lt;div className={styles[&apos;options&apos;]}&gt;
+                &lt;div className={styles[&apos;edit-block&apos;] + &apos; &apos; + styles[&apos;complete&apos;]} onClick={() =&gt; this.save(this.props.assignment.id)}&gt;
+                    &lt;div className={styles[&apos;checkmark&apos;] + &apos; &apos; + styles[&apos;shown&apos;]}&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div className={styles[&apos;edit-block&apos;] + &apos; &apos; + styles[&apos;delete&apos;]} onClick={() =&gt; this.edit()}&gt;
+                    &lt;div className={styles[&apos;notok&apos;] + &apos; &apos; + styles[&apos;shown&apos;]}&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        );
+
+        let assignmentDiv = null;
+        let optionsDiv = null;
+
+        function mapClassToName(obj) {
+          return obj.class_name;
+        }
+
+        var editingAssigment =
+            (&lt;div className={styles[&apos;editing-assignment&apos;] + &apos; &apos; + styles[&apos;assignment&apos;] + &apos; &apos; + styles[&apos;extend&apos;]}&gt;
+            &lt;div className={styles[&apos;assignment-text-container&apos;]}&gt;
+                &lt;input name=&quot;assignmentName&quot; className={styles[&apos;edit-name&apos;]} value={this.state.assignmentName} onChange={this.handleChange}/&gt;
+                &lt;div name=&quot;assignmentDate&quot; className={styles[&apos;edit-date&apos;]} onClick={this.editAssignmentTime.bind(this)}&gt;{this.state.time}&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div className={styles[&apos;datetime-container&apos;]}&gt;
+                &lt;Datetime name=&quot;date&quot; className={this.state.createDateOpen ? styles[&apos;datetime-visible&apos;] : styles[&apos;datetime-hidden&apos;]} disableOnClickOutside={true} input={false} name=&quot;date&quot; placeholder=&quot;Due Date&quot; value={this.state.date} onChange={this.handleDateChange.bind(this)}/&gt;
+            &lt;/div&gt;
+            {editOptionsDiv}
+            &lt;Select
+              name=&quot;form-field-name&quot;
+              value={this.state._class}
+              options={this.props.classes}
+              optionRenderer={mapClassToName}
+              valueRenderer={mapClassToName}
+              onChange={this.updateClassFilter.bind(this)}
+              placeholder=&quot;Select a class&quot;
+            /&gt;
+            &lt;/div&gt;);
+
+        var displayAssignment =
+            &lt;div className={this.state.optionsShown ? styles[&apos;assignment&apos;] + &apos; &apos; + styles[&apos;extend&apos;] : styles[&apos;assignment&apos;] + &apos; &apos; +  styles[&apos;default&apos;]} &gt;
+                &lt;div className={styles[&apos;assignment-text-container&apos;]} onClick={this.showHide}&gt;
+                    {this.state.assignmentName}
+                    &lt;label className={styles[&apos;time-label&apos;]}&gt; {time} &lt;/label&gt;
+                &lt;/div&gt;
+                {this.state.optionsShown &amp;&amp; displayOptionsDiv}
+            &lt;/div&gt;
+
+        if (this.state.editing){
+            assignmentDiv = editingAssigment;
+            optionsDiv = editOptionsDiv;
+        }
+        else{
+            assignmentDiv = displayAssignment;
+            optionsDiv = displayOptionsDiv;
+        }
+
+        return (
+            &lt;div&gt;
+                {assignmentDiv}
+                &lt;div className={this.state.editing ? styles[&apos;shadow&apos;] + &apos; &apos; + styles[&apos;shadow-open&apos;] : styles[&apos;shadow&apos;] + &apos; &apos; + styles[&apos;shadow-hidden&apos;]} &gt;&lt;/div&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+function mapStateToProps(state) {
+    return {
+        classes: state.classlist.classes,
+    };
+}
+Assignment.propTypes = {
+    assignment: PropTypes.object.isRequired,
+    handleDelete: PropTypes.func.isRequired,
+};
+
+Assignment.contextTypes = {
+    router: React.PropTypes.object,
+};
+
+export default connect(mapStateToProps)(Assignment);
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
