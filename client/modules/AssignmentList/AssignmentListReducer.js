@@ -1,7 +1,7 @@
 import {ADD_ASSIGNMENTS, ADD_ASSIGNMENT, DELETE_ASSIGNMENT, EDIT_ASSIGNMENT, FILTER_BY_CLASS} from './AssignmentListActions';
 
 // Initial State
-const initialState = { assignments: [], filteredAssignments: [] };
+const initialState = { assignments: [], };
 const DateObjectReducer = (state, action) => {
     switch (action.type) {
         case ADD_ASSIGNMENT:
@@ -104,7 +104,6 @@ const AssignmentListReducer = (state = initialState, action) => {
         case ADD_ASSIGNMENTS:
             return Object.assign({}, state, {
                 assignments: action.assignments,
-                filteredAssignments: [],
             });
         case DELETE_ASSIGNMENT:
             let currentAssignments = state.assignments.slice();
@@ -123,7 +122,6 @@ const AssignmentListReducer = (state = initialState, action) => {
             }
             return Object.assign({}, state, {
                 assignments: newAssignments,
-                filteredAssignments: [],
             })
         case EDIT_ASSIGNMENT:
             let editedAssignments = state.assignments.slice();
@@ -140,7 +138,6 @@ const AssignmentListReducer = (state = initialState, action) => {
             }
             return Object.assign({}, state, {
                 assignments: editedAssignments,
-                filteredAssignments: [],
             })
         case FILTER_BY_CLASS:
             console.log(state.assignments);
@@ -161,7 +158,6 @@ const AssignmentListReducer = (state = initialState, action) => {
             }
             return Object.assign({}, state, {
                 assignments: state.assignments,
-                filteredAssignments: newAssignments,
             })
         default:
             return state;
