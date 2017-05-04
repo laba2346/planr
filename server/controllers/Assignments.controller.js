@@ -52,7 +52,7 @@ export function createAssignment(req, res){
     var date= req.body.date;
     var options = {
         owner_id: req.user.id,
-        class_id: 1,
+        class_id: 0,
         assignment_name: name,
         assignment_description: desc,
         assignment_due: date,
