@@ -77,6 +77,11 @@ app.use(passport.session());
 /**
     Routes requests to root based on authentication status
 */
+
+app.get('/docs', function(req, res){
+    app.use(Express.static('doc'))
+    res.sendFile(path.resolve('./doc/index.html'));
+});
 app.get('/', function(req, res, next){
     if (req.isAuthenticated()) {
         next();

@@ -4,7 +4,6 @@ import bcrypt from 'bcryptjs';
 
 export function newProfilePic(req, res){
   var profile_pic = req.body.profile_pic;
-  console.log(`Received image for user ${user_id}: ${profile_pic.substring(0,100)}...`);
   var user_id = req.user.id;
   var values = {};
   if(profile_pic !== null){

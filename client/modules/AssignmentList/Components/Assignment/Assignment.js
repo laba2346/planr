@@ -91,7 +91,13 @@ class Assignment extends Component {
         var assignmentDate = this.state.assignmentDate;
         var assignmentId = this.props.assignment.id;
         var ownerId = this.props.assignment.owner_id;
-        var class_id = this.state._class.id;
+        var class_id = '';
+        if(this.state._class){
+            class_id = this.state._class.id;
+        }
+        else{
+            class_id = null;
+        }
         var editedAssignment = {
             id: assignmentId,
             owner_id: ownerId,
@@ -141,7 +147,6 @@ class Assignment extends Component {
         let optionsDiv = null;
 
         function mapClassToName(obj) {
-            console.log("made it to mapclasstoname");
           return obj.class_name;
         }
 

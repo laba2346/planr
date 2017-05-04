@@ -18,7 +18,6 @@ class Sidebar extends Component {
         this.props.dispatch(resetSettings());
     }
 
-
     render() {
         var theme = this.props.color;
         var activeStyle = {

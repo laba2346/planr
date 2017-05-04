@@ -77,9 +77,6 @@ const AssignmentListReducer = (state = initialState, action) => {
                 if (!added){
                     assignmentCopy.push(newDateObject);
                 }
-                console.log('ASSIGNMENT COPY');
-                console.log(assignmentCopy)
-                console.log(' ');
                 newAssignments = assignmentCopy;
             }
             else{
@@ -120,7 +117,6 @@ const AssignmentListReducer = (state = initialState, action) => {
                 var numEvents = editedAssignments[i].assignments.length;
                 for(var j = 0; j < numEvents; j++){
                     if(assignment.id === editedAssignments[i].assignments[j].id){
-                        console.log("found and EDITED assignment")
                         editedAssignments[i].assignments[j] = assignment;
                         break;
                     }

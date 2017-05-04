@@ -51,7 +51,6 @@ export function changeProfilePicRequest(formState){
 */
 export function changeSettingRequest(formState){
     const apiUrl = 'updateSettings';
-    console.log(formState.email)
     return (dispatch) => {
         return callApi(apiUrl, "post", formState).then(res => {
             if(res.success){
