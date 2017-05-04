@@ -75,7 +75,7 @@ class AssignmentList extends Component {
     }
 
     updateClassFilter(obj){
-        this.setState({ classFilters: obj });
+        /*this.setState({ classFilters: obj });
         if(obj){
             this.setState({ filterActive: true });
             this.props.dispatch(filterByClass(obj));
@@ -84,7 +84,7 @@ class AssignmentList extends Component {
             console.log('in else');
             this.setState({ classFilters: null });
             this.setState({ filterActive: false });
-        }
+        }*/
     }
 
     render() {
@@ -140,18 +140,7 @@ class AssignmentList extends Component {
                         <div onClick={this.createAssignment.bind(this)} className={this.state.createAssignmentActive ? styles['create'] + ' ' + styles['create-active'] : styles['create'] + ' ' + styles['create-inactive'] }> Create </div>
                     </div>
                 </div>
-                    {this.state.filterActive && assignmentsExist &&
-                        this.props.filteredAssignments.map((dateObject, index) => (
-                                <div className={styles['date-list-container']} key={dateObject.date}>
-                                    <DateList
-                                    dateObject={dateObject}
-                                    index={index}
-                                    color={dateListColors[index%(dateListColors.length)]}
-                                    />
-                                </div>
-                        ))
-                    }
-                    {!(this.state.filterActive) && assignmentsExist &&
+                    {assignmentsExist &&
                         this.props.assignments.map((dateObject, index) => (
                             <div className={styles['date-list-container']} key={dateObject.date}>
                                 <DateList
